@@ -71,6 +71,71 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-如何使用git进行多人协作" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/11/14/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8git%E8%BF%9B%E8%A1%8C%E5%A4%9A%E4%BA%BA%E5%8D%8F%E4%BD%9C/" class="article-date">
+  <time class="dt-published" datetime="2021-11-14T07:02:32.000Z" itemprop="datePublished">2021-11-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/11/14/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8git%E8%BF%9B%E8%A1%8C%E5%A4%9A%E4%BA%BA%E5%8D%8F%E4%BD%9C/">如何使用git进行多人协作</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2>在github上使用私有云进行多人合作
+
+<p><b>起子</p>
+<p><code>github可以建立免费快速的私有云，在github上进行项目工程的团队合作是非常高效的</code></p>
+<hr>
+<p>善用github的分支功能</p>
+<p>github的分支功能初识时十分鸡肋，但是用多了之后设计的非常成功。</p>
+<p>对于多人合作，我们需要共有一个主分支(master or dev)</p>
+<p>我们在主分支上进行代码合并，并作为最终版本展示。</p>
+<p>而其他分支作为每个人个人临时的代码池，用于最后的代码合并，合并完进行删除。</p>
+<hr>
+<p>流程：</p>
+<ol>
+<li>新的开发需求下达</li>
+<li>对主分支进行pull（设这里的主分支为dev）</li>
+<li>切换到自己的分支<code>git checkout -b sun</code>(-b是新建分支的意思)</li>
+<li><code>git rebase dev</code></li>
+<li>进行开发工作</li>
+<li><code>git add .</code></li>
+<li><code>git commit &quot;update:xxx功能&quot;</code></li>
+<li><code>git push</code>（远程push）</li>
+<li>审核员进行审核，审核完成后进行合并</li>
+<li>然后删除该分支</li>
+<li>删除本地分支：<code>git branch -D sun</code></li>
+<li>删除远程分支：<code>git push origin --delete sun </code></li>
+</ol>
+<p>finished</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://arthersun.github.io/2021/11/14/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8git%E8%BF%9B%E8%A1%8C%E5%A4%9A%E4%BA%BA%E5%8D%8F%E4%BD%9C/" data-id="ckvywm66a0000n0vvfga33d5g" data-title="如何使用git进行多人协作" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-关于npm的一些问题" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/11/14/%E5%85%B3%E4%BA%8Enpm%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/" class="article-date">
@@ -290,6 +355,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2021/11/14/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8git%E8%BF%9B%E8%A1%8C%E5%A4%9A%E4%BA%BA%E5%8D%8F%E4%BD%9C/">如何使用git进行多人协作</a>
+          </li>
         
           <li>
             <a href="/2021/11/14/%E5%85%B3%E4%BA%8Enpm%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/">关于npm和git源和设置代理的一些问题</a>
