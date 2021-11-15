@@ -476,13 +476,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1>关于git和npm设置问题的一些记录
+        <h4>问题描述</h4>
 
-<h4>病因
 
 <p> 在进行<code>npm install</code>时，我电脑上挂了科学上网，导致需要切换代理。而国内的淘宝源也没有办法提速，甚至会导致卡顿，这致使我一直被折磨。</p>
 <hr>
-<h4>git的情况
+<h4>git的情况</h4>
+
 
 <p>这个情况曾经出现在git上，因为当时我的socks5代理为:127.0.0.1:10808，http代理为127.0.0.1:10809</p>
 <p>我进行git设置</p>
@@ -504,7 +504,8 @@
 <li>解决方案：我将http代理改为了10809就可以了。</li>
 </ul>
 <hr>
-<h4>npm的情况
+<h4>npm的情况</h4>
+
 
 <p>npm更换淘宝源，没有用</p>
 <p><code>npm config set registry https://registry.npm.taobao.org</code></p>
