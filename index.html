@@ -396,24 +396,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2>在github上使用私有云进行多人合作</h2>
-
-
-<p><b>起子</b></p>
-<p>github可以建立免费快速的私有云，在github上进行项目工程的团队合作是非常高效的</p>
-<hr>
-<h3>善用github的分支功能</h3>
-
-
-<blockquote>
-<p>github的分支功能初识时十分鸡肋，但是用多了之后设计的非常成功。</p>
+        <blockquote>
+<p>起子</p>
 </blockquote>
+<p>github可以建立免费快速的私有云，在github上进行项目工程的团队合作是非常高效的</p>
+<blockquote>
+<p>善用github的分支功能</p>
+</blockquote>
+<p>github的分支功能初识时十分鸡肋，但是用多了之后设计的非常成功。</p>
 <p>对于多人合作，我们需要共有一个主分支(master or dev)</p>
 <p>我们在主分支上进行代码合并，并作为最终版本展示。</p>
 <p>而其他分支作为每个人个人临时的代码池，用于最后的代码合并，合并完进行删除。</p>
-<hr>
-<h3>流程：</h3>
-
+<blockquote>
+<p>流程</p>
+</blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">1. 新的开发需求下达</span><br><span class="line">2. 对主分支进行pull（设这里的主分支为dev）</span><br><span class="line">3. 切换到自己的分支`git checkout -b sun`(-b是新建分支的意思)</span><br><span class="line">4. `git rebase dev`</span><br><span class="line">5. 进行开发工作</span><br><span class="line">6. `git add .`</span><br><span class="line">7. `git commit &quot;update:xxx功能&quot;`</span><br><span class="line">8. `git push`（远程push）</span><br><span class="line">9. 审核员进行审核，审核完成后进行合并</span><br><span class="line">10. 然后删除该分支</span><br><span class="line">11. 删除本地分支：`git branch -D sun`</span><br><span class="line">12. 删除远程分支：`git push origin --delete sun `</span><br><span class="line"></span><br><span class="line">finished</span><br></pre></td></tr></table></figure>
       
 
@@ -476,14 +472,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4>问题描述</h4>
-
-
+        <blockquote>
+<p>问题描述</p>
+</blockquote>
 <p> 在进行<code>npm install</code>时，我电脑上挂了科学上网，导致需要切换代理。而国内的淘宝源也没有办法提速，甚至会导致卡顿，这致使我一直被折磨。</p>
-<hr>
-<h4>git的情况</h4>
-
-
+<blockquote>
+<p>git的情况</p>
+</blockquote>
 <p>这个情况曾经出现在git上，因为当时我的socks5代理为:127.0.0.1:10808，http代理为127.0.0.1:10809</p>
 <p>我进行git设置</p>
 <table>
@@ -503,10 +498,9 @@
 <ul>
 <li>解决方案：我将http代理改为了10809就可以了。</li>
 </ul>
-<hr>
-<h4>npm的情况</h4>
-
-
+<blockquote>
+<p>npm的情况</p>
+</blockquote>
 <p>npm更换淘宝源，没有用</p>
 <p><code>npm config set registry https://registry.npm.taobao.org</code></p>
 <p>需要更换代理，和git一样</p>
