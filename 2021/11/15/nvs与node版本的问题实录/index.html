@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://arthersun.github.io">
-  <title>nvs与node版本的问题实录 | Hexo</title>
+  <title>node与java版本的问题实录 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="今天使用nvs时候遇到了node版本的问题  原因大概是有些node不支持问题">
+  <meta name="description" content="今天使用nvs时候遇到了node版本的问题  原因大概是有些node包（node-sass）不支持高版本的node包，这个可以到node包的官网去查看。  解决方法  使用nvs安装其他node版本 指令集 123nvs add 14nvs use 14nvs list     此外，也遇到java版本的问题  java版本 1UnsupportedClassVersionError: run&#x2F;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="nvs与node版本的问题实录">
+<meta property="og:title" content="node与java版本的问题实录">
 <meta property="og:url" content="https://arthersun.github.io/2021/11/15/nvs%E4%B8%8Enode%E7%89%88%E6%9C%AC%E7%9A%84%E9%97%AE%E9%A2%98%E5%AE%9E%E5%BD%95/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="今天使用nvs时候遇到了node版本的问题  原因大概是有些node不支持问题">
+<meta property="og:description" content="今天使用nvs时候遇到了node版本的问题  原因大概是有些node包（node-sass）不支持高版本的node包，这个可以到node包的官网去查看。  解决方法  使用nvs安装其他node版本 指令集 123nvs add 14nvs use 14nvs list     此外，也遇到java版本的问题  java版本 1UnsupportedClassVersionError: run&#x2F;">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-11-15T11:00:13.000Z">
-<meta property="article:modified_time" content="2021-11-15T11:20:38.186Z">
+<meta property="article:modified_time" content="2021-11-15T12:04:20.108Z">
 <meta property="article:author" content="arthersun">
 <meta name="twitter:card" content="summary">
   
@@ -161,7 +161,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      nvs与node版本的问题实录
+      node与java版本的问题实录
     </h1>
   
 
@@ -177,7 +177,39 @@
         <blockquote>
 <p>今天使用nvs时候遇到了node版本的问题</p>
 </blockquote>
-<p>原因大概是有些node不支持问题</p>
+<p>原因大概是有些node包（node-sass）不支持高版本的node包，这个可以到node包的官网去查看。</p>
+<ul>
+<li>解决方法</li>
+</ul>
+<p>使用nvs安装其他node版本</p>
+<p>指令集</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nvs add 14</span><br><span class="line">nvs use 14</span><br><span class="line">nvs list</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>此外，也遇到java版本的问题</p>
+</blockquote>
+<p>java版本</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UnsupportedClassVersionError: run/halo/app/<span class="function">Application has been compiled by a more recent version of the Java <span class="title">Runtime</span> <span class="params">(class file version <span class="number">55.0</span>)</span>, <span class="keyword">this</span> version of the Java Runtime only recognizes class file versions up to 52.0</span></span><br></pre></td></tr></table></figure>
+
+<p>查询原因为使用了java11进行编译，但是运行时使用的是java8</p>
+<ul>
+<li>45 = Java 1.1</li>
+<li>46 = Java 1.2</li>
+<li>47 = Java 1.3</li>
+<li>48 = Java 1.4</li>
+<li>49 = Java 5</li>
+<li>50 = Java 6</li>
+<li>51 = Java 7</li>
+<li>52 = Java 8</li>
+<li>53 = Java 9</li>
+<li>54 = Java 10</li>
+<li>55 = Java 11</li>
+<li>56 = Java 12</li>
+<li>57 = Java 13</li>
+</ul>
+<p>解决方案：下载java11，然后修改系统环境变量</p>
 
       
 

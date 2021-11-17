@@ -159,7 +159,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/11/15/nvs%E4%B8%8Enode%E7%89%88%E6%9C%AC%E7%9A%84%E9%97%AE%E9%A2%98%E5%AE%9E%E5%BD%95/">nvs与node版本的问题实录</a>
+      <a class="article-title" href="/2021/11/15/nvs%E4%B8%8Enode%E7%89%88%E6%9C%AC%E7%9A%84%E9%97%AE%E9%A2%98%E5%AE%9E%E5%BD%95/">node与java版本的问题实录</a>
     </h1>
   
 
@@ -175,7 +175,39 @@
         <blockquote>
 <p>今天使用nvs时候遇到了node版本的问题</p>
 </blockquote>
-<p>原因大概是有些node不支持问题</p>
+<p>原因大概是有些node包（node-sass）不支持高版本的node包，这个可以到node包的官网去查看。</p>
+<ul>
+<li>解决方法</li>
+</ul>
+<p>使用nvs安装其他node版本</p>
+<p>指令集</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nvs add 14</span><br><span class="line">nvs use 14</span><br><span class="line">nvs list</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>此外，也遇到java版本的问题</p>
+</blockquote>
+<p>java版本</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UnsupportedClassVersionError: run/halo/app/<span class="function">Application has been compiled by a more recent version of the Java <span class="title">Runtime</span> <span class="params">(class file version <span class="number">55.0</span>)</span>, <span class="keyword">this</span> version of the Java Runtime only recognizes class file versions up to 52.0</span></span><br></pre></td></tr></table></figure>
+
+<p>查询原因为使用了java11进行编译，但是运行时使用的是java8</p>
+<ul>
+<li>45 = Java 1.1</li>
+<li>46 = Java 1.2</li>
+<li>47 = Java 1.3</li>
+<li>48 = Java 1.4</li>
+<li>49 = Java 5</li>
+<li>50 = Java 6</li>
+<li>51 = Java 7</li>
+<li>52 = Java 8</li>
+<li>53 = Java 9</li>
+<li>54 = Java 10</li>
+<li>55 = Java 11</li>
+<li>56 = Java 12</li>
+<li>57 = Java 13</li>
+</ul>
+<p>解决方案：下载java11，然后修改系统环境变量</p>
 
       
 
@@ -325,15 +357,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>js关于同步异步的一些知识</p>
-<p>yarn和大数据的知识</p>
-<p>go语法和框架学习</p>
-<p>内网多人共享gitea的学习</p>
-<p>typescript</p>
-<p><code>*</code>docker</p>
-<p><code>尝试将区块链后端和代码打包成docker</code></p>
-<p>mongodb</p>
-<p>如何内网穿透</p>
+        <ul>
+<li><p><input checked disabled type="checkbox">  js关于同步异步的一些知识</p>
+</li>
+<li><p><input disabled type="checkbox">  yarn和大数据的知识</p>
+</li>
+<li><p><input disabled type="checkbox">  go语法和框架学习</p>
+</li>
+<li><p><input disabled type="checkbox">  内网多人共享gitea的学习</p>
+</li>
+<li><p><input disabled type="checkbox">  typescript</p>
+</li>
+<li><p><input disabled type="checkbox">  docker:<code>尝试将区块链后端和代码打包成docker</code></p>
+</li>
+<li><p><input disabled type="checkbox">  mongodb</p>
+</li>
+<li><p><input disabled type="checkbox">  如何内网穿透</p>
+</li>
+</ul>
 
       
 
@@ -410,7 +451,7 @@
 <blockquote>
 <p>流程</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">1. 新的开发需求下达</span><br><span class="line">2. 对主分支进行pull（设这里的主分支为dev）</span><br><span class="line">3. 切换到自己的分支`git checkout -b sun`(-b是新建分支的意思)</span><br><span class="line">4. `git rebase dev`</span><br><span class="line">5. 进行开发工作</span><br><span class="line">6. `git add .`</span><br><span class="line">7. `git commit &quot;update:xxx功能&quot;`</span><br><span class="line">8. `git push`（远程push）</span><br><span class="line">9. 审核员进行审核，审核完成后进行合并</span><br><span class="line">10. 然后删除该分支</span><br><span class="line">11. 删除本地分支：`git branch -D sun`</span><br><span class="line">12. 删除远程分支：`git push origin --delete sun `</span><br><span class="line"></span><br><span class="line">finished</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">1. 新的开发需求下达</span><br><span class="line">2. 对主分支进行pull（设这里的主分支为dev）</span><br><span class="line">3. 切换到自己的分支`git checkout -b sun`(-b是新建分支的意思)</span><br><span class="line">4. `git rebase dev`</span><br><span class="line">5. 进行开发工作</span><br><span class="line">6. `git add .`</span><br><span class="line">7. `git commit &quot;update:xxx功能&quot;`</span><br><span class="line">8. `git push`（远程push）</span><br><span class="line">9. 审核员进行审核，审核完成后进行合并</span><br><span class="line">10. 然后删除该分支</span><br><span class="line">11. 删除本地分支：`git branch -D sun`</span><br><span class="line">12. 删除远程分支：`git push origin --delete sun `</span><br><span class="line"></span><br><span class="line">finished</span><br></pre></td></tr></table></figure>
       
 
       
