@@ -169,6 +169,9 @@
 <p>然而，他们的方案不能支持公开审计。</p>
 <p>Wang等[38]提出了一种全动态审计方案，通过引入MHT来存储数据块的动态信息。他们利用Boneh-Lynn-Shacham  (BLS)短签名代替RSA签名构造同态可验证标签(HVTs)，以减少通信开销。</p>
 <p>Mukundan等人[39]提出了一种动态的多副本云审计方案，通过去除hvt中的索引信息。但是[38]和[39]都不验证数据块的索引，这意味着云存储服务器可以在任何位置使用数据块通过验证。</p>
+<p>Zhu等人[8]提出了一个与索引哈希表相关的动态审计方案。他们将BLS签名与数据片段技术相结合，以减少存储开销。</p>
+<p>Barsoum和Hasan[25]通过引入映射版本表(MVT)提出了一种基于映射的多副本数据持有方案。MVT由序号、块号和块版本三列数据组成，用来记录每个数据块的逻辑位置和物理位置的映射关系。该方案只需要存储一个文件副本的动态信息，消除了辅助认证信息(AAI)，减少了存储和通信开销。但是，MVT必须存储在TPA中。与CSP相比，TPA并不是一个存储密集型实体。因此，为无数云用户存储mvt将消耗TPA的大量存储资源。而且方案不安全，可能会出现[8]和[40]提出的HVT伪造问题。</p>
+<p>Zhang等[24]提出了一种动态复制数据审计方案，采用改进的MHT  (mMHT)来验证数据块及其指标的完整性。Liu等人[7]提出了一种动态多副本云审计方案，其结构为多副本MHT  (MR-MHT)，将每个数据块的所有副本组织成一个副本子树。但是，为了防止替换攻击，他们的方案由于采用了map-to-point  hash函数，引入了额外的计算MR-MHT叶节点的成本。此外，由于提出的MHT结构的深度比普通MHT大得多，验证成本大大增加。</p>
 
       
 
@@ -417,22 +420,16 @@
     <div class="article-entry" itemprop="articleBody">
       
         <ul>
-<li><p><input checked disabled type="checkbox">  js关于同步异步的一些知识</p>
-</li>
-<li><p><input disabled type="checkbox">  yarn和大数据的知识</p>
-</li>
-<li><p><input disabled type="checkbox">  go语法和框架学习</p>
-</li>
-<li><p><input disabled type="checkbox">  内网多人共享gitea的学习</p>
-</li>
-<li><p><input disabled type="checkbox">  typescript</p>
-</li>
-<li><p><input disabled type="checkbox">  docker:<code>尝试将区块链后端和代码打包成docker</code></p>
-</li>
-<li><p><input disabled type="checkbox">  mongodb</p>
-</li>
-<li><p><input disabled type="checkbox">  如何内网穿透</p>
-</li>
+<li><input checked disabled type="checkbox"> js关于同步异步的一些知识</li>
+<li><input disabled type="checkbox"> yarn和大数据的知识</li>
+<li><input disabled type="checkbox"> go语法和框架学习</li>
+<li><input disabled type="checkbox"> 内网多人共享gitea的学习</li>
+<li><input disabled type="checkbox"> typescript</li>
+<li><input disabled type="checkbox"> docker: 尝试将区块链后端和代码打包成docker</li>
+<li><input disabled type="checkbox"> mongodb</li>
+<li><input disabled type="checkbox"> 如何内网穿透</li>
+<li><input disabled type="checkbox"> 如何不用springboot，只用node框架实现现有的后端（Modway.js）</li>
+<li><input disabled type="checkbox"> 数据结构和算法的学习</li>
 </ul>
 
       
