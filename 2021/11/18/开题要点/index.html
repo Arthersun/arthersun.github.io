@@ -44,6 +44,8 @@
   
   
   
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.css">
+  
 <meta name="generator" content="Hexo 5.4.0"></head>
 
 
@@ -58,8 +60,8 @@
           <img class="img-circle img-rotate" src="https://www.gravatar.com/avatar/9d9413de7168c64d9d29318fd0c36cb0?s=128" width="200" height="200">
         </a>
         <h2 id="name" class="hidden-xs hidden-sm">Arthersun</h2>
-        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Web Developer &amp; Designer</h3>
-        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Shenzhen, China</small>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Web Developer, BUPT</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Beijing, China</small>
       </div>
       
       <div class="search" id="search-form-wrap">
@@ -109,7 +111,7 @@
         
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives">
+          <a href="/%E5%BD%92%E6%A1%A3">
             
             <i class="icon icon-archives-fill"></i>
             
@@ -119,7 +121,7 @@
         
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories">
+          <a href="/%E5%88%86%E7%B1%BB">
             
             <i class="icon icon-folder"></i>
             
@@ -129,7 +131,7 @@
         
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags">
+          <a href="/%E6%A0%87%E7%AD%BE">
             
             <i class="icon icon-tags"></i>
             
@@ -139,7 +141,7 @@
         
         
         <li class="menu-item menu-item-repository">
-          <a href="/repository">
+          <a href="/%E9%A1%B9%E7%9B%AE">
             
             <i class="icon icon-project"></i>
             
@@ -149,7 +151,7 @@
         
         
         <li class="menu-item menu-item-books">
-          <a href="/books">
+          <a href="/%E4%B9%A6%E5%8D%95">
             
             <i class="icon icon-book-fill"></i>
             
@@ -159,7 +161,7 @@
         
         
         <li class="menu-item menu-item-links">
-          <a href="/links">
+          <a href="/%E5%8F%8B%E9%93%BE">
             
             <i class="icon icon-friendship"></i>
             
@@ -169,7 +171,7 @@
         
         
         <li class="menu-item menu-item-about">
-          <a href="/about">
+          <a href="/%E5%85%B3%E4%BA%8E">
             
             <i class="icon icon-cup-fill"></i>
             
@@ -207,7 +209,7 @@
     <div class="widget-body">
         <div id="board">
             <div class="content">
-                <p>欢迎交流与分享经验!</p>
+                <p>漫漫白衣路，少年追光时</p>
             </div>
         </div>
     </div>
@@ -413,8 +415,8 @@
         </a>
       </div>
       <div class="media-body">
-        <h3 class="media-heading"><a href="https://github.com/cofess" target="_blank"><span class="text-dark">Arthersun</span><small class="ml-1x">Web Developer &amp; Designer</small></a></h3>
-        <div>个人简介。</div>
+        <h3 class="media-heading"><a href="https://github.com/cofess" target="_blank"><span class="text-dark">Arthersun</span><small class="ml-1x">Web Developer, BUPT</small></a></h3>
+        <div>BUPT,</div>
       </div>
     </figure>
   </div>
@@ -427,7 +429,7 @@
     
   <section id="comments">
   	
-      <div id="vcomments"></div>
+           
     
   </section>
 
@@ -576,29 +578,23 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
    
     
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"> -->
+  <script src="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
   <script type="text/javascript">
-  var GUEST = ['nick', 'mail', 'link'];
-  var meta = 'nick,mail,link';
-  meta = meta.split(',').filter(function(item) {
-    return GUEST.indexOf(item) > -1;
-  });
-  new Valine({
-    el: '#vcomments',
-    verify: false,
-    notify: false,
-    appId: '',
-    appKey: '',
-    placeholder: 'Just go go',
-    avatar: 'mm',
-    meta: meta,
-    pageSize: '10' || 10,
-    visitor: false
-  });
+  var gitalk = new Gitalk({
+    clientID: 'a045025ed7455b2e75ec',
+    clientSecret: '148a7522f15d9188961a1ff045524c32ba8b0f07',
+    repo: 'https://github.com/Arthersun/BlogGitment',
+    owner: 'Arthersun',
+    admin: ['Arthersun'],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+  })
+  gitalk.render('comments')
   </script>
 
-     
+      
 
 
 
