@@ -8,19 +8,20 @@
   <link rel="dns-prefetch" href="https://arthersun.github.io">
   <title>2011_Zhu | 漫漫白衣路，少年追光时</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="标签生成阶段。客户端(DO)使用一个秘密密钥对一个文件进行预处理，该文件由n个块的集合组成，生成一组公共验证参数(PVPs)和IHT，存储在TPA中，将文件和一些验证标记（File+Flags）传输给CSP，并可以删除其本地副本(见图2a); Periodic抽样审计。通过使用可检索的交互式证明协议，TPA(或其他应用程序)发出一个“随机抽样”挑战，以审核存储在TPA中的验证信息(涉及PVP和">
+  <meta name="description" content="关于动态审计中的IHT的作用。    标签生成阶段。客户端(DO)使用一个秘密密钥对一个文件进行预处理，该文件由n个块的集合组成，生成一组公共验证参数(PVPs)和IHT，存储在TPA中，将文件和一些验证标记（File+Flags）传输给CSP，并可以删除其本地副本(见图2a); 定期抽样审计。通过使用可检索的交互式证明协议，TPA(或其他应用程序)发出一个“随机抽样”挑战，以审核存储在TPA中">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2011_Zhu">
 <meta property="og:url" content="https://arthersun.github.io/2021/11/17/2011-Zhu/index.html">
 <meta property="og:site_name" content="漫漫白衣路，少年追光时">
-<meta property="og:description" content="标签生成阶段。客户端(DO)使用一个秘密密钥对一个文件进行预处理，该文件由n个块的集合组成，生成一组公共验证参数(PVPs)和IHT，存储在TPA中，将文件和一些验证标记（File+Flags）传输给CSP，并可以删除其本地副本(见图2a); Periodic抽样审计。通过使用可检索的交互式证明协议，TPA(或其他应用程序)发出一个“随机抽样”挑战，以审核存储在TPA中的验证信息(涉及PVP和">
+<meta property="og:description" content="关于动态审计中的IHT的作用。    标签生成阶段。客户端(DO)使用一个秘密密钥对一个文件进行预处理，该文件由n个块的集合组成，生成一组公共验证参数(PVPs)和IHT，存储在TPA中，将文件和一些验证标记（File+Flags）传输给CSP，并可以删除其本地副本(见图2a); 定期抽样审计。通过使用可检索的交互式证明协议，TPA(或其他应用程序)发出一个“随机抽样”挑战，以审核存储在TPA中">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://arthersun.github.io/.io//GitHub/arthersunBlog/source_posts/2011-Zhu/image-20211118000021010.png">
-<meta property="article:published_time" content="2021-11-17T15:50:02.000Z">
-<meta property="article:modified_time" content="2021-11-17T16:09:46.855Z">
+<meta property="og:image" content="https://arthersun.github.io/2021/11/17/2011-Zhu/2011-Zhu%5Cimage-20211118000021010.png">
+<meta property="og:image" content="https://arthersun.github.io/2021/11/17/2011-Zhu/2011-Zhu%5Cimage-20211118004818449.png">
+<meta property="article:published_time" content="2021-11-16T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-11-18T01:57:09.716Z">
 <meta property="article:author" content="arthersun">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://arthersun.github.io/.io//GitHub/arthersunBlog/source_posts/2011-Zhu/image-20211118000021010.png">
+<meta name="twitter:image" content="https://arthersun.github.io/2021/11/17/2011-Zhu/2011-Zhu%5Cimage-20211118000021010.png">
   
     <link rel="alternative" href="/atom.xml" title="漫漫白衣路，少年追光时" type="application/atom+xml">
   
@@ -157,18 +158,31 @@
 
         
         <a href="/2021/11/17/2011-Zhu/" class="archive-article-date">
-  	<time datetime="2021-11-17T15:50:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-17</time>
+  	<time datetime="2021-11-16T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-17</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/.io//GitHub\arthersunBlog\source_posts\2011-Zhu\image-20211118000021010.png" alt="image-20211118000021010"></p>
+        <blockquote>
+<p>关于动态审计中的IHT的作用。</p>
+</blockquote>
+<p><img src="/2021/11/17/2011-Zhu/2011-Zhu%5Cimage-20211118000021010.png" alt="image-20211118000021010"></p>
 <ol>
 <li>标签生成阶段。客户端(DO)使用一个秘密密钥对一个文件进行预处理，该文件由n个块的集合组成，生成一组公共验证参数(PVPs)和IHT，存储在TPA中，将文件和一些验证标记（File+Flags）传输给CSP，并可以删除其本地副本(见图2a);</li>
-<li>Periodic抽样审计。通过使用可检索的交互式证明协议，TPA(或其他应用程序)发出一个“随机抽样”挑战，以审核存储在TPA中的验证信息(涉及PVP和IHT)的外包数据的完整性和可用性(见图2b);和.审计动态操作。一个AA，谁持有一个DO的秘密钥匙，可以操纵外包</li>
+<li>定期抽样审计。通过使用可检索的交互式证明协议，TPA(或其他应用程序)发出一个“随机抽样”挑战，以审核存储在TPA中的验证信息(涉及PVP和IHT)的外包数据的完整性和可用性(见图2b);和</li>
+<li>审计动态操作。一个AA，谁持有一个DO的秘密钥匙sk，可以操纵外包数据并更新存储在TPA中的相关IHT。sk的私密性和检查算法保证了存储服务器不能欺骗AA，伪造有效的审计记录</li>
 </ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">总结：这张表帮我看清楚了动态审计过程中的IHT表的位置，IHT表是一张维护在TPA中的，由序列号、区块号、版本号和随机整数组成。除了记录数据的变化，每个记录Xi表被用来生成一个唯一的哈希值，这反过来是用来构造一个在秘密的钥匙sk旁边的签名标签σi。</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>IHT与HDFS的结合</p>
+</blockquote>
+<p><img src="/2021/11/17/2011-Zhu/2011-Zhu%5Cimage-20211118004818449.png" alt="image-20211118004818449"></p>
+<p>基于这些hash值，客户端或TPA可以通过审计服务实现验证协议。在现有的HDFS中，我们的异常检测方案可以很容易地替换普通的校验和算法，而无需下载数据。</p>
 
       
 
@@ -241,9 +255,18 @@
   
 <nav id="article-nav">
   
+    <a href="/2021/11/17/%E8%AE%BA%E6%96%87%E7%9A%84%E6%91%98%E5%BD%95/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          论文的摘录
+        
+      </div>
+    </a>
   
-    <a href="/2021/11/17/2019-Guo/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">2019_Guo</div>
+  
+    <a href="/2021/11/15/nvs%E4%B8%8Enode%E7%89%88%E6%9C%AC%E7%9A%84%E9%97%AE%E9%A2%98%E5%AE%9E%E5%BD%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">node与java版本的问题实录</div>
       <i class="icon-circle-right"></i>
     </a>
   
