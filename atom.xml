@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>漫漫白衣路，少年追光时</title>
+  
+  <subtitle>漫漫白衣路，少年追光时</subtitle>
+  <link href="https://arthersun.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://arthersun.github.io/"/>
+  <updated>2021-11-18T05:57:01.546Z</updated>
+  <id>https://arthersun.github.io/</id>
+  
+  <author>
+    <name>arthersun</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>开题要点</title>
+    <link href="https://arthersun.github.io/2021/11/18/%E5%BC%80%E9%A2%98%E8%A6%81%E7%82%B9/"/>
+    <id>https://arthersun.github.io/2021/11/18/%E5%BC%80%E9%A2%98%E8%A6%81%E7%82%B9/</id>
+    <published>2021-11-18T02:49:42.000Z</published>
+    <updated>2021-11-18T05:57:01.546Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>开题报告</p></blockquote><p>题目：落实到方法，</p><p>解决问题 –&gt; 说人家的方法有问题<br>用人家的方法-&gt;说人家的方法好-&gt;可以为本文在xx场景下提供选择。</p><blockquote><p>问题</p></blockquote><p>干的事和问题不是同一个东西</p><p>设计算法的难点在哪</p><blockquote><p>3.1研究方法</p></blockquote><p>理论研究<br>实验<br>数据</p><blockquote><p>3.2技术路线</p></blockquote><p>针对本文的三个研究内容，分别阐述技术路线，具体如下。</p><blockquote><p>3.3可行性分析</p></blockquote><p>1.研究经验可借鉴<br>2.数据条件具备<br>3.实验环境具备<br>4.理论研究能力具备<br>5.实验能力具备<br>6.技术路线可行</p><blockquote><p>PPT</p></blockquote><p>参考文献不用写全名，写是哪个期刊上就行</p><p>研究现状能说清楚就不要贴图<br>从别人的论文中找现状的证据贴在PPT中</p><p>做case分析</p><p>根据产出主要实现哪两个难点，PPT有图放图，文档不用画。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;开题报告&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;题目：落实到方法，&lt;/p&gt;
+&lt;p&gt;解决问题 –&amp;gt; 说人家的方法有问题&lt;br&gt;用人家的方法-&amp;gt;说人家的方法好-&amp;gt;可以为本文在xx场景下提供选择。&lt;/p&gt;
+&lt;blockquote&gt;
+</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>2021_Yu</title>
+    <link href="https://arthersun.github.io/2021/11/18/2021-Yu/"/>
+    <id>https://arthersun.github.io/2021/11/18/2021-Yu/</id>
+    <published>2021-11-18T02:26:35.000Z</published>
+    <updated>2021-11-18T02:50:04.390Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>多副本审计</p></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;多副本审计&lt;/p&gt;
+&lt;/blockquote&gt;
+</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>2019_Guo</title>
+    <link href="https://arthersun.github.io/2021/11/17/2019-Guo/"/>
+    <id>https://arthersun.github.io/2021/11/17/2019-Guo/</id>
+    <published>2021-11-17T15:04:45.000Z</published>
+    <updated>2021-11-17T16:10:41.799Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/.io//2019-Guo%5Cimage-20211117230513756.png" alt="image-20211117230513756"></p><p>(1)客户将其数据外包给CSP;</p><p>(2)客户将审计工作外包给审计师;</p><p>(3)通过依赖比特币[22]的功能，审计员定期审计CSP，检查外包数据是否完整;</p><p>(4)每次审核后，审核员创建一个日志条目，记录他在这一点上的审核工作;</p><p>(5)客户可以随时审核日志文件，以检查审核员过去是否诚实履行其审计工作;</p><p>(6)客户端将更新的哈希值发送给审计师;审核员对RBMT进行更新，并将更新证明发送给CSP进行验证;</p><p>(8)客户端也验证从CSP接收到的更新证明，并将更新后的数据块发送给CSP。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/.io//2019-Guo%5Cimage-20211117230513756.png&quot; alt=&quot;image-20211117230513756&quot;&gt;&lt;/p&gt;
+&lt;p&gt;(1)客户将其数据外包给CSP;&lt;/p&gt;
+&lt;p&gt;(2)客户将审计工作外包给审计师;&lt;/</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>2015_Ayad</title>
+    <link href="https://arthersun.github.io/2021/11/17/2015-Ayad/"/>
+    <id>https://arthersun.github.io/2021/11/17/2015-Ayad/</id>
+    <published>2021-11-17T13:48:01.000Z</published>
+    <updated>2021-11-17T13:48:26.023Z</updated>
+    
+    <content type="html"><![CDATA[<p>外包数据的核心设计原则之一是为各种应用程序提供数据的动态行为。这意味着远程存储的数据不仅可以由授权用户访问，而且还可以由数据所有者更新和缩放(通过块级操作)。[1] -[9]中提出的PDP方案只关注静态存储的数据，其中外包数据在远程服务器上保持不变。处理动态数据的PDP结构的例子是[10]-[14]。后者是数据文件的单个副本。尽管PDP方案已经给出了静态数据的多个副本，参见[15]-[17]，据我们所知，这是第一个直接处理动态数据的多个副本的PDP方案。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;外包数据的核心设计原则之一是为各种应用程序提供数据的动态行为。这意味着远程存储的数据不仅可以由授权用户访问，而且还可以由数据所有者更新和缩放(通过块级操作)。[1] -[9]中提出的PDP方案只关注静态存储的数据，其中外包数据在远程服务器上保持不变。处理动态数据的PDP结构</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>2016_张玉清</title>
+    <link href="https://arthersun.github.io/2021/11/17/2016-%E5%BC%A0%E7%8E%89%E6%B8%85/"/>
+    <id>https://arthersun.github.io/2021/11/17/2016-%E5%BC%A0%E7%8E%89%E6%B8%85/</id>
+    <published>2021-11-17T13:27:36.000Z</published>
+    <updated>2021-11-17T13:48:08.024Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>在这里摘录了一段数据所有权证明的定义和意义感觉很不错</p></blockquote><p>数据所有权的证明(provable  data  possession,简称PDP)[75]同样可以公开验证云端数据的完整性.由于验证过程中服务器的数据量和通信量较小,因此PDP模型适用于大规模分布式存储系统.当数据以多副本的方式存储于CSP时,用户需要对副本的个数与一致性进行额外的判断.为此,Barsoum等人[76]提出了相应的解决方案MB-PMDDP ,同时能够抵御服务器合谋并支持动态的数据更新.类似地,基于身份的分布式数据完整性检测模型ID-DPDP[77]针对数据存储于不同云服务器的情况,实现了私有验证、委托验证和公开验证.</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;在这里摘录了一段数据所有权证明的定义和意义感觉很不错&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;数据所有权的证明(provable  data  possession,简称PDP)[75]同样可以公开验证云端数据的完整性.由于验证过程中服务器的数据</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>论文的摘录</title>
+    <link href="https://arthersun.github.io/2021/11/17/%E8%AE%BA%E6%96%87%E7%9A%84%E6%91%98%E5%BD%95/"/>
+    <id>https://arthersun.github.io/2021/11/17/%E8%AE%BA%E6%96%87%E7%9A%84%E6%91%98%E5%BD%95/</id>
+    <published>2021-11-17T04:01:32.000Z</published>
+    <updated>2021-11-17T13:27:42.748Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>历史</p></blockquote><p>Ateniese等[36]首次提出了一种可扩展、高效的PDP，支持除数据插入外的所有动态数据操作。</p><p>Erway等[37]首次提出了一种支持所有动态数据操作的完全动态可证明数据持有(DPDP)方案。</p><p>他们的方案采用基于秩的认证跳跃表来管理数据块的动态信息。</p><p>然而，他们的方案不能支持公开审计。</p><p>Wang等[38]提出了一种全动态审计方案，通过引入MHT来存储数据块的动态信息。他们利用Boneh-Lynn-Shacham  (BLS)短签名代替RSA签名构造同态可验证标签(HVTs)，以减少通信开销。</p><p>Mukundan等人[39]提出了一种动态的多副本云审计方案，通过去除hvt中的索引信息。但是[38]和[39]都不验证数据块的索引，这意味着云存储服务器可以在任何位置使用数据块通过验证。</p><p>Zhu等人[8]提出了一个与索引哈希表相关的动态审计方案。他们将BLS签名与数据片段技术相结合，以减少存储开销。</p><p>Barsoum和Hasan[25]通过引入映射版本表(MVT)提出了一种基于映射的多副本数据持有方案。MVT由序号、块号和块版本三列数据组成，用来记录每个数据块的逻辑位置和物理位置的映射关系。该方案只需要存储一个文件副本的动态信息，消除了辅助认证信息(AAI)，减少了存储和通信开销。但是，MVT必须存储在TPA中。与CSP相比，TPA并不是一个存储密集型实体。因此，为无数云用户存储mvt将消耗TPA的大量存储资源。而且方案不安全，可能会出现[8]和[40]提出的HVT伪造问题。</p><p>Zhang等[24]提出了一种动态复制数据审计方案，采用改进的MHT  (mMHT)来验证数据块及其指标的完整性。Liu等人[7]提出了一种动态多副本云审计方案，其结构为多副本MHT  (MR-MHT)，将每个数据块的所有副本组织成一个副本子树。但是，为了防止替换攻击，他们的方案由于采用了map-to-point  hash函数，引入了额外的计算MR-MHT叶节点的成本。此外，由于提出的MHT结构的深度比普通MHT大得多，验证成本大大增加。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;历史&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Ateniese等[36]首次提出了一种可扩展、高效的PDP，支持除数据插入外的所有动态数据操作。&lt;/p&gt;
+&lt;p&gt;Erway等[37]首次提出了一种支持所有动态数据操作的完全动态可证明数据持有(DPD</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>2011_Zhu</title>
+    <link href="https://arthersun.github.io/2021/11/17/2011-Zhu/"/>
+    <id>https://arthersun.github.io/2021/11/17/2011-Zhu/</id>
+    <published>2021-11-16T16:00:00.000Z</published>
+    <updated>2021-11-18T01:57:09.716Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>关于动态审计中的IHT的作用。</p></blockquote><p><img src="/2021/11/17/2011-Zhu/2011-Zhu%5Cimage-20211118000021010.png" alt="image-20211118000021010"></p><ol><li>标签生成阶段。客户端(DO)使用一个秘密密钥对一个文件进行预处理，该文件由n个块的集合组成，生成一组公共验证参数(PVPs)和IHT，存储在TPA中，将文件和一些验证标记（File+Flags）传输给CSP，并可以删除其本地副本(见图2a);</li><li>定期抽样审计。通过使用可检索的交互式证明协议，TPA(或其他应用程序)发出一个“随机抽样”挑战，以审核存储在TPA中的验证信息(涉及PVP和IHT)的外包数据的完整性和可用性(见图2b);和</li><li>审计动态操作。一个AA，谁持有一个DO的秘密钥匙sk，可以操纵外包数据并更新存储在TPA中的相关IHT。sk的私密性和检查算法保证了存储服务器不能欺骗AA，伪造有效的审计记录</li></ol><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">总结：这张表帮我看清楚了动态审计过程中的IHT表的位置，IHT表是一张维护在TPA中的，由序列号、区块号、版本号和随机整数组成。除了记录数据的变化，每个记录Xi表被用来生成一个唯一的哈希值，这反过来是用来构造一个在秘密的钥匙sk旁边的签名标签σi。</span><br></pre></td></tr></table></figure><blockquote><p>IHT与HDFS的结合</p></blockquote><p><img src="/2021/11/17/2011-Zhu/2011-Zhu%5Cimage-20211118004818449.png" alt="image-20211118004818449"></p><p>基于这些hash值，客户端或TPA可以通过审计服务实现验证协议。在现有的HDFS中，我们的异常检测方案可以很容易地替换普通的校验和算法，而无需下载数据。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;关于动态审计中的IHT的作用。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;/2021/11/17/2011-Zhu/2011-Zhu%5Cimage-20211118000021010.png&quot; alt=&quot;image-20211</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>node与java版本的问题实录</title>
+    <link href="https://arthersun.github.io/2021/11/15/nvs%E4%B8%8Enode%E7%89%88%E6%9C%AC%E7%9A%84%E9%97%AE%E9%A2%98%E5%AE%9E%E5%BD%95/"/>
+    <id>https://arthersun.github.io/2021/11/15/nvs%E4%B8%8Enode%E7%89%88%E6%9C%AC%E7%9A%84%E9%97%AE%E9%A2%98%E5%AE%9E%E5%BD%95/</id>
+    <published>2021-11-15T11:00:13.000Z</published>
+    <updated>2021-11-15T12:04:20.108Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>今天使用nvs时候遇到了node版本的问题</p></blockquote><p>原因大概是有些node包（node-sass）不支持高版本的node包，这个可以到node包的官网去查看。</p><ul><li>解决方法</li></ul><p>使用nvs安装其他node版本</p><p>指令集</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nvs add 14</span><br><span class="line">nvs use 14</span><br><span class="line">nvs list</span><br></pre></td></tr></table></figure><blockquote><p>此外，也遇到java版本的问题</p></blockquote><p>java版本</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UnsupportedClassVersionError: run/halo/app/<span class="function">Application has been compiled by a more recent version of the Java <span class="title">Runtime</span> <span class="params">(class file version <span class="number">55.0</span>)</span>, <span class="keyword">this</span> version of the Java Runtime only recognizes class file versions up to 52.0</span></span><br></pre></td></tr></table></figure><p>查询原因为使用了java11进行编译，但是运行时使用的是java8</p><ul><li>45 = Java 1.1</li><li>46 = Java 1.2</li><li>47 = Java 1.3</li><li>48 = Java 1.4</li><li>49 = Java 5</li><li>50 = Java 6</li><li>51 = Java 7</li><li>52 = Java 8</li><li>53 = Java 9</li><li>54 = Java 10</li><li>55 = Java 11</li><li>56 = Java 12</li><li>57 = Java 13</li></ul><p>解决方案：下载java11，然后修改系统环境变量</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;今天使用nvs时候遇到了node版本的问题&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;原因大概是有些node包（node-sass）不支持高版本的node包，这个可以到node包的官网去查看。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;解决方法&lt;/li&gt;
+&lt;/ul</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>docker学习</title>
+    <link href="https://arthersun.github.io/2021/11/15/docker%E5%AD%A6%E4%B9%A0/"/>
+    <id>https://arthersun.github.io/2021/11/15/docker%E5%AD%A6%E4%B9%A0/</id>
+    <published>2021-11-15T09:24:05.000Z</published>
+    <updated>2021-11-15T10:05:11.089Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p> docker学习</p></blockquote><ul><li>docker概述</li><li>docker安装</li><li>docker命令<ul><li>镜像命令</li><li>容器命令</li><li>操作命令</li><li>…..</li></ul></li><li>docker镜像</li><li>容器数据卷</li><li>dockerFile</li><li>docker网络原理</li><li>IDEA 整合docker</li><li>docker compose</li><li>docker swarm</li><li>CI\CD Jenkins</li></ul><p>知道的越多，不知道的越多！</p><blockquote></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt; docker学习&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;docker概述&lt;/li&gt;
+&lt;li&gt;docker安装&lt;/li&gt;
+&lt;li&gt;docker命令&lt;ul&gt;
+&lt;li&gt;镜像命令&lt;/li&gt;
+&lt;li&gt;容器命令&lt;/li&gt;
+&lt;li&gt;操作命令&lt;/</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>最新想看的一些新技术</title>
+    <link href="https://arthersun.github.io/2021/11/15/%E6%9C%80%E6%96%B0%E6%83%B3%E7%9C%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E6%96%B0%E6%8A%80%E6%9C%AF/"/>
+    <id>https://arthersun.github.io/2021/11/15/%E6%9C%80%E6%96%B0%E6%83%B3%E7%9C%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E6%96%B0%E6%8A%80%E6%9C%AF/</id>
+    <published>2021-11-14T17:42:50.000Z</published>
+    <updated>2021-11-18T05:39:26.584Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li><input checked disabled type="checkbox"> js关于同步异步的一些知识</li><li><input disabled type="checkbox"> yarn和大数据的知识</li><li><input disabled type="checkbox"> go语法和框架学习</li><li><input disabled type="checkbox"> 内网多人共享gitea的学习</li><li><input disabled type="checkbox"> typescript</li><li><input disabled type="checkbox"> docker: 尝试将区块链后端和代码打包成docker</li><li><input disabled type="checkbox"> mongodb</li><li><input disabled type="checkbox"> 如何内网穿透</li><li><input disabled type="checkbox"> 如何不用springboot，只用node框架实现现有的后端（Modway.js）</li><li><input disabled type="checkbox"> 数据结构和算法的学习</li><li><input disabled type="checkbox"> Redis 和 如何用Lua解释器实现Redis脚本功能</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;&lt;input checked disabled type=&quot;checkbox&quot;&gt; js关于同步异步的一些知识&lt;/li&gt;
+&lt;li&gt;&lt;input disabled type=&quot;checkbox&quot;&gt; yarn和大数据的知识&lt;/li&gt;
+&lt;li&gt;&lt;input disabl</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>如何使用git进行多人协作</title>
+    <link href="https://arthersun.github.io/2021/11/14/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8git%E8%BF%9B%E8%A1%8C%E5%A4%9A%E4%BA%BA%E5%8D%8F%E4%BD%9C/"/>
+    <id>https://arthersun.github.io/2021/11/14/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8git%E8%BF%9B%E8%A1%8C%E5%A4%9A%E4%BA%BA%E5%8D%8F%E4%BD%9C/</id>
+    <published>2021-11-14T07:02:32.000Z</published>
+    <updated>2021-11-15T11:27:02.964Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>起子</p></blockquote><p>github可以建立免费快速的私有云，在github上进行项目工程的团队合作是非常高效的</p><blockquote><p>善用github的分支功能</p></blockquote><p>github的分支功能初识时十分鸡肋，但是用多了之后设计的非常成功。</p><p>对于多人合作，我们需要共有一个主分支(master or dev)</p><p>我们在主分支上进行代码合并，并作为最终版本展示。</p><p>而其他分支作为每个人个人临时的代码池，用于最后的代码合并，合并完进行删除。</p><blockquote><p>流程</p></blockquote><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">1. 新的开发需求下达</span><br><span class="line">2. 对主分支进行pull（设这里的主分支为dev）</span><br><span class="line">3. 切换到自己的分支`git checkout -b sun`(-b是新建分支的意思)</span><br><span class="line">4. `git rebase dev`</span><br><span class="line">5. 进行开发工作</span><br><span class="line">6. `git add .`</span><br><span class="line">7. `git commit &quot;update:xxx功能&quot;`</span><br><span class="line">8. `git push`（远程push）</span><br><span class="line">9. 审核员进行审核，审核完成后进行合并</span><br><span class="line">10. 然后删除该分支</span><br><span class="line">11. 删除本地分支：`git branch -D sun`</span><br><span class="line">12. 删除远程分支：`git push origin --delete sun `</span><br><span class="line"></span><br><span class="line">finished</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;起子&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;github可以建立免费快速的私有云，在github上进行项目工程的团队合作是非常高效的&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;善用github的分支功能&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>关于npm和git源和设置代理的一些问题</title>
+    <link href="https://arthersun.github.io/2021/11/14/%E5%85%B3%E4%BA%8Enpm%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/"/>
+    <id>https://arthersun.github.io/2021/11/14/%E5%85%B3%E4%BA%8Enpm%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/</id>
+    <published>2021-11-14T06:35:45.000Z</published>
+    <updated>2021-11-15T11:20:51.791Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>问题描述</p></blockquote><p> 在进行<code>npm install</code>时，我电脑上挂了科学上网，导致需要切换代理。而国内的淘宝源也没有办法提速，甚至会导致卡顿，这致使我一直被折磨。</p><blockquote><p>git的情况</p></blockquote><p>这个情况曾经出现在git上，因为当时我的socks5代理为:127.0.0.1:10808，http代理为127.0.0.1:10809</p><p>我进行git设置</p><table><thead><tr><th>git设置代理</th></tr></thead><tbody><tr><td>git config –global http.proxy <a href="http://127.0.0.1:10808/">http://127.0.0.1:10808</a></td></tr><tr><td>git config –global https.proxy <a href="http://127.0.0.1:10808/">http://127.0.0.1:10808</a></td></tr></tbody></table><p>导致无法顺利访问git，错误代码443.</p><ul><li>解决方案：我将http代理改为了10809就可以了。</li></ul><blockquote><p>npm的情况</p></blockquote><p>npm更换淘宝源，没有用</p><p><code>npm config set registry https://registry.npm.taobao.org</code></p><p>需要更换代理，和git一样</p><p><code>npm config set proxy http://127.0.0.1:10809</code></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;问题描述&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt; 在进行&lt;code&gt;npm install&lt;/code&gt;时，我电脑上挂了科学上网，导致需要切换代理。而国内的淘宝源也没有办法提速，甚至会导致卡顿，这致使我一直被折磨。&lt;/p&gt;
+&lt;blockquot</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
