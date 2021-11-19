@@ -6,7 +6,7 @@
   <link href="https://arthersun.github.io/atom.xml" rel="self"/>
   
   <link href="https://arthersun.github.io/"/>
-  <updated>2021-11-18T05:57:01.546Z</updated>
+  <updated>2021-11-19T14:09:33.194Z</updated>
   <id>https://arthersun.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>linux常用命令</title>
+    <link href="https://arthersun.github.io/2021/11/19/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <id>https://arthersun.github.io/2021/11/19/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</id>
+    <published>2021-11-19T13:40:08.000Z</published>
+    <updated>2021-11-19T14:09:33.194Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>linux怎么查询端口号</p></blockquote><p>lsof -i:xxx (xxx是网络号)</p><blockquote><p>linux怎么杀死以PID为名的进程</p></blockquote><p>kill -9 PID</p><blockquote><p>linux怎么输出全局变量名</p></blockquote><p>echo $PATH</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;linux怎么查询端口号&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;lsof -i:xxx (xxx是网络号)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;linux怎么杀死以PID为名的进程&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;kill -9 </summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>开题要点</title>
