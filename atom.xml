@@ -226,9 +226,9 @@ PKG由一个完全可信的权威机构管理，该机构负责为整个系统�
     <link href="https://arthersun.github.io/2021/11/18/%E5%BC%80%E9%A2%98%E8%A6%81%E7%82%B9/"/>
     <id>https://arthersun.github.io/2021/11/18/%E5%BC%80%E9%A2%98%E8%A6%81%E7%82%B9/</id>
     <published>2021-11-18T02:49:42.000Z</published>
-    <updated>2021-11-18T05:57:01.546Z</updated>
+    <updated>2021-11-27T15:57:05.433Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>开题报告</p></blockquote><p>题目：落实到方法，</p><p>解决问题 –&gt; 说人家的方法有问题<br>用人家的方法-&gt;说人家的方法好-&gt;可以为本文在xx场景下提供选择。</p><blockquote><p>问题</p></blockquote><p>干的事和问题不是同一个东西</p><p>设计算法的难点在哪</p><blockquote><p>3.1研究方法</p></blockquote><p>理论研究<br>实验<br>数据</p><blockquote><p>3.2技术路线</p></blockquote><p>针对本文的三个研究内容，分别阐述技术路线，具体如下。</p><blockquote><p>3.3可行性分析</p></blockquote><p>1.研究经验可借鉴<br>2.数据条件具备<br>3.实验环境具备<br>4.理论研究能力具备<br>5.实验能力具备<br>6.技术路线可行</p><blockquote><p>PPT</p></blockquote><p>参考文献不用写全名，写是哪个期刊上就行</p><p>研究现状能说清楚就不要贴图<br>从别人的论文中找现状的证据贴在PPT中</p><p>做case分析</p><p>根据产出主要实现哪两个难点，PPT有图放图，文档不用画。</p>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>开题报告</p></blockquote><p>题目：落实到方法，</p><p>解决问题 --&gt; 说人家的方法有问题<br>用人家的方法-&gt;说人家的方法好-&gt;可以为本文在xx场景下提供选择。</p><blockquote><p>问题</p></blockquote><p>干的事和问题不是同一个东西</p><p>设计算法的难点在哪</p><blockquote><p>3.1研究方法</p></blockquote><p>理论研究<br>实验<br>数据</p><blockquote><p>3.2技术路线</p></blockquote><p>针对本文的三个研究内容，分别阐述技术路线，具体如下。</p><blockquote><p>3.3可行性分析</p></blockquote><p>1.研究经验可借鉴<br>2.数据条件具备<br>3.实验环境具备<br>4.理论研究能力具备<br>5.实验能力具备<br>6.技术路线可行</p><blockquote><p>PPT</p></blockquote><p>参考文献不用写全名，写是哪个期刊上就行</p><p>研究现状能说清楚就不要贴图<br>从别人的论文中找现状的证据贴在PPT中</p><p>做case分析</p><p>根据产出主要实现哪两个难点，PPT有图放图，文档不用画。</p>]]></content>
     
     
       
@@ -237,9 +237,9 @@ PKG由一个完全可信的权威机构管理，该机构负责为整个系统�
 &lt;p&gt;开题报告&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;题目：落实到方法，&lt;/p&gt;
-&lt;p&gt;解决问题 –&amp;gt; 说人家的方法有问题&lt;br&gt;用人家的方法-&amp;gt;说人家的方法好-&amp;gt;可以为本文在xx场景下提供选择。&lt;/p&gt;
-&lt;blockquote&gt;
-</summary>
+&lt;p&gt;解决问题 --&amp;gt; 说人家的方法有问题&lt;br&gt;
+用人家的方法-&amp;gt;说人家的方法好-&amp;gt;可以为本文在xx场景下提供选择。&lt;/p&gt;
+&lt;blockquote</summary>
       
     
     
@@ -415,18 +415,19 @@ PKG由一个完全可信的权威机构管理，该机构负责为整个系统�
     <published>2021-11-15T09:24:05.000Z</published>
     <updated>2021-11-15T10:05:11.089Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p> docker学习</p></blockquote><ul><li>docker概述</li><li>docker安装</li><li>docker命令<ul><li>镜像命令</li><li>容器命令</li><li>操作命令</li><li>…..</li></ul></li><li>docker镜像</li><li>容器数据卷</li><li>dockerFile</li><li>docker网络原理</li><li>IDEA 整合docker</li><li>docker compose</li><li>docker swarm</li><li>CI\CD Jenkins</li></ul><p>知道的越多，不知道的越多！</p><blockquote></blockquote>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>docker学习</p></blockquote><ul><li>docker概述</li><li>docker安装</li><li>docker命令<ul><li>镜像命令</li><li>容器命令</li><li>操作命令</li><li>…</li></ul></li><li>docker镜像</li><li>容器数据卷</li><li>dockerFile</li><li>docker网络原理</li><li>IDEA 整合docker</li><li>docker compose</li><li>docker swarm</li><li>CI\CD Jenkins</li></ul><p>知道的越多，不知道的越多！</p><blockquote></blockquote>]]></content>
     
     
       
       
     <summary type="html">&lt;blockquote&gt;
-&lt;p&gt; docker学习&lt;/p&gt;
+&lt;p&gt;docker学习&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;docker概述&lt;/li&gt;
 &lt;li&gt;docker安装&lt;/li&gt;
-&lt;li&gt;docker命令&lt;ul&gt;
+&lt;li&gt;docker命令
+&lt;ul&gt;
 &lt;li&gt;镜像命令&lt;/li&gt;
 &lt;li&gt;容器命令&lt;/li&gt;
 &lt;li&gt;操作命令&lt;/</summary>
@@ -442,17 +443,20 @@ PKG由一个完全可信的权威机构管理，该机构负责为整个系统�
     <link href="https://arthersun.github.io/2021/11/15/%E6%9C%80%E6%96%B0%E6%83%B3%E7%9C%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E6%96%B0%E6%8A%80%E6%9C%AF/"/>
     <id>https://arthersun.github.io/2021/11/15/%E6%9C%80%E6%96%B0%E6%83%B3%E7%9C%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E6%96%B0%E6%8A%80%E6%9C%AF/</id>
     <published>2021-11-14T17:42:50.000Z</published>
-    <updated>2021-11-18T05:39:26.584Z</updated>
+    <updated>2021-11-18T16:10:51.886Z</updated>
     
-    <content type="html"><![CDATA[<ul><li><input checked disabled type="checkbox"> js关于同步异步的一些知识</li><li><input disabled type="checkbox"> yarn和大数据的知识</li><li><input disabled type="checkbox"> go语法和框架学习</li><li><input disabled type="checkbox"> 内网多人共享gitea的学习</li><li><input disabled type="checkbox"> typescript</li><li><input disabled type="checkbox"> docker: 尝试将区块链后端和代码打包成docker</li><li><input disabled type="checkbox"> mongodb</li><li><input disabled type="checkbox"> 如何内网穿透</li><li><input disabled type="checkbox"> 如何不用springboot，只用node框架实现现有的后端（Modway.js）</li><li><input disabled type="checkbox"> 数据结构和算法的学习</li><li><input disabled type="checkbox"> Redis 和 如何用Lua解释器实现Redis脚本功能</li></ul>]]></content>
+    <content type="html"><![CDATA[<ul><li>[x] js关于同步异步的一些知识</li><li>[ ] yarn和大数据的知识</li><li>[ ] go语法和框架学习</li><li>[ ] 内网多人共享gitea的学习</li><li>[ ] typescript</li><li>[ ] docker: 尝试将区块链后端和代码打包成docker</li><li>[ ] mongodb</li><li>[ ] 如何内网穿透</li><li>[ ] 如何不用springboot，只用node框架实现现有的后端（Modway.js）</li><li>[ ] 数据结构和算法的学习</li><li>[ ] Redis 和 如何用Lua解释器实现Redis脚本功能</li></ul>]]></content>
     
     
       
       
     <summary type="html">&lt;ul&gt;
-&lt;li&gt;&lt;input checked disabled type=&quot;checkbox&quot;&gt; js关于同步异步的一些知识&lt;/li&gt;
-&lt;li&gt;&lt;input disabled type=&quot;checkbox&quot;&gt; yarn和大数据的知识&lt;/li&gt;
-&lt;li&gt;&lt;input disabl</summary>
+&lt;li&gt;[x] js关于同步异步的一些知识&lt;/li&gt;
+&lt;li&gt;[ ] yarn和大数据的知识&lt;/li&gt;
+&lt;li&gt;[ ] go语法和框架学习&lt;/li&gt;
+&lt;li&gt;[ ] 内网多人共享gitea的学习&lt;/li&gt;
+&lt;li&gt;[ ] typescript&lt;/li&gt;
+&lt;li&gt;[ ] </summary>
       
     
     
