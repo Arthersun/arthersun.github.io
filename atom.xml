@@ -6,7 +6,7 @@
   <link href="https://arthersun.github.io/atom.xml" rel="self"/>
   
   <link href="https://arthersun.github.io/"/>
-  <updated>2021-12-01T02:05:30.246Z</updated>
+  <updated>2021-12-03T15:43:56.594Z</updated>
   <id>https://arthersun.github.io/</id>
   
   <author>
@@ -21,123 +21,23 @@
     <link href="https://arthersun.github.io/2021/12/01/k8s%E5%AD%A6%E4%B9%A0/"/>
     <id>https://arthersun.github.io/2021/12/01/k8s%E5%AD%A6%E4%B9%A0/</id>
     <published>2021-12-01T02:05:30.000Z</published>
-    <updated>2021-12-01T02:05:30.246Z</updated>
+    <updated>2021-12-03T15:43:56.594Z</updated>
     
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="https://arthersun.github.io/2021/11/30/2020-Guo/"/>
-    <id>https://arthersun.github.io/2021/11/30/2020-Guo/</id>
-    <published>2021-11-30T02:49:51.037Z</published>
-    <updated>2021-11-30T02:50:38.728Z</updated>
-    
-    <content type="html"><![CDATA[<p>（1）我们设计了一种新的标签结构，它使用原始文件块的一组哈希值和特定的副本标识符来计算多个副本的验证标签。因此，只有这组散列值需要组织到IBMT中，并且IBMT的复杂性与副本的数量无关，这为三个副本节省了近66%的树存储成本。尽管这组哈希值适用于所有副本，但是可以使用特定的副本标识符来保证完整性证明确实来自已检查的副本。</p><p>(2)我们提出了一种平衡的ADS称为IBMT，它可以保证在任何更新情况下的预期do (logn)性能。然后，我们提出了一个批处理叶子验证(BLV)解决方案，可以同时验证多个有问题叶子的值和索引，而不需要重复的传输和计算。当检查三个副本，每个副本使用460个块时，与单独验证多个叶子相比，这减少了近43%的带宽成本。</p><p>(3)利用同态性质将被检查副本的多个证明聚合为一个证明，从而只需要传输和验证聚合证明。与逐个检查多个副本相比，当检查三个副本且每个副本有460个块时，审计师的计算时间提高了近40%</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;（1）我们设计了一种新的标签结构，它使用原始文件块的一组哈希值和特定的副本标识符来计算多个副本的验证标签。因此，只有这组散列值需要组织到IBMT中，并且IBMT的复杂性与副本的数量无关，这为三个副本节省了近66%的树存储成本。尽管这组哈希值适用于所有副本，但是可以使用特定的</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>2020_Huang</title>
-    <link href="https://arthersun.github.io/2021/11/28/2020-Huang/"/>
-    <id>https://arthersun.github.io/2021/11/28/2020-Huang/</id>
-    <published>2021-11-28T07:25:46.000Z</published>
-    <updated>2021-11-28T09:31:38.234Z</updated>
-    
-    <content type="html"><![CDATA[<p>系统架构：<br>PKG由一个完全可信的权威机构管理，该机构负责为整个系统设置公共参数，并为GM生成密钥对。</p><p>假设DO具有有限的通信、计算和存储资源。它根据需要生成并发送审计挑战给CSP，同时<strong>维护ACT来跟踪数据块的变化</strong>。</p><p>作为DOs的成员，GM是由某一组DOs共同指定的。然而，它被认为拥有比普通DOs更多的资源。</p><p>GM负责维护管理DOs的区块链分类帐，并在分类帐更新时将结果返回给他们。</p><p>CSP为DOs提供了重要的存储空间和计算能力。它还负责存储区块链，在收到审计质疑时响应证明。在我们的假设中，CSP可能是不诚实的，不同CSP之间存在商业竞争。</p><p>激励算法：</p><ol><li>区块链的另一个重要部分是激励机制，它可以鼓励共识节点诚实地重复某些任务并获得奖励，从而增强整个系统的分布式信任和结果的可靠性。在假设所有实体都是理性的基础上，我们大致提出了一种可行的激励机制，考虑到经济利益和不当行为：<br>DO（数据拥有者）需要购买信用来支付gm和csp的操作请求<br>在协商一致的过程中的每一次沟通将花费gm和csp的一部分信用。<br>如果CSP（服务提供商）拒绝DO（数据拥有者）的申请，信用评分将大幅下降，而DO除了已经支付的申请费外，还将得到额外的补偿。<br>GM只有在被管理的DO请求通过后才能获得信用奖励，否则GM既不盈利也不亏损。<br>如果当前回合成功达成最终共识，一个代表将会变大但呈线性增长，而其他共识节点将会变小但也呈线性增长。<br>DO可以根据信用评分自由选择任何CSP来存储数据，或选择任何GM来传输消息。如果信用评分低于某个阈值，现有的消费者就会选择另一家CSP或通用汽车。</li></ol>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;系统架构：&lt;br&gt;
-PKG由一个完全可信的权威机构管理，该机构负责为整个系统设置公共参数，并为GM生成密钥对。&lt;/p&gt;
-&lt;p&gt;假设DO具有有限的通信、计算和存储资源。它根据需要生成并发送审计挑战给CSP，同时&lt;strong&gt;维护ACT来跟踪数据块的变化&lt;/strong&gt;。&lt;</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>2019_Xu</title>
-    <link href="https://arthersun.github.io/2021/11/24/2019-Xu/"/>
-    <id>https://arthersun.github.io/2021/11/24/2019-Xu/</id>
-    <published>2021-11-24T12:42:22.000Z</published>
-    <updated>2021-11-24T15:01:56.761Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>使用智能合约来自动进行区块链审计</p></blockquote><p>这个区块链审计模型有三种实体：</p><ol><li>用户</li><li>网络存储服务提供商</li><li>公证节点</li></ol>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>k8s前世今生</p></blockquote><p>Google 10年容器化基础架构<br>特点：<br>轻量级：消耗资源少<br>开源<br>弹性伸缩<br>负载均衡：IPVS</p><p>适合人群：软件工程师 测试工程师 运维工程师 软件架构师 项目经理</p><blockquote><p>知识图谱</p></blockquote><p>介绍说明： 前世今生 Kubernetes框架 kubernetes关键字含义</p><p>基础概念：什么是Pod（最小管理单元）  控制器类型  k8s 网络通讯模式</p><p>kubernetes: 构建k8s集群</p><p>资源清单：资源   掌握资源清单的语法   编写Pod    掌握Pod的生命周期</p><p>Pod控制器：掌握各种控制器的特点以及使用定义方式</p><p>服务发现：掌握SVC原理及其构建方式</p><p>存储：掌握多种存储类型的特点，并且能够在不同环境中选择合适的存储方案</p><p>调度器：掌握调度器原理  能够根据要求把Pod定义到想要的节点运行</p><p>安全：集群的认证  鉴权  访问控制  原理及其流程</p><p>HELM：等于Linux中的Yum管理器   掌握HELM原理   HELM模板自定义   HELM部署一些常用插件</p><p>运维：修改Kubeadm达到证书可用期限为10年   能够构建高可用的Kubernetes集群</p><p>服务分类</p><p>​有状态服务：DBMS</p><p>​无状态服务：LVS  APACHE</p><p>高可用集群副本数据最好是&gt;=3 奇数个</p><blockquote><p>主要组件</p></blockquote><p>APISERVER：所有服务访问统一入口</p><p>ControllerManager：维持副本期望数目</p><p>Scheduler：负责介绍任务，选择合适的节点进行分配任务</p><p>ETCD：键值对数据库，存储k8s集群所有重要信息（持久化）</p><p><img src="/2021/12/01/k8s%E5%AD%A6%E4%B9%A0/C:%5CUsers%5Carthersun%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20211203185317526.png" alt></p><p>Kubelet：直接跟容器引擎交互实现容器的声明周期管理</p><p>Kube-proxy：负责写入规则至IPTABLES 、IPVS实现服务</p><p>COREDNS：可以为集群中的SVC创建一个域名IP的对应关系解析</p><p>DASHBOARD：给k8s集群提供一个B/S结构访问体系</p><p>INGRESS  CONTROLLER：官方只能实现四层代理，INGRESS可以实现七层代理</p><p>FEDETATION：提供一个可以跨集群中心多k8s统一管理功能</p><p>PROMETHEUS：提供k8s集群的监控能力</p><p>ELK：提供k8s集群日志统一分析接入平台</p><blockquote><p>k8s基础功能</p></blockquote><ol><li>Pod概念<ul><li>自主式Pod</li><li>控制器管理的Pod</li></ul></li><li>网络通讯方式</li></ol><p>在同一个Pod里，端口是一样的。既共享网络，又共享存储卷。</p><blockquote><p>ReplicaSet与Deployment</p></blockquote><p>ReplicationController用来确保容器应用的副本数始终保持在用户定义的副本数。即如果有容器异常退出，会自动创建新的Pod来替代；而如果异常多出来的容器也会自动回收。在新版本的Kubernetes中建议使用ReplicaSet来取代ReplicationController</p><p>ReplicaSet，跟ReplicationController没有本质的不同，只是名字不一样，并且ReplicaSet支持集合式的selector</p><p>虽然ReplicaSet可以独立使用，但一般还是建议使用Deployment来自动管理ReplicaSet，这样就无需担心跟其他机制的不兼容问题（比如ReplicaSet不支持rolling-update 但Deployment支持）</p><blockquote><p>HPA: Horizontal Pod Autoscaling</p></blockquote><p>Horizontal Pod Autoscaling仅适用于Deployment和ReplicaSet，在v1版本中仅支持根据Pod的CPU利用率扩容，在v1alpha版本中，支持根据内存和用户自定义的metric扩缩容</p><blockquote><p>StatefullSet</p></blockquote><p>StatefullSet是为了解决有状态服务的问题（对应Deployments和ReplicaSets是为无状态服务而设计），其应用场景包括：</p><p>稳定的持久化存储，即Pod重新调度后还是能访问到相同的持久化数据，基于PVC来实现</p><p>稳定的网络标志，即Pod重新调度后其PodName和HostName不变，基于headless Service(即没有Cluster IP的Service)来实现</p><p>有序部署，有序扩展，即Pod是有顺序的，在部署或者扩展的时候要依据定义的顺序一次进行（即从0到N-1,在下一个Pod运行之前所有之前的Pod必须都是Running和Ready状态），基于init containers来实现</p><p>有序收缩，有序删除（即从N-1到0）</p><blockquote><p>DeamonSet</p></blockquote><p>DeamonSet确保全部（或者一些）Node上运行一个Pod的副本，当有Node加入集群时，也会为他们新增一个Pod。当有Node从集群移除时，这些Pod也会被回收。删除DaemonSet将会删除它创建的所有Pod。</p><p>使用DaemonSet的一些典型用法：</p><ul><li>运行集群存储daemon，例如每个Node上运行glusterd、ceph</li><li>在每个Node上运行日志手机daemon，例如fluentd、logstash</li><li>在每个Node上运行监控daemon，例如Prometheus Node Exporter</li></ul><blockquote><p>Job，Cronjob</p></blockquote><p>Job负责批处理任务，即仅执行一次的任务，它保证批处理任务的一个或多个Pod成功结束</p><p>Cron Job管理基于时间的Job，即</p><ul><li>在给定时间点只运行一次</li><li>周期性地在给定时间点运行</li></ul><p><img src="/2021/12/01/k8s%E5%AD%A6%E4%B9%A0/C:%5CUsers%5Carthersun%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20211203202022302.png" alt="image-20211203202022302"></p><p>多服务之间的交互方式</p><p><img src="/2021/12/01/k8s%E5%AD%A6%E4%B9%A0/C:%5CUsers%5Carthersun%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20211203203526208.png" alt="image-20211203203526208"></p><blockquote><p>网络通讯方式</p></blockquote><p>Kubernetes的网络模型假定了所有Pod都在一个可以直接联通的扁平的网络空间中，这在GCE（Google Compute Engine）里面是现成的网络模型，Kubernetes假定这个网络已经存在。</p><p>而在私有云里搭建Kubernetes集群，就不能假定这个网络已经存在了，我们需要自己实现这个网络假设，将不同节点上的Docker容器之间的互相访问先打通，然后运行Kubernetes</p><p>同一个Pod内的多个容器之间：localhost</p><p>各Pod之间的通讯：Overlay Network</p><p>Pod和Service之间的通讯，各节点的Iptables规则</p><blockquote><p>Overlay Network怎么实现</p></blockquote><p>Flannel是CoreOS团队针对Kubernetes设计的一个网络规划服务，简单来说，它的功能是让集群中的不同节点主机创建的Docker容器都具有全集群唯一的虚拟IP地址。而且它还能在这些IP地址之间建立一个覆盖网络（Overlay Network），通过这个覆盖网络，将数据包原封不动地传递到目标容器内。</p><h4 id="flannel怎么运行"><a class="markdownIt-Anchor" href="#flannel怎么运行"></a> Flannel怎么运行</h4><p><img src="/2021/12/01/k8s%E5%AD%A6%E4%B9%A0/C:%5CUsers%5Carthersun%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20211203204451842.png" alt="image-20211203204451842"></p><h4 id="etcd和flannel的关系"><a class="markdownIt-Anchor" href="#etcd和flannel的关系"></a> ETCD和Flannel的关系</h4><p>ETCD给Flannel提供说明：</p><ul><li>存储管理Flannel可分配的IP地址段资源</li><li>监控ETCD中每个Pod的实际地址，并在内存中建立维护Pod节点路由表</li></ul>]]></content>
     
     
       
       
     <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;使用智能合约来自动进行区块链审计&lt;/p&gt;
+&lt;p&gt;k8s前世今生&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;这个区块链审计模型有三种实体：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;用户&lt;/li&gt;
-&lt;li&gt;网络存储服务提供商&lt;/li&gt;
-&lt;li&gt;公证节点&lt;/li&gt;
-&lt;/ol&gt;
-</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>2020_Xu</title>
-    <link href="https://arthersun.github.io/2021/11/24/2020-Xu/"/>
-    <id>https://arthersun.github.io/2021/11/24/2020-Xu/</id>
-    <published>2021-11-24T12:37:31.000Z</published>
-    <updated>2021-11-24T15:35:56.030Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>摘要</p></blockquote><p>基于双线性对技术的客户端数据重复数据删除方案。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;摘要&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;基于双线性对技术的客户端数据重复数据删除方案。&lt;/p&gt;
-</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>2021_Nourah</title>
-    <link href="https://arthersun.github.io/2021/11/24/2021-Nourah/"/>
-    <id>https://arthersun.github.io/2021/11/24/2021-Nourah/</id>
-    <published>2021-11-24T11:09:28.000Z</published>
-    <updated>2021-11-24T11:09:56.907Z</updated>
-    
-    <content type="html"><![CDATA[<p>这是一篇解决云存储上重复数据删除的文章，</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;这是一篇解决云存储上重复数据删除的文章，&lt;/p&gt;
-</summary>
+&lt;p&gt;Google 10年容器化基础架构&lt;br&gt;
+特点：&lt;br&gt;
+轻量级：消耗资源少&lt;br&gt;
+开源&lt;br&gt;
+弹性伸缩&lt;br&gt;
+负载均衡：IPVS&lt;/p&gt;
+&lt;p&gt;适合人群：软件工程师 测试工程师 运</summary>
       
     
     
@@ -248,94 +148,6 @@ PKG由一个完全可信的权威机构管理，该机构负责为整个系统�
   </entry>
   
   <entry>
-    <title>2021_Yu</title>
-    <link href="https://arthersun.github.io/2021/11/18/2021-Yu/"/>
-    <id>https://arthersun.github.io/2021/11/18/2021-Yu/</id>
-    <published>2021-11-18T02:26:35.000Z</published>
-    <updated>2021-11-25T02:30:15.166Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>摘要</p></blockquote><p>数据备份是云服务提供商(csp)为避免潜在的数据丢失风险而采取的普遍策略。因此，CSP通常在地理位置分布的服务器上为每个数据块维护多个副本，以提高可靠性。这种复制技术的一个关键问题是，存储的副本越多，用户需要支付的费用就越多。因此，需要一个审计服务来帮助用户验证不受信任的CSP是否将其所有副本存储在不同的地理位置。本文提出了一种动态多副本审计方案，该方案具有以下特点:(1)可同时验证云用户数据副本的完整性和地理位置;(2)该方案能够根据地理位置识别不同副本，降低了数据预处理、动态操作和备份恢复的复杂性;(3)通过引入索引默克尔哈希树(IMHT)，我们可以降低现有默克尔哈希树的总体成本。证明了该方案在随机oracle模型下的安全性，并与现有方案进行了全面比较。理论分析和实验评价表明，与现有方案相比，该方案降低了通信和计算成本。分析表明，该方案只需挑战90个数据块，就能实现99%的验证概率</p><blockquote><p>相关工作</p></blockquote><p>多副本云审计部分<br>Curtmola等人[22]首先提出了一种多副本可证明数据占有(MR-PDP)方案来验证云用户数据的多副本的完整性。他们的方案以及许多其他的多副本审计方案[7,23 - 25]采用对称加密方案生成不同的副本，然后为这些副本生成hvt。还有一些现有的方案[26-28]利用同态加密算法生成不同的副本。遗憾的是，所有这些方案都使用加密算法来区分多个副本，这导致在数据预处理、备份恢复和动态更新过程中加密副本的复杂性和效率低下。例如，云用户必须对其数据进行多次加密，才能生成所有加密的副本。同时，一个损坏的加密副本不能直接替换为一个完整的副本，否则将无法区分这些副本。</p><p>地理位置证明部分<br>Gondree和Peterson[31]提出了一个基于约束的数据地理定位方案，该方案利用地标来定位存储服务器。Fu等人[32]提出了[31]的补充方法，通过使用可信平台模块(TPM)来检测CSP伪造的假位置。然而，由于网络时延不稳定，这两种方案都产生了较大的测量误差。例如，Internet内的计时误差可能只有几毫秒，但即使是1毫秒的计时误差也会导致150km的距离误差[29]。</p><p>动态更新部分<br>Liu等人[7]提出了一种动态多副本云审计方案，其结构名为多副本MHT (MR-MHT)，将每个数据块的所有副本组织成一个副本子树。但是，为了防止替换攻击，他们的方案由于采用了映射到点的哈希函数，引入了MR-MHT计算叶子节点的额外开销。此外，由于提出的MHT结构的深度比普通MHT大得多，验证成本大大增加。</p><blockquote><p>多副本审计</p></blockquote><p>CSP通常在地理位置分布的服务器上为每个数据块维护多个副本，以提高可靠性。这种复制技术的一个关键问题是，存储的副本越多，用户需要支付的费用就越多。因此，需要一个审计服务来帮助用户验证不受信任的CSP是否将其所有副本存储在不同的地理位置。<br>总结：引入了地理位置来进行多副本的识别，从而降低了多副本审计数据结带来的消耗。</p><blockquote><blockquote><p>Wang的方案</p></blockquote><p>Wang et al. [18]等人提出了一个基于以太坊(Common区块链)的自动化审计架构，使用智能合约执行审计任务和薪酬相关补偿。Common区块链由于其共识节点规模大、激励机制有效，虽然可以有效地避免共谋攻击，但在大规模审计验证下难以达到可接受的执行效率。尽管Common区块链的效率更高，但仍然存在“无攻击”[19]。</p><p>没有有效的激励机制，就无法很好地抵御共谋攻击。PMAB以Common区块链为基础，通过有效的信用激励机制实现相互监督，加强了对csp审计数据的监督。[18]采用可验证延迟函数(VDF)实现自动审计;即系统自动生成安全随机源，在DOs不参与的情况下生成审计挑战，进一步降低了DOs的成本。然而，随机源的安全性来自于连续的计算功耗，这是不够有效的。因此，由于缺乏定制的审计协议区块链设计，现有的方案仍然遭受过多的开销和勾结攻击。</p><p>然而，上述公共审计方案具有集中的特性，即可信的TPA被授权审计来自数据所有者的外包数据。在实践中，很难找到像TPA这样诚实的组织。因此，去中心化审计协议更加合理</p></blockquote><blockquote><p>每个数据块更新</p></blockquote><p>每个数据块的更新将需要每个副本中相应的块的更新。如果所有副本都在各自独立的ADS中索引，客户机必须逐个验证这些更新以保持可验证性。</p><blockquote><p>双线性映射</p></blockquote><p>比如说矩阵乘法就是一种双线性映射。</p><blockquote><p>IMHT的验证算法</p></blockquote><p>​本质上利用了树形的特点，第一步先计算叶节点的哈希值，第二步利用邻接矩阵计算非叶节点哈希值，最后将新树根的哈希值和原来的比较，将新树根的索引值进行比较。</p><p>​也因此，IMHT的结构被设计成与MHT有一定差异化的样子。</p><blockquote><p>与Liu的MR-MHT进行对比</p></blockquote><ol><li><p>提高了计算效率。</p></li><li><p>由于MR-MHT将所有副本存储在树中，而IMHT只需要存储一个副本的元组，因此大大减少了存储开销。</p></li><li><p>同时降低了通信成本。H(.)的大小吧h(.)大很多。(因为引入地理位置)</p></li></ol><blockquote><p>MR_MHT的结构设计</p></blockquote><p>Liu等人[7]提出了一种动态多副本云审计方案，其结构名为多副本MHT (MR-MHT)，将每个数据块的所有副本组织成一个副本子树。但是，为了防止替换攻击，他们的方案由于采用了映射到点的哈希函数，引入了MR-MHT计算叶子节点的额外开销。此外，由于提出的MHT结构的深度比普通MHT大得多，验证成本大大增加。</p><blockquote><p>系统架构</p></blockquote><p>整个框架包含六个算法，被描述为：</p><ol><li><p>安装<br>由云用户运行，去设置整个系统，包括输出的参数、公钥Y，私钥x</p></li><li><p>标签获取<br>由云用户运行，它的输入为云用户的私钥x和文件F，输出为同态可验证标签集</p></li><li><p>质疑<br>算法由TPA运行，输入为文件Finf的信息，输出为包含质疑数据块chal的索引和系数</p></li><li><p>响应<br>该算法由CSP运行，将响应证明发送给验证者 ，输入为质疑集chal，文件F和同态可验证标签集</p></li><li><p>地理位置获取<br>该算法由验证者运行，将所有的证明传输给TPA，算法以响应证明Ps为输入，以Ps和地理证明Pv为输出</p></li><li><p>验证<br>算法由TPA运行，为了去验证被质疑数据块的完整性，它以响应证明Ps，地理证明Pv，质疑chal，公钥Y，文件信息Finf为输入，如果能通过验证则输出1，如果不能则输出0</p></li></ol><blockquote><p>动态操作的消耗成本比较</p></blockquote><p>n是一个副本的数据块数量，k是副本数量。<br>h代表通用的哈希函数。|h|代表h的输出大小。<br>H代表映射到点的哈希函数，|H|表示H的响应哈希函数</p><p>Storage:MHT树的存储开销<br>Construction:MR-MH，其中knH是节点计算H，（2kn-1）H是树的计算开销<br>AAI per block: AAI代表Ω，表示为了得到根哈希值，某一数据块节点需要的其他节点的哈希值。</p><blockquote><p>沟通开销</p></blockquote><p>上传：因为每个副本的同样可验证加密器不同，所以需要上传k倍（k为副本数）<br>备份恢复：因为每个副本的同样可验证加密器不同，所以需要多一部先解码后编码的过程。<br>动态更新：只需上传一个新的数据块及其HVT，而不必上传所有副本的新数据块和HVT。</p><blockquote><p>环境评估</p></blockquote><p>执行更多昂贵的映射到点哈希函数，并比CSP执行更多的求幂操作</p><blockquote><p>概率验证——为啥验证200个块就可以达到99%的验证率</p></blockquote><blockquote><p>定质疑时间的几个实验</p></blockquote><p>首先测试校内的RTT（往返时延）</p><p>然后测试多个校外的RTT，发现增长没有保持稳定，因此不能用于位置计算</p><p>最后定下来在校内放置验证器，实验定为最大的RTT</p><blockquote><p>同态可验证加密器</p></blockquote><p>HVA可以基于数字签名生成，如基于rsa的签名和基于bls的签名。因此，这种HVAs可以认为是同态可验证签名，利用HVA，公共审计师可以在不下载原始数据的情况下验证外包数据的完整性。</p><blockquote><p>为什么要引入验证器</p></blockquote><p>验证器是一个可信设备和CSP相同服务器的本地网络中，它是一个能够GPS，帮助TPA来向CSP发送质疑，为什么把验证器放在本地网络中是因为本地网络比Internet产生更少的延迟。</p><blockquote><p>基于位置信息的身份副本</p></blockquote><p>该方案采用距离边界协议来识别不同位置的每个唯一副本。该方案中使用的距离边界协议是可信验证者和质疑CSP两参与方之间的认证协议，验证者可以同时检查CSP的身份和地理位置。</p><p>通常情况下，验证者和CSP首先要相互通信，共享ID和秘密信息。然后，验证者需要与CSP进行多次交互。验证者发送挑战，并在每一轮启动时钟，CSP将发送相应的响应回给验证者。验证者将计算每轮往返时间∆tmax，并检查所有往返时间是否在允许的时间范围∆t≤∆tmax。如果所有的响应都是有效的，并且满足时间限制，那么就可以验证地理位置。也就是说，不同的副本可以通过其不同的地理位置来识别。</p><p>~~存疑问题：那么一个验证者是否只给一个CSP发送信息呢？<br>是<br>动态更新中，为什么云用户只用更新一个副本，其他副本是如何同步的。<br><s>只用更新一个副本，其他通信即可</s></p><p>2015_Liu中的Hash函数是如何被解密的？</p><hr><blockquote><p>对于分布式多副本公共审计的思考与探索</p></blockquote><p>这篇论文引入了地理位置，由此带来的树形数据结构的精简带来了时间复杂度的降维打击。</p><p>思考1：当地理位置相同的时候怎么处理，比如我存储在同一台电脑上，导致域名一致，无法区分？</p><p>判断一下。</p><p>If（地理位置相同） MR-MHT（2015_Liu）；</p><p>else IMHT（本文）</p><p>思考2：引入地理位置对硬件要求较高，云服务商也不一定配合，能否不引入地理位置，优化之前的方案？</p><p>提出一种改进的副本树的数据结构。不是我的研究重点。</p><p>思考3：从安全性的角度考量，能否基于区块链存储或者直接用区块链的公证节点替代TPA？</p><p>我觉得可行。审计过程产生的信息保存在链上可以保证不可篡改。TPA在其他多副本论文（2020_Li）中已经被替代了。仔细琢磨琢磨还有改进空间。</p><p>思考4：既然能引入地理位置来“降维打击”，能不能引入一个其他量来继续降维。<br>暂时没有想到。</p><p>思考5：从审计效率的考量，能否提出一种批量审计或批量更新的方法。</p><p>这方面文章看得太少，还无法考虑。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;摘要&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;数据备份是云服务提供商(csp)为避免潜在的数据丢失风险而采取的普遍策略。因此，CSP通常在地理位置分布的服务器上为每个数据块维护多个副本，以提高可靠性。这种复制技术的一个关键问题是，存储的副本越多，</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>2019_Guo</title>
-    <link href="https://arthersun.github.io/2021/11/17/2019-Guo/"/>
-    <id>https://arthersun.github.io/2021/11/17/2019-Guo/</id>
-    <published>2021-11-17T15:04:45.000Z</published>
-    <updated>2021-11-30T02:55:29.024Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/2021/11/17/2019-Guo/2019-Guo%5Cimage-20211117230513756.png" alt="image-20211117230513756"></p><p>(1)客户将其数据外包给CSP;</p><p>(2)客户将审计工作外包给审计师;</p><p>(3)通过依赖比特币[22]的功能，审计员定期审计CSP，检查外包数据是否完整;</p><p>(4)每次审核后，审核员创建一个日志条目，记录他在这一点上的审核工作;</p><p>(5)客户可以随时审核日志文件，以检查审核员过去是否诚实履行其审计工作;</p><p>(6)客户端将更新的哈希值发送给审计师;审核员对RBMT进行更新，并将更新证明发送给CSP进行验证;</p><p>(7)客户端也验证从CSP接收到的更新证明，并将更新后的数据块发送给CSP。</p><blockquote><p>贡献1</p></blockquote><p>提出了一种RBMT的多叶认证(multi-leaf-authenticated, MLA)解决方案，该方案能够在不存储状态值和高度值的情况下对多个叶节点及其索引进行身份验证。在MLA解决方案的基础上，提出了一种可以同时执行和验证多个更新操作的批量更新算法。每次认证/更新的摊销价格从1+log n降低到1+log (n/c)，其中是n是数据块的总数量和c是质疑/更新的数据块的数量。</p><p>(1)提出了RBMT的多叶认证(multi-leaf-authenticated, MLA)解决方案，该方案能够在不存储状态值和高度值的情况下对多个叶节点及其索引进行认证。在MLA解决方案的基础上，提出了一种可以同时执行和验证多个更新操作的批量更新算法。每次认证/更新的摊销价格从1+登录降低到1+log (n/c)，其中是数据块的总数量和挑战/更新的数据块的数量。</p><p>(2)提出了一种基于BLS签名的高效同态可验证标签(EHVT)来满足[15]的要求，该标签可以减少客户端从mo (kl)1toO(1)到log验证的次数。我们进一步提出了一种日志审计机制，通过这种机制，客户可以检查产生的日志文件由审计师以较低的频率来验证其过去是否诚实地执行了审计工作。</p><p>（3）我们描述了一个具体的ODPDP方案，该方案在改进的威胁模型中是安全的(参见第2.2节)，并且可以通过将频繁的审计工作迁移到外部审计员来减轻客户端的验证开销。我们实现了ODPDP方案的原型，实验证明了该方案的高性能。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/2021/11/17/2019-Guo/2019-Guo%5Cimage-20211117230513756.png&quot; alt=&quot;image-20211117230513756&quot;&gt;&lt;/p&gt;
-&lt;p&gt;(1)客户将其数据外包给CSP;&lt;/p&gt;
-&lt;p&gt;(2)客</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>2015_Ayad</title>
-    <link href="https://arthersun.github.io/2021/11/17/2015-Ayad/"/>
-    <id>https://arthersun.github.io/2021/11/17/2015-Ayad/</id>
-    <published>2021-11-17T13:48:01.000Z</published>
-    <updated>2021-11-17T13:48:26.023Z</updated>
-    
-    <content type="html"><![CDATA[<p>外包数据的核心设计原则之一是为各种应用程序提供数据的动态行为。这意味着远程存储的数据不仅可以由授权用户访问，而且还可以由数据所有者更新和缩放(通过块级操作)。[1] -[9]中提出的PDP方案只关注静态存储的数据，其中外包数据在远程服务器上保持不变。处理动态数据的PDP结构的例子是[10]-[14]。后者是数据文件的单个副本。尽管PDP方案已经给出了静态数据的多个副本，参见[15]-[17]，据我们所知，这是第一个直接处理动态数据的多个副本的PDP方案。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;外包数据的核心设计原则之一是为各种应用程序提供数据的动态行为。这意味着远程存储的数据不仅可以由授权用户访问，而且还可以由数据所有者更新和缩放(通过块级操作)。[1] -[9]中提出的PDP方案只关注静态存储的数据，其中外包数据在远程服务器上保持不变。处理动态数据的PDP结构</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>2016_张玉清</title>
-    <link href="https://arthersun.github.io/2021/11/17/2016-%E5%BC%A0%E7%8E%89%E6%B8%85/"/>
-    <id>https://arthersun.github.io/2021/11/17/2016-%E5%BC%A0%E7%8E%89%E6%B8%85/</id>
-    <published>2021-11-17T13:27:36.000Z</published>
-    <updated>2021-11-17T13:48:08.024Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>在这里摘录了一段数据所有权证明的定义和意义感觉很不错</p></blockquote><p>数据所有权的证明(provable  data  possession,简称PDP)[75]同样可以公开验证云端数据的完整性.由于验证过程中服务器的数据量和通信量较小,因此PDP模型适用于大规模分布式存储系统.当数据以多副本的方式存储于CSP时,用户需要对副本的个数与一致性进行额外的判断.为此,Barsoum等人[76]提出了相应的解决方案MB-PMDDP ,同时能够抵御服务器合谋并支持动态的数据更新.类似地,基于身份的分布式数据完整性检测模型ID-DPDP[77]针对数据存储于不同云服务器的情况,实现了私有验证、委托验证和公开验证.</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;在这里摘录了一段数据所有权证明的定义和意义感觉很不错&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;数据所有权的证明(provable  data  possession,简称PDP)[75]同样可以公开验证云端数据的完整性.由于验证过程中服务器的数据</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>论文的摘录</title>
     <link href="https://arthersun.github.io/2021/11/17/%E8%AE%BA%E6%96%87%E7%9A%84%E6%91%98%E5%BD%95/"/>
     <id>https://arthersun.github.io/2021/11/17/%E8%AE%BA%E6%96%87%E7%9A%84%E6%91%98%E5%BD%95/</id>
@@ -352,29 +164,6 @@ PKG由一个完全可信的权威机构管理，该机构负责为整个系统�
 &lt;/blockquote&gt;
 &lt;p&gt;Ateniese等[36]首次提出了一种可扩展、高效的PDP，支持除数据插入外的所有动态数据操作。&lt;/p&gt;
 &lt;p&gt;Erway等[37]首次提出了一种支持所有动态数据操作的完全动态可证明数据持有(DPD</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>2011_Zhu</title>
-    <link href="https://arthersun.github.io/2021/11/17/2011-Zhu/"/>
-    <id>https://arthersun.github.io/2021/11/17/2011-Zhu/</id>
-    <published>2021-11-16T16:00:00.000Z</published>
-    <updated>2021-11-18T01:57:09.716Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>关于动态审计中的IHT的作用。</p></blockquote><p><img src="/2021/11/17/2011-Zhu/2011-Zhu%5Cimage-20211118000021010.png" alt="image-20211118000021010"></p><ol><li>标签生成阶段。客户端(DO)使用一个秘密密钥对一个文件进行预处理，该文件由n个块的集合组成，生成一组公共验证参数(PVPs)和IHT，存储在TPA中，将文件和一些验证标记（File+Flags）传输给CSP，并可以删除其本地副本(见图2a);</li><li>定期抽样审计。通过使用可检索的交互式证明协议，TPA(或其他应用程序)发出一个“随机抽样”挑战，以审核存储在TPA中的验证信息(涉及PVP和IHT)的外包数据的完整性和可用性(见图2b);和</li><li>审计动态操作。一个AA，谁持有一个DO的秘密钥匙sk，可以操纵外包数据并更新存储在TPA中的相关IHT。sk的私密性和检查算法保证了存储服务器不能欺骗AA，伪造有效的审计记录</li></ol><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">总结：这张表帮我看清楚了动态审计过程中的IHT表的位置，IHT表是一张维护在TPA中的，由序列号、区块号、版本号和随机整数组成。除了记录数据的变化，每个记录Xi表被用来生成一个唯一的哈希值，这反过来是用来构造一个在秘密的钥匙sk旁边的签名标签σi。</span><br></pre></td></tr></table></figure><blockquote><p>IHT与HDFS的结合</p></blockquote><p><img src="/2021/11/17/2011-Zhu/2011-Zhu%5Cimage-20211118004818449.png" alt="image-20211118004818449"></p><p>基于这些hash值，客户端或TPA可以通过审计服务实现验证协议。在现有的HDFS中，我们的异常检测方案可以很容易地替换普通的校验和算法，而无需下载数据。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;关于动态审计中的IHT的作用。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;/2021/11/17/2011-Zhu/2011-Zhu%5Cimage-20211118000021010.png&quot; alt=&quot;image-20211</summary>
       
     
     
@@ -439,6 +228,26 @@ PKG由一个完全可信的权威机构管理，该机构负责为整个系统�
   </entry>
   
   <entry>
+    <title>k8s文档</title>
+    <link href="https://arthersun.github.io/2021/11/15/k8s%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/"/>
+    <id>https://arthersun.github.io/2021/11/15/k8s%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/</id>
+    <published>2021-11-15T09:24:05.000Z</published>
+    <updated>2021-12-03T15:44:22.870Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/2021/11/15/k8s%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/C:%5CUsers%5Carthersun%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20211203192806425.png" alt="image-20211203192806425"></p><p><strong>传统部署时代：</strong></p><p>早期，各个组织机构在物理服务器上运行应用程序。无法为物理服务器中的应用程序定义资源边界，这会导致资源分配问题。 例如，如果在物理服务器上运行多个应用程序，则可能会出现一个应用程序占用大部分资源的情况， 结果可能导致其他应用程序的性能下降。 一种解决方案是在不同的物理服务器上运行每个应用程序，但是由于资源利用不足而无法扩展， 并且维护许多物理服务器的成本很高。</p><p><strong>虚拟化部署时代：</strong></p><p>作为解决方案，引入了虚拟化。虚拟化技术允许你在单个物理服务器的 CPU 上运行多个虚拟机（VM）。 虚拟化允许应用程序在 VM 之间隔离，并提供一定程度的安全，因为一个应用程序的信息 不能被另一应用程序随意访问。</p><p>虚拟化技术能够更好地利用物理服务器上的资源，并且因为可轻松地添加或更新应用程序 而可以实现更好的可伸缩性，降低硬件成本等等。</p><p>每个 VM 是一台完整的计算机，在虚拟化硬件之上运行所有组件，包括其自己的操作系统。</p><p><strong>容器部署时代：</strong></p><p>容器类似于 VM，但是它们具有被放宽的隔离属性，可以在应用程序之间共享操作系统（OS）。 因此，容器被认为是轻量级的。容器与 VM 类似，具有自己的文件系统、CPU、内存、进程空间等。 由于它们与基础架构分离，因此可以跨云和 OS 发行版本进行移植。</p><p>容器因具有许多优势而变得流行起来。下面列出的是容器的一些好处：</p><ul><li>敏捷应用程序的创建和部署：与使用 VM 镜像相比，提高了容器镜像创建的简便性和效率。</li><li>持续开发、集成和部署：通过快速简单的回滚（由于镜像不可变性），支持可靠且频繁的 容器镜像构建和部署。</li><li>关注开发与运维的分离：在构建/发布时而不是在部署时创建应用程序容器镜像， 从而将应用程序与基础架构分离。</li><li>可观察性：不仅可以显示操作系统级别的信息和指标，还可以显示应用程序的运行状况和其他指标信号。</li><li>跨开发、测试和生产的环境一致性：在便携式计算机上与在云中相同地运行。</li><li>跨云和操作系统发行版本的可移植性：可在 Ubuntu、RHEL、CoreOS、本地、 Google Kubernetes Engine 和其他任何地方运行。</li><li>以应用程序为中心的管理：提高抽象级别，从在虚拟硬件上运行 OS 到使用逻辑资源在 OS 上运行应用程序。</li><li>松散耦合、分布式、弹性、解放的微服务：应用程序被分解成较小的独立部分， 并且可以动态部署和管理 - 而不是在一台大型单机上整体运行。</li><li>资源隔离：可预测的应用程序性能。</li><li>资源利用：高效率和高密度。</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/2021/11/15/k8s%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/C:%5CUsers%5Carthersun%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>最新想看的一些新技术</title>
     <link href="https://arthersun.github.io/2021/11/15/%E6%9C%80%E6%96%B0%E6%83%B3%E7%9C%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E6%96%B0%E6%8A%80%E6%9C%AF/"/>
     <id>https://arthersun.github.io/2021/11/15/%E6%9C%80%E6%96%B0%E6%83%B3%E7%9C%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E6%96%B0%E6%8A%80%E6%9C%AF/</id>
@@ -484,6 +293,30 @@ PKG由一个完全可信的权威机构管理，该机构负责为整个系统�
 &lt;p&gt;善用github的分支功能&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>关于npm和git源和设置代理的一些问题</title>
+    <link href="https://arthersun.github.io/2021/11/14/%E5%85%B3%E4%BA%8Enpm%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/"/>
+    <id>https://arthersun.github.io/2021/11/14/%E5%85%B3%E4%BA%8Enpm%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/</id>
+    <published>2021-11-14T06:35:45.000Z</published>
+    <updated>2021-11-15T11:48:15.236Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>问题描述</p></blockquote><p>在进行<code>npm install</code>时，我电脑上挂了科学上网，导致需要切换代理。而国内的淘宝源也没有办法提速，甚至会导致卡顿，这致使我一直被折磨。</p><blockquote><p>git的情况</p></blockquote><p>这个情况曾经出现在git上，因为当时我的socks5代理为:127.0.0.1:10808，http代理为127.0.0.1:10809</p><p>我进行git设置</p><table><thead><tr><th>git设置代理</th></tr></thead><tbody><tr><td>git config --global http.proxy <a href="http://127.0.0.1:10808">http://127.0.0.1:10808</a></td></tr><tr><td>git config --global https.proxy <a href="http://127.0.0.1:10808">http://127.0.0.1:10808</a></td></tr></tbody></table><p>导致无法顺利访问git，错误代码443.</p><ul><li>解决方案：我将http代理改为了10809就可以了。</li></ul><blockquote><p>npm的情况</p></blockquote><p>npm更换淘宝源，没有用</p><p><code>npm config set registry https://registry.npm.taobao.org</code></p><p>需要更换代理，和git一样</p><p><code>npm config set proxy http://127.0.0.1:10809</code></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;问题描述&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在进行&lt;code&gt;npm install&lt;/code&gt;时，我电脑上挂了科学上网，导致需要切换代理。而国内的淘宝源也没有办法提速，甚至会导致卡顿，这致使我一直被折磨。&lt;/p&gt;
+&lt;blockquote</summary>
       
     
     
