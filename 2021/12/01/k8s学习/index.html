@@ -27,10 +27,10 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://arthersun.github.io/2021/12/01/k8s%E5%AD%A6%E4%B9%A0/image-20211203185317526.png">
 <meta property="og:image" content="https://arthersun.github.io/2021/12/01/k8s%E5%AD%A6%E4%B9%A0/image-20211203202022302.png">
-<meta property="og:image" content="https://arthersun.github.io/2021/12/01/k8s%E5%AD%A6%E4%B9%A0/C:%5CUsers%5Carthersun%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20211203203526208.png">
-<meta property="og:image" content="https://arthersun.github.io/2021/12/01/k8s%E5%AD%A6%E4%B9%A0/C:%5CUsers%5Carthersun%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20211203204451842.png">
+<meta property="og:image" content="https://arthersun.github.io/2021/12/01/k8s%E5%AD%A6%E4%B9%A0/image-20211203203526208.png">
+<meta property="og:image" content="https://arthersun.github.io/2021/12/01/k8s%E5%AD%A6%E4%B9%A0/image-20211203204451842.png">
 <meta property="article:published_time" content="2021-12-01T02:05:30.000Z">
-<meta property="article:modified_time" content="2021-12-04T07:28:04.019Z">
+<meta property="article:modified_time" content="2021-12-04T07:33:53.660Z">
 <meta property="article:author" content="arthersun">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://arthersun.github.io/2021/12/01/k8s%E5%AD%A6%E4%B9%A0/image-20211203185317526.png">
@@ -231,7 +231,7 @@
   <div class="widget">
     <h3 class="widget-title">Archive</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">十二月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">十一月 2021</a><span class="archive-list-count">11</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">十二月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">十一月 2021</a><span class="archive-list-count">11</span></li></ul>
     </div>
   </div>
 
@@ -243,6 +243,21 @@
     <div class="widget-body">
       <ul class="recent-post-list list-unstyled no-thumbnail">
         
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2021/12/04/draft/Java%E9%A1%B9%E7%9B%AE%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E/" class="title">page</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-12-04T07:40:00.000Z" itemprop="datePublished">2021-12-04</time>
+              </p>
+            </div>
+          </li>
+          
           <li>
             
             <div class="item-inner">
@@ -299,21 +314,6 @@
               </p>
               <p class="item-date">
                 <time datetime="2021-11-19T13:40:08.000Z" itemprop="datePublished">2021-11-19</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                
-              </p>
-              <p class="item-title">
-                <a href="/2021/11/18/%E5%BC%80%E9%A2%98%E8%A6%81%E7%82%B9/" class="title">开题要点</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2021-11-18T02:49:42.000Z" itemprop="datePublished">2021-11-18</time>
               </p>
             </div>
           </li>
@@ -471,7 +471,7 @@
 </ul>
 <p><img src="/2021/12/01/k8s%E5%AD%A6%E4%B9%A0/image-20211203202022302.png" alt="image-20211203202022302"></p>
 <p>多服务之间的交互方式</p>
-<p><img src="/2021/12/01/k8s%E5%AD%A6%E4%B9%A0/C:%5CUsers%5Carthersun%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20211203203526208.png" alt="image-20211203203526208"></p>
+<p><img src="/2021/12/01/k8s%E5%AD%A6%E4%B9%A0/image-20211203203526208.png" alt="image-20211203203526208"></p>
 <blockquote>
 <p>网络通讯方式</p>
 </blockquote>
@@ -485,7 +485,7 @@
 </blockquote>
 <p>Flannel是CoreOS团队针对Kubernetes设计的一个网络规划服务，简单来说，它的功能是让集群中的不同节点主机创建的Docker容器都具有全集群唯一的虚拟IP地址。而且它还能在这些IP地址之间建立一个覆盖网络（Overlay Network），通过这个覆盖网络，将数据包原封不动地传递到目标容器内。</p>
 <h4 id="flannel怎么运行"><a class="markdownIt-Anchor" href="#flannel怎么运行"></a> Flannel怎么运行</h4>
-<p><img src="/2021/12/01/k8s%E5%AD%A6%E4%B9%A0/C:%5CUsers%5Carthersun%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20211203204451842.png" alt="image-20211203204451842"></p>
+<p><img src="/2021/12/01/k8s%E5%AD%A6%E4%B9%A0/image-20211203204451842.png" alt="image-20211203204451842"></p>
 <h4 id="etcd和flannel的关系"><a class="markdownIt-Anchor" href="#etcd和flannel的关系"></a> ETCD和Flannel的关系</h4>
 <p>ETCD给Flannel提供说明：</p>
 <ul>
@@ -546,6 +546,10 @@
   <div class="bar-inner">
   
   <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2021/12/04/draft/Java%E9%A1%B9%E7%9B%AE%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E/" title="page"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+    </li>
     
     
     <li class="next">
