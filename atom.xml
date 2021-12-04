@@ -6,7 +6,7 @@
   <link href="https://arthersun.github.io/atom.xml" rel="self"/>
   
   <link href="https://arthersun.github.io/"/>
-  <updated>2021-12-04T07:40:00.952Z</updated>
+  <updated>2021-12-04T08:03:51.776Z</updated>
   <id>https://arthersun.github.io/</id>
   
   <author>
@@ -21,11 +21,15 @@
     <link href="https://arthersun.github.io/2021/12/04/draft/Java%E9%A1%B9%E7%9B%AE%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E/"/>
     <id>https://arthersun.github.io/2021/12/04/draft/Java%E9%A1%B9%E7%9B%AE%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E/</id>
     <published>2021-12-04T07:40:00.000Z</published>
-    <updated>2021-12-04T07:40:00.952Z</updated>
+    <updated>2021-12-04T08:03:51.776Z</updated>
     
     
     
     
+    
+    <category term="后端" scheme="https://arthersun.github.io/tags/%E5%90%8E%E7%AB%AF/"/>
+    
+    <category term="开发" scheme="https://arthersun.github.io/tags/%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
@@ -34,7 +38,7 @@
     <link href="https://arthersun.github.io/2021/12/01/k8s%E5%AD%A6%E4%B9%A0/"/>
     <id>https://arthersun.github.io/2021/12/01/k8s%E5%AD%A6%E4%B9%A0/</id>
     <published>2021-12-01T02:05:30.000Z</published>
-    <updated>2021-12-04T07:33:53.660Z</updated>
+    <updated>2021-12-04T08:03:21.798Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>k8s前世今生</p></blockquote><p>Google 10年容器化基础架构<br>特点：<br>轻量级：消耗资源少<br>开源<br>弹性伸缩<br>负载均衡：IPVS</p><p>适合人群：软件工程师 测试工程师 运维工程师 软件架构师 项目经理</p><blockquote><p>知识图谱</p></blockquote><p>介绍说明： 前世今生 Kubernetes框架 kubernetes关键字含义</p><p>基础概念：什么是Pod（最小管理单元）  控制器类型  k8s 网络通讯模式</p><p>kubernetes: 构建k8s集群</p><p>资源清单：资源   掌握资源清单的语法   编写Pod    掌握Pod的生命周期</p><p>Pod控制器：掌握各种控制器的特点以及使用定义方式</p><p>服务发现：掌握SVC原理及其构建方式</p><p>存储：掌握多种存储类型的特点，并且能够在不同环境中选择合适的存储方案</p><p>调度器：掌握调度器原理  能够根据要求把Pod定义到想要的节点运行</p><p>安全：集群的认证  鉴权  访问控制  原理及其流程</p><p>HELM：等于Linux中的Yum管理器   掌握HELM原理   HELM模板自定义   HELM部署一些常用插件</p><p>运维：修改Kubeadm达到证书可用期限为10年   能够构建高可用的Kubernetes集群</p><p>服务分类</p><p>​有状态服务：DBMS</p><p>​无状态服务：LVS  APACHE</p><p>高可用集群副本数据最好是&gt;=3 奇数个</p><blockquote><p>主要组件</p></blockquote><p>APISERVER：所有服务访问统一入口</p><p>ControllerManager：维持副本期望数目</p><p>Scheduler：负责介绍任务，选择合适的节点进行分配任务</p><p>ETCD：键值对数据库，存储k8s集群所有重要信息（持久化）</p><p><img src="/2021/12/01/k8s%E5%AD%A6%E4%B9%A0/image-20211203185317526.png" alt></p><p>Kubelet：直接跟容器引擎交互实现容器的声明周期管理</p><p>Kube-proxy：负责写入规则至IPTABLES 、IPVS实现服务</p><p>COREDNS：可以为集群中的SVC创建一个域名IP的对应关系解析</p><p>DASHBOARD：给k8s集群提供一个B/S结构访问体系</p><p>INGRESS  CONTROLLER：官方只能实现四层代理，INGRESS可以实现七层代理</p><p>FEDETATION：提供一个可以跨集群中心多k8s统一管理功能</p><p>PROMETHEUS：提供k8s集群的监控能力</p><p>ELK：提供k8s集群日志统一分析接入平台</p><blockquote><p>k8s基础功能</p></blockquote><ol><li>Pod概念<ul><li>自主式Pod</li><li>控制器管理的Pod</li></ul></li><li>网络通讯方式</li></ol><p>在同一个Pod里，端口是一样的。既共享网络，又共享存储卷。</p><blockquote><p>ReplicaSet与Deployment</p></blockquote><p>ReplicationController用来确保容器应用的副本数始终保持在用户定义的副本数。即如果有容器异常退出，会自动创建新的Pod来替代；而如果异常多出来的容器也会自动回收。在新版本的Kubernetes中建议使用ReplicaSet来取代ReplicationController</p><p>ReplicaSet，跟ReplicationController没有本质的不同，只是名字不一样，并且ReplicaSet支持集合式的selector</p><p>虽然ReplicaSet可以独立使用，但一般还是建议使用Deployment来自动管理ReplicaSet，这样就无需担心跟其他机制的不兼容问题（比如ReplicaSet不支持rolling-update 但Deployment支持）</p><blockquote><p>HPA: Horizontal Pod Autoscaling</p></blockquote><p>Horizontal Pod Autoscaling仅适用于Deployment和ReplicaSet，在v1版本中仅支持根据Pod的CPU利用率扩容，在v1alpha版本中，支持根据内存和用户自定义的metric扩缩容</p><blockquote><p>StatefullSet</p></blockquote><p>StatefullSet是为了解决有状态服务的问题（对应Deployments和ReplicaSets是为无状态服务而设计），其应用场景包括：</p><p>稳定的持久化存储，即Pod重新调度后还是能访问到相同的持久化数据，基于PVC来实现</p><p>稳定的网络标志，即Pod重新调度后其PodName和HostName不变，基于headless Service(即没有Cluster IP的Service)来实现</p><p>有序部署，有序扩展，即Pod是有顺序的，在部署或者扩展的时候要依据定义的顺序一次进行（即从0到N-1,在下一个Pod运行之前所有之前的Pod必须都是Running和Ready状态），基于init containers来实现</p><p>有序收缩，有序删除（即从N-1到0）</p><blockquote><p>DeamonSet</p></blockquote><p>DeamonSet确保全部（或者一些）Node上运行一个Pod的副本，当有Node加入集群时，也会为他们新增一个Pod。当有Node从集群移除时，这些Pod也会被回收。删除DaemonSet将会删除它创建的所有Pod。</p><p>使用DaemonSet的一些典型用法：</p><ul><li>运行集群存储daemon，例如每个Node上运行glusterd、ceph</li><li>在每个Node上运行日志手机daemon，例如fluentd、logstash</li><li>在每个Node上运行监控daemon，例如Prometheus Node Exporter</li></ul><blockquote><p>Job，Cronjob</p></blockquote><p>Job负责批处理任务，即仅执行一次的任务，它保证批处理任务的一个或多个Pod成功结束</p><p>Cron Job管理基于时间的Job，即</p><ul><li>在给定时间点只运行一次</li><li>周期性地在给定时间点运行</li></ul><p><img src="/2021/12/01/k8s%E5%AD%A6%E4%B9%A0/image-20211203202022302.png" alt="image-20211203202022302"></p><p>多服务之间的交互方式</p><p><img src="/2021/12/01/k8s%E5%AD%A6%E4%B9%A0/image-20211203203526208.png" alt="image-20211203203526208"></p><blockquote><p>网络通讯方式</p></blockquote><p>Kubernetes的网络模型假定了所有Pod都在一个可以直接联通的扁平的网络空间中，这在GCE（Google Compute Engine）里面是现成的网络模型，Kubernetes假定这个网络已经存在。</p><p>而在私有云里搭建Kubernetes集群，就不能假定这个网络已经存在了，我们需要自己实现这个网络假设，将不同节点上的Docker容器之间的互相访问先打通，然后运行Kubernetes</p><p>同一个Pod内的多个容器之间：localhost</p><p>各Pod之间的通讯：Overlay Network</p><p>Pod和Service之间的通讯，各节点的Iptables规则</p><blockquote><p>Overlay Network怎么实现</p></blockquote><p>Flannel是CoreOS团队针对Kubernetes设计的一个网络规划服务，简单来说，它的功能是让集群中的不同节点主机创建的Docker容器都具有全集群唯一的虚拟IP地址。而且它还能在这些IP地址之间建立一个覆盖网络（Overlay Network），通过这个覆盖网络，将数据包原封不动地传递到目标容器内。</p><h4 id="flannel怎么运行"><a class="markdownIt-Anchor" href="#flannel怎么运行"></a> Flannel怎么运行</h4><p><img src="/2021/12/01/k8s%E5%AD%A6%E4%B9%A0/image-20211203204451842.png" alt="image-20211203204451842"></p><h4 id="etcd和flannel的关系"><a class="markdownIt-Anchor" href="#etcd和flannel的关系"></a> ETCD和Flannel的关系</h4><p>ETCD给Flannel提供说明：</p><ul><li>存储管理Flannel可分配的IP地址段资源</li><li>监控ETCD中每个Pod的实际地址，并在内存中建立维护Pod节点路由表</li></ul>]]></content>
     
@@ -56,6 +60,8 @@
     
     
     
+    <category term="分布式" scheme="https://arthersun.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
+    
   </entry>
   
   <entry>
@@ -63,9 +69,9 @@
     <link href="https://arthersun.github.io/2021/11/22/%E9%BB%98%E5%85%8B%E5%B0%94%E6%A0%91/"/>
     <id>https://arthersun.github.io/2021/11/22/%E9%BB%98%E5%85%8B%E5%B0%94%E6%A0%91/</id>
     <published>2021-11-22T14:24:43.000Z</published>
-    <updated>2021-12-04T07:52:25.744Z</updated>
+    <updated>2021-12-04T07:58:11.530Z</updated>
     
-    <content type="html"><![CDATA[<h1>Merkle 树结构</h1><p><a href="https://en.wikipedia.org/wiki/Merkle_tree">默克尔树</a>（又叫哈希树）是一种典型的二叉树结构，由一个根节点、一组中间节点和一组叶节点组成。默克尔树最早由 Merkle Ralf 在 1980 年提出，曾广泛用于文件系统和 P2P 系统中。</p><p>其主要特点为：</p><ul><li>最下面的叶节点包含存储数据或其哈希值。</li><li>非叶子节点（包括中间节点和根节点）都是它的两个孩子节点内容的哈希值。</li></ul><p>进一步地，默克尔树可以推广到多叉树的情形，此时非叶子节点的内容为它所有的孩子节点的内容的哈希值。</p><p>默克尔树逐层记录哈希值的特点，让它具有了一些独特的性质。例如，底层数据的任何变动，都会传递到其父节点，一层层沿着路径一直到树根。这意味树根的值实际上代表了对底层所有数据的“数字摘要”。</p><p>目前，默克尔树的典型应用场景包括如下几种。</p><h2 id="证明某个集合中存在或不存在某个元素"><a class="markdownIt-Anchor" href="#证明某个集合中存在或不存在某个元素"></a> 证明某个集合中存在或不存在某个元素</h2><p>通过构建集合的默克尔树，并提供该元素各级兄弟节点中的 Hash 值，可以不暴露集合完整内容而证明某元素存在。</p><p>另外，对于可以进行排序的集合，可以将不存在元素的位置用空值代替，以此构建稀疏默克尔树（Sparse Merkle Tree）。该结构可以证明某个集合中不包括指定元素。</p><h2 id="快速比较大量数据"><a class="markdownIt-Anchor" href="#快速比较大量数据"></a> 快速比较大量数据</h2><p>对每组数据排序后构建默克尔树结构。当两个默克尔树根相同时，则意味着所代表的两组数据必然相同。否则，必然不同。</p><p>由于 Hash 计算的过程可以十分快速，预处理可以在短时间内完成。利用默克尔树结构能带来巨大的比较性能优势。</p><h2 id="快速定位修改"><a class="markdownIt-Anchor" href="#快速定位修改"></a> 快速定位修改</h2><p>以下图为例，基于数据 D0……D3 构造默克尔树，如果 D1 中数据被修改，会影响到 N1，N4 和 Root。</p><p><img src="/2021/11/22/%E9%BB%98%E5%85%8B%E5%B0%94%E6%A0%91/assets%2F-M5xTVjj6plOWgHcmTHq%2Fsync%2F01dd48b2fe29d3d5ba879d8eddfe6db037b13596.png" alt="img"></p><p>Merkle 树示例</p><p>因此，一旦发现某个节点如 Root 的数值发生变化，沿着 Root --&gt; N4 --&gt; N1，最多通过 O(lgN) 时间即可快速定位到实际发生改变的数据块 D1。</p><h2 id="零知识证明"><a class="markdownIt-Anchor" href="#零知识证明"></a> 零知识证明</h2><p>仍以上图为例，如何向他人证明拥有某个数据 D0 而不暴露其它信息。挑战者提供随机数据 D1，D2 和 D3，或由证明人生成（需要加入特定信息避免被人复用证明过程）。</p><p>证明人构造如图所示的默克尔树，公布 N1，N5，Root。验证者自行计算 Root 值，验证是否跟提供值一致，即可很容易检测 D0 存在。整个过程中验证者无法获知与 D0 相关的额外信息。</p>]]></content>
+    <content type="html"><![CDATA[<h1>Merkle 树结构</h1><p><a href="https://en.wikipedia.org/wiki/Merkle_tree">默克尔树</a>（又叫哈希树）是一种典型的二叉树结构，由一个根节点、一组中间节点和一组叶节点组成。默克尔树最早由 Merkle Ralf 在 1980 年提出，曾广泛用于文件系统和 P2P 系统中。</p><p>其主要特点为：</p><ul><li>最下面的叶节点包含存储数据或其哈希值。</li><li>非叶子节点（包括中间节点和根节点）都是它的两个孩子节点内容的哈希值。</li></ul><p>进一步地，默克尔树可以推广到多叉树的情形，此时非叶子节点的内容为它所有的孩子节点的内容的哈希值。</p><p>默克尔树逐层记录哈希值的特点，让它具有了一些独特的性质。例如，底层数据的任何变动，都会传递到其父节点，一层层沿着路径一直到树根。这意味树根的值实际上代表了对底层所有数据的“数字摘要”。</p><p>目前，默克尔树的典型应用场景包括如下几种。</p><h2 id="证明某个集合中存在或不存在某个元素"><a class="markdownIt-Anchor" href="#证明某个集合中存在或不存在某个元素"></a> 证明某个集合中存在或不存在某个元素</h2><p>通过构建集合的默克尔树，并提供该元素各级兄弟节点中的 Hash 值，可以不暴露集合完整内容而证明某元素存在。</p><p>另外，对于可以进行排序的集合，可以将不存在元素的位置用空值代替，以此构建稀疏默克尔树（Sparse Merkle Tree）。该结构可以证明某个集合中不包括指定元素。</p><h2 id="快速比较大量数据"><a class="markdownIt-Anchor" href="#快速比较大量数据"></a> 快速比较大量数据</h2><p>对每组数据排序后构建默克尔树结构。当两个默克尔树根相同时，则意味着所代表的两组数据必然相同。否则，必然不同。</p><p>由于 Hash 计算的过程可以十分快速，预处理可以在短时间内完成。利用默克尔树结构能带来巨大的比较性能优势。</p><h2 id="快速定位修改"><a class="markdownIt-Anchor" href="#快速定位修改"></a> 快速定位修改</h2><p>以下图为例，基于数据 D0……D3 构造默克尔树，如果 D1 中数据被修改，会影响到 N1，N4 和 Root。</p><p><img src="/2021/11/22/%E9%BB%98%E5%85%8B%E5%B0%94%E6%A0%91/1.png" alt="img"></p><p>Merkle 树示例</p><p>因此，一旦发现某个节点如 Root 的数值发生变化，沿着 Root --&gt; N4 --&gt; N1，最多通过 O(lgN) 时间即可快速定位到实际发生改变的数据块 D1。</p><h2 id="零知识证明"><a class="markdownIt-Anchor" href="#零知识证明"></a> 零知识证明</h2><p>仍以上图为例，如何向他人证明拥有某个数据 D0 而不暴露其它信息。挑战者提供随机数据 D1，D2 和 D3，或由证明人生成（需要加入特定信息避免被人复用证明过程）。</p><p>证明人构造如图所示的默克尔树，公布 N1，N5，Root。验证者自行计算 Root 值，验证是否跟提供值一致，即可很容易检测 D0 存在。整个过程中验证者无法获知与 D0 相关的额外信息。</p>]]></content>
     
     
       
@@ -88,7 +94,7 @@
     <link href="https://arthersun.github.io/2021/11/20/%E9%A1%B9%E7%9B%AE%E7%BB%84log/"/>
     <id>https://arthersun.github.io/2021/11/20/%E9%A1%B9%E7%9B%AE%E7%BB%84log/</id>
     <published>2021-11-20T02:27:34.000Z</published>
-    <updated>2021-11-20T12:35:38.179Z</updated>
+    <updated>2021-12-04T08:02:02.341Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>时间与实习时间</p></blockquote><p>4月份中期，整个项目3个月内干完</p><blockquote><p>参与的集成任务</p></blockquote><p>2月20号在corda上集成多对多拍卖<br>1月10号在corda上集成条件隐私保护<br>12月11日之前给出基本的激励智能合约机制的实现，到1月15日之前设计一个高级版的区块链的激励机制</p>]]></content>
     
@@ -109,6 +115,8 @@
     
     
     
+    <category term="项目" scheme="https://arthersun.github.io/tags/%E9%A1%B9%E7%9B%AE/"/>
+    
   </entry>
   
   <entry>
@@ -116,7 +124,7 @@
     <link href="https://arthersun.github.io/2021/11/19/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
     <id>https://arthersun.github.io/2021/11/19/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</id>
     <published>2021-11-19T13:40:08.000Z</published>
-    <updated>2021-11-19T14:09:33.194Z</updated>
+    <updated>2021-12-04T08:03:37.925Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>linux怎么查询端口号</p></blockquote><p>lsof -i:xxx (xxx是网络号)</p><blockquote><p>linux怎么杀死以PID为名的进程</p></blockquote><p>kill -9 PID</p><blockquote><p>linux怎么输出全局变量名</p></blockquote><p>echo $PATH</p>]]></content>
     
@@ -136,6 +144,8 @@
     
     
     
+    <category term="linux" scheme="https://arthersun.github.io/tags/linux/"/>
+    
   </entry>
   
   <entry>
@@ -143,7 +153,7 @@
     <link href="https://arthersun.github.io/2021/11/18/%E5%BC%80%E9%A2%98%E8%A6%81%E7%82%B9/"/>
     <id>https://arthersun.github.io/2021/11/18/%E5%BC%80%E9%A2%98%E8%A6%81%E7%82%B9/</id>
     <published>2021-11-18T02:49:42.000Z</published>
-    <updated>2021-11-27T15:57:05.433Z</updated>
+    <updated>2021-12-04T08:01:21.102Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>开题报告</p></blockquote><p>题目：落实到方法，</p><p>解决问题 --&gt; 说人家的方法有问题<br>用人家的方法-&gt;说人家的方法好-&gt;可以为本文在xx场景下提供选择。</p><blockquote><p>问题</p></blockquote><p>干的事和问题不是同一个东西</p><p>设计算法的难点在哪</p><blockquote><p>3.1研究方法</p></blockquote><p>理论研究<br>实验<br>数据</p><blockquote><p>3.2技术路线</p></blockquote><p>针对本文的三个研究内容，分别阐述技术路线，具体如下。</p><blockquote><p>3.3可行性分析</p></blockquote><p>1.研究经验可借鉴<br>2.数据条件具备<br>3.实验环境具备<br>4.理论研究能力具备<br>5.实验能力具备<br>6.技术路线可行</p><blockquote><p>PPT</p></blockquote><p>参考文献不用写全名，写是哪个期刊上就行</p><p>研究现状能说清楚就不要贴图<br>从别人的论文中找现状的证据贴在PPT中</p><p>做case分析</p><p>根据产出主要实现哪两个难点，PPT有图放图，文档不用画。</p>]]></content>
     
@@ -162,6 +172,8 @@
     
     
     
+    <category term="论文" scheme="https://arthersun.github.io/tags/%E8%AE%BA%E6%96%87/"/>
+    
   </entry>
   
   <entry>
@@ -169,7 +181,7 @@
     <link href="https://arthersun.github.io/2021/11/17/%E8%AE%BA%E6%96%87%E7%9A%84%E6%91%98%E5%BD%95/"/>
     <id>https://arthersun.github.io/2021/11/17/%E8%AE%BA%E6%96%87%E7%9A%84%E6%91%98%E5%BD%95/</id>
     <published>2021-11-17T04:01:32.000Z</published>
-    <updated>2021-11-17T13:27:42.748Z</updated>
+    <updated>2021-12-04T08:01:25.704Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>历史</p></blockquote><p>Ateniese等[36]首次提出了一种可扩展、高效的PDP，支持除数据插入外的所有动态数据操作。</p><p>Erway等[37]首次提出了一种支持所有动态数据操作的完全动态可证明数据持有(DPDP)方案。</p><p>他们的方案采用基于秩的认证跳跃表来管理数据块的动态信息。</p><p>然而，他们的方案不能支持公开审计。</p><p>Wang等[38]提出了一种全动态审计方案，通过引入MHT来存储数据块的动态信息。他们利用Boneh-Lynn-Shacham  (BLS)短签名代替RSA签名构造同态可验证标签(HVTs)，以减少通信开销。</p><p>Mukundan等人[39]提出了一种动态的多副本云审计方案，通过去除hvt中的索引信息。但是[38]和[39]都不验证数据块的索引，这意味着云存储服务器可以在任何位置使用数据块通过验证。</p><p>Zhu等人[8]提出了一个与索引哈希表相关的动态审计方案。他们将BLS签名与数据片段技术相结合，以减少存储开销。</p><p>Barsoum和Hasan[25]通过引入映射版本表(MVT)提出了一种基于映射的多副本数据持有方案。MVT由序号、块号和块版本三列数据组成，用来记录每个数据块的逻辑位置和物理位置的映射关系。该方案只需要存储一个文件副本的动态信息，消除了辅助认证信息(AAI)，减少了存储和通信开销。但是，MVT必须存储在TPA中。与CSP相比，TPA并不是一个存储密集型实体。因此，为无数云用户存储mvt将消耗TPA的大量存储资源。而且方案不安全，可能会出现[8]和[40]提出的HVT伪造问题。</p><p>Zhang等[24]提出了一种动态复制数据审计方案，采用改进的MHT  (mMHT)来验证数据块及其指标的完整性。Liu等人[7]提出了一种动态多副本云审计方案，其结构为多副本MHT  (MR-MHT)，将每个数据块的所有副本组织成一个副本子树。但是，为了防止替换攻击，他们的方案由于采用了map-to-point  hash函数，引入了额外的计算MR-MHT叶节点的成本。此外，由于提出的MHT结构的深度比普通MHT大得多，验证成本大大增加。</p>]]></content>
     
@@ -186,6 +198,8 @@
     
     
     
+    <category term="论文" scheme="https://arthersun.github.io/tags/%E8%AE%BA%E6%96%87/"/>
+    
   </entry>
   
   <entry>
@@ -193,7 +207,7 @@
     <link href="https://arthersun.github.io/2021/11/15/nvs%E4%B8%8Enode%E7%89%88%E6%9C%AC%E7%9A%84%E9%97%AE%E9%A2%98%E5%AE%9E%E5%BD%95/"/>
     <id>https://arthersun.github.io/2021/11/15/nvs%E4%B8%8Enode%E7%89%88%E6%9C%AC%E7%9A%84%E9%97%AE%E9%A2%98%E5%AE%9E%E5%BD%95/</id>
     <published>2021-11-15T11:00:13.000Z</published>
-    <updated>2021-11-15T12:04:20.108Z</updated>
+    <updated>2021-12-04T08:03:44.328Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>今天使用nvs时候遇到了node版本的问题</p></blockquote><p>原因大概是有些node包（node-sass）不支持高版本的node包，这个可以到node包的官网去查看。</p><ul><li>解决方法</li></ul><p>使用nvs安装其他node版本</p><p>指令集</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nvs add 14</span><br><span class="line">nvs use 14</span><br><span class="line">nvs list</span><br></pre></td></tr></table></figure><blockquote><p>此外，也遇到java版本的问题</p></blockquote><p>java版本</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UnsupportedClassVersionError: run/halo/app/<span class="function">Application has been compiled by a more recent version of the Java <span class="title">Runtime</span> <span class="params">(class file version <span class="number">55.0</span>)</span>, <span class="keyword">this</span> version of the Java Runtime only recognizes class file versions up to 52.0</span></span><br></pre></td></tr></table></figure><p>查询原因为使用了java11进行编译，但是运行时使用的是java8</p><ul><li>45 = Java 1.1</li><li>46 = Java 1.2</li><li>47 = Java 1.3</li><li>48 = Java 1.4</li><li>49 = Java 5</li><li>50 = Java 6</li><li>51 = Java 7</li><li>52 = Java 8</li><li>53 = Java 9</li><li>54 = Java 10</li><li>55 = Java 11</li><li>56 = Java 12</li><li>57 = Java 13</li></ul><p>解决方案：下载java11，然后修改系统环境变量</p>]]></content>
     
@@ -212,6 +226,8 @@
     
     
     
+    <category term="前端" scheme="https://arthersun.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
   </entry>
   
   <entry>
@@ -219,7 +235,7 @@
     <link href="https://arthersun.github.io/2021/11/15/docker%E5%AD%A6%E4%B9%A0/"/>
     <id>https://arthersun.github.io/2021/11/15/docker%E5%AD%A6%E4%B9%A0/</id>
     <published>2021-11-15T09:24:05.000Z</published>
-    <updated>2021-11-15T10:05:11.089Z</updated>
+    <updated>2021-12-04T08:02:13.557Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>docker学习</p></blockquote><ul><li>docker概述</li><li>docker安装</li><li>docker命令<ul><li>镜像命令</li><li>容器命令</li><li>操作命令</li><li>…</li></ul></li><li>docker镜像</li><li>容器数据卷</li><li>dockerFile</li><li>docker网络原理</li><li>IDEA 整合docker</li><li>docker compose</li><li>docker swarm</li><li>CI\CD Jenkins</li></ul><p>知道的越多，不知道的越多！</p><blockquote></blockquote>]]></content>
     
@@ -242,6 +258,8 @@
     
     
     
+    <category term="后端" scheme="https://arthersun.github.io/tags/%E5%90%8E%E7%AB%AF/"/>
+    
   </entry>
   
   <entry>
@@ -249,7 +267,7 @@
     <link href="https://arthersun.github.io/2021/11/15/k8s%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/"/>
     <id>https://arthersun.github.io/2021/11/15/k8s%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/</id>
     <published>2021-11-15T09:24:05.000Z</published>
-    <updated>2021-12-04T07:34:02.068Z</updated>
+    <updated>2021-12-04T08:02:26.272Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/2021/11/15/k8s%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/image-20211203192806425.png" alt="image-20211203192806425"></p><p><strong>传统部署时代：</strong></p><p>早期，各个组织机构在物理服务器上运行应用程序。无法为物理服务器中的应用程序定义资源边界，这会导致资源分配问题。 例如，如果在物理服务器上运行多个应用程序，则可能会出现一个应用程序占用大部分资源的情况， 结果可能导致其他应用程序的性能下降。 一种解决方案是在不同的物理服务器上运行每个应用程序，但是由于资源利用不足而无法扩展， 并且维护许多物理服务器的成本很高。</p><p><strong>虚拟化部署时代：</strong></p><p>作为解决方案，引入了虚拟化。虚拟化技术允许你在单个物理服务器的 CPU 上运行多个虚拟机（VM）。 虚拟化允许应用程序在 VM 之间隔离，并提供一定程度的安全，因为一个应用程序的信息 不能被另一应用程序随意访问。</p><p>虚拟化技术能够更好地利用物理服务器上的资源，并且因为可轻松地添加或更新应用程序 而可以实现更好的可伸缩性，降低硬件成本等等。</p><p>每个 VM 是一台完整的计算机，在虚拟化硬件之上运行所有组件，包括其自己的操作系统。</p><p><strong>容器部署时代：</strong></p><p>容器类似于 VM，但是它们具有被放宽的隔离属性，可以在应用程序之间共享操作系统（OS）。 因此，容器被认为是轻量级的。容器与 VM 类似，具有自己的文件系统、CPU、内存、进程空间等。 由于它们与基础架构分离，因此可以跨云和 OS 发行版本进行移植。</p><p>容器因具有许多优势而变得流行起来。下面列出的是容器的一些好处：</p><ul><li>敏捷应用程序的创建和部署：与使用 VM 镜像相比，提高了容器镜像创建的简便性和效率。</li><li>持续开发、集成和部署：通过快速简单的回滚（由于镜像不可变性），支持可靠且频繁的 容器镜像构建和部署。</li><li>关注开发与运维的分离：在构建/发布时而不是在部署时创建应用程序容器镜像， 从而将应用程序与基础架构分离。</li><li>可观察性：不仅可以显示操作系统级别的信息和指标，还可以显示应用程序的运行状况和其他指标信号。</li><li>跨开发、测试和生产的环境一致性：在便携式计算机上与在云中相同地运行。</li><li>跨云和操作系统发行版本的可移植性：可在 Ubuntu、RHEL、CoreOS、本地、 Google Kubernetes Engine 和其他任何地方运行。</li><li>以应用程序为中心的管理：提高抽象级别，从在虚拟硬件上运行 OS 到使用逻辑资源在 OS 上运行应用程序。</li><li>松散耦合、分布式、弹性、解放的微服务：应用程序被分解成较小的独立部分， 并且可以动态部署和管理 - 而不是在一台大型单机上整体运行。</li><li>资源隔离：可预测的应用程序性能。</li><li>资源利用：高效率和高密度。</li></ul>]]></content>
     
@@ -263,6 +281,10 @@
     
     
     
+    <category term="后端" scheme="https://arthersun.github.io/tags/%E5%90%8E%E7%AB%AF/"/>
+    
+    <category term="分布式" scheme="https://arthersun.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
+    
   </entry>
   
   <entry>
@@ -270,7 +292,7 @@
     <link href="https://arthersun.github.io/2021/11/15/%E6%9C%80%E6%96%B0%E6%83%B3%E7%9C%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E6%96%B0%E6%8A%80%E6%9C%AF/"/>
     <id>https://arthersun.github.io/2021/11/15/%E6%9C%80%E6%96%B0%E6%83%B3%E7%9C%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E6%96%B0%E6%8A%80%E6%9C%AF/</id>
     <published>2021-11-14T17:42:50.000Z</published>
-    <updated>2021-11-18T16:10:51.886Z</updated>
+    <updated>2021-12-04T08:01:58.568Z</updated>
     
     <content type="html"><![CDATA[<ul><li>[x] js关于同步异步的一些知识</li><li>[ ] yarn和大数据的知识</li><li>[ ] go语法和框架学习</li><li>[ ] 内网多人共享gitea的学习</li><li>[ ] typescript</li><li>[ ] docker: 尝试将区块链后端和代码打包成docker</li><li>[ ] mongodb</li><li>[ ] 如何内网穿透</li><li>[ ] 如何不用springboot，只用node框架实现现有的后端（Modway.js）</li><li>[ ] 数据结构和算法的学习</li><li>[ ] Redis 和 如何用Lua解释器实现Redis脚本功能</li></ul>]]></content>
     
@@ -289,6 +311,8 @@
     
     
     
+    <category term="开发" scheme="https://arthersun.github.io/tags/%E5%BC%80%E5%8F%91/"/>
+    
   </entry>
   
   <entry>
@@ -296,7 +320,7 @@
     <link href="https://arthersun.github.io/2021/11/14/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8git%E8%BF%9B%E8%A1%8C%E5%A4%9A%E4%BA%BA%E5%8D%8F%E4%BD%9C/"/>
     <id>https://arthersun.github.io/2021/11/14/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8git%E8%BF%9B%E8%A1%8C%E5%A4%9A%E4%BA%BA%E5%8D%8F%E4%BD%9C/</id>
     <published>2021-11-14T07:02:32.000Z</published>
-    <updated>2021-11-20T13:26:17.381Z</updated>
+    <updated>2021-12-04T08:01:33.350Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>起子</p></blockquote><p>github可以建立免费快速的私有云，在github上进行项目工程的团队合作是非常高效的</p><blockquote><p>善用github的分支功能</p></blockquote><p>github的分支功能初识时十分鸡肋，但是用多了之后设计的非常成功。</p><p>对于多人合作，我们需要共有一个主分支(master or dev)</p><p>我们在主分支上进行代码合并，并作为最终版本展示。</p><p>而其他分支作为每个人个人临时的代码池，用于最后的代码合并，合并完进行删除。</p><blockquote><p>流程</p></blockquote><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">1. 新的开发需求下达</span><br><span class="line">2. 对主分支进行pull（设这里的主分支为dev）</span><br><span class="line">3. 切换到自己的分支`git checkout -b sun`(-b是新建分支的意思)</span><br><span class="line">4. `git rebase dev`</span><br><span class="line">5. 进行开发工作</span><br><span class="line">6. `git add .`</span><br><span class="line">7. `git commit &quot;update:xxx功能&quot;`</span><br><span class="line">8. `git push`（远程push）`git push origin master`</span><br><span class="line">使用--force可以强制覆盖远程仓库</span><br><span class="line">9. 审核员进行审核，审核完成后进行合并</span><br><span class="line">10. 然后删除该分支</span><br><span class="line">11. 删除本地分支：`git branch -D sun`</span><br><span class="line">12. 删除远程分支：`git push origin --delete sun `</span><br><span class="line"></span><br><span class="line">finished</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -316,6 +340,8 @@
     
     
     
+    <category term="开发" scheme="https://arthersun.github.io/tags/%E5%BC%80%E5%8F%91/"/>
+    
   </entry>
   
   <entry>
@@ -323,7 +349,7 @@
     <link href="https://arthersun.github.io/2021/11/14/%E5%85%B3%E4%BA%8Enpm%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/"/>
     <id>https://arthersun.github.io/2021/11/14/%E5%85%B3%E4%BA%8Enpm%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/</id>
     <published>2021-11-14T06:35:45.000Z</published>
-    <updated>2021-11-15T11:48:15.236Z</updated>
+    <updated>2021-12-04T08:01:14.898Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>问题描述</p></blockquote><p>在进行<code>npm install</code>时，我电脑上挂了科学上网，导致需要切换代理。而国内的淘宝源也没有办法提速，甚至会导致卡顿，这致使我一直被折磨。</p><blockquote><p>git的情况</p></blockquote><p>这个情况曾经出现在git上，因为当时我的socks5代理为:127.0.0.1:10808，http代理为127.0.0.1:10809</p><p>我进行git设置</p><table><thead><tr><th>git设置代理</th></tr></thead><tbody><tr><td>git config --global http.proxy <a href="http://127.0.0.1:10808">http://127.0.0.1:10808</a></td></tr><tr><td>git config --global https.proxy <a href="http://127.0.0.1:10808">http://127.0.0.1:10808</a></td></tr></tbody></table><p>导致无法顺利访问git，错误代码443.</p><ul><li>解决方案：我将http代理改为了10809就可以了。</li></ul><blockquote><p>npm的情况</p></blockquote><p>npm更换淘宝源，没有用</p><p><code>npm config set registry https://registry.npm.taobao.org</code></p><p>需要更换代理，和git一样</p><p><code>npm config set proxy http://127.0.0.1:10809</code></p>]]></content>
     
@@ -339,6 +365,10 @@
     
     
     
+    
+    <category term="前端" scheme="https://arthersun.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="开发" scheme="https://arthersun.github.io/tags/%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
