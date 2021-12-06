@@ -6,7 +6,7 @@
   <link href="https://arthersun.github.io/atom.xml" rel="self"/>
   
   <link href="https://arthersun.github.io/"/>
-  <updated>2021-12-04T08:03:51.776Z</updated>
+  <updated>2021-12-06T02:46:18.537Z</updated>
   <id>https://arthersun.github.io/</id>
   
   <author>
@@ -15,6 +15,60 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>IPFS解读</title>
+    <link href="https://arthersun.github.io/2021/12/06/IPFS%E8%A7%A3%E8%AF%BB/"/>
+    <id>https://arthersun.github.io/2021/12/06/IPFS%E8%A7%A3%E8%AF%BB/</id>
+    <published>2021-12-06T02:08:09.000Z</published>
+    <updated>2021-12-06T02:46:18.537Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="ipfs解读"><a class="markdownIt-Anchor" href="#ipfs解读"></a> IPFS解读</h3><p>组件：</p><p>BitTorrent</p><p>Kademila DHT</p><p>SFS</p><p>Merkel DAG</p><p>Git</p><p><a href="https://gguoss.github.io/2017/05/28/ipfs/">IPFS白皮书</a></p><p>IPFS能够将网站、应用、文件和各种数据建立在点对点分布式网络上，并建立高效的索引。</p><p>基于位置寻址(Location)</p><p>基于内容寻址(Content )</p><p>Distributed Hash Tables(DHTs)</p><table><thead><tr><th>Key(CID)</th><th>Value(PeerID)</th></tr></thead><tbody><tr><td></td><td></td></tr></tbody></table><p>BitSwap</p><table><thead><tr><th>IPFS Object</th><th></th></tr></thead><tbody><tr><td>Data</td><td>“Hello World”</td></tr><tr><td>Links</td><td>[ ]</td></tr></tbody></table><p>IPFS使用Git的Commit进行版本更新</p><p><img src="/2021/12/06/IPFS%E8%A7%A3%E8%AF%BB/image-20211206103403917.png" alt="image-20211206103403917"></p><p>增加激励机制，主动分发文件</p><p>FileCoin</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;ipfs解读&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#ipfs解读&quot;&gt;&lt;/a&gt; IPFS解读&lt;/h3&gt;
+&lt;p&gt;组件：&lt;/p&gt;
+&lt;p&gt;BitTorrent&lt;/p&gt;
+&lt;p&gt;Kademila DHT&lt;/p&gt;
+&lt;p&gt;SFS&lt;/p&gt;
+&lt;p&gt;</summary>
+      
+    
+    
+    
+    
+    <category term="分布式" scheme="https://arthersun.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>当区块链遇上分布式系统</title>
+    <link href="https://arthersun.github.io/2021/12/05/%E5%BD%93%E5%8C%BA%E5%9D%97%E9%93%BE%E9%81%87%E4%B8%8A%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/"/>
+    <id>https://arthersun.github.io/2021/12/05/%E5%BD%93%E5%8C%BA%E5%9D%97%E9%93%BE%E9%81%87%E4%B8%8A%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/</id>
+    <published>2021-12-05T03:52:54.000Z</published>
+    <updated>2021-12-06T03:43:45.683Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="2020-huang-当区块链遇上分布式系统"><a class="markdownIt-Anchor" href="#2020-huang-当区块链遇上分布式系统"></a> 2020-Huang-当区块链遇上分布式系统</h2><h4 id="几种分布式区块链系统"><a class="markdownIt-Anchor" href="#几种分布式区块链系统"></a> 几种分布式区块链系统</h4><p>DFS-distributed file systems-分布式文件系统</p><p>P2P distributed file systems-点对点分布式网络</p><blockquote><p>文件系统共享带宽，存储和计算资源，都存在不稳定，缺少审计，缺少激励算法的问题</p></blockquote><p>Inter-Planetary File System（IPFS）星际文件系统</p><blockquote><p>关于IPFS，IPFS是一种旨在创建持久且分布式存储和共享文件的网络传输协议</p><p>在IPFS网络中的节点将构成一个分布式文件系统</p><p>关于IPFS写了另一篇介绍<a href="IPFS%E8%A7%A3%E8%AF%BB.md">IPFS</a></p></blockquote><p>IPFS和Swarm整合了区块链系统，提出了有效的激励和安全保证，但是其可扩展性和隐私性也限制了新一代DFS的发展。</p><h4 id="集中式主网的分布式激励机制"><a class="markdownIt-Anchor" href="#集中式主网的分布式激励机制"></a> 集中式主网的分布式激励机制</h4><p>BitTorrent可以共享带宽，存储和计算资源，天然缺少激励机制</p><p>现在的bt系统一般通过分享率、上传量、H&amp;R积分等来设计激励机制，例如</p><p><img src="/2021/12/05/%E5%BD%93%E5%8C%BA%E5%9D%97%E9%93%BE%E9%81%87%E4%B8%8A%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/image-20211206112206290.png" alt="image-20211206112206290"></p><p><img src="/2021/12/05/%E5%BD%93%E5%8C%BA%E5%9D%97%E9%93%BE%E9%81%87%E4%B8%8A%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/image-20211206112646628.png" alt="image-20211206112646628"></p><p>上述指标达到一定时，就可以升级然后获得更多权限。</p><p><img src="/2021/12/05/%E5%BD%93%E5%8C%BA%E5%9D%97%E9%93%BE%E9%81%87%E4%B8%8A%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/image-20211206112748204.png" alt="image-20211206112748204"></p><p>这种激励机制有效，因为主网站中心化，也便于国家监管，但是正是因为中心化，所以容易被查封，一旦主网站被调查停止服务，用户将无法查找下载种子文件、上传文件；而且用户需要在网站上留存用户信息，并没有做到隐私保护。</p><h4 id="基于区块链的分布式激励机制设计"><a class="markdownIt-Anchor" href="#基于区块链的分布式激励机制设计"></a> 基于区块链的分布式激励机制设计</h4><p>区块链为什么适合被设计激励机制？</p><p>区块链系统会设计一种虚拟货币，这种虚拟货币</p><table><thead><tr><th>IPFS</th><th>Swarm</th><th>Storj</th></tr></thead><tbody><tr><td>FileCoin</td><td>以太坊</td><td>Metadisk</td></tr></tbody></table>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;2020-huang-当区块链遇上分布式系统&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#2020-huang-当区块链遇上分布式系统&quot;&gt;&lt;/a&gt; 2020-Huang-当区块链遇上分布式系统&lt;/h2&gt;
+&lt;h4 id=&quot;几种分布式区块</summary>
+      
+    
+    
+    
+    
+    <category term="论文" scheme="https://arthersun.github.io/tags/%E8%AE%BA%E6%96%87/"/>
+    
+    <category term="分布式" scheme="https://arthersun.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
+    
+    <category term="区块链" scheme="https://arthersun.github.io/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/"/>
+    
+  </entry>
   
   <entry>
     <title>page</title>
