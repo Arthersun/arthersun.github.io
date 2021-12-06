@@ -17,20 +17,26 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>arthersunBlog</title>
-  <meta name="description" content="两个主题   如何设计一种合并和拆分的数据结构 如何设计一种服务，①设计一个激励机制，②设计一个服务   进行一个拆分   研究一个进行批量动态审计的数据结构 研究一个激励机制 如何做一个支持批量动态审计的服务，基于链来做 现实生活中不一定都是有审计的，针对审计造假,所以需要设计一种互审计服务 面向非职业节点的激励机制  三篇论文：  2019_Guo 主要看批量更新 2021_Yang主要看激">
-<meta property="og:type" content="website">
-<meta property="og:title" content="漫漫白衣路，少年追光时">
-<meta property="og:url" content="https://arthersun.github.io/draft/%E5%BC%80%E9%A2%98%E7%9A%84%E9%97%AE%E9%A2%98%E5%92%8C%E5%86%85%E5%AE%B9.html">
+  <title>滑动窗口题总结 | arthersunBlog</title>
+  <meta name="description" content="滑动窗口算法 这个算法技巧的思路非常简单，就是维护一个窗口，然后不断的滑动，然后更新答案。 大概的思路模板 12345678910111213int left &#x3D; 0, right &#x3D; 0;while (right &lt; s.size()) &amp;#123;    &#x2F;&#x2F; 增大窗口    window.add(s[right]);    right++;        while (window">
+<meta property="og:type" content="article">
+<meta property="og:title" content="滑动窗口题总结">
+<meta property="og:url" content="https://arthersun.github.io/2021/12/06/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E9%A2%98%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="漫漫白衣路，少年追光时">
-<meta property="og:description" content="两个主题   如何设计一种合并和拆分的数据结构 如何设计一种服务，①设计一个激励机制，②设计一个服务   进行一个拆分   研究一个进行批量动态审计的数据结构 研究一个激励机制 如何做一个支持批量动态审计的服务，基于链来做 现实生活中不一定都是有审计的，针对审计造假,所以需要设计一种互审计服务 面向非职业节点的激励机制  三篇论文：  2019_Guo 主要看批量更新 2021_Yang主要看激">
+<meta property="og:description" content="滑动窗口算法 这个算法技巧的思路非常简单，就是维护一个窗口，然后不断的滑动，然后更新答案。 大概的思路模板 12345678910111213int left &#x3D; 0, right &#x3D; 0;while (right &lt; s.size()) &amp;#123;    &#x2F;&#x2F; 增大窗口    window.add(s[right]);    right++;        while (window">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-12-01T15:29:16.751Z">
-<meta property="article:modified_time" content="2021-12-01T15:29:16.751Z">
+<meta property="og:image" content="https://arthersun.github.io/2021/12/06/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E9%A2%98%E6%80%BB%E7%BB%93/image-20211206211954222.png">
+<meta property="og:image" content="https://arthersun.github.io/2021/12/06/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E9%A2%98%E6%80%BB%E7%BB%93/image-20211206212312429.png">
+<meta property="og:image" content="https://arthersun.github.io/2021/12/06/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E9%A2%98%E6%80%BB%E7%BB%93/image-20211206212349932.png">
+<meta property="og:image" content="https://arthersun.github.io/2021/12/06/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E9%A2%98%E6%80%BB%E7%BB%93/image-20211206212433460.png">
+<meta property="article:published_time" content="2021-12-06T12:21:28.000Z">
+<meta property="article:modified_time" content="2021-12-06T15:59:37.532Z">
 <meta property="article:author" content="arthersun">
+<meta property="article:tag" content="刷题">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://arthersun.github.io/2021/12/06/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E9%A2%98%E6%80%BB%E7%BB%93/image-20211206211954222.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://arthersun.github.io/draft/%E5%BC%80%E9%A2%98%E7%9A%84%E9%97%AE%E9%A2%98%E5%92%8C%E5%86%85%E5%AE%B9.html">
+  <link rel="canonical" href="https://arthersun.github.io/2021/12/06/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E9%A2%98%E6%80%BB%E7%BB%93/index.html">
   
     <link rel="alternate" href="/atom.xml" title="漫漫白衣路，少年追光时" type="application/atom+xml">
   
@@ -328,19 +334,32 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="page-" class="article article-type-page" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-滑动窗口题总结" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      滑动窗口题总结
+    </h1>
+  
+
       
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/draft/%E5%BC%80%E9%A2%98%E7%9A%84%E9%97%AE%E9%A2%98%E5%92%8C%E5%86%85%E5%AE%B9.html" class="article-date">
-	  <time datetime="2021-12-01T15:29:16.751Z" itemprop="datePublished">2021-12-01</time>
+	<a href="/2021/12/06/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E9%A2%98%E6%80%BB%E7%BB%93/" class="article-date">
+	  <time datetime="2021-12-06T12:21:28.000Z" itemprop="datePublished">2021-12-06</time>
 	</a>
 </span>
         
         
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/%E5%88%B7%E9%A2%98/" rel="tag">刷题</a>
+  </span>
+
 
         
 	<span class="article-read hidden-xs">
@@ -351,55 +370,64 @@
 	</span>
 
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/draft/%E5%BC%80%E9%A2%98%E7%9A%84%E9%97%AE%E9%A2%98%E5%92%8C%E5%86%85%E5%AE%B9.html#comments" class="article-comment-link">Comments</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/12/06/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E9%A2%98%E6%80%BB%E7%BB%93/#comments" class="article-comment-link">Comments</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 282(words)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 579(words)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 1(minutes)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 2(minutes)</span>
 	
 
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <blockquote>
-<p>两个主题</p>
-</blockquote>
+        <h3 id="滑动窗口算法"><a class="markdownIt-Anchor" href="#滑动窗口算法"></a> 滑动窗口算法</h3>
+<p>这个算法技巧的思路非常简单，就是维护一个窗口，然后不断的滑动，然后更新答案。</p>
+<p>大概的思路模板</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (right &lt; s.size()) &#123;</span><br><span class="line">    <span class="comment">// 增大窗口</span></span><br><span class="line">    window.add(s[right]);</span><br><span class="line">    right++;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (window needs shrink) &#123;</span><br><span class="line">        <span class="comment">// 缩小窗口</span></span><br><span class="line">        window.remove(s[left]);</span><br><span class="line">        left++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>算法的时间复杂度为O(N)，比字符串暴力算法高效很多。</p>
+<p>通用的滑动窗口算法框架</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">slidingWindow</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">string</span> t)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="keyword">int</span>&gt; need, window;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">char</span> c : t) need[c]++;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> valid = <span class="number">0</span>; </span><br><span class="line">    <span class="keyword">while</span> (right &lt; s.size()) &#123;</span><br><span class="line">        <span class="comment">// c 是将移入窗口的字符</span></span><br><span class="line">        <span class="keyword">char</span> c = s[right];</span><br><span class="line">        <span class="comment">// 右移窗口</span></span><br><span class="line">        right++;</span><br><span class="line">        <span class="comment">// 进行窗口内数据的一系列更新</span></span><br><span class="line">        ...</span><br><span class="line"></span><br><span class="line">        <span class="comment">/*** debug 输出的位置 ***/</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;window: [%d, %d)\n&quot;</span>, left, right);</span><br><span class="line">        <span class="comment">/********************/</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 判断左侧窗口是否要收缩</span></span><br><span class="line">        <span class="keyword">while</span> (window needs shrink) &#123;</span><br><span class="line">            <span class="comment">// d 是将移出窗口的字符</span></span><br><span class="line">            <span class="keyword">char</span> d = s[left];</span><br><span class="line">            <span class="comment">// 左移窗口</span></span><br><span class="line">            left++;</span><br><span class="line">            <span class="comment">// 进行窗口内数据的一系列更新</span></span><br><span class="line">            ...</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="滑动窗口的思路"><a class="markdownIt-Anchor" href="#滑动窗口的思路"></a> 滑动窗口的思路</h4>
 <ol>
-<li>如何设计一种合并和拆分的数据结构</li>
-<li>如何设计一种服务，①设计一个激励机制，②设计一个服务</li>
+<li>
+<p>我们在字符串S中使用双指针中的左右指针技巧，初始化left = right = 0，把索引<strong>左闭右开</strong>区间[left , right)称为一个窗口。</p>
+</li>
+<li>
+<p>我们先不断地增加right指针扩大窗口[left , right)，直到窗口中的字符串符合要求（包含了T中的所有字符）</p>
+</li>
+<li>
+<p>此时，我们停止增加right，转而不断增加left指针缩小窗口[left , right)，直到窗口中的字符串不再符合要求。同时，每次增加left，我们都要更新一轮结果。</p>
+</li>
+<li>
+<p>重复第2和第3步，直到right到达字符串S的尽头。</p>
+</li>
 </ol>
 <blockquote>
-<p>进行一个拆分</p>
+<p>主要思路：第2步相当于在寻找一个可行解，然后第3步在优化这个可行解，最终找到最优解。</p>
 </blockquote>
+<p>needs和window相当于计数器，分别记录<strong>T</strong>中字符出现次数和<strong>窗口</strong>中字符出现次数。</p>
+<p>可以清晰的看到这个过程：</p>
 <ol>
-<li>研究一个进行批量动态审计的数据结构</li>
-<li>研究一个激励机制</li>
-<li>如何做一个支持批量动态审计的服务，基于链来做</li>
-<li>现实生活中不一定都是有审计的，针对审计造假,所以需要设计一种互审计服务</li>
-<li>面向非职业节点的激励机制</li>
+<li>初始状态：</li>
 </ol>
-<p>三篇论文：</p>
-<ol>
-<li>2019_Guo 主要看批量更新</li>
-<li>2021_Yang主要看激励链</li>
-<li>2020_Guo主要看多副本审计</li>
+<p><img src="/2021/12/06/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E9%A2%98%E6%80%BB%E7%BB%93/image-20211206211954222.png" alt="image-20211206211954222"></p>
+<ol start="2">
+<li>增加right，直到窗口[left , right)包含了T的所有字符。</li>
 </ol>
-<blockquote>
-<p>重点关注下两个方向</p>
-</blockquote>
-<ol>
-<li>智能合约安全性检测</li>
-<li>区块链的激励机制</li>
+<p><img src="/2021/12/06/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E9%A2%98%E6%80%BB%E7%BB%93/image-20211206212312429.png" alt="image-20211206212312429"></p>
+<ol start="3">
+<li>
+<p>增加left，缩小窗口[left , right]:</p>
+<p><img src="/2021/12/06/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E9%A2%98%E6%80%BB%E7%BB%93/image-20211206212349932.png" alt="image-20211206212349932"></p>
+</li>
 </ol>
-<blockquote>
-<p>区块链的激励机制</p>
-</blockquote>
-<p>尽量能低交互，少走共识协议，少消耗gas，低消耗代价的功能完善的审计方案</p>
-<p>问题：你如何能够涉及少交互的次数，降低交互次数，达到审计的目的</p>
-<p>只有达到这个目的，才能在共识这个层面上减少交互</p>
+<p>直到窗口中的字符串不再符合要求，left不再继续移动：</p>
+<p><img src="/2021/12/06/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E9%A2%98%E6%80%BB%E7%BB%93/image-20211206212433460.png" alt="image-20211206212433460"></p>
+<p>之后重复上述过程，先移动right，再移动left… 直到right指针到达字符串S的末端，算法结束。</p>
+<blockquote></blockquote>
 
       
     </div>
@@ -409,7 +437,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://arthersun.github.io/draft/%E5%BC%80%E9%A2%98%E7%9A%84%E9%97%AE%E9%A2%98%E5%92%8C%E5%86%85%E5%AE%B9.html" title="" target="_blank" rel="external">https://arthersun.github.io/draft/开题的问题和内容.html</a>
+      <a href="https://arthersun.github.io/2021/12/06/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E9%A2%98%E6%80%BB%E7%BB%93/" title="滑动窗口题总结" target="_blank" rel="external">https://arthersun.github.io/2021/12/06/滑动窗口题总结/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -452,6 +480,20 @@
 
   <nav class="bar bar-footer clearfix" data-stick-bottom>
   <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2021/12/06/Leetcode%E9%94%99%E9%A2%98%E6%9C%AC/" title="Leetcode错题本"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2021/12/06/%E5%86%8D%E5%AD%A6%E5%8C%BA%E5%9D%97%E9%93%BE%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/" title="再学区块链及其应用"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
   
   
   <!-- Button trigger modal -->
@@ -568,6 +610,12 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 <script src="/js/insight.js"></script>
 
 
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 

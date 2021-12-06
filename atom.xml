@@ -6,7 +6,7 @@
   <link href="https://arthersun.github.io/atom.xml" rel="self"/>
   
   <link href="https://arthersun.github.io/"/>
-  <updated>2021-12-06T02:46:18.537Z</updated>
+  <updated>2021-12-06T16:15:15.286Z</updated>
   <id>https://arthersun.github.io/</id>
   
   <author>
@@ -15,6 +15,79 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Leetcode错题本</title>
+    <link href="https://arthersun.github.io/2021/12/06/Leetcode%E9%94%99%E9%A2%98%E6%9C%AC/"/>
+    <id>https://arthersun.github.io/2021/12/06/Leetcode%E9%94%99%E9%A2%98%E6%9C%AC/</id>
+    <published>2021-12-06T15:59:22.000Z</published>
+    <updated>2021-12-06T16:15:15.286Z</updated>
+    
+    <content type="html"><![CDATA[<p>438 滑动窗口题</p><p><img src="/2021/12/06/Leetcode%E9%94%99%E9%A2%98%E6%9C%AC/image-20211207000124073.png" alt="image-20211207000124073"></p><p>在滑动窗口比较时，我把window[c]==need[c]和need.count©换了一个位置，导致了这样的悲剧。</p><p><img src="/2021/12/06/Leetcode%E9%94%99%E9%A2%98%E6%9C%AC/image-20211207001007621.png" alt="image-20211207001007621"></p><blockquote><p>c++ map对象先判断存不存在，再直接引用，否则会直接创建一个map[c]=0</p></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;438 滑动窗口题&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/2021/12/06/Leetcode%E9%94%99%E9%A2%98%E6%9C%AC/image-20211207000124073.png&quot; alt=&quot;image-20211207000124073&quot;&gt;&lt;/p</summary>
+      
+    
+    
+    
+    
+    <category term="刷题" scheme="https://arthersun.github.io/tags/%E5%88%B7%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>滑动窗口题总结</title>
+    <link href="https://arthersun.github.io/2021/12/06/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E9%A2%98%E6%80%BB%E7%BB%93/"/>
+    <id>https://arthersun.github.io/2021/12/06/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E9%A2%98%E6%80%BB%E7%BB%93/</id>
+    <published>2021-12-06T12:21:28.000Z</published>
+    <updated>2021-12-06T15:59:37.532Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="滑动窗口算法"><a class="markdownIt-Anchor" href="#滑动窗口算法"></a> 滑动窗口算法</h3><p>这个算法技巧的思路非常简单，就是维护一个窗口，然后不断的滑动，然后更新答案。</p><p>大概的思路模板</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (right &lt; s.size()) &#123;</span><br><span class="line">    <span class="comment">// 增大窗口</span></span><br><span class="line">    window.add(s[right]);</span><br><span class="line">    right++;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (window needs shrink) &#123;</span><br><span class="line">        <span class="comment">// 缩小窗口</span></span><br><span class="line">        window.remove(s[left]);</span><br><span class="line">        left++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>算法的时间复杂度为O(N)，比字符串暴力算法高效很多。</p><p>通用的滑动窗口算法框架</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">slidingWindow</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">string</span> t)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="keyword">int</span>&gt; need, window;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">char</span> c : t) need[c]++;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> valid = <span class="number">0</span>; </span><br><span class="line">    <span class="keyword">while</span> (right &lt; s.size()) &#123;</span><br><span class="line">        <span class="comment">// c 是将移入窗口的字符</span></span><br><span class="line">        <span class="keyword">char</span> c = s[right];</span><br><span class="line">        <span class="comment">// 右移窗口</span></span><br><span class="line">        right++;</span><br><span class="line">        <span class="comment">// 进行窗口内数据的一系列更新</span></span><br><span class="line">        ...</span><br><span class="line"></span><br><span class="line">        <span class="comment">/*** debug 输出的位置 ***/</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;window: [%d, %d)\n&quot;</span>, left, right);</span><br><span class="line">        <span class="comment">/********************/</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 判断左侧窗口是否要收缩</span></span><br><span class="line">        <span class="keyword">while</span> (window needs shrink) &#123;</span><br><span class="line">            <span class="comment">// d 是将移出窗口的字符</span></span><br><span class="line">            <span class="keyword">char</span> d = s[left];</span><br><span class="line">            <span class="comment">// 左移窗口</span></span><br><span class="line">            left++;</span><br><span class="line">            <span class="comment">// 进行窗口内数据的一系列更新</span></span><br><span class="line">            ...</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="滑动窗口的思路"><a class="markdownIt-Anchor" href="#滑动窗口的思路"></a> 滑动窗口的思路</h4><ol><li><p>我们在字符串S中使用双指针中的左右指针技巧，初始化left = right = 0，把索引<strong>左闭右开</strong>区间[left , right)称为一个窗口。</p></li><li><p>我们先不断地增加right指针扩大窗口[left , right)，直到窗口中的字符串符合要求（包含了T中的所有字符）</p></li><li><p>此时，我们停止增加right，转而不断增加left指针缩小窗口[left , right)，直到窗口中的字符串不再符合要求。同时，每次增加left，我们都要更新一轮结果。</p></li><li><p>重复第2和第3步，直到right到达字符串S的尽头。</p></li></ol><blockquote><p>主要思路：第2步相当于在寻找一个可行解，然后第3步在优化这个可行解，最终找到最优解。</p></blockquote><p>needs和window相当于计数器，分别记录<strong>T</strong>中字符出现次数和<strong>窗口</strong>中字符出现次数。</p><p>可以清晰的看到这个过程：</p><ol><li>初始状态：</li></ol><p><img src="/2021/12/06/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E9%A2%98%E6%80%BB%E7%BB%93/image-20211206211954222.png" alt="image-20211206211954222"></p><ol start="2"><li>增加right，直到窗口[left , right)包含了T的所有字符。</li></ol><p><img src="/2021/12/06/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E9%A2%98%E6%80%BB%E7%BB%93/image-20211206212312429.png" alt="image-20211206212312429"></p><ol start="3"><li><p>增加left，缩小窗口[left , right]:</p><p><img src="/2021/12/06/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E9%A2%98%E6%80%BB%E7%BB%93/image-20211206212349932.png" alt="image-20211206212349932"></p></li></ol><p>直到窗口中的字符串不再符合要求，left不再继续移动：</p><p><img src="/2021/12/06/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E9%A2%98%E6%80%BB%E7%BB%93/image-20211206212433460.png" alt="image-20211206212433460"></p><p>之后重复上述过程，先移动right，再移动left… 直到right指针到达字符串S的末端，算法结束。</p><blockquote></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;滑动窗口算法&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#滑动窗口算法&quot;&gt;&lt;/a&gt; 滑动窗口算法&lt;/h3&gt;
+&lt;p&gt;这个算法技巧的思路非常简单，就是维护一个窗口，然后不断的滑动，然后更新答案。&lt;/p&gt;
+&lt;p&gt;大概的思路模板&lt;/p&gt;
+&lt;f</summary>
+      
+    
+    
+    
+    
+    <category term="刷题" scheme="https://arthersun.github.io/tags/%E5%88%B7%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>再学区块链及其应用</title>
+    <link href="https://arthersun.github.io/2021/12/06/%E5%86%8D%E5%AD%A6%E5%8C%BA%E5%9D%97%E9%93%BE%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/"/>
+    <id>https://arthersun.github.io/2021/12/06/%E5%86%8D%E5%AD%A6%E5%8C%BA%E5%9D%97%E9%93%BE%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/</id>
+    <published>2021-12-06T08:50:09.000Z</published>
+    <updated>2021-12-06T16:15:10.392Z</updated>
+    
+    <content type="html"><![CDATA[<p>课程链接：<a href="https://www.bilibili.com/video/BV1Vt411X7JF?p=4">区块链技术与应用</a></p><h3 id="04-比特币协议"><a class="markdownIt-Anchor" href="#04-比特币协议"></a> 04-比特币协议</h3><h4 id="区块链结构"><a class="markdownIt-Anchor" href="#区块链结构"></a> 区块链结构</h4><p>BitCoin Script把A的输入和A的输出连在一起，运行一下。</p><p>区块链结构</p><table><thead><tr><th>Block header</th><th>Block Body</th></tr></thead><tbody><tr><td>version</td><td>transaction list</td></tr><tr><td>hash of previous block header</td><td></td></tr><tr><td>Merkel root hash</td><td></td></tr><tr><td>target</td><td></td></tr><tr><td>nonce</td><td></td></tr></tbody></table><blockquote><p>整个块头的hash要小于目标阈值。H(header)≤target</p></blockquote><p>系统中包括全节点和轻节点</p><p>full node = fully validating node</p><p>light node = light with node(只保存区块头的信息，系统中大多数是轻节点)</p><p>轻节点没有参与区块链的构造和维护，它只是利用了区块链的一些信息，做一些查询。</p><h4 id="分布式共识"><a class="markdownIt-Anchor" href="#分布式共识"></a> 分布式共识</h4><p>分布式共识一个简单的例子是一个分布式hash表（distributed hash table）</p><blockquote><p>xiao-&gt;12345</p></blockquote><h5 id="关于分布式共识的不可能结论"><a class="markdownIt-Anchor" href="#关于分布式共识的不可能结论"></a> 关于分布式共识的不可能结论</h5><p>FLP：在一个异步的系统里，网络传输时延没有上限，即使只有一个成员是有问题的，也没有办法达成共识。</p><p>CAP：任何一个分布式系统，一致性，可用性和分区容错性只能满足两个，不可能三个都满足</p><h4 id="比特币中的共识协议"><a class="markdownIt-Anchor" href="#比特币中的共识协议"></a> 比特币中的共识协议</h4><p>membership</p><p>联盟链(例如hyperledger fabric)可从成员进入来限制</p><p>女巫攻击（sybil attack）：产生账户非常多（没用的本地账户）,来投票</p><p>比特币采用工作量证明，寻找nonce值来</p><p>UTXO：未花费的交易输出（unspent transaction output）</p><p>total inputs = total outputs</p><p>transaction-based ledger-基于交易的账本</p><p>第二个激励机制：交易费（transaction fee）</p><p>account-based ledger-基于账户的账本</p><p><strong>将来还要挖多少时间</strong>和<strong>已经挖了多少时间</strong>是没有关系的</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;课程链接：&lt;a href=&quot;https://www.bilibili.com/video/BV1Vt411X7JF?p=4&quot;&gt;区块链技术与应用&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;04-比特币协议&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#04-</summary>
+      
+    
+    
+    
+    
+    <category term="项目" scheme="https://arthersun.github.io/tags/%E9%A1%B9%E7%9B%AE/"/>
+    
+    <category term="区块链" scheme="https://arthersun.github.io/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/"/>
+    
+  </entry>
   
   <entry>
     <title>IPFS解读</title>
@@ -48,9 +121,9 @@
     <link href="https://arthersun.github.io/2021/12/05/%E5%BD%93%E5%8C%BA%E5%9D%97%E9%93%BE%E9%81%87%E4%B8%8A%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/"/>
     <id>https://arthersun.github.io/2021/12/05/%E5%BD%93%E5%8C%BA%E5%9D%97%E9%93%BE%E9%81%87%E4%B8%8A%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/</id>
     <published>2021-12-05T03:52:54.000Z</published>
-    <updated>2021-12-06T03:43:45.683Z</updated>
+    <updated>2021-12-06T08:48:42.354Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="2020-huang-当区块链遇上分布式系统"><a class="markdownIt-Anchor" href="#2020-huang-当区块链遇上分布式系统"></a> 2020-Huang-当区块链遇上分布式系统</h2><h4 id="几种分布式区块链系统"><a class="markdownIt-Anchor" href="#几种分布式区块链系统"></a> 几种分布式区块链系统</h4><p>DFS-distributed file systems-分布式文件系统</p><p>P2P distributed file systems-点对点分布式网络</p><blockquote><p>文件系统共享带宽，存储和计算资源，都存在不稳定，缺少审计，缺少激励算法的问题</p></blockquote><p>Inter-Planetary File System（IPFS）星际文件系统</p><blockquote><p>关于IPFS，IPFS是一种旨在创建持久且分布式存储和共享文件的网络传输协议</p><p>在IPFS网络中的节点将构成一个分布式文件系统</p><p>关于IPFS写了另一篇介绍<a href="IPFS%E8%A7%A3%E8%AF%BB.md">IPFS</a></p></blockquote><p>IPFS和Swarm整合了区块链系统，提出了有效的激励和安全保证，但是其可扩展性和隐私性也限制了新一代DFS的发展。</p><h4 id="集中式主网的分布式激励机制"><a class="markdownIt-Anchor" href="#集中式主网的分布式激励机制"></a> 集中式主网的分布式激励机制</h4><p>BitTorrent可以共享带宽，存储和计算资源，天然缺少激励机制</p><p>现在的bt系统一般通过分享率、上传量、H&amp;R积分等来设计激励机制，例如</p><p><img src="/2021/12/05/%E5%BD%93%E5%8C%BA%E5%9D%97%E9%93%BE%E9%81%87%E4%B8%8A%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/image-20211206112206290.png" alt="image-20211206112206290"></p><p><img src="/2021/12/05/%E5%BD%93%E5%8C%BA%E5%9D%97%E9%93%BE%E9%81%87%E4%B8%8A%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/image-20211206112646628.png" alt="image-20211206112646628"></p><p>上述指标达到一定时，就可以升级然后获得更多权限。</p><p><img src="/2021/12/05/%E5%BD%93%E5%8C%BA%E5%9D%97%E9%93%BE%E9%81%87%E4%B8%8A%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/image-20211206112748204.png" alt="image-20211206112748204"></p><p>这种激励机制有效，因为主网站中心化，也便于国家监管，但是正是因为中心化，所以容易被查封，一旦主网站被调查停止服务，用户将无法查找下载种子文件、上传文件；而且用户需要在网站上留存用户信息，并没有做到隐私保护。</p><h4 id="基于区块链的分布式激励机制设计"><a class="markdownIt-Anchor" href="#基于区块链的分布式激励机制设计"></a> 基于区块链的分布式激励机制设计</h4><p>区块链为什么适合被设计激励机制？</p><p>区块链系统会设计一种虚拟货币，这种虚拟货币</p><table><thead><tr><th>IPFS</th><th>Swarm</th><th>Storj</th></tr></thead><tbody><tr><td>FileCoin</td><td>以太坊</td><td>Metadisk</td></tr></tbody></table>]]></content>
+    <content type="html"><![CDATA[<h2 id="2020-huang-当区块链遇上分布式系统"><a class="markdownIt-Anchor" href="#2020-huang-当区块链遇上分布式系统"></a> 2020-Huang-当区块链遇上分布式系统</h2><h4 id="几种分布式区块链系统"><a class="markdownIt-Anchor" href="#几种分布式区块链系统"></a> 几种分布式区块链系统</h4><p>DFS-distributed file systems-分布式文件系统</p><p>P2P distributed file systems-点对点分布式网络</p><blockquote><p>文件系统共享带宽，存储和计算资源，都存在不稳定，缺少审计，缺少激励算法的问题</p></blockquote><p>Inter-Planetary File System（IPFS）星际文件系统</p><blockquote><p>关于IPFS，IPFS是一种旨在创建持久且分布式存储和共享文件的网络传输协议</p><p>在IPFS网络中的节点将构成一个分布式文件系统</p><p>关于IPFS写了另一篇介绍<a href="IPFS%E8%A7%A3%E8%AF%BB.md">IPFS</a></p></blockquote><p>IPFS和Swarm整合了区块链系统，提出了有效的激励和安全保证，但是其可扩展性和隐私性也限制了新一代DFS的发展。</p><h4 id="集中式主网的分布式激励机制"><a class="markdownIt-Anchor" href="#集中式主网的分布式激励机制"></a> 集中式主网的分布式激励机制</h4><p>BitTorrent可以共享带宽，存储和计算资源，天然缺少激励机制</p><p>现在的bt系统一般通过分享率、上传量、H&amp;R积分等来设计激励机制，例如</p><p><img src="/2021/12/05/%E5%BD%93%E5%8C%BA%E5%9D%97%E9%93%BE%E9%81%87%E4%B8%8A%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/image-20211206112206290.png" alt="image-20211206112206290"></p><p><img src="/2021/12/05/%E5%BD%93%E5%8C%BA%E5%9D%97%E9%93%BE%E9%81%87%E4%B8%8A%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/image-20211206112646628.png" alt="image-20211206112646628"></p><p>上述指标达到一定时，就可以升级然后获得更多权限。</p><p><img src="/2021/12/05/%E5%BD%93%E5%8C%BA%E5%9D%97%E9%93%BE%E9%81%87%E4%B8%8A%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/image-20211206112748204.png" alt="image-20211206112748204"></p><p>这种激励机制有效，因为主网站中心化，也便于国家监管，但是正是因为中心化，所以容易被查封，一旦主网站被调查停止服务，用户将无法查找下载种子文件、上传文件；而且用户需要在网站上留存用户信息，并没有做到隐私保护。</p><h4 id="基于区块链的分布式激励机制设计"><a class="markdownIt-Anchor" href="#基于区块链的分布式激励机制设计"></a> 基于区块链的分布式激励机制设计</h4><p>区块链为什么适合被设计激励机制？</p><p>区块链系统会设计一种虚拟货币，当参与人数够多这种虚拟货币就会被广泛认可，甚至可以兑换法币（比特币、以太坊）。</p><p>区块链系统会通过设计好的机制（比特币），或者提供透明的<strong>智能合约</strong>供人编写（以太坊）来分发或交易这些虚拟货币。</p><p>此外，区块链系统天然自带<strong>出块有奖励</strong>。</p><p>下面分布式系统通过集成相应的区块链来保证激励的进行。</p><table><thead><tr><th>IPFS</th><th>Swarm</th><th>Storj</th></tr></thead><tbody><tr><td>FileCoin</td><td>以太坊</td><td>Metadisk</td></tr></tbody></table>]]></content>
     
     
       
