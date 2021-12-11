@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>k8s学习 | arthersunBlog</title>
+  <meta name="description" content="k8s前世今生  Google 10年容器化基础架构 特点： 轻量级：消耗资源少 开源 弹性伸缩 负载均衡：IPVS 适合人群：软件工程师 测试工程师 运维工程师 软件架构师 项目经理  知识图谱  介绍说明： 前世今生 Kubernetes框架 kubernetes关键字含义 基础概念：什么是Pod（最小管理单元）  控制器类型  k8s 网络通讯模式 kubernetes: 构建k8s集群">
+<meta property="og:type" content="article">
+<meta property="og:title" content="k8s学习">
+<meta property="og:url" content="https://arthersun.github.io/2021/12/01/k8s%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="漫漫白衣路，少年追光时">
+<meta property="og:description" content="k8s前世今生  Google 10年容器化基础架构 特点： 轻量级：消耗资源少 开源 弹性伸缩 负载均衡：IPVS 适合人群：软件工程师 测试工程师 运维工程师 软件架构师 项目经理  知识图谱  介绍说明： 前世今生 Kubernetes框架 kubernetes关键字含义 基础概念：什么是Pod（最小管理单元）  控制器类型  k8s 网络通讯模式 kubernetes: 构建k8s集群">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://arthersun.github.io/2021/12/01/k8s%E5%AD%A6%E4%B9%A0/image-20211203185317526.png">
+<meta property="og:image" content="https://arthersun.github.io/2021/12/01/k8s%E5%AD%A6%E4%B9%A0/image-20211203202022302.png">
+<meta property="og:image" content="https://arthersun.github.io/2021/12/01/k8s%E5%AD%A6%E4%B9%A0/image-20211203203526208.png">
+<meta property="og:image" content="https://arthersun.github.io/2021/12/01/k8s%E5%AD%A6%E4%B9%A0/image-20211203204451842.png">
+<meta property="article:published_time" content="2021-12-01T02:05:30.000Z">
+<meta property="article:modified_time" content="2021-12-04T08:03:21.798Z">
+<meta property="article:author" content="arthersun">
+<meta property="article:tag" content="分布式">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://arthersun.github.io/2021/12/01/k8s%E5%AD%A6%E4%B9%A0/image-20211203185317526.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://arthersun.github.io/2021/12/01/k8s%E5%AD%A6%E4%B9%A0/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="漫漫白衣路，少年追光时" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/Arthersun" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">Arthersun</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Web Developer &amp; Blockchain BUPT</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> 北京, 中国</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">Repository</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">Links</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/Arthersun" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/u/6047173250" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>漫漫白衣路，少年追光时</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E9%A2%98/" rel="tag">刷题</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" rel="tag">区块链</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%90%8E%E7%AB%AF/" rel="tag">后端</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E5%8F%91/" rel="tag">开发</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BA%E6%96%87/" rel="tag">论文</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE/" rel="tag">项目</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/linux/" style="font-size: 13px;">linux</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 13.75px;">分布式</a> <a href="/tags/%E5%88%B7%E9%A2%98/" style="font-size: 13.25px;">刷题</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 13.25px;">前端</a> <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" style="font-size: 13.25px;">区块链</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 13.5px;">后端</a> <a href="/tags/%E5%BC%80%E5%8F%91/" style="font-size: 13.75px;">开发</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 13px;">数据结构</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 14px;">论文</a> <a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 13.25px;">项目</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">十二月 2021</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">十一月 2021</a><span class="archive-list-count">11</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2021/12/09/2020-Wang-%E5%B7%A5%E4%B8%9A%E4%BA%92%E8%81%94%E7%BD%91%E4%B8%AD%E5%9F%BA%E4%BA%8E%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9A%84%E6%BF%80%E5%8A%B1%E6%96%B9%E6%A1%88/" class="title">2020_Wang_PoRX:IIoT区块链共识的声誉激励方案</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-12-08T16:12:33.000Z" itemprop="datePublished">2021-12-09</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2021/12/06/Leetcode%E9%94%99%E9%A2%98%E6%9C%AC/" class="title">Leetcode错题本</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-12-06T15:59:22.000Z" itemprop="datePublished">2021-12-06</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2021/12/06/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E9%A2%98%E6%80%BB%E7%BB%93/" class="title">滑动窗口题总结</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-12-06T12:21:28.000Z" itemprop="datePublished">2021-12-06</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2021/12/06/%E5%86%8D%E5%AD%A6%E5%8C%BA%E5%9D%97%E9%93%BE%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/" class="title">再学区块链及其应用</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-12-06T08:50:09.000Z" itemprop="datePublished">2021-12-06</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2021/12/06/IPFS%E8%A7%A3%E8%AF%BB/" class="title">IPFS解读</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-12-06T02:08:09.000Z" itemprop="datePublished">2021-12-06</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-k8s学习" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      k8s学习
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2021/12/01/k8s%E5%AD%A6%E4%B9%A0/" class="article-date">
+	  <time datetime="2021-12-01T02:05:30.000Z" itemprop="datePublished">2021-12-01</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/12/01/k8s%E5%AD%A6%E4%B9%A0/#comments" class="article-comment-link">Comments</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1.5k(words)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 5(minutes)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <blockquote>
+<p>k8s前世今生</p>
+</blockquote>
+<p>Google 10年容器化基础架构<br>
+特点：<br>
+轻量级：消耗资源少<br>
+开源<br>
+弹性伸缩<br>
+负载均衡：IPVS</p>
+<p>适合人群：软件工程师 测试工程师 运维工程师 软件架构师 项目经理</p>
+<blockquote>
+<p>知识图谱</p>
+</blockquote>
+<p>介绍说明： 前世今生 Kubernetes框架 kubernetes关键字含义</p>
+<p>基础概念：什么是Pod（最小管理单元）  控制器类型  k8s 网络通讯模式</p>
+<p>kubernetes: 构建k8s集群</p>
+<p>资源清单：资源   掌握资源清单的语法   编写Pod    掌握Pod的生命周期</p>
+<p>Pod控制器：掌握各种控制器的特点以及使用定义方式</p>
+<p>服务发现：掌握SVC原理及其构建方式</p>
+<p>存储：掌握多种存储类型的特点，并且能够在不同环境中选择合适的存储方案</p>
+<p>调度器：掌握调度器原理  能够根据要求把Pod定义到想要的节点运行</p>
+<p>安全：集群的认证  鉴权  访问控制  原理及其流程</p>
+<p>HELM：等于Linux中的Yum管理器   掌握HELM原理   HELM模板自定义   HELM部署一些常用插件</p>
+<p>运维：修改Kubeadm达到证书可用期限为10年   能够构建高可用的Kubernetes集群</p>
+<p>服务分类</p>
+<p>​	有状态服务：DBMS</p>
+<p>​	无状态服务：LVS  APACHE</p>
+<p>高可用集群副本数据最好是&gt;=3 奇数个</p>
+<blockquote>
+<p>主要组件</p>
+</blockquote>
+<p>APISERVER：所有服务访问统一入口</p>
+<p>ControllerManager：维持副本期望数目</p>
+<p>Scheduler：负责介绍任务，选择合适的节点进行分配任务</p>
+<p>ETCD：键值对数据库，存储k8s集群所有重要信息（持久化）</p>
+<p><img src="/2021/12/01/k8s%E5%AD%A6%E4%B9%A0/image-20211203185317526.png" alt></p>
+<p>Kubelet：直接跟容器引擎交互实现容器的声明周期管理</p>
+<p>Kube-proxy：负责写入规则至IPTABLES 、IPVS实现服务</p>
+<p>COREDNS：可以为集群中的SVC创建一个域名IP的对应关系解析</p>
+<p>DASHBOARD：给k8s集群提供一个B/S结构访问体系</p>
+<p>INGRESS  CONTROLLER：官方只能实现四层代理，INGRESS可以实现七层代理</p>
+<p>FEDETATION：提供一个可以跨集群中心多k8s统一管理功能</p>
+<p>PROMETHEUS：提供k8s集群的监控能力</p>
+<p>ELK：提供k8s集群日志统一分析接入平台</p>
+<blockquote>
+<p>k8s基础功能</p>
+</blockquote>
+<ol>
+<li>Pod概念
+<ul>
+<li>自主式Pod</li>
+<li>控制器管理的Pod</li>
+</ul>
+</li>
+<li>网络通讯方式</li>
+</ol>
+<p>在同一个Pod里，端口是一样的。既共享网络，又共享存储卷。</p>
+<blockquote>
+<p>ReplicaSet与Deployment</p>
+</blockquote>
+<p>ReplicationController用来确保容器应用的副本数始终保持在用户定义的副本数。即如果有容器异常退出，会自动创建新的Pod来替代；而如果异常多出来的容器也会自动回收。在新版本的Kubernetes中建议使用ReplicaSet来取代ReplicationController</p>
+<p>ReplicaSet，跟ReplicationController没有本质的不同，只是名字不一样，并且ReplicaSet支持集合式的selector</p>
+<p>虽然ReplicaSet可以独立使用，但一般还是建议使用Deployment来自动管理ReplicaSet，这样就无需担心跟其他机制的不兼容问题（比如ReplicaSet不支持rolling-update 但Deployment支持）</p>
+<blockquote>
+<p>HPA: Horizontal Pod Autoscaling</p>
+</blockquote>
+<p>Horizontal Pod Autoscaling仅适用于Deployment和ReplicaSet，在v1版本中仅支持根据Pod的CPU利用率扩容，在v1alpha版本中，支持根据内存和用户自定义的metric扩缩容</p>
+<blockquote>
+<p>StatefullSet</p>
+</blockquote>
+<p>StatefullSet是为了解决有状态服务的问题（对应Deployments和ReplicaSets是为无状态服务而设计），其应用场景包括：</p>
+<p>稳定的持久化存储，即Pod重新调度后还是能访问到相同的持久化数据，基于PVC来实现</p>
+<p>稳定的网络标志，即Pod重新调度后其PodName和HostName不变，基于headless Service(即没有Cluster IP的Service)来实现</p>
+<p>有序部署，有序扩展，即Pod是有顺序的，在部署或者扩展的时候要依据定义的顺序一次进行（即从0到N-1,在下一个Pod运行之前所有之前的Pod必须都是Running和Ready状态），基于init containers来实现</p>
+<p>有序收缩，有序删除（即从N-1到0）</p>
+<blockquote>
+<p>DeamonSet</p>
+</blockquote>
+<p>DeamonSet确保全部（或者一些）Node上运行一个Pod的副本，当有Node加入集群时，也会为他们新增一个Pod。当有Node从集群移除时，这些Pod也会被回收。删除DaemonSet将会删除它创建的所有Pod。</p>
+<p>使用DaemonSet的一些典型用法：</p>
+<ul>
+<li>运行集群存储daemon，例如每个Node上运行glusterd、ceph</li>
+<li>在每个Node上运行日志手机daemon，例如fluentd、logstash</li>
+<li>在每个Node上运行监控daemon，例如Prometheus Node Exporter</li>
+</ul>
+<blockquote>
+<p>Job，Cronjob</p>
+</blockquote>
+<p>Job负责批处理任务，即仅执行一次的任务，它保证批处理任务的一个或多个Pod成功结束</p>
+<p>Cron Job管理基于时间的Job，即</p>
+<ul>
+<li>在给定时间点只运行一次</li>
+<li>周期性地在给定时间点运行</li>
+</ul>
+<p><img src="/2021/12/01/k8s%E5%AD%A6%E4%B9%A0/image-20211203202022302.png" alt="image-20211203202022302"></p>
+<p>多服务之间的交互方式</p>
+<p><img src="/2021/12/01/k8s%E5%AD%A6%E4%B9%A0/image-20211203203526208.png" alt="image-20211203203526208"></p>
+<blockquote>
+<p>网络通讯方式</p>
+</blockquote>
+<p>Kubernetes的网络模型假定了所有Pod都在一个可以直接联通的扁平的网络空间中，这在GCE（Google Compute Engine）里面是现成的网络模型，Kubernetes假定这个网络已经存在。</p>
+<p>而在私有云里搭建Kubernetes集群，就不能假定这个网络已经存在了，我们需要自己实现这个网络假设，将不同节点上的Docker容器之间的互相访问先打通，然后运行Kubernetes</p>
+<p>同一个Pod内的多个容器之间：localhost</p>
+<p>各Pod之间的通讯：Overlay Network</p>
+<p>Pod和Service之间的通讯，各节点的Iptables规则</p>
+<blockquote>
+<p>Overlay Network怎么实现</p>
+</blockquote>
+<p>Flannel是CoreOS团队针对Kubernetes设计的一个网络规划服务，简单来说，它的功能是让集群中的不同节点主机创建的Docker容器都具有全集群唯一的虚拟IP地址。而且它还能在这些IP地址之间建立一个覆盖网络（Overlay Network），通过这个覆盖网络，将数据包原封不动地传递到目标容器内。</p>
+<h4 id="flannel怎么运行"><a class="markdownIt-Anchor" href="#flannel怎么运行"></a> Flannel怎么运行</h4>
+<p><img src="/2021/12/01/k8s%E5%AD%A6%E4%B9%A0/image-20211203204451842.png" alt="image-20211203204451842"></p>
+<h4 id="etcd和flannel的关系"><a class="markdownIt-Anchor" href="#etcd和flannel的关系"></a> ETCD和Flannel的关系</h4>
+<p>ETCD给Flannel提供说明：</p>
+<ul>
+<li>存储管理Flannel可分配的IP地址段资源</li>
+<li>监控ETCD中每个Pod的实际地址，并在内存中建立维护Pod节点路由表</li>
+</ul>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://arthersun.github.io/2021/12/01/k8s%E5%AD%A6%E4%B9%A0/" title="k8s学习" target="_blank" rel="external">https://arthersun.github.io/2021/12/01/k8s学习/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/Arthersun" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/Arthersun" target="_blank"><span class="text-dark">Arthersun</span><small class="ml-1x">Web Developer &amp; Blockchain BUPT</small></a></h3>
+        <div>try harder</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2021/12/04/draft/Java%E9%A1%B9%E7%9B%AE%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E/" title="page"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2021/11/22/%E9%BB%98%E5%85%8B%E5%B0%94%E6%A0%91/" title="默克尔树"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>Maybe you could buy me a cup of coffee.</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open alipay app scan this qrcode, buy me a coffee!</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open wechat app scan this qrcode, buy me a coffee!</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> alipay</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> wechat payment</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/Arthersun" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/u/6047173250" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>
