@@ -6,7 +6,7 @@
   <link href="https://arthersun.github.io/atom.xml" rel="self"/>
   
   <link href="https://arthersun.github.io/"/>
-  <updated>2021-12-28T03:52:04.959Z</updated>
+  <updated>2021-12-28T15:19:51.786Z</updated>
   <id>https://arthersun.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>人生感悟</title>
+    <link href="https://arthersun.github.io/2021/12/28/%E4%BA%BA%E7%94%9F%E6%84%9F%E6%82%9F/"/>
+    <id>https://arthersun.github.io/2021/12/28/%E4%BA%BA%E7%94%9F%E6%84%9F%E6%82%9F/</id>
+    <published>2021-12-28T15:00:37.000Z</published>
+    <updated>2021-12-28T15:19:51.786Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="人生感悟"><a class="markdownIt-Anchor" href="#人生感悟"></a> 人生感悟</h2><p>近之则不逊远则怨</p><p>形容一个人难以交往。靠的太近了就会不把你当回事，离的远了就会心生怨恨，开始抱怨。</p><p>启示录：做朋友之间应该相敬如宾，见面恭恭敬敬的。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;人生感悟&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#人生感悟&quot;&gt;&lt;/a&gt; 人生感悟&lt;/h2&gt;
+&lt;p&gt;近之则不逊远则怨&lt;/p&gt;
+&lt;p&gt;形容一个人难以交往。靠的太近了就会不把你当回事，离的远了就会心生怨恨，开始抱怨。&lt;/p&gt;
+&lt;p&gt;启示</summary>
+      
+    
+    
+    
+    
+    <category term="所思所想" scheme="https://arthersun.github.io/tags/%E6%89%80%E6%80%9D%E6%89%80%E6%83%B3/"/>
+    
+  </entry>
   
   <entry>
     <title>java集合</title>
@@ -111,11 +136,11 @@
   </entry>
   
   <entry>
-    <title>2020_Menniti</title>
+    <title>2020_Menniti_以及对激励机制的一些思考</title>
     <link href="https://arthersun.github.io/2021/12/16/2020-Menniti_%E4%BB%A5%E5%8F%8A%E5%AF%B9%E6%BF%80%E5%8A%B1%E6%9C%BA%E5%88%B6%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/"/>
     <id>https://arthersun.github.io/2021/12/16/2020-Menniti_%E4%BB%A5%E5%8F%8A%E5%AF%B9%E6%BF%80%E5%8A%B1%E6%9C%BA%E5%88%B6%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/</id>
     <published>2021-12-16T08:02:28.000Z</published>
-    <updated>2021-12-16T10:42:36.793Z</updated>
+    <updated>2021-12-28T15:12:18.761Z</updated>
     
     <content type="html"><![CDATA[<h4 id="摘要"><a class="markdownIt-Anchor" href="#摘要"></a> 摘要</h4><p>随着（意大利的）<strong>分布式光伏发电</strong>的补贴上网电价在许多司法管辖区减少或废除，人们越来越有兴趣增加自我消费，以实现屋顶光伏发电的更大价值。本文提出了一种基于区块链的非消费社区激励机制，采用集中聚合器方法，旨在增加集体自我消费并减少峰值需求。激励在许可的区块链基础设施上实施，其中世代和消费值存储在不可变的分类账中，智能合约用于实现奖励计算。为了说明发达的激励机制，本文将该方法应用于位于意大利南部的四个住宅。</p><h4 id="一-介绍"><a class="markdownIt-Anchor" href="#一-介绍"></a> 一、介绍</h4><h5 id="产消者的概念"><a class="markdownIt-Anchor" href="#产消者的概念"></a> 产消者的概念</h5><p>家庭消费者通过投资屋顶光伏系统，在这种&quot;能源转型&quot;中发挥着越来越重要的作用。这种新型消费者（即在家庭环境中发电）通常被称为产消者。</p><p>一种互补的方法是<strong>将不同的产消者和消费者聚集在一个社区能源中</strong>（即涉及可再生能源的基于社区的举措），以使负载变化较小，从而增加光伏系统的自我消耗率。因此，社区可以开发创新的地方（集体）能源实践，挑战现有电力系统中能源的产生和管理方式[3]。&quot;非消费&quot;社区被定义为在平均每年从电网中提取的能量方面基本上自给自足的社区，或者在某些情况下，成为能源的净产生者[4]。这些社区很可能会继续与电网保持连接，并依赖一些服务，如可靠性和平衡。</p><p>本文提出了一种基于区块链的新型激励机制，采用集中聚合器方法提高非消费社区的集体自我消费率。实施激励机制，将利益分配给在生产时进行消费的用户。目标是鼓励消费者改变他们通常的消费模式，以减少消费高峰，并在电力生产最高时消费。</p><h4 id="二-自我消费系统与区块链"><a class="markdownIt-Anchor" href="#二-自我消费系统与区块链"></a> 二、自我消费系统与区块链</h4><h4 id="三-激励算法"><a class="markdownIt-Anchor" href="#三-激励算法"></a> 三、激励算法</h4><p><img src="/2021/12/16/2020-Menniti_%E4%BB%A5%E5%8F%8A%E5%AF%B9%E6%BF%80%E5%8A%B1%E6%9C%BA%E5%88%B6%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/image-20211216160305272.png" alt="image-20211216160305272"></p><p>SC-Coins被设计为区块链的原生加密货币，并提供每天分发的激励措施，并基于社区中的个人和集体自我消费，间隔24小时。具体而言，客户为每千瓦时的自耗能源授予的SC-Coins数量取决于：</p><p>1)在生产时间内实现的个人自我消耗。这种情况只涉及产消者，可以使用（1）计算费率。</p><p><img src="/2021/12/16/2020-Menniti_%E4%BB%A5%E5%8F%8A%E5%AF%B9%E6%BF%80%E5%8A%B1%E6%9C%BA%E5%88%B6%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/image-20211216160427087.png" alt="image-20211216160427087"></p><p>2)产消者或消费者在生产时间内对集体自我消费率的贡献。单个家庭（即客户i）对集体自我消费率的贡献，用ICSCi（个人集体自我消费）表示，可以使用以下命名法计算：</p><p><img src="/2021/12/16/2020-Menniti_%E4%BB%A5%E5%8F%8A%E5%AF%B9%E6%BF%80%E5%8A%B1%E6%9C%BA%E5%88%B6%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/image-20211216160506368.png" alt="image-20211216160506368"></p><p>其中Mi（t）是集体发电和内部负荷曲线的瞬时重叠部分，Pc（t）是社区内的瞬时光伏发电</p><p>因此，SC币的数量每千瓦时自用家庭所赚取的能量计算如下：</p><p><img src="/2021/12/16/2020-Menniti_%E4%BB%A5%E5%8F%8A%E5%AF%B9%E6%BF%80%E5%8A%B1%E6%9C%BA%E5%88%B6%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/image-20211216161005982.png" alt="image-20211216161005982"></p><p>式中，N表示24小时间隔内出现非0值的样本数。a和B是两个系数，可用于为每个客户的个人或集体自我消费赋予更大的权重。通过这样做，消费者和自用更多社区产生的可再生能源的消费者将获得更多SC每千瓦时硬币（即，如果客户实现更高的自耗率，报酬更高）这种奖励模式反映了可再生能源的实际时间价值，并提供了更好的粒度，以帮助平衡社区生产和消费。<br>Sc coin机制构建在一个不可变的智能合约中，聚合器或任何其他实体都无法更改该合约。换句话说，消费者和消费者获得的补贴是一成不变的，任何一方都无法改变。此外，智能合约提供了代码始终完全按照书面形式执行的可靠性，因此客户无需信任任何中央实体</p><p>思考：</p><p>能不能发行一种原生的加密货币来对联盟链上的各方进行激励。</p><p>原因：加密货币相对于积分本质上是同一类东西，但是更加高大上，以及具有一定的变现能力。</p><blockquote><p>例如，IPFS存储系统为了鼓励用户去存储，发行了FileCoin加密货币。</p></blockquote><p>致使让联盟链中的个体减少单纯个人有利的行为，并增强对集体有利的行为？</p><p>-&gt;引申问题：</p><p>在咱们的项目系统中，什么是对单纯个人有利的，什么是对集体有利的？</p><blockquote><p>比如说存储系统中的账本。</p></blockquote>]]></content>
     
@@ -488,34 +513,6 @@
     
     
     <category term="论文" scheme="https://arthersun.github.io/tags/%E8%AE%BA%E6%96%87/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>node与java版本的问题实录</title>
-    <link href="https://arthersun.github.io/2021/11/15/nvs%E4%B8%8Enode%E7%89%88%E6%9C%AC%E7%9A%84%E9%97%AE%E9%A2%98%E5%AE%9E%E5%BD%95/"/>
-    <id>https://arthersun.github.io/2021/11/15/nvs%E4%B8%8Enode%E7%89%88%E6%9C%AC%E7%9A%84%E9%97%AE%E9%A2%98%E5%AE%9E%E5%BD%95/</id>
-    <published>2021-11-15T11:00:13.000Z</published>
-    <updated>2021-12-04T08:03:44.328Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>今天使用nvs时候遇到了node版本的问题</p></blockquote><p>原因大概是有些node包（node-sass）不支持高版本的node包，这个可以到node包的官网去查看。</p><ul><li>解决方法</li></ul><p>使用nvs安装其他node版本</p><p>指令集</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nvs add 14</span><br><span class="line">nvs use 14</span><br><span class="line">nvs list</span><br></pre></td></tr></table></figure><blockquote><p>此外，也遇到java版本的问题</p></blockquote><p>java版本</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UnsupportedClassVersionError: run/halo/app/<span class="function">Application has been compiled by a more recent version of the Java <span class="title">Runtime</span> <span class="params">(class file version <span class="number">55.0</span>)</span>, <span class="keyword">this</span> version of the Java Runtime only recognizes class file versions up to 52.0</span></span><br></pre></td></tr></table></figure><p>查询原因为使用了java11进行编译，但是运行时使用的是java8</p><ul><li>45 = Java 1.1</li><li>46 = Java 1.2</li><li>47 = Java 1.3</li><li>48 = Java 1.4</li><li>49 = Java 5</li><li>50 = Java 6</li><li>51 = Java 7</li><li>52 = Java 8</li><li>53 = Java 9</li><li>54 = Java 10</li><li>55 = Java 11</li><li>56 = Java 12</li><li>57 = Java 13</li></ul><p>解决方案：下载java11，然后修改系统环境变量</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;今天使用nvs时候遇到了node版本的问题&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;原因大概是有些node包（node-sass）不支持高版本的node包，这个可以到node包的官网去查看。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;解决方法&lt;/li&gt;
-&lt;/ul</summary>
-      
-    
-    
-    
-    
-    <category term="前端" scheme="https://arthersun.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   
