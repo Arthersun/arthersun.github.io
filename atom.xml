@@ -6,7 +6,7 @@
   <link href="https://arthersun.github.io/atom.xml" rel="self"/>
   
   <link href="https://arthersun.github.io/"/>
-  <updated>2021-12-09T15:11:20.000Z</updated>
+  <updated>2021-12-28T03:52:04.959Z</updated>
   <id>https://arthersun.github.io/</id>
   
   <author>
@@ -15,6 +15,145 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>java集合</title>
+    <link href="https://arthersun.github.io/2021/12/28/java%E9%9B%86%E5%90%88/"/>
+    <id>https://arthersun.github.io/2021/12/28/java%E9%9B%86%E5%90%88/</id>
+    <published>2021-12-28T02:06:44.000Z</published>
+    <updated>2021-12-28T03:52:04.959Z</updated>
+    
+    <content type="html"><![CDATA[<p>集合类存放在java.util包中，主要有3种：set(集)、list（列表包含Queue）和map（映射）。</p><ol><li>Collection：Collection是集合List、Set、Queue的最基本的接口。</li><li>Iterator：迭代器，可以通过迭代器遍历集合中的数据</li><li>Map：是映射表的基础接口。</li></ol><p><img src="/2021/12/28/java%E9%9B%86%E5%90%88/image-20211228102731837.png" alt="image-20211228102731837"></p><p><img src="/2021/12/28/java%E9%9B%86%E5%90%88/image-20211228102515314.png" alt="image-20211228102515314"></p><p>HashMap结构</p><p>当链表中的元素超过了 8 个以后，</p><p>会将链表转换为红黑树，在这些位置进行查找的时候可以降低时间复杂度为 O(logN)。</p><p><img src="/2021/12/28/java%E9%9B%86%E5%90%88/image-20211228115111445.png" alt="image-20211228115111445"></p><p>LinkHashMap(记录插入顺序)</p><p>LinkedHashMap是HashMap的一个子类，保存了记录的插入顺序，在用Iterator遍历LinkedHashMap时，先得到的记录肯定是先插入的，也可以在构造时带参数，按照访问次序排序。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;集合类存放在java.util包中，主要有3种：set(集)、list（列表包含Queue）和map（映射）。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Collection：Collection是集合List、Set、Queue的最基本的接口。&lt;/li&gt;
+&lt;li&gt;Iterator：迭代器</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>算法小结</title>
+    <link href="https://arthersun.github.io/2021/12/21/%E7%AE%97%E6%B3%95%E5%B0%8F%E7%BB%93/"/>
+    <id>https://arthersun.github.io/2021/12/21/%E7%AE%97%E6%B3%95%E5%B0%8F%E7%BB%93/</id>
+    <published>2021-12-21T09:12:20.000Z</published>
+    <updated>2021-12-24T14:16:22.661Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="快速排序"><a class="markdownIt-Anchor" href="#快速排序"></a> 快速排序</h5><p>主要思想-分治</p><p>步骤：</p><ol><li><p>确定分界点：q[l],q[(l+r)/2],q[r],随机</p></li><li><p>调整区间</p><p>≤x,≥x</p></li><li><p>递归处理左右两段</p></li></ol><h5 id="一个比较简单的方法"><a class="markdownIt-Anchor" href="#一个比较简单的方法"></a> 一个比较简单的方法</h5><ol><li><p>开两个额外的数组</p><p>a[ ],b[ ]</p></li><li><p>q[1~r] -&gt; q[i]≤x x-&gt;a[ ]</p><p>​          q[i]&gt;x x-&gt;b[ ]</p></li><li><p>a[ ]-&gt;q[ ], b[ ]-&gt;q[ ]</p></li></ol><h5 id="一个优美的做法"><a class="markdownIt-Anchor" href="#一个优美的做法"></a> 一个优美的做法</h5><p>先取一个分界点x</p><p>左右两边取不同的点l,r。</p><p>然后如果l&lt;x，或者r&gt;x，就使l向右移，r向左移。</p><p>一旦出现了,l≥x或者r≤x时，就将两个位置上的值交换。</p><p>然后递归。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">quick_sort</span><span class="params">(<span class="keyword">int</span> q[], <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(l&gt;=r) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> x = q[(l+r)/<span class="number">2</span>], i = l-<span class="number">1</span> ,j = r+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(i&lt;j)&#123;</span><br><span class="line">        <span class="keyword">do</span> i++ ; <span class="keyword">while</span>(q[i]&lt;x);</span><br><span class="line">        <span class="keyword">do</span> j-- ; <span class="keyword">while</span>(q[j]&gt;x);</span><br><span class="line">        <span class="keyword">if</span>(i&lt;j) &#123;</span><br><span class="line">            <span class="keyword">int</span> temp = q[j];</span><br><span class="line">            q[j] = q[i];</span><br><span class="line">            q[i] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    quick_sort(q,l,j);</span><br><span class="line">    quick_sort(q,j+<span class="number">1</span>,r);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h5 id="归并排序分治双指针算法"><a class="markdownIt-Anchor" href="#归并排序分治双指针算法"></a> 归并排序–分治–双指针算法</h5><p>归并：合二为一</p><p>每一层都是logn的，一共n层，所以总的时间复杂度是nlogn。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h5 id=&quot;快速排序&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#快速排序&quot;&gt;&lt;/a&gt; 快速排序&lt;/h5&gt;
+&lt;p&gt;主要思想-分治&lt;/p&gt;
+&lt;p&gt;步骤：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;确定分界点：q[l],q[(l+r)/2],q[r],随机&lt;</summary>
+      
+    
+    
+    
+    
+    <category term="数据结构" scheme="https://arthersun.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>设计模式</title>
+    <link href="https://arthersun.github.io/2021/12/20/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    <id>https://arthersun.github.io/2021/12/20/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</id>
+    <published>2021-12-20T02:33:06.000Z</published>
+    <updated>2021-12-20T11:10:59.431Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="策略模式"><a class="markdownIt-Anchor" href="#策略模式"></a> 策略模式</h5><p>策略模式定义了算法族，分别封装起来，让它们之间可以互相替换，此模式让算法的变化独立于使用算法的客户。</p><p><strong>面向对象的精髓就是接口</strong></p><p>接口的作用<br>为什么需要接口？接口和抽象类的区别？<br>接口就是比“抽象类”还“抽象”的“抽象类”，可以更加规范的对子类进行约束。全 面地专业地实现了：<strong>规范和具体实现的分离</strong>。<br>接口是两个模块之间通信的标准，通信的规范。如果能把你要设计的模块之间的接口定 义好，就相当于完成了系统的设计大纲，剩下的就是添砖加瓦的具体实现了。大家在工作以 后，做系统时往往就是使用““面向接口”的思想来设计系统。<br>接口和实现类不是父子关系，是实现规则的关系。比如：我定义一个接口 Runnable，<br>Car实现它就能在地上跑， Train实现它也能在地上跑，飞机实现它也能在地上跑。就是说， 如果它是交通工具，就一定能跑，但是一定要实现 Runnable接口。</p><h5 id="接口定义默认方法和静态方法"><a class="markdownIt-Anchor" href="#接口定义默认方法和静态方法"></a> 接口定义默认方法和静态方法</h5><p>JAVA8之前，接口里的方法要求全部是抽象方法。 JAVA8(含8)之后，以后允许在接口里定义默认方法和静态方法。</p><blockquote><p>静态方法可以引用接口类直接调用。</p><p>默认方法只是普通方法的默认形式，不一定需要复用。</p></blockquote><p>java之中的类是可以单继承的，但是接口是可以多继承的。</p><p>soutm可以打印现在的类名</p><p><img src="/2021/12/20/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/image-20211220184043946.png" alt="image-20211220184043946"></p><h4 id="继承使用要点"><a class="markdownIt-Anchor" href="#继承使用要点"></a> 继承使用要点</h4><ol><li><p>父类也称作超类、基类。</p><p>子类:派生类</p></li><li><p>Java中只有单继承，没有像C++那样的多继承。多继承会引起混乱，使得继承链过于复杂，系统难以维护</p></li><li><p>Java中类没有多继承，接口有多继承</p></li><li><p><strong>子类继承父类，可以得到父类的全部属性和方法（除了父类的构造方法），但不见得可以直接访问（比如，父类私有的属性和方法）</strong></p></li><li><p>如果定义一个类时，没有调用extends，则他的父类时：java.lang.Object。</p></li></ol><h4 id="方法重写override"><a class="markdownIt-Anchor" href="#方法重写override"></a> 方法重写override</h4><p>子类重写父类的方法，可以用自身行为替换父类行为。重写是实现多态的必要条件。</p><p>方法重写需要符合下面的三个要点:</p><ol><li>“= =”：方法名、形参列表相同</li><li>“≤”：返回值类型和声明异常类型，子类小于等于父类。</li><li>“≥”：访问权限，子类大于等于父类。</li></ol><h4 id="final关键字"><a class="markdownIt-Anchor" href="#final关键字"></a> final关键字</h4><p>final关键字的作用：</p><ul><li><p><strong>修饰变量</strong>：被他修饰的变量不可改变。一旦赋了初值，就不能被重新赋值。</p><p>final int MAX_SPEED = 120;</p></li><li><p><strong>修饰方法</strong>：该方法不可被子类重写，但是可以被重载。</p><p>final void study(){};</p></li><li><p><strong>修饰类</strong>：修饰的类不能被继承，比如Math、String等<br>final class A{}</p></li></ul><h4 id="继承和组合"><a class="markdownIt-Anchor" href="#继承和组合"></a> 继承和组合</h4>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h5 id=&quot;策略模式&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#策略模式&quot;&gt;&lt;/a&gt; 策略模式&lt;/h5&gt;
+&lt;p&gt;策略模式定义了算法族，分别封装起来，让它们之间可以互相替换，此模式让算法的变化独立于使用算法的客户。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>2021年12月16日20:04:27会议纪要_主要是自己想做的一些事</title>
+    <link href="https://arthersun.github.io/2021/12/16/2021%E5%B9%B412%E6%9C%8816%E6%97%A520-04-27%E4%BC%9A%E8%AE%AE%E7%BA%AA%E8%A6%81-%E4%B8%BB%E8%A6%81%E6%98%AF%E5%85%B3%E4%BA%8E%E8%87%AA%E5%B7%B1%E6%83%B3%E5%81%9A%E7%9A%84%E9%A1%B9%E7%9B%AE%E5%92%8C%E8%AE%BA%E6%96%87%E7%9A%84%E4%BA%8B/"/>
+    <id>https://arthersun.github.io/2021/12/16/2021%E5%B9%B412%E6%9C%8816%E6%97%A520-04-27%E4%BC%9A%E8%AE%AE%E7%BA%AA%E8%A6%81-%E4%B8%BB%E8%A6%81%E6%98%AF%E5%85%B3%E4%BA%8E%E8%87%AA%E5%B7%B1%E6%83%B3%E5%81%9A%E7%9A%84%E9%A1%B9%E7%9B%AE%E5%92%8C%E8%AE%BA%E6%96%87%E7%9A%84%E4%BA%8B/</id>
+    <published>2021-12-16T12:05:00.000Z</published>
+    <updated>2021-12-16T12:18:08.863Z</updated>
+    
+    <content type="html"><![CDATA[<p>2021年12月16日关于孙雪威的研究进展安排</p><h4 id="项目上的"><a class="markdownIt-Anchor" href="#项目上的"></a> 项目上的：</h4><p>因为现有的已经有了积分的激励机制，已经能够满足项目所需，不需要进行进一步的研究了。</p><h4 id="论文上的"><a class="markdownIt-Anchor" href="#论文上的"></a> 论文上的：</h4><p>解决当前现有的信誉积分机制在链上存在贫富差距过大的问题；</p><p>因为物联网系统更适合使用联盟链激励，将前一篇论文中的基于公有链的激励机制迁移到联盟链上（经调查表明，几乎没有对联盟链上的激励机制的研究）。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;2021年12月16日关于孙雪威的研究进展安排&lt;/p&gt;
+&lt;h4 id=&quot;项目上的&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#项目上的&quot;&gt;&lt;/a&gt; 项目上的：&lt;/h4&gt;
+&lt;p&gt;因为现有的已经有了积分的激励机制，已经能够满足项目所需，不需要进行进</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>2020_Menniti</title>
+    <link href="https://arthersun.github.io/2021/12/16/2020-Menniti_%E4%BB%A5%E5%8F%8A%E5%AF%B9%E6%BF%80%E5%8A%B1%E6%9C%BA%E5%88%B6%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/"/>
+    <id>https://arthersun.github.io/2021/12/16/2020-Menniti_%E4%BB%A5%E5%8F%8A%E5%AF%B9%E6%BF%80%E5%8A%B1%E6%9C%BA%E5%88%B6%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/</id>
+    <published>2021-12-16T08:02:28.000Z</published>
+    <updated>2021-12-16T10:42:36.793Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="摘要"><a class="markdownIt-Anchor" href="#摘要"></a> 摘要</h4><p>随着（意大利的）<strong>分布式光伏发电</strong>的补贴上网电价在许多司法管辖区减少或废除，人们越来越有兴趣增加自我消费，以实现屋顶光伏发电的更大价值。本文提出了一种基于区块链的非消费社区激励机制，采用集中聚合器方法，旨在增加集体自我消费并减少峰值需求。激励在许可的区块链基础设施上实施，其中世代和消费值存储在不可变的分类账中，智能合约用于实现奖励计算。为了说明发达的激励机制，本文将该方法应用于位于意大利南部的四个住宅。</p><h4 id="一-介绍"><a class="markdownIt-Anchor" href="#一-介绍"></a> 一、介绍</h4><h5 id="产消者的概念"><a class="markdownIt-Anchor" href="#产消者的概念"></a> 产消者的概念</h5><p>家庭消费者通过投资屋顶光伏系统，在这种&quot;能源转型&quot;中发挥着越来越重要的作用。这种新型消费者（即在家庭环境中发电）通常被称为产消者。</p><p>一种互补的方法是<strong>将不同的产消者和消费者聚集在一个社区能源中</strong>（即涉及可再生能源的基于社区的举措），以使负载变化较小，从而增加光伏系统的自我消耗率。因此，社区可以开发创新的地方（集体）能源实践，挑战现有电力系统中能源的产生和管理方式[3]。&quot;非消费&quot;社区被定义为在平均每年从电网中提取的能量方面基本上自给自足的社区，或者在某些情况下，成为能源的净产生者[4]。这些社区很可能会继续与电网保持连接，并依赖一些服务，如可靠性和平衡。</p><p>本文提出了一种基于区块链的新型激励机制，采用集中聚合器方法提高非消费社区的集体自我消费率。实施激励机制，将利益分配给在生产时进行消费的用户。目标是鼓励消费者改变他们通常的消费模式，以减少消费高峰，并在电力生产最高时消费。</p><h4 id="二-自我消费系统与区块链"><a class="markdownIt-Anchor" href="#二-自我消费系统与区块链"></a> 二、自我消费系统与区块链</h4><h4 id="三-激励算法"><a class="markdownIt-Anchor" href="#三-激励算法"></a> 三、激励算法</h4><p><img src="/2021/12/16/2020-Menniti_%E4%BB%A5%E5%8F%8A%E5%AF%B9%E6%BF%80%E5%8A%B1%E6%9C%BA%E5%88%B6%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/image-20211216160305272.png" alt="image-20211216160305272"></p><p>SC-Coins被设计为区块链的原生加密货币，并提供每天分发的激励措施，并基于社区中的个人和集体自我消费，间隔24小时。具体而言，客户为每千瓦时的自耗能源授予的SC-Coins数量取决于：</p><p>1)在生产时间内实现的个人自我消耗。这种情况只涉及产消者，可以使用（1）计算费率。</p><p><img src="/2021/12/16/2020-Menniti_%E4%BB%A5%E5%8F%8A%E5%AF%B9%E6%BF%80%E5%8A%B1%E6%9C%BA%E5%88%B6%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/image-20211216160427087.png" alt="image-20211216160427087"></p><p>2)产消者或消费者在生产时间内对集体自我消费率的贡献。单个家庭（即客户i）对集体自我消费率的贡献，用ICSCi（个人集体自我消费）表示，可以使用以下命名法计算：</p><p><img src="/2021/12/16/2020-Menniti_%E4%BB%A5%E5%8F%8A%E5%AF%B9%E6%BF%80%E5%8A%B1%E6%9C%BA%E5%88%B6%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/image-20211216160506368.png" alt="image-20211216160506368"></p><p>其中Mi（t）是集体发电和内部负荷曲线的瞬时重叠部分，Pc（t）是社区内的瞬时光伏发电</p><p>因此，SC币的数量每千瓦时自用家庭所赚取的能量计算如下：</p><p><img src="/2021/12/16/2020-Menniti_%E4%BB%A5%E5%8F%8A%E5%AF%B9%E6%BF%80%E5%8A%B1%E6%9C%BA%E5%88%B6%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/image-20211216161005982.png" alt="image-20211216161005982"></p><p>式中，N表示24小时间隔内出现非0值的样本数。a和B是两个系数，可用于为每个客户的个人或集体自我消费赋予更大的权重。通过这样做，消费者和自用更多社区产生的可再生能源的消费者将获得更多SC每千瓦时硬币（即，如果客户实现更高的自耗率，报酬更高）这种奖励模式反映了可再生能源的实际时间价值，并提供了更好的粒度，以帮助平衡社区生产和消费。<br>Sc coin机制构建在一个不可变的智能合约中，聚合器或任何其他实体都无法更改该合约。换句话说，消费者和消费者获得的补贴是一成不变的，任何一方都无法改变。此外，智能合约提供了代码始终完全按照书面形式执行的可靠性，因此客户无需信任任何中央实体</p><p>思考：</p><p>能不能发行一种原生的加密货币来对联盟链上的各方进行激励。</p><p>原因：加密货币相对于积分本质上是同一类东西，但是更加高大上，以及具有一定的变现能力。</p><blockquote><p>例如，IPFS存储系统为了鼓励用户去存储，发行了FileCoin加密货币。</p></blockquote><p>致使让联盟链中的个体减少单纯个人有利的行为，并增强对集体有利的行为？</p><p>-&gt;引申问题：</p><p>在咱们的项目系统中，什么是对单纯个人有利的，什么是对集体有利的？</p><blockquote><p>比如说存储系统中的账本。</p></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h4 id=&quot;摘要&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#摘要&quot;&gt;&lt;/a&gt; 摘要&lt;/h4&gt;
+&lt;p&gt;随着（意大利的）&lt;strong&gt;分布式光伏发电&lt;/strong&gt;的补贴上网电价在许多司法管辖区减少或废除，人们越来越有兴趣增加自我消费，以实现屋</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>ENS一个基于以太坊的域名注册协议</title>
+    <link href="https://arthersun.github.io/2021/12/15/ENS%E4%B8%80%E4%B8%AA%E5%9F%BA%E4%BA%8E%E4%BB%A5%E5%A4%AA%E5%9D%8A%E7%9A%84%E5%9F%9F%E5%90%8D%E6%B3%A8%E5%86%8C%E5%8D%8F%E8%AE%AE/"/>
+    <id>https://arthersun.github.io/2021/12/15/ENS%E4%B8%80%E4%B8%AA%E5%9F%BA%E4%BA%8E%E4%BB%A5%E5%A4%AA%E5%9D%8A%E7%9A%84%E5%9F%9F%E5%90%8D%E6%B3%A8%E5%86%8C%E5%8D%8F%E8%AE%AE/</id>
+    <published>2021-12-15T08:53:00.000Z</published>
+    <updated>2021-12-15T09:20:33.812Z</updated>
+    
+    <content type="html"><![CDATA[<p>传统的域名由网域名称系统(DNS，Domain Name System，有时也简称为域名系统)管理，它是因特网的一项核心服务，它作为 可以将域名和 IP 地址相互映射的一个分布式数据库，是进行域名和与之相对应的 IP 地址转换的系统，搭载域名系统的机器称之为域 名服务器，能够使人更方便的访问互联网，而不用去记住能够被机器直接读取的 IP 地址数串。</p><p>而 ENS(Ethereum Name Service)是一个基于以太坊的分布式、开放和可扩展的域名注册协议，其主要作用是将用户的地址信息 用域名来表示，从而使得用户在各类 Dapp 中转账和查询信息时无需输入冗长的区块链地址，而只需输入域名即可。因此，ENS 主要 有两个组件:注册表和解析器。</p><p><img src="/2021/12/15/ENS%E4%B8%80%E4%B8%AA%E5%9F%BA%E4%BA%8E%E4%BB%A5%E5%A4%AA%E5%9D%8A%E7%9A%84%E5%9F%9F%E5%90%8D%E6%B3%A8%E5%86%8C%E5%8D%8F%E8%AE%AE/image-20211215170338225.png" alt="image-20211215170338225"></p><blockquote><p>其实就是解决区块链转账hash值过长的问题。</p></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;传统的域名由网域名称系统(DNS，Domain Name System，有时也简称为域名系统)管理，它是因特网的一项核心服务，它作为 可以将域名和 IP 地址相互映射的一个分布式数据库，是进行域名和与之相对应的 IP 地址转换的系统，搭载域名系统的机器称之为域 名服务器，能</summary>
+      
+    
+    
+    
+    
+    <category term="分布式" scheme="https://arthersun.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
+    
+    <category term="区块链" scheme="https://arthersun.github.io/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/"/>
+    
+  </entry>
   
   <entry>
     <title>2020_Wang_PoRX:IIoT区块链共识的声誉激励方案</title>
@@ -377,148 +516,6 @@
     
     
     <category term="前端" scheme="https://arthersun.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>docker学习</title>
-    <link href="https://arthersun.github.io/2021/11/15/docker%E5%AD%A6%E4%B9%A0/"/>
-    <id>https://arthersun.github.io/2021/11/15/docker%E5%AD%A6%E4%B9%A0/</id>
-    <published>2021-11-15T09:24:05.000Z</published>
-    <updated>2021-12-04T08:02:13.557Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>docker学习</p></blockquote><ul><li>docker概述</li><li>docker安装</li><li>docker命令<ul><li>镜像命令</li><li>容器命令</li><li>操作命令</li><li>…</li></ul></li><li>docker镜像</li><li>容器数据卷</li><li>dockerFile</li><li>docker网络原理</li><li>IDEA 整合docker</li><li>docker compose</li><li>docker swarm</li><li>CI\CD Jenkins</li></ul><p>知道的越多，不知道的越多！</p><blockquote></blockquote>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;docker学习&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;docker概述&lt;/li&gt;
-&lt;li&gt;docker安装&lt;/li&gt;
-&lt;li&gt;docker命令
-&lt;ul&gt;
-&lt;li&gt;镜像命令&lt;/li&gt;
-&lt;li&gt;容器命令&lt;/li&gt;
-&lt;li&gt;操作命令&lt;/</summary>
-      
-    
-    
-    
-    
-    <category term="后端" scheme="https://arthersun.github.io/tags/%E5%90%8E%E7%AB%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>k8s文档</title>
-    <link href="https://arthersun.github.io/2021/11/15/k8s%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/"/>
-    <id>https://arthersun.github.io/2021/11/15/k8s%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/</id>
-    <published>2021-11-15T09:24:05.000Z</published>
-    <updated>2021-12-04T08:02:26.272Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/2021/11/15/k8s%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/image-20211203192806425.png" alt="image-20211203192806425"></p><p><strong>传统部署时代：</strong></p><p>早期，各个组织机构在物理服务器上运行应用程序。无法为物理服务器中的应用程序定义资源边界，这会导致资源分配问题。 例如，如果在物理服务器上运行多个应用程序，则可能会出现一个应用程序占用大部分资源的情况， 结果可能导致其他应用程序的性能下降。 一种解决方案是在不同的物理服务器上运行每个应用程序，但是由于资源利用不足而无法扩展， 并且维护许多物理服务器的成本很高。</p><p><strong>虚拟化部署时代：</strong></p><p>作为解决方案，引入了虚拟化。虚拟化技术允许你在单个物理服务器的 CPU 上运行多个虚拟机（VM）。 虚拟化允许应用程序在 VM 之间隔离，并提供一定程度的安全，因为一个应用程序的信息 不能被另一应用程序随意访问。</p><p>虚拟化技术能够更好地利用物理服务器上的资源，并且因为可轻松地添加或更新应用程序 而可以实现更好的可伸缩性，降低硬件成本等等。</p><p>每个 VM 是一台完整的计算机，在虚拟化硬件之上运行所有组件，包括其自己的操作系统。</p><p><strong>容器部署时代：</strong></p><p>容器类似于 VM，但是它们具有被放宽的隔离属性，可以在应用程序之间共享操作系统（OS）。 因此，容器被认为是轻量级的。容器与 VM 类似，具有自己的文件系统、CPU、内存、进程空间等。 由于它们与基础架构分离，因此可以跨云和 OS 发行版本进行移植。</p><p>容器因具有许多优势而变得流行起来。下面列出的是容器的一些好处：</p><ul><li>敏捷应用程序的创建和部署：与使用 VM 镜像相比，提高了容器镜像创建的简便性和效率。</li><li>持续开发、集成和部署：通过快速简单的回滚（由于镜像不可变性），支持可靠且频繁的 容器镜像构建和部署。</li><li>关注开发与运维的分离：在构建/发布时而不是在部署时创建应用程序容器镜像， 从而将应用程序与基础架构分离。</li><li>可观察性：不仅可以显示操作系统级别的信息和指标，还可以显示应用程序的运行状况和其他指标信号。</li><li>跨开发、测试和生产的环境一致性：在便携式计算机上与在云中相同地运行。</li><li>跨云和操作系统发行版本的可移植性：可在 Ubuntu、RHEL、CoreOS、本地、 Google Kubernetes Engine 和其他任何地方运行。</li><li>以应用程序为中心的管理：提高抽象级别，从在虚拟硬件上运行 OS 到使用逻辑资源在 OS 上运行应用程序。</li><li>松散耦合、分布式、弹性、解放的微服务：应用程序被分解成较小的独立部分， 并且可以动态部署和管理 - 而不是在一台大型单机上整体运行。</li><li>资源隔离：可预测的应用程序性能。</li><li>资源利用：高效率和高密度。</li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/2021/11/15/k8s%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/image-20211203192806425.png&quot; alt=&quot;image-20211203192806425&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;</summary>
-      
-    
-    
-    
-    
-    <category term="后端" scheme="https://arthersun.github.io/tags/%E5%90%8E%E7%AB%AF/"/>
-    
-    <category term="分布式" scheme="https://arthersun.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>最新想看的一些新技术</title>
-    <link href="https://arthersun.github.io/2021/11/15/%E6%9C%80%E6%96%B0%E6%83%B3%E7%9C%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E6%96%B0%E6%8A%80%E6%9C%AF/"/>
-    <id>https://arthersun.github.io/2021/11/15/%E6%9C%80%E6%96%B0%E6%83%B3%E7%9C%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E6%96%B0%E6%8A%80%E6%9C%AF/</id>
-    <published>2021-11-14T17:42:50.000Z</published>
-    <updated>2021-12-04T08:01:58.568Z</updated>
-    
-    <content type="html"><![CDATA[<ul><li>[x] js关于同步异步的一些知识</li><li>[ ] yarn和大数据的知识</li><li>[ ] go语法和框架学习</li><li>[ ] 内网多人共享gitea的学习</li><li>[ ] typescript</li><li>[ ] docker: 尝试将区块链后端和代码打包成docker</li><li>[ ] mongodb</li><li>[ ] 如何内网穿透</li><li>[ ] 如何不用springboot，只用node框架实现现有的后端（Modway.js）</li><li>[ ] 数据结构和算法的学习</li><li>[ ] Redis 和 如何用Lua解释器实现Redis脚本功能</li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;ul&gt;
-&lt;li&gt;[x] js关于同步异步的一些知识&lt;/li&gt;
-&lt;li&gt;[ ] yarn和大数据的知识&lt;/li&gt;
-&lt;li&gt;[ ] go语法和框架学习&lt;/li&gt;
-&lt;li&gt;[ ] 内网多人共享gitea的学习&lt;/li&gt;
-&lt;li&gt;[ ] typescript&lt;/li&gt;
-&lt;li&gt;[ ] </summary>
-      
-    
-    
-    
-    
-    <category term="开发" scheme="https://arthersun.github.io/tags/%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何使用git进行多人协作</title>
-    <link href="https://arthersun.github.io/2021/11/14/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8git%E8%BF%9B%E8%A1%8C%E5%A4%9A%E4%BA%BA%E5%8D%8F%E4%BD%9C/"/>
-    <id>https://arthersun.github.io/2021/11/14/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8git%E8%BF%9B%E8%A1%8C%E5%A4%9A%E4%BA%BA%E5%8D%8F%E4%BD%9C/</id>
-    <published>2021-11-14T07:02:32.000Z</published>
-    <updated>2021-12-04T08:01:33.350Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>起子</p></blockquote><p>github可以建立免费快速的私有云，在github上进行项目工程的团队合作是非常高效的</p><blockquote><p>善用github的分支功能</p></blockquote><p>github的分支功能初识时十分鸡肋，但是用多了之后设计的非常成功。</p><p>对于多人合作，我们需要共有一个主分支(master or dev)</p><p>我们在主分支上进行代码合并，并作为最终版本展示。</p><p>而其他分支作为每个人个人临时的代码池，用于最后的代码合并，合并完进行删除。</p><blockquote><p>流程</p></blockquote><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">1. 新的开发需求下达</span><br><span class="line">2. 对主分支进行pull（设这里的主分支为dev）</span><br><span class="line">3. 切换到自己的分支`git checkout -b sun`(-b是新建分支的意思)</span><br><span class="line">4. `git rebase dev`</span><br><span class="line">5. 进行开发工作</span><br><span class="line">6. `git add .`</span><br><span class="line">7. `git commit &quot;update:xxx功能&quot;`</span><br><span class="line">8. `git push`（远程push）`git push origin master`</span><br><span class="line">使用--force可以强制覆盖远程仓库</span><br><span class="line">9. 审核员进行审核，审核完成后进行合并</span><br><span class="line">10. 然后删除该分支</span><br><span class="line">11. 删除本地分支：`git branch -D sun`</span><br><span class="line">12. 删除远程分支：`git push origin --delete sun `</span><br><span class="line"></span><br><span class="line">finished</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;起子&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;github可以建立免费快速的私有云，在github上进行项目工程的团队合作是非常高效的&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;善用github的分支功能&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;</summary>
-      
-    
-    
-    
-    
-    <category term="开发" scheme="https://arthersun.github.io/tags/%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>关于npm和git源和设置代理的一些问题</title>
-    <link href="https://arthersun.github.io/2021/11/14/%E5%85%B3%E4%BA%8Enpm%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/"/>
-    <id>https://arthersun.github.io/2021/11/14/%E5%85%B3%E4%BA%8Enpm%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/</id>
-    <published>2021-11-14T06:35:45.000Z</published>
-    <updated>2021-12-04T08:01:14.898Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>问题描述</p></blockquote><p>在进行<code>npm install</code>时，我电脑上挂了科学上网，导致需要切换代理。而国内的淘宝源也没有办法提速，甚至会导致卡顿，这致使我一直被折磨。</p><blockquote><p>git的情况</p></blockquote><p>这个情况曾经出现在git上，因为当时我的socks5代理为:127.0.0.1:10808，http代理为127.0.0.1:10809</p><p>我进行git设置</p><table><thead><tr><th>git设置代理</th></tr></thead><tbody><tr><td>git config --global http.proxy <a href="http://127.0.0.1:10808">http://127.0.0.1:10808</a></td></tr><tr><td>git config --global https.proxy <a href="http://127.0.0.1:10808">http://127.0.0.1:10808</a></td></tr></tbody></table><p>导致无法顺利访问git，错误代码443.</p><ul><li>解决方案：我将http代理改为了10809就可以了。</li></ul><blockquote><p>npm的情况</p></blockquote><p>npm更换淘宝源，没有用</p><p><code>npm config set registry https://registry.npm.taobao.org</code></p><p>需要更换代理，和git一样</p><p><code>npm config set proxy http://127.0.0.1:10809</code></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;问题描述&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;在进行&lt;code&gt;npm install&lt;/code&gt;时，我电脑上挂了科学上网，导致需要切换代理。而国内的淘宝源也没有办法提速，甚至会导致卡顿，这致使我一直被折磨。&lt;/p&gt;
-&lt;blockquote</summary>
-      
-    
-    
-    
-    
-    <category term="前端" scheme="https://arthersun.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-    <category term="开发" scheme="https://arthersun.github.io/tags/%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
