@@ -6,7 +6,7 @@
   <link href="https://arthersun.github.io/atom.xml" rel="self"/>
   
   <link href="https://arthersun.github.io/"/>
-  <updated>2021-12-28T15:19:51.786Z</updated>
+  <updated>2022-01-02T17:22:27.046Z</updated>
   <id>https://arthersun.github.io/</id>
   
   <author>
@@ -17,27 +17,44 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>人生感悟</title>
-    <link href="https://arthersun.github.io/2021/12/28/%E4%BA%BA%E7%94%9F%E6%84%9F%E6%82%9F/"/>
-    <id>https://arthersun.github.io/2021/12/28/%E4%BA%BA%E7%94%9F%E6%84%9F%E6%82%9F/</id>
-    <published>2021-12-28T15:00:37.000Z</published>
-    <updated>2021-12-28T15:19:51.786Z</updated>
+    <title>2021最后一次降旗</title>
+    <link href="https://arthersun.github.io/2022/01/03/2021%E6%9C%80%E5%90%8E%E4%B8%80%E6%AC%A1%E9%99%8D%E6%97%97/"/>
+    <id>https://arthersun.github.io/2022/01/03/2021%E6%9C%80%E5%90%8E%E4%B8%80%E6%AC%A1%E9%99%8D%E6%97%97/</id>
+    <published>2022-01-02T17:21:05.000Z</published>
+    <updated>2022-01-02T17:22:27.046Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="人生感悟"><a class="markdownIt-Anchor" href="#人生感悟"></a> 人生感悟</h2><p>近之则不逊远则怨</p><p>形容一个人难以交往。靠的太近了就会不把你当回事，离的远了就会心生怨恨，开始抱怨。</p><p>启示录：做朋友之间应该相敬如宾，见面恭恭敬敬的。</p>]]></content>
+    <content type="html"><![CDATA[<p><img src="/2022/01/03/2021%E6%9C%80%E5%90%8E%E4%B8%80%E6%AC%A1%E9%99%8D%E6%97%97/%E9%99%8D%E6%97%97.jpg" alt="降旗"></p>]]></content>
     
     
       
       
-    <summary type="html">&lt;h2 id=&quot;人生感悟&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#人生感悟&quot;&gt;&lt;/a&gt; 人生感悟&lt;/h2&gt;
-&lt;p&gt;近之则不逊远则怨&lt;/p&gt;
-&lt;p&gt;形容一个人难以交往。靠的太近了就会不把你当回事，离的远了就会心生怨恨，开始抱怨。&lt;/p&gt;
-&lt;p&gt;启示</summary>
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/2022/01/03/2021%E6%9C%80%E5%90%8E%E4%B8%80%E6%AC%A1%E9%99%8D%E6%97%97/%E9%99%8D%E6%97%97.jpg&quot; alt=&quot;降旗&quot;&gt;&lt;/p&gt;
+</summary>
       
     
     
     
     
-    <category term="所思所想" scheme="https://arthersun.github.io/tags/%E6%89%80%E6%80%9D%E6%89%80%E6%83%B3/"/>
+  </entry>
+  
+  <entry>
+    <title>投简历过程</title>
+    <link href="https://arthersun.github.io/2021/12/29/%E6%8A%95%E7%AE%80%E5%8E%86%E8%BF%87%E7%A8%8B/"/>
+    <id>https://arthersun.github.io/2021/12/29/%E6%8A%95%E7%AE%80%E5%8E%86%E8%BF%87%E7%A8%8B/</id>
+    <published>2021-12-29T14:06:54.000Z</published>
+    <updated>2021-12-29T14:07:52.697Z</updated>
+    
+    <content type="html"><![CDATA[<p>2021年12月29日 微软</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;2021年12月29日 微软&lt;/p&gt;
+</summary>
+      
+    
+    
+    
     
   </entry>
   
@@ -231,9 +248,9 @@
     <link href="https://arthersun.github.io/2021/12/06/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E9%A2%98%E6%80%BB%E7%BB%93/"/>
     <id>https://arthersun.github.io/2021/12/06/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E9%A2%98%E6%80%BB%E7%BB%93/</id>
     <published>2021-12-06T12:21:28.000Z</published>
-    <updated>2021-12-06T15:59:37.532Z</updated>
+    <updated>2022-01-01T02:23:39.124Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="滑动窗口算法"><a class="markdownIt-Anchor" href="#滑动窗口算法"></a> 滑动窗口算法</h3><p>这个算法技巧的思路非常简单，就是维护一个窗口，然后不断的滑动，然后更新答案。</p><p>大概的思路模板</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (right &lt; s.size()) &#123;</span><br><span class="line">    <span class="comment">// 增大窗口</span></span><br><span class="line">    window.add(s[right]);</span><br><span class="line">    right++;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (window needs shrink) &#123;</span><br><span class="line">        <span class="comment">// 缩小窗口</span></span><br><span class="line">        window.remove(s[left]);</span><br><span class="line">        left++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>算法的时间复杂度为O(N)，比字符串暴力算法高效很多。</p><p>通用的滑动窗口算法框架</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">slidingWindow</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">string</span> t)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="keyword">int</span>&gt; need, window;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">char</span> c : t) need[c]++;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> valid = <span class="number">0</span>; </span><br><span class="line">    <span class="keyword">while</span> (right &lt; s.size()) &#123;</span><br><span class="line">        <span class="comment">// c 是将移入窗口的字符</span></span><br><span class="line">        <span class="keyword">char</span> c = s[right];</span><br><span class="line">        <span class="comment">// 右移窗口</span></span><br><span class="line">        right++;</span><br><span class="line">        <span class="comment">// 进行窗口内数据的一系列更新</span></span><br><span class="line">        ...</span><br><span class="line"></span><br><span class="line">        <span class="comment">/*** debug 输出的位置 ***/</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;window: [%d, %d)\n&quot;</span>, left, right);</span><br><span class="line">        <span class="comment">/********************/</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 判断左侧窗口是否要收缩</span></span><br><span class="line">        <span class="keyword">while</span> (window needs shrink) &#123;</span><br><span class="line">            <span class="comment">// d 是将移出窗口的字符</span></span><br><span class="line">            <span class="keyword">char</span> d = s[left];</span><br><span class="line">            <span class="comment">// 左移窗口</span></span><br><span class="line">            left++;</span><br><span class="line">            <span class="comment">// 进行窗口内数据的一系列更新</span></span><br><span class="line">            ...</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="滑动窗口的思路"><a class="markdownIt-Anchor" href="#滑动窗口的思路"></a> 滑动窗口的思路</h4><ol><li><p>我们在字符串S中使用双指针中的左右指针技巧，初始化left = right = 0，把索引<strong>左闭右开</strong>区间[left , right)称为一个窗口。</p></li><li><p>我们先不断地增加right指针扩大窗口[left , right)，直到窗口中的字符串符合要求（包含了T中的所有字符）</p></li><li><p>此时，我们停止增加right，转而不断增加left指针缩小窗口[left , right)，直到窗口中的字符串不再符合要求。同时，每次增加left，我们都要更新一轮结果。</p></li><li><p>重复第2和第3步，直到right到达字符串S的尽头。</p></li></ol><blockquote><p>主要思路：第2步相当于在寻找一个可行解，然后第3步在优化这个可行解，最终找到最优解。</p></blockquote><p>needs和window相当于计数器，分别记录<strong>T</strong>中字符出现次数和<strong>窗口</strong>中字符出现次数。</p><p>可以清晰的看到这个过程：</p><ol><li>初始状态：</li></ol><p><img src="/2021/12/06/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E9%A2%98%E6%80%BB%E7%BB%93/image-20211206211954222.png" alt="image-20211206211954222"></p><ol start="2"><li>增加right，直到窗口[left , right)包含了T的所有字符。</li></ol><p><img src="/2021/12/06/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E9%A2%98%E6%80%BB%E7%BB%93/image-20211206212312429.png" alt="image-20211206212312429"></p><ol start="3"><li><p>增加left，缩小窗口[left , right]:</p><p><img src="/2021/12/06/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E9%A2%98%E6%80%BB%E7%BB%93/image-20211206212349932.png" alt="image-20211206212349932"></p></li></ol><p>直到窗口中的字符串不再符合要求，left不再继续移动：</p><p><img src="/2021/12/06/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E9%A2%98%E6%80%BB%E7%BB%93/image-20211206212433460.png" alt="image-20211206212433460"></p><p>之后重复上述过程，先移动right，再移动left… 直到right指针到达字符串S的末端，算法结束。</p><blockquote></blockquote>]]></content>
+    <content type="html"><![CDATA[<h3 id="滑动窗口算法"><a class="markdownIt-Anchor" href="#滑动窗口算法"></a> 滑动窗口算法</h3><p>这个算法技巧的思路非常简单，就是维护一个窗口，然后不断的滑动，然后更新答案。</p><p>大概的思路模板</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (right &lt; s.size()) &#123;</span><br><span class="line">    <span class="comment">// 增大窗口</span></span><br><span class="line">    window.add(s[right]);</span><br><span class="line">    right++;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (window needs shrink) &#123;</span><br><span class="line">        <span class="comment">// 缩小窗口</span></span><br><span class="line">        window.remove(s[left]);</span><br><span class="line">        left++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>面试回答的套路：</p><ol><li><p>在什么条件时窗口增大</p></li><li><p>在什么条件时窗口减少</p></li></ol><p>算法的时间复杂度为O(N)，比字符串暴力算法高效很多。</p><p>滑动窗口大多是和字符串相关的，需要用&lt;char,int&gt;map。</p><p>foreach not applicable to type ‘java.lang.String’</p><p>foreach在String里面不能使用</p><p>通用的滑动窗口算法框架</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">slidingWindow</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">string</span> t)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="keyword">int</span>&gt; need, window;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">char</span> c : t) need[c]++;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> valid = <span class="number">0</span>; </span><br><span class="line">    <span class="keyword">while</span> (right &lt; s.size()) &#123;</span><br><span class="line">        <span class="comment">// c 是将移入窗口的字符</span></span><br><span class="line">        <span class="keyword">char</span> c = s[right];</span><br><span class="line">        <span class="comment">// 右移窗口</span></span><br><span class="line">        right++;</span><br><span class="line">        <span class="comment">// 进行窗口内数据的一系列更新</span></span><br><span class="line">        ...</span><br><span class="line"></span><br><span class="line">        <span class="comment">/*** debug 输出的位置 ***/</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;window: [%d, %d)\n&quot;</span>, left, right);</span><br><span class="line">        <span class="comment">/********************/</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 判断左侧窗口是否要收缩</span></span><br><span class="line">        <span class="keyword">while</span> (window needs shrink) &#123;</span><br><span class="line">            <span class="comment">// d 是将移出窗口的字符</span></span><br><span class="line">            <span class="keyword">char</span> d = s[left];</span><br><span class="line">            <span class="comment">// 左移窗口</span></span><br><span class="line">            left++;</span><br><span class="line">            <span class="comment">// 进行窗口内数据的一系列更新</span></span><br><span class="line">            ...</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="滑动窗口的思路"><a class="markdownIt-Anchor" href="#滑动窗口的思路"></a> 滑动窗口的思路</h4><ol><li><p>我们在字符串S中使用双指针中的左右指针技巧，初始化left = right = 0，把索引<strong>左闭右开</strong>区间[left , right)称为一个窗口。</p></li><li><p>我们先不断地增加right指针扩大窗口[left , right)，直到窗口中的字符串符合要求（包含了T中的所有字符）</p></li><li><p>此时，我们停止增加right，转而不断增加left指针缩小窗口[left , right)，直到窗口中的字符串不再符合要求。同时，每次增加left，我们都要更新一轮结果。</p></li><li><p>重复第2和第3步，直到right到达字符串S的尽头。</p></li></ol><blockquote><p>主要思路：第2步相当于在寻找一个可行解，然后第3步在优化这个可行解，最终找到最优解。</p></blockquote><p>needs和window相当于计数器，分别记录<strong>T</strong>中字符出现次数和<strong>窗口</strong>中字符出现次数。</p><p>可以清晰的看到这个过程：</p><ol><li>初始状态：</li></ol><p><img src="/2021/12/06/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E9%A2%98%E6%80%BB%E7%BB%93/image-20211206211954222.png" alt="image-20211206211954222"></p><ol start="2"><li>增加right，直到窗口[left , right)包含了T的所有字符。</li></ol><p><img src="/2021/12/06/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E9%A2%98%E6%80%BB%E7%BB%93/image-20211206212312429.png" alt="image-20211206212312429"></p><ol start="3"><li><p>增加left，缩小窗口[left , right]:</p><p><img src="/2021/12/06/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E9%A2%98%E6%80%BB%E7%BB%93/image-20211206212349932.png" alt="image-20211206212349932"></p></li></ol><p>直到窗口中的字符串不再符合要求，left不再继续移动：</p><p><img src="/2021/12/06/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E9%A2%98%E6%80%BB%E7%BB%93/image-20211206212433460.png" alt="image-20211206212433460"></p><p>之后重复上述过程，先移动right，再移动left… 直到right指针到达字符串S的末端，算法结束。</p><blockquote></blockquote>]]></content>
     
     
       
@@ -481,32 +498,6 @@
 &lt;p&gt;解决问题 --&amp;gt; 说人家的方法有问题&lt;br&gt;
 用人家的方法-&amp;gt;说人家的方法好-&amp;gt;可以为本文在xx场景下提供选择。&lt;/p&gt;
 &lt;blockquote</summary>
-      
-    
-    
-    
-    
-    <category term="论文" scheme="https://arthersun.github.io/tags/%E8%AE%BA%E6%96%87/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>论文的摘录</title>
-    <link href="https://arthersun.github.io/2021/11/17/%E8%AE%BA%E6%96%87%E7%9A%84%E6%91%98%E5%BD%95/"/>
-    <id>https://arthersun.github.io/2021/11/17/%E8%AE%BA%E6%96%87%E7%9A%84%E6%91%98%E5%BD%95/</id>
-    <published>2021-11-17T04:01:32.000Z</published>
-    <updated>2021-12-04T08:01:25.704Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>历史</p></blockquote><p>Ateniese等[36]首次提出了一种可扩展、高效的PDP，支持除数据插入外的所有动态数据操作。</p><p>Erway等[37]首次提出了一种支持所有动态数据操作的完全动态可证明数据持有(DPDP)方案。</p><p>他们的方案采用基于秩的认证跳跃表来管理数据块的动态信息。</p><p>然而，他们的方案不能支持公开审计。</p><p>Wang等[38]提出了一种全动态审计方案，通过引入MHT来存储数据块的动态信息。他们利用Boneh-Lynn-Shacham  (BLS)短签名代替RSA签名构造同态可验证标签(HVTs)，以减少通信开销。</p><p>Mukundan等人[39]提出了一种动态的多副本云审计方案，通过去除hvt中的索引信息。但是[38]和[39]都不验证数据块的索引，这意味着云存储服务器可以在任何位置使用数据块通过验证。</p><p>Zhu等人[8]提出了一个与索引哈希表相关的动态审计方案。他们将BLS签名与数据片段技术相结合，以减少存储开销。</p><p>Barsoum和Hasan[25]通过引入映射版本表(MVT)提出了一种基于映射的多副本数据持有方案。MVT由序号、块号和块版本三列数据组成，用来记录每个数据块的逻辑位置和物理位置的映射关系。该方案只需要存储一个文件副本的动态信息，消除了辅助认证信息(AAI)，减少了存储和通信开销。但是，MVT必须存储在TPA中。与CSP相比，TPA并不是一个存储密集型实体。因此，为无数云用户存储mvt将消耗TPA的大量存储资源。而且方案不安全，可能会出现[8]和[40]提出的HVT伪造问题。</p><p>Zhang等[24]提出了一种动态复制数据审计方案，采用改进的MHT  (mMHT)来验证数据块及其指标的完整性。Liu等人[7]提出了一种动态多副本云审计方案，其结构为多副本MHT  (MR-MHT)，将每个数据块的所有副本组织成一个副本子树。但是，为了防止替换攻击，他们的方案由于采用了map-to-point  hash函数，引入了额外的计算MR-MHT叶节点的成本。此外，由于提出的MHT结构的深度比普通MHT大得多，验证成本大大增加。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;历史&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Ateniese等[36]首次提出了一种可扩展、高效的PDP，支持除数据插入外的所有动态数据操作。&lt;/p&gt;
-&lt;p&gt;Erway等[37]首次提出了一种支持所有动态数据操作的完全动态可证明数据持有(DPD</summary>
       
     
     
