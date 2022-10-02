@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>2020_Wang_PoRX:IIoT区块链共识的声誉激励方案 | arthersunBlog</title>
+  <meta name="description" content="PoRX:IIoT区块链共识的声誉激励方案  第一章 介绍 介绍： 工业物联网（IIoT）是指工业生产中的各种设备，无论是工厂中的机器设备还是汽车和飞机中的发动机，其上安装传感器并连接到无线网络终端以收集和共享数据。目前，由于IIoT系统是一个开放的、分布式的、异构的系统，在IIoT中实现可信通信是一个巨大的挑战。区块链技术已成为解决工业物联网合作信任问题的新途径。利用区块链，可以构建防篡改系统">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2020_Wang_PoRX:IIoT区块链共识的声誉激励方案">
+<meta property="og:url" content="https://arthersun.github.io/2021/12/09/2020-Wang-%E5%B7%A5%E4%B8%9A%E4%BA%92%E8%81%94%E7%BD%91%E4%B8%AD%E5%9F%BA%E4%BA%8E%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9A%84%E6%BF%80%E5%8A%B1%E6%96%B9%E6%A1%88/index.html">
+<meta property="og:site_name" content="漫漫白衣路，少年追光时">
+<meta property="og:description" content="PoRX:IIoT区块链共识的声誉激励方案  第一章 介绍 介绍： 工业物联网（IIoT）是指工业生产中的各种设备，无论是工厂中的机器设备还是汽车和飞机中的发动机，其上安装传感器并连接到无线网络终端以收集和共享数据。目前，由于IIoT系统是一个开放的、分布式的、异构的系统，在IIoT中实现可信通信是一个巨大的挑战。区块链技术已成为解决工业物联网合作信任问题的新途径。利用区块链，可以构建防篡改系统">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://arthersun.github.io/2021/12/09/2020-Wang-%E5%B7%A5%E4%B8%9A%E4%BA%92%E8%81%94%E7%BD%91%E4%B8%AD%E5%9F%BA%E4%BA%8E%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9A%84%E6%BF%80%E5%8A%B1%E6%96%B9%E6%A1%88/image-20211209024205984.png">
+<meta property="og:image" content="https://arthersun.github.io/2021/12/09/2020-Wang-%E5%B7%A5%E4%B8%9A%E4%BA%92%E8%81%94%E7%BD%91%E4%B8%AD%E5%9F%BA%E4%BA%8E%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9A%84%E6%BF%80%E5%8A%B1%E6%96%B9%E6%A1%88/image-20211209024045107.png">
+<meta property="og:image" content="https://arthersun.github.io/2021/12/09/2020-Wang-%E5%B7%A5%E4%B8%9A%E4%BA%92%E8%81%94%E7%BD%91%E4%B8%AD%E5%9F%BA%E4%BA%8E%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9A%84%E6%BF%80%E5%8A%B1%E6%96%B9%E6%A1%88/image-20211209054008697.png">
+<meta property="og:image" content="https://arthersun.github.io/2021/12/09/2020-Wang-%E5%B7%A5%E4%B8%9A%E4%BA%92%E8%81%94%E7%BD%91%E4%B8%AD%E5%9F%BA%E4%BA%8E%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9A%84%E6%BF%80%E5%8A%B1%E6%96%B9%E6%A1%88/image-20211209054015000.png">
+<meta property="article:published_time" content="2021-12-08T16:12:33.000Z">
+<meta property="article:modified_time" content="2021-12-09T15:11:20.000Z">
+<meta property="article:author" content="arthersun">
+<meta property="article:tag" content="论文">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://arthersun.github.io/2021/12/09/2020-Wang-%E5%B7%A5%E4%B8%9A%E4%BA%92%E8%81%94%E7%BD%91%E4%B8%AD%E5%9F%BA%E4%BA%8E%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9A%84%E6%BF%80%E5%8A%B1%E6%96%B9%E6%A1%88/image-20211209024205984.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://arthersun.github.io/2021/12/09/2020-Wang-%E5%B7%A5%E4%B8%9A%E4%BA%92%E8%81%94%E7%BD%91%E4%B8%AD%E5%9F%BA%E4%BA%8E%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9A%84%E6%BF%80%E5%8A%B1%E6%96%B9%E6%A1%88/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="漫漫白衣路，少年追光时" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/Arthersun" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">Arthersun</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Web Developer &amp; Blockchain BUPT</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> 北京, 中国</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">Repository</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">Links</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/Arthersun" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/u/6047173250" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>漫漫白衣路，少年追光时</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E9%A2%98/" rel="tag">刷题</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" rel="tag">区块链</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%90%8E%E7%AB%AF/" rel="tag">后端</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E5%8F%91/" rel="tag">开发</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BA%E6%96%87/" rel="tag">论文</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE/" rel="tag">项目</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/linux/" style="font-size: 13px;">linux</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 13.75px;">分布式</a> <a href="/tags/%E5%88%B7%E9%A2%98/" style="font-size: 13.25px;">刷题</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 13.25px;">前端</a> <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" style="font-size: 13.25px;">区块链</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 13.5px;">后端</a> <a href="/tags/%E5%BC%80%E5%8F%91/" style="font-size: 13.75px;">开发</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 13px;">数据结构</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 14px;">论文</a> <a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 13.25px;">项目</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">十二月 2021</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">十一月 2021</a><span class="archive-list-count">11</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/10/02/%E5%9B%BD%E5%BA%86%E6%9D%82%E6%83%B3/" class="title">国庆杂想</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-10-02T13:20:39.000Z" itemprop="datePublished">2022-10-02</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/08/27/%E6%95%B0%E7%BB%84%E5%8F%8C%E6%8C%87%E9%92%88/" class="title">数组双指针</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-08-27T09:49:53.000Z" itemprop="datePublished">2022-08-27</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2021/12/09/2020-Wang-%E5%B7%A5%E4%B8%9A%E4%BA%92%E8%81%94%E7%BD%91%E4%B8%AD%E5%9F%BA%E4%BA%8E%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9A%84%E6%BF%80%E5%8A%B1%E6%96%B9%E6%A1%88/" class="title">2020_Wang_PoRX:IIoT区块链共识的声誉激励方案</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-12-08T16:12:33.000Z" itemprop="datePublished">2021-12-09</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2021/12/06/Leetcode%E9%94%99%E9%A2%98%E6%9C%AC/" class="title">Leetcode错题本</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-12-06T15:59:22.000Z" itemprop="datePublished">2021-12-06</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2021/12/06/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E9%A2%98%E6%80%BB%E7%BB%93/" class="title">滑动窗口题总结</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-12-06T12:21:28.000Z" itemprop="datePublished">2021-12-06</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-2020-Wang-工业互联网中基于区块链的激励方案" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      2020_Wang_PoRX:IIoT区块链共识的声誉激励方案
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2021/12/09/2020-Wang-%E5%B7%A5%E4%B8%9A%E4%BA%92%E8%81%94%E7%BD%91%E4%B8%AD%E5%9F%BA%E4%BA%8E%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9A%84%E6%BF%80%E5%8A%B1%E6%96%B9%E6%A1%88/" class="article-date">
+	  <time datetime="2021-12-08T16:12:33.000Z" itemprop="datePublished">2021-12-09</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/%E8%AE%BA%E6%96%87/" rel="tag">论文</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/12/09/2020-Wang-%E5%B7%A5%E4%B8%9A%E4%BA%92%E8%81%94%E7%BD%91%E4%B8%AD%E5%9F%BA%E4%BA%8E%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9A%84%E6%BF%80%E5%8A%B1%E6%96%B9%E6%A1%88/#comments" class="article-comment-link">Comments</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 4.4k(words)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 15(minutes)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h3 id="porxiiot区块链共识的声誉激励方案"><a class="markdownIt-Anchor" href="#porxiiot区块链共识的声誉激励方案"></a> PoRX:IIoT区块链共识的声誉激励方案</h3>
+<h4 id="第一章-介绍"><a class="markdownIt-Anchor" href="#第一章-介绍"></a> 第一章 介绍</h4>
+<p>介绍：</p>
+<p>工业物联网（IIoT）是指工业生产中的各种设备，无论是工厂中的机器设备还是汽车和飞机中的发动机，其上安装传感器并连接到无线网络终端以收集和共享数据。目前，由于IIoT系统是一个开放的、分布式的、异构的系统，在IIoT中实现<strong>可信通信</strong>是一个巨大的挑战。区块链技术已成为解决工业物联网合作信任问题的新途径。利用区块链，可以构建<strong>防篡改</strong>系统，作为工业物联网硬件产品从芯片到整个设备的<strong>审计</strong>工具。</p>
+<p>在IIoT中应用区块链技术的主要问题之一是解决<em>共识协议的安全性和效率问题</em>。本文提出了一种信誉机制，以鼓励正常节点和异常节点以良好的方式参与网络协作。为了引导这种行为，提出了一种<strong>基于声誉的激励方法</strong>。在声誉的收益支付函数中设计了奖惩因子。其有效性在于合作行为得到奖励，而非合作行为受到惩罚。</p>
+<p>我们方案的主要优点是，我们基于声誉的激励模块可以在最先进的PoX协议（称为PoRX）上实现，并且可以使PoX协议达到更好的一致状态。因此，它将有利于IIoT与区块链的应用。</p>
+<h5 id="工业物联网应用的例子"><a class="markdownIt-Anchor" href="#工业物联网应用的例子"></a> 工业物联网应用的例子</h5>
+<p>智能电表能在社区本地运行，如果出现电源故障，这些智能电表可以确定故障范围，通过基于区块链的智能合约技术直接与本地变电站通信，并重新规划输电线路。</p>
+<p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/IOTA_(%E5%8A%A0%E5%AF%86%E8%B2%A8%E5%B9%A3)">IOTA</a></p>
+<h5 id="工业物联网系统的问题的复述"><a class="markdownIt-Anchor" href="#工业物联网系统的问题的复述"></a> 工业物联网系统的问题的复述</h5>
+<p>由于IIoT本身是一个开放系统，因此允许各种设备加入。一些恶意设备和不诚实设备在加入网络后可能会对IIoT系统的共识协议发起攻击，从而可能破坏IIoT的系统[8]。实际上，<strong>当前的最先进的共识协议没有考虑如何在共识协议中保证节点行为良好</strong>。在IIoT的实际应用中，解决IIoT系统中恶意节点的攻击一直是需要面对的现实问题[9,10]。为了将区块链成功应用于IIoT，构建一个可信、高效的区块链共识协议是一个亟待解决的关键问题。本文针对这些问题，提出了一种激励声誉方案，以激励节点在系统中保持稳定的良好行为。好的行为会得到奖励，坏的行为会受到惩罚。每个节点都有一个具有信誉值的标识。具有较高的信誉价值，会得到更多的合作。虽然声誉价值较低，但很少得到他人的合作。该方案的主要优点是基于声誉的激励模块可以建立在PoX协议的基础上，是一种实用的方法。</p>
+<blockquote>
+<p>缺乏一种奖惩机制</p>
+</blockquote>
+<h4 id="第二章-相关工作"><a class="markdownIt-Anchor" href="#第二章-相关工作"></a> 第二章 相关工作</h4>
+<h5 id="共识协议"><a class="markdownIt-Anchor" href="#共识协议"></a> 共识协议</h5>
+<p>PoW：核心思想是通过节点间计算能力的竞争来分配区块记账权。浪费大量电能</p>
+<p>PoS：PoS的主要思想是，用户在系统中所占的比例与块生成的难度成反比。系统中节点持有的股份越大，他就越容易获胜。</p>
+<h5 id="现有共识协议的问题一不确定性"><a class="markdownIt-Anchor" href="#现有共识协议的问题一不确定性"></a> 现有共识协议的问题一——不确定性</h5>
+<p>几项协商一致的协议都有一个共同的问题，即<strong>协商一致的过程是不确定的</strong>。缺乏共识确定性导致交易确认延迟，这不适用于大多数需要实时确认的实时IIoT系统</p>
+<blockquote>
+<p>比如说比特币（pow）虽说是平均10分钟出一个块，但有可能1分钟出块，也有可能半小时出块，造成不确定性。</p>
+</blockquote>
+<h5 id="现有共识协议的问题二面向加密货币的共识协议不适用于物联网"><a class="markdownIt-Anchor" href="#现有共识协议的问题二面向加密货币的共识协议不适用于物联网"></a> 现有共识协议的问题二——面向加密货币的共识协议不适用于物联网</h5>
+<p>IIoT系统的主要要求是，<strong>应根据以IIoT业务为中心的交易验证规则对交易进行验证</strong>。</p>
+<p>这是一项基本要求，因为IIoT中的每个新事务基本上都独立于以前的事务，<strong>环境或事件的变化会影响设备读数的变化</strong>。因此，我们应该设计物联网交易的验证规则。</p>
+<blockquote>
+<p>BTC：比特币会把未花费的币维护成一个（未花费的交易输出表）UTXO</p>
+</blockquote>
+<p>例如，在智能家居中，<strong>只有当摄像头或任何其他传感器检测到房间中有人时，壁炉才会点亮</strong>。这意味着传感器读数是根据环境背景而不是孤立地进行验证的。</p>
+<h5 id="现有共识协议的问题三分叉"><a class="markdownIt-Anchor" href="#现有共识协议的问题三分叉"></a> 现有共识协议的问题三——分叉</h5>
+<p>共识协议还应具有共识的最终性，以避免出现分歧。此外，Huang[27]提出了一个分析模型来分析共识区块链中的分布式网络分叉概率。</p>
+<h5 id="iiot系统的问题sybil攻击"><a class="markdownIt-Anchor" href="#iiot系统的问题sybil攻击"></a> IIOT系统的问题——Sybil攻击</h5>
+<p>此外，IIoT系统也容易受到物理或网络攻击。最近，一场名为“Mirai”（Sophos裸体安全，2016）[28]的网络攻击感染了大量IIoT设备，包括DVR和CCTV摄像机，并将它们变成僵尸。然后，通过启动数以百万计的DNS查找请求形式的巨大数据流量，这些受损设备用于发起针对DNS服务提供商“DYN”的DDOS攻击。如果使用PoX共识协议，它可以有效抵御此DDOS攻击，但它面临51%的攻击。如果攻击者拥有整个网络一半以上的证明能力，则他可以实施攻击，并且成功的概率非常高。<strong>PoX共识协议也应该对Sybil攻击有效</strong>。</p>
+<h5 id="分布式系统的信誉机制"><a class="markdownIt-Anchor" href="#分布式系统的信誉机制"></a> 分布式系统的信誉机制</h5>
+<p>Gupta等人[29]提出了第一个P2P网络信誉系统。这是一个有效的解决办法。其他研究也对声誉系统做出了贡献，但没有一项是真正的去中心化。</p>
+<p>近年来，区块链技术被关注并用于声誉设计。</p>
+<p>Tavakolifard[30]对分散多代理系统中的信任和声誉进行了建模。</p>
+<p>Yi[31]提出了在比特币上构建不可链接的（Coin Mixing）硬币混合系统的方案。</p>
+<p>作者解释说，网络上的声誉与数字货币具有相同的要求：</p>
+<p>（1）数字货币可以表示为一个数字变量；</p>
+<blockquote>
+<p>也就是说声誉需要被定量。</p>
+</blockquote>
+<p>（2）其价值由每一参与者商定，不可由第三方操纵。系统记录付款期间的交互反馈，将实际信誉的计算留给第三方应用程序。</p>
+<blockquote>
+<p>BTC的币价一直在波动，没有人可以定义BTC的价格。也就是说信誉也不能被强行定价。</p>
+</blockquote>
+<p>Khaqqi[32]提出了一个基于声誉的交易系统，其中声誉表示参与者对减排努力的表现和承诺。采用多准则分析方法对该方案与传统排污权交易方案模型进行比较。</p>
+<p>Schaub等人[33]提出了一种基于区块链的无信任、分散和匿名的电子商务应用声誉系统。系统用Pos链保证声誉系统的共识，同时，它允许客户提交评级和文本审查。</p>
+<p>此外，一些学者利用声誉机制改进区块链[34]。Gai Fangyu等人[35]提出了基于声誉证明的共识协议。该协议纯粹基于声誉激励，完全放弃代币激励。我们认为，其协议的激励机制不够完善，放弃代币激励会导致用户参与共识的动机显著降低。</p>
+<h4 id="第三章-方法"><a class="markdownIt-Anchor" href="#第三章-方法"></a> 第三章 方法</h4>
+<p>在共识层上面加了一层激励（声誉）层</p>
+<p><img src="/2021/12/09/2020-Wang-%E5%B7%A5%E4%B8%9A%E4%BA%92%E8%81%94%E7%BD%91%E4%B8%AD%E5%9F%BA%E4%BA%8E%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9A%84%E6%BF%80%E5%8A%B1%E6%96%B9%E6%A1%88/image-20211209024205984.png" alt="image-20211209024205984"></p>
+<p><img src="/2021/12/09/2020-Wang-%E5%B7%A5%E4%B8%9A%E4%BA%92%E8%81%94%E7%BD%91%E4%B8%AD%E5%9F%BA%E4%BA%8E%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9A%84%E6%BF%80%E5%8A%B1%E6%96%B9%E6%A1%88/image-20211209024045107.png" alt="image-20211209024045107"></p>
+<p>输出函数是要满足的目标值，它由经常账户信誉估价师和当前信用度确定。该函数具有当前状态值state和随机nonce值nonce。一旦Hfunction输出小于目标值，则认为矿工获得了该区块记账权。矿工的声誉价值越大，区块产生的概率越大。</p>
+<blockquote>
+<p>实际上就是在原有的难度设置上多加了一层F，原有的可能是H（State,nonce）&lt;D</p>
+</blockquote>
+<p>该函数的设计标准是将当前矿工的帐户信誉值合并到D的难度中。其核心思想是，<strong>最大信誉值（上限）可以抵消20%-40%的难度，最小信誉值（下限）可以提高20%-40%的难度</strong>，</p>
+<h5 id="基于身份的方法"><a class="markdownIt-Anchor" href="#基于身份的方法"></a> 基于身份的方法</h5>
+<p>共识中使用了基于身份的方法。身份是IIoT系统中的一个重要属性。我们设计了共识活动的身份识别方法。其逻辑是建立一个<strong>全局注册表</strong>来存储参与协商一致的节点的标识声明。智能合约的陈述是一个身份所呈现的事实。这些声明由申报人签字，因此可以验证其真实性和完整性。节点调用合约可以在作为验证者参与协商一致之前成功注册。</p>
+<h5 id="注册合约"><a class="markdownIt-Anchor" href="#注册合约"></a> 注册合约</h5>
+<p>智能合约身份注册。在协商一致协议中，注册身份契约用于协助共识协议的运行。其主要任务是注册参与共识节点的身份，并<strong>与真实世界中的身份信息相关联</strong>（？）。登记合约应确保申报人账户的有效性、申报的有效性和申报的唯一性。因为只有一个注册合约，所以所有调用方都可以信任它的逻辑并使用它。身份登记合同的具体任务如下。</p>
+<blockquote>
+<p>与真实世界中身份信息相关联不就失去了匿名性吗</p>
+<p>有点像联盟链的做法</p>
+</blockquote>
+<p>注册：将帐户注册为矿工。验证后，可获得区块生成权，并将账户存储在全局注册账户列表中，返回注册账户列表。</p>
+<p>注销：当用户想要退出共识时，可以取消帐户。注销的帐户被视为无效帐户。它无法参与共识，该帐户将从注册帐户列表中删除。</p>
+<blockquote>
+<p>与BTC、ETH不一样的是，他这里的注册首先需要告知各方，其次也不是匿名</p>
+</blockquote>
+<p>注册时需要确保有一定保证金（用于罚款），注册后账户的声誉设置为初始声誉</p>
+<p>注销时需要确保现有状态（什么状态？）是否小于初始值，如果是的话，将声誉设为0定为注销</p>
+<h5 id="基于身份的方法具体描述"><a class="markdownIt-Anchor" href="#基于身份的方法具体描述"></a> 基于身份的方法具体描述</h5>
+<p>基于身份的方法包括声誉构建、区块链启动过程、竞争周期、激励机制和协议参数更新规则，具体描述如下。</p>
+<p>声誉构建</p>
+<blockquote>
+<p>一个矿工只能有一个账户，这样声誉值的设定才有意义。</p>
+</blockquote>
+<p>区块链启动过程</p>
+<p>因为我们的计划涉及部署身份登记合同，这些合同由矿工操作。存在一个矛盾：<strong>矿工的注册需要合同，而合同的部署需要矿工</strong>。</p>
+<p>设置一个零地址。零地址<strong>无需注册即可拥有区块记帐权限</strong>。当一个新的链（没有矿工，没有合同）需要启动时，开发者或负责人可以先使用零地址作为矿工，将身份注册合同部署到新的链上，然后用户可以正常使用该合同。应该注意的是，所有零地址的目的是处理这些相互矛盾的事情。所有零地址都没有私钥，因此使用此地址挖掘获得的奖励无法撤回。</p>
+<p>竞争周期</p>
+<p>在本文中，我们提出了一种竞争限制，称为竞争周期，它用C_duration表示。一般来说，竞争周期是现在时间之前一定数量的块。例如，当前块之前的100个块可以视为竞争周期。竞争周期根据系统中注册矿工的数量动态确定。建议使用矿工人数的两倍作为竞争周期的值，主要目的是：</p>
+<ol>
+<li>计算指定矿工的采矿难度。<strong>确保高声誉采矿者不能始终主导区块生产的优先级，并增加低声誉和潜在采矿者的机会</strong>。<br>
+例如，指数基数为2，竞争周期为100，矿工的声誉值为1200，开采1000号区块。如果900号至999号区块之间没有属于矿工的区块，则矿工的可用声誉值为1200。如果其中一个区块是矿工的，则矿工的可用声誉值为1200/2=600</li>
+<li>用于计算矿工的声誉奖惩。声誉激励根据预期产生的区块数量计算，预期产生的区块数量将由竞争周期确定。</li>
+</ol>
+<p>激励机制</p>
+<p>在原始协议中，矿工获得一定数量的代币和交易费，作为成功开采区块的奖励。在与声誉模块的新协议中，奖励还包括声誉奖励。</p>
+<p>规则如下:</p>
+<p>1.如果注册的节点竞争成功生成块，并且该块最终得到确认，则该节点将收到<strong>奖励</strong>，包括声誉和令牌。</p>
+<p>2.声誉会下降。如果注册节点未能在一定时间内生成块，或未能达到自己生成的预期块数，则将对其进行<strong>处罚</strong>。</p>
+<p>更新协议参数的规则</p>
+<p>协议参数包括循环参数和其他参数。周期参数包括竞争周期、奖励周期和惩罚周期。其他参数包括最大预期块生成量、最小预期块生成量、可用声誉衰减基数和声誉难度转换率。</p>
+<p>循环参数由矿工人数决定。由于矿工是动态的，因此需要一个更新周期来更新矿工。注意，在我们的模块中，惩罚周期是很难执行（每次区块链上的区块高度达到惩罚期），立即执行奖励周期（每个生成的区块必须按奖励周期进行奖励）。这里我们假设更新周期等于惩罚周期，即在每个惩罚周期之后，调用矿工注册合同以获得当前矿工编号并更新周期参数以进入下一轮惩罚周期。奖励周期和惩罚周期应<strong>根据竞争周期设置</strong>。如果竞争周期非常大（这是IIoT中的常见场景，系统中有许多矿工），则可以选择竞争周期的一部分作为奖励周期和惩罚周期。相反，如果竞争周期很小（例如在启动阶段），为了避免意外情况，我们可以选择几个竞争周期。</p>
+<p>其他参数为静态设置。</p>
+<p>为了使PoX共识协议在IIoT中得到广泛应用，必须提高PoX协议的安全性。我们提出了一个信誉模块来解决PoX的安全问题。声誉模块将在下一节中详细介绍。</p>
+<h3 id="第四章-实验"><a class="markdownIt-Anchor" href="#第四章-实验"></a> 第四章 实验</h3>
+<p>在以太坊上进行实验，在docker上运行节点</p>
+<h5 id="理想的声誉增长"><a class="markdownIt-Anchor" href="#理想的声誉增长"></a> 理想的声誉增长</h5>
+<p>首先，可以得到最理想条件下矿工的声誉增长曲线，即不包括声誉增长衰减和在一个竞争周期内产生过多区块而导致的声誉惩罚。为了便于观察，所有参数均设置为理想化，竞赛周期设置为0。</p>
+<h5 id="理想的声誉增长-2"><a class="markdownIt-Anchor" href="#理想的声誉增长-2"></a> 理想的声誉增长</h5>
+<p>正常的声誉增长包括声誉奖励衰减和在一个竞争周期内产生的过多区块造成的声誉惩罚。根据模型参数的不同，声誉增长的性能也不同。为了便于观察，参数设置不同。最大声誉的转换率设置为1。我们建立了三个计算能力相同的矿工。初始信誉值分别设置为500、1000和1500。所有三家矿商都能运营良好，并记录声誉价值的增长和产生区块的比例。为了进行比较，我们首先不考虑过多区块导致的声誉报酬和可用声誉的衰减。</p>
+<p><img src="/2021/12/09/2020-Wang-%E5%B7%A5%E4%B8%9A%E4%BA%92%E8%81%94%E7%BD%91%E4%B8%AD%E5%9F%BA%E4%BA%8E%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9A%84%E6%BF%80%E5%8A%B1%E6%96%B9%E6%A1%88/image-20211209054008697.png" alt="image-20211209054008697"></p>
+<p>信誉值为1500的节点出块率仍占较大比例，但信誉值增长不明显。因此，<strong>信誉值的差距将会缩小</strong>，这将导致信誉较低的节点能够参与共识，但大功率节点成功作恶的概率仍然很大。</p>
+<p><img src="/2021/12/09/2020-Wang-%E5%B7%A5%E4%B8%9A%E4%BA%92%E8%81%94%E7%BD%91%E4%B8%AD%E5%9F%BA%E4%BA%8E%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9A%84%E6%BF%80%E5%8A%B1%E6%96%B9%E6%A1%88/image-20211209054015000.png" alt="image-20211209054015000"></p>
+<p>实验参数设置的很杂，有种为了故意凸显实验设置的。</p>
+<h5 id="协议安全性分析"><a class="markdownIt-Anchor" href="#协议安全性分析"></a> 协议安全性分析</h5>
+<p>Sybil attack</p>
+<p>非匿名：很少有具有POX共识的区块链能够真正抵御此类攻击，因为区块链的账户是完全匿名的，无法识别。我们提议的声誉模块有身份注册合约，只有注册的账户才有资格参与共识活动。合约保证一个人或一个节点只有一个注册帐户。因此，除非攻击者可以贿赂或窃取多人注册的信息，否则声誉模块可以很好地抵御Sybil攻击。</p>
+<p>思考：</p>
+<p>回到最开始的问题：</p>
+<p>分叉：第3个问题通过不匿名解决了。</p>
+<p>算法中也没有结合环境背景的设置</p>
+<p>不确定性：第一个问题呢？以太坊出块仍然是不确定的。</p>
+<p>Normal Reputation Growth并不能减少贫富差距？</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://arthersun.github.io/2021/12/09/2020-Wang-%E5%B7%A5%E4%B8%9A%E4%BA%92%E8%81%94%E7%BD%91%E4%B8%AD%E5%9F%BA%E4%BA%8E%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9A%84%E6%BF%80%E5%8A%B1%E6%96%B9%E6%A1%88/" title="2020_Wang_PoRX:IIoT区块链共识的声誉激励方案" target="_blank" rel="external">https://arthersun.github.io/2021/12/09/2020-Wang-工业互联网中基于区块链的激励方案/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/Arthersun" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/Arthersun" target="_blank"><span class="text-dark">Arthersun</span><small class="ml-1x">Web Developer &amp; Blockchain BUPT</small></a></h3>
+        <div>try harder</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2022/08/27/%E6%95%B0%E7%BB%84%E5%8F%8C%E6%8C%87%E9%92%88/" title="数组双指针"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2021/12/06/Leetcode%E9%94%99%E9%A2%98%E6%9C%AC/" title="Leetcode错题本"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>Maybe you could buy me a cup of coffee.</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open alipay app scan this qrcode, buy me a coffee!</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open wechat app scan this qrcode, buy me a coffee!</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> alipay</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> wechat payment</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/Arthersun" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/u/6047173250" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>
