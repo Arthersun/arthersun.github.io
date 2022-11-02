@@ -43,19 +43,6 @@
   </entry>
   
   <entry>
-    <title>数组双指针</title>
-    <link href="https://arthersun.github.io/2022/08/27/%E6%95%B0%E7%BB%84%E5%8F%8C%E6%8C%87%E9%92%88/"/>
-    <id>https://arthersun.github.io/2022/08/27/%E6%95%B0%E7%BB%84%E5%8F%8C%E6%8C%87%E9%92%88/</id>
-    <published>2022-08-27T09:49:53.000Z</published>
-    <updated>2022-08-27T09:50:13.299Z</updated>
-    
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>2020_Wang_PoRX:IIoT区块链共识的声誉激励方案</title>
     <link href="https://arthersun.github.io/2021/12/09/2020-Wang-%E5%B7%A5%E4%B8%9A%E4%BA%92%E8%81%94%E7%BD%91%E4%B8%AD%E5%9F%BA%E4%BA%8E%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9A%84%E6%BF%80%E5%8A%B1%E6%96%B9%E6%A1%88/"/>
     <id>https://arthersun.github.io/2021/12/09/2020-Wang-%E5%B7%A5%E4%B8%9A%E4%BA%92%E8%81%94%E7%BD%91%E4%B8%AD%E5%9F%BA%E4%BA%8E%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9A%84%E6%BF%80%E5%8A%B1%E6%96%B9%E6%A1%88/</id>
@@ -528,6 +515,34 @@
     
     
     
+    
+    <category term="开发" scheme="https://arthersun.github.io/tags/%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于npm和git源和设置代理的一些问题</title>
+    <link href="https://arthersun.github.io/2021/11/14/%E5%85%B3%E4%BA%8Enpm%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/"/>
+    <id>https://arthersun.github.io/2021/11/14/%E5%85%B3%E4%BA%8Enpm%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/</id>
+    <published>2021-11-14T06:35:45.000Z</published>
+    <updated>2021-12-04T08:01:14.898Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>问题描述</p></blockquote><p>在进行<code>npm install</code>时，我电脑上挂了科学上网，导致需要切换代理。而国内的淘宝源也没有办法提速，甚至会导致卡顿，这致使我一直被折磨。</p><blockquote><p>git的情况</p></blockquote><p>这个情况曾经出现在git上，因为当时我的socks5代理为:127.0.0.1:10808，http代理为127.0.0.1:10809</p><p>我进行git设置</p><table><thead><tr><th>git设置代理</th></tr></thead><tbody><tr><td>git config --global http.proxy <a href="http://127.0.0.1:10808">http://127.0.0.1:10808</a></td></tr><tr><td>git config --global https.proxy <a href="http://127.0.0.1:10808">http://127.0.0.1:10808</a></td></tr></tbody></table><p>导致无法顺利访问git，错误代码443.</p><ul><li>解决方案：我将http代理改为了10809就可以了。</li></ul><blockquote><p>npm的情况</p></blockquote><p>npm更换淘宝源，没有用</p><p><code>npm config set registry https://registry.npm.taobao.org</code></p><p>需要更换代理，和git一样</p><p><code>npm config set proxy http://127.0.0.1:10809</code></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;问题描述&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在进行&lt;code&gt;npm install&lt;/code&gt;时，我电脑上挂了科学上网，导致需要切换代理。而国内的淘宝源也没有办法提速，甚至会导致卡顿，这致使我一直被折磨。&lt;/p&gt;
+&lt;blockquote</summary>
+      
+    
+    
+    
+    
+    <category term="前端" scheme="https://arthersun.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
     
     <category term="开发" scheme="https://arthersun.github.io/tags/%E5%BC%80%E5%8F%91/"/>
     
