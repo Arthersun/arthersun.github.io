@@ -6,7 +6,7 @@
   <link href="https://arthersun.github.io/atom.xml" rel="self"/>
   
   <link href="https://arthersun.github.io/"/>
-  <updated>2022-11-02T14:37:32.069Z</updated>
+  <updated>2022-11-12T02:10:08.447Z</updated>
   <id>https://arthersun.github.io/</id>
   
   <author>
@@ -15,6 +15,123 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mac配置vim</title>
+    <link href="https://arthersun.github.io/2022/11/12/mac%E9%85%8D%E7%BD%AEvim/"/>
+    <id>https://arthersun.github.io/2022/11/12/mac%E9%85%8D%E7%BD%AEvim/</id>
+    <published>2022-11-12T02:06:48.000Z</published>
+    <updated>2022-11-12T02:10:08.447Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="mac如何配置vim"><a class="markdownIt-Anchor" href="#mac如何配置vim"></a> mac如何配置vim</h1><ol><li>由于/usr/share/vim没有权限修改，且chmod +w也显示无法操作，需要将其复制到用户主目录下，这样修改的就是一个用户的vim配置。</li></ol><p>复制的命令行为：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 将全局版vimrc文件复制到用户主目录下做为用户版vimrc：</span><br><span class="line">cp /usr/share/vim/vimrc ~/.vimrc</span><br></pre></td></tr></table></figure><ol start="2"><li>打开~/.vimrc</li></ol><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">&quot;********************************基本设置******************************&quot;</span><br><span class="line">set tabstop=4                &quot; 设置tab键的宽度</span><br><span class="line">set shiftwidth=4             &quot; 换行时行间交错使用4个空格</span><br><span class="line">set autoindent               &quot; 自动对齐</span><br><span class="line">set backspace=2              &quot; 设置退格键可用</span><br><span class="line">set shiftwidth=4      &quot; 自动缩进4空格</span><br><span class="line">set smartindent              &quot; 智能自动缩进</span><br><span class="line">set number                   &quot; 在每一行最前面显示行号</span><br><span class="line">set showmatch                &quot; 高亮显示对应的括号</span><br><span class="line">set mouse=a                  &quot; 启用鼠标</span><br><span class="line">set ruler                    &quot; 在编辑过程中，在右下角显示光标位置的状态行</span><br><span class="line">set cursorline               &quot; 突出显示当前行</span><br><span class="line">set noswapfile               &quot; 设置无交换区文件&quot;</span><br><span class="line">set writebackup              &quot; 设置无备份文件</span><br><span class="line">set nobackup                 &quot; 设置无备份文件</span><br><span class="line">set autochdir                &quot; 设定文件浏览器目录为当前目录</span><br><span class="line">set foldmethod=syntax        &quot; 选择代码折叠类型</span><br><span class="line">set laststatus=2             &quot; 开启状态栏信息</span><br><span class="line">set cmdheight=2              &quot; 命令行的高度，默认为1，这里设为2</span><br><span class="line">set autoread                 &quot; 当文件在外部被修改，自动更新该文件</span><br><span class="line">set autoread                 &quot; 自动检测并加载外部对文件的修改</span><br><span class="line">set autowrite                &quot; 自动检测并加载外部对文件的修改</span><br><span class="line">set showcmd                  &quot; 在状态行显示目前所执行的命令，未完成的指令片段亦会显示出来</span><br><span class="line">syntax enable                &quot; 打开语法高亮</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if has(&quot;gui_running&quot;)</span><br><span class="line">    set guioptions+=b        &quot; 显示底部滚动条</span><br><span class="line">    set nowrap               &quot; 设置不自动换行</span><br><span class="line">endif</span><br><span class="line"></span><br><span class="line">&quot;********************************设置编码*******************************&quot;</span><br><span class="line">&quot; 设置换行编码</span><br><span class="line">set fileformats=unix,dos,mac</span><br><span class="line">&quot; 设置Vim 内部使用的字符编码方式</span><br><span class="line">set encoding=utf-8</span><br><span class="line">&quot; 设置文件编码</span><br><span class="line">if has(&quot;win32&quot;)</span><br><span class="line">set fileencoding=chinese</span><br><span class="line">else</span><br><span class="line">set fileencoding=utf-8</span><br><span class="line">endif</span><br><span class="line">&quot; 解决consle输出乱码</span><br><span class="line">language messages zh_CN.utf-8</span><br><span class="line"></span><br></pre></td></tr></table></figure><ol start="3"><li>重启item2或者terminal</li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;mac如何配置vim&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#mac如何配置vim&quot;&gt;&lt;/a&gt; mac如何配置vim&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;由于/usr/share/vim没有权限修改，且chmod +w也显示无法操作，需要</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>学习linux命令行</title>
+    <link href="https://arthersun.github.io/2022/11/12/%E5%AD%A6%E4%B9%A0linux%E5%91%BD%E4%BB%A4%E8%A1%8C/"/>
+    <id>https://arthersun.github.io/2022/11/12/%E5%AD%A6%E4%B9%A0linux%E5%91%BD%E4%BB%A4%E8%A1%8C/</id>
+    <published>2022-11-12T01:49:09.000Z</published>
+    <updated>2022-11-12T01:59:21.516Z</updated>
+    
+    <content type="html"><![CDATA[<p>怎么创建一个文件（非目录）？</p><blockquote><p>号可以创建，如果同时创建多个文件，可以使用多个&gt;号。</p></blockquote><hr><p>复制文件：cp 本文件 新文件/路径</p><hr><p>命令行可以用分号隔开写多条命令</p><p>mkdir text1;cd …;mkdir text2</p><hr><p>移动文件：mv 文件 路径</p><hr><p>删除文件：rm 文件</p><hr>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;怎么创建一个文件（非目录）？&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;号可以创建，如果同时创建多个文件，可以使用多个&amp;gt;号。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;复制文件：cp 本文件 新文件/路径&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;命令行可以用分号隔开写多条命令</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>关于测开职业生涯规划的一些想法</title>
+    <link href="https://arthersun.github.io/2022/11/10/%E5%85%B3%E4%BA%8E%E6%B5%8B%E5%BC%80%E8%81%8C%E4%B8%9A%E7%94%9F%E6%B6%AF%E8%A7%84%E5%88%92%E7%9A%84%E4%B8%80%E4%BA%9B%E6%83%B3%E6%B3%95/"/>
+    <id>https://arthersun.github.io/2022/11/10/%E5%85%B3%E4%BA%8E%E6%B5%8B%E5%BC%80%E8%81%8C%E4%B8%9A%E7%94%9F%E6%B6%AF%E8%A7%84%E5%88%92%E7%9A%84%E4%B8%80%E4%BA%9B%E6%83%B3%E6%B3%95/</id>
+    <published>2022-11-10T12:27:56.000Z</published>
+    <updated>2022-11-10T12:31:00.268Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="关于"><a class="markdownIt-Anchor" href="#关于"></a> 关于</h1>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;关于&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#关于&quot;&gt;&lt;/a&gt; 关于&lt;/h1&gt;
+</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>重学jvm</title>
+    <link href="https://arthersun.github.io/2022/11/10/%E9%87%8D%E5%AD%A6jvm/"/>
+    <id>https://arthersun.github.io/2022/11/10/%E9%87%8D%E5%AD%A6jvm/</id>
+    <published>2022-11-10T12:27:30.000Z</published>
+    <updated>2022-11-12T01:48:10.951Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="重学jvm"><a class="markdownIt-Anchor" href="#重学jvm"></a> 重学jvm</h1><p>Java的类存在哪里？</p><p>误区：常规认为基本数据类型存放在栈中，引用类型存放在堆中</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Class Text&#123;</span><br><span class="line">  int a = 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这里面的a是存在堆里面的。</p><p>而方法：<br>public void text(){<br>int b = 1;<br>}</p><p>在text局部方法中基本数据类型的变量b是存储在栈中的</p><p>如果你将一个实例变量放在栈内，那么就不存在多个线程访问同一个对象资源了，这显然是不对的，所以实例变量要在堆上创建，但是对于局部变量，是在栈上创建的，调用一次方法创建一个帧，独享一份内存区域，其他的线程是不会访问到该线程的资源，在栈上创建也会减轻GC的压力，随着该方法的结束，帧出栈，相对应的内存消除，这种局部变量占用的内存自然就消失了。</p><hr><p>java中静态方法的作用是什么？</p><ol><li>声明为static的变量实质上是全局变量。当声明一个对象时，并不产生static变量的拷贝，而是该类所有的实例变量共用同一个static变量。</li><li>只会分配一块存储空间，所有此类的对象都可以操控此块存储空间。</li><li>没有创建对象时也可以利用类使用该方法。静态方法可以调用静态方法、静态成员，但不能调用成员方法。</li></ol><hr><p>java静态变量存放在堆还是方法区？</p><ol><li>静态变量是被对象共享的，随着类加载而产生（不用实例化即可访问）</li><li>java8之前存放在方法区</li><li>java8及以后：存放在堆中反射的class对象的尾部</li></ol><hr><p>final在java中有什么用？</p><p>final修饰的变量是不能被改变的</p><ol><li>修饰变量：</li></ol><p>修饰基本数据类型：这个数据的值在初始化后将不能被改变。</p><p>修饰引用数据类型：引用在初始化后将永远指向一个内存地址，不可修改。里面的值是可以修改的</p><ol start="2"><li><p>final修饰的常量在编译阶段会被放入常量池中。</p></li><li></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;重学jvm&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#重学jvm&quot;&gt;&lt;/a&gt; 重学jvm&lt;/h1&gt;
+&lt;p&gt;Java的类存在哪里？&lt;/p&gt;
+&lt;p&gt;误区：常规认为基本数据类型存放在栈中，引用类型存放在堆中&lt;/p&gt;
+&lt;figure cla</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>论文中期梳理</title>
+    <link href="https://arthersun.github.io/2022/11/07/%E8%AE%BA%E6%96%87%E4%B8%AD%E6%9C%9F%E6%A2%B3%E7%90%86/"/>
+    <id>https://arthersun.github.io/2022/11/07/%E8%AE%BA%E6%96%87%E4%B8%AD%E6%9C%9F%E6%A2%B3%E7%90%86/</id>
+    <published>2022-11-07T08:08:04.000Z</published>
+    <updated>2022-11-09T13:40:43.642Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="中期的任务"><a class="markdownIt-Anchor" href="#中期的任务"></a> 中期的任务</h1><ol><li>弄出一个方案创新点，做一部分实验，论文第三章写完</li><li>完成PPT制作</li><li>准备答辩问题</li></ol><p>ps：需要注意的：</p><ol><li>由于论文和答辩的特殊性，需要导师指导，需要预留时间给导师，提前计划给老师</li><li>一定要实事求是，不能操之过急，做了多少说多少，瞎说容易露出马脚</li></ol><h1 id="一些进展的timeline"><a class="markdownIt-Anchor" href="#一些进展的timeline"></a> 一些进展的timeline</h1><p>16:12<br>读一篇区块链云审计的中文论文，弄清楚云审计的过程，大约3小时</p><p>[1]谷天龙. 基于区块链的隐私保护云审计研究[D].天津大学,2020.DOI:10.27356/d.cnki.gtjdu.2020.003033.</p><p>涉及到的比较模糊的概念：<br>云计算、云审计</p><p>云计算</p><p>云计算分为IaaS、PaaS、SaaS<br><img src="/2022/11/07/%E8%AE%BA%E6%96%87%E4%B8%AD%E6%9C%9F%E6%A2%B3%E7%90%86/yun.png" alt="云计算"></p><p>IaaS:硬件、网络<br>PaaS:操作系统 Linux<br>SaaS:一些软件服务</p><p>云审计</p><p>云审计是一种监控通过控制台进行的操作、通过OpenAPI触发的操作、事件下载及转储、事件分析、追踪、告警等的行为</p><p>ps:例如腾讯云的云审计：使用腾讯云云审计（CloudAudit），可以获取您腾讯云账号下 API 调用历史记录，包括通过腾讯云管理控制台，腾讯云 SDK，命令行工具和其他腾讯云服务进行的API调用，监控腾讯云中的任何部署行为。可以确定哪些子用户、协作者使用腾讯云 API 时，从哪个源 IP 地址进行调用，以及何时发生调用。您可以设置多个不同的跟踪集用以跟踪不同的日志，随时控制何时打开和关闭 CloudAudit 日志记录。</p><h4 id="云存储审计和云审计果然不是一个东西老师批评的对"><a class="markdownIt-Anchor" href="#云存储审计和云审计果然不是一个东西老师批评的对"></a> 云存储审计和云审计果然不是一个东西，老师批评的对</h4><hr><p>读一篇云存储审计的论文</p><p>摸鱼了半天</p><hr>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;中期的任务&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#中期的任务&quot;&gt;&lt;/a&gt; 中期的任务&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;弄出一个方案创新点，做一部分实验，论文第三章写完&lt;/li&gt;
+&lt;li&gt;完成PPT制作&lt;/li&gt;
+&lt;li&gt;准备答辩问题</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>记一次惨痛的面试失败经历</title>
@@ -403,148 +520,6 @@
     
     
     <category term="前端" scheme="https://arthersun.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>docker学习</title>
-    <link href="https://arthersun.github.io/2021/11/15/docker%E5%AD%A6%E4%B9%A0/"/>
-    <id>https://arthersun.github.io/2021/11/15/docker%E5%AD%A6%E4%B9%A0/</id>
-    <published>2021-11-15T09:24:05.000Z</published>
-    <updated>2021-12-04T08:02:13.557Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>docker学习</p></blockquote><ul><li>docker概述</li><li>docker安装</li><li>docker命令<ul><li>镜像命令</li><li>容器命令</li><li>操作命令</li><li>…</li></ul></li><li>docker镜像</li><li>容器数据卷</li><li>dockerFile</li><li>docker网络原理</li><li>IDEA 整合docker</li><li>docker compose</li><li>docker swarm</li><li>CI\CD Jenkins</li></ul><p>知道的越多，不知道的越多！</p><blockquote></blockquote>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;docker学习&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;docker概述&lt;/li&gt;
-&lt;li&gt;docker安装&lt;/li&gt;
-&lt;li&gt;docker命令
-&lt;ul&gt;
-&lt;li&gt;镜像命令&lt;/li&gt;
-&lt;li&gt;容器命令&lt;/li&gt;
-&lt;li&gt;操作命令&lt;/</summary>
-      
-    
-    
-    
-    
-    <category term="后端" scheme="https://arthersun.github.io/tags/%E5%90%8E%E7%AB%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>k8s文档</title>
-    <link href="https://arthersun.github.io/2021/11/15/k8s%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/"/>
-    <id>https://arthersun.github.io/2021/11/15/k8s%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/</id>
-    <published>2021-11-15T09:24:05.000Z</published>
-    <updated>2021-12-04T08:02:26.272Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/2021/11/15/k8s%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/image-20211203192806425.png" alt="image-20211203192806425"></p><p><strong>传统部署时代：</strong></p><p>早期，各个组织机构在物理服务器上运行应用程序。无法为物理服务器中的应用程序定义资源边界，这会导致资源分配问题。 例如，如果在物理服务器上运行多个应用程序，则可能会出现一个应用程序占用大部分资源的情况， 结果可能导致其他应用程序的性能下降。 一种解决方案是在不同的物理服务器上运行每个应用程序，但是由于资源利用不足而无法扩展， 并且维护许多物理服务器的成本很高。</p><p><strong>虚拟化部署时代：</strong></p><p>作为解决方案，引入了虚拟化。虚拟化技术允许你在单个物理服务器的 CPU 上运行多个虚拟机（VM）。 虚拟化允许应用程序在 VM 之间隔离，并提供一定程度的安全，因为一个应用程序的信息 不能被另一应用程序随意访问。</p><p>虚拟化技术能够更好地利用物理服务器上的资源，并且因为可轻松地添加或更新应用程序 而可以实现更好的可伸缩性，降低硬件成本等等。</p><p>每个 VM 是一台完整的计算机，在虚拟化硬件之上运行所有组件，包括其自己的操作系统。</p><p><strong>容器部署时代：</strong></p><p>容器类似于 VM，但是它们具有被放宽的隔离属性，可以在应用程序之间共享操作系统（OS）。 因此，容器被认为是轻量级的。容器与 VM 类似，具有自己的文件系统、CPU、内存、进程空间等。 由于它们与基础架构分离，因此可以跨云和 OS 发行版本进行移植。</p><p>容器因具有许多优势而变得流行起来。下面列出的是容器的一些好处：</p><ul><li>敏捷应用程序的创建和部署：与使用 VM 镜像相比，提高了容器镜像创建的简便性和效率。</li><li>持续开发、集成和部署：通过快速简单的回滚（由于镜像不可变性），支持可靠且频繁的 容器镜像构建和部署。</li><li>关注开发与运维的分离：在构建/发布时而不是在部署时创建应用程序容器镜像， 从而将应用程序与基础架构分离。</li><li>可观察性：不仅可以显示操作系统级别的信息和指标，还可以显示应用程序的运行状况和其他指标信号。</li><li>跨开发、测试和生产的环境一致性：在便携式计算机上与在云中相同地运行。</li><li>跨云和操作系统发行版本的可移植性：可在 Ubuntu、RHEL、CoreOS、本地、 Google Kubernetes Engine 和其他任何地方运行。</li><li>以应用程序为中心的管理：提高抽象级别，从在虚拟硬件上运行 OS 到使用逻辑资源在 OS 上运行应用程序。</li><li>松散耦合、分布式、弹性、解放的微服务：应用程序被分解成较小的独立部分， 并且可以动态部署和管理 - 而不是在一台大型单机上整体运行。</li><li>资源隔离：可预测的应用程序性能。</li><li>资源利用：高效率和高密度。</li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/2021/11/15/k8s%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/image-20211203192806425.png&quot; alt=&quot;image-20211203192806425&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;</summary>
-      
-    
-    
-    
-    
-    <category term="后端" scheme="https://arthersun.github.io/tags/%E5%90%8E%E7%AB%AF/"/>
-    
-    <category term="分布式" scheme="https://arthersun.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>最新想看的一些新技术</title>
-    <link href="https://arthersun.github.io/2021/11/15/%E6%9C%80%E6%96%B0%E6%83%B3%E7%9C%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E6%96%B0%E6%8A%80%E6%9C%AF/"/>
-    <id>https://arthersun.github.io/2021/11/15/%E6%9C%80%E6%96%B0%E6%83%B3%E7%9C%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E6%96%B0%E6%8A%80%E6%9C%AF/</id>
-    <published>2021-11-14T17:42:50.000Z</published>
-    <updated>2021-12-04T08:01:58.568Z</updated>
-    
-    <content type="html"><![CDATA[<ul><li>[x] js关于同步异步的一些知识</li><li>[ ] yarn和大数据的知识</li><li>[ ] go语法和框架学习</li><li>[ ] 内网多人共享gitea的学习</li><li>[ ] typescript</li><li>[ ] docker: 尝试将区块链后端和代码打包成docker</li><li>[ ] mongodb</li><li>[ ] 如何内网穿透</li><li>[ ] 如何不用springboot，只用node框架实现现有的后端（Modway.js）</li><li>[ ] 数据结构和算法的学习</li><li>[ ] Redis 和 如何用Lua解释器实现Redis脚本功能</li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;ul&gt;
-&lt;li&gt;[x] js关于同步异步的一些知识&lt;/li&gt;
-&lt;li&gt;[ ] yarn和大数据的知识&lt;/li&gt;
-&lt;li&gt;[ ] go语法和框架学习&lt;/li&gt;
-&lt;li&gt;[ ] 内网多人共享gitea的学习&lt;/li&gt;
-&lt;li&gt;[ ] typescript&lt;/li&gt;
-&lt;li&gt;[ ] </summary>
-      
-    
-    
-    
-    
-    <category term="开发" scheme="https://arthersun.github.io/tags/%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何使用git进行多人协作</title>
-    <link href="https://arthersun.github.io/2021/11/14/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8git%E8%BF%9B%E8%A1%8C%E5%A4%9A%E4%BA%BA%E5%8D%8F%E4%BD%9C/"/>
-    <id>https://arthersun.github.io/2021/11/14/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8git%E8%BF%9B%E8%A1%8C%E5%A4%9A%E4%BA%BA%E5%8D%8F%E4%BD%9C/</id>
-    <published>2021-11-14T07:02:32.000Z</published>
-    <updated>2021-12-04T08:01:33.350Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>起子</p></blockquote><p>github可以建立免费快速的私有云，在github上进行项目工程的团队合作是非常高效的</p><blockquote><p>善用github的分支功能</p></blockquote><p>github的分支功能初识时十分鸡肋，但是用多了之后设计的非常成功。</p><p>对于多人合作，我们需要共有一个主分支(master or dev)</p><p>我们在主分支上进行代码合并，并作为最终版本展示。</p><p>而其他分支作为每个人个人临时的代码池，用于最后的代码合并，合并完进行删除。</p><blockquote><p>流程</p></blockquote><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">1. 新的开发需求下达</span><br><span class="line">2. 对主分支进行pull（设这里的主分支为dev）</span><br><span class="line">3. 切换到自己的分支`git checkout -b sun`(-b是新建分支的意思)</span><br><span class="line">4. `git rebase dev`</span><br><span class="line">5. 进行开发工作</span><br><span class="line">6. `git add .`</span><br><span class="line">7. `git commit &quot;update:xxx功能&quot;`</span><br><span class="line">8. `git push`（远程push）`git push origin master`</span><br><span class="line">使用--force可以强制覆盖远程仓库</span><br><span class="line">9. 审核员进行审核，审核完成后进行合并</span><br><span class="line">10. 然后删除该分支</span><br><span class="line">11. 删除本地分支：`git branch -D sun`</span><br><span class="line">12. 删除远程分支：`git push origin --delete sun `</span><br><span class="line"></span><br><span class="line">finished</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;起子&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;github可以建立免费快速的私有云，在github上进行项目工程的团队合作是非常高效的&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;善用github的分支功能&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;</summary>
-      
-    
-    
-    
-    
-    <category term="开发" scheme="https://arthersun.github.io/tags/%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>关于npm和git源和设置代理的一些问题</title>
-    <link href="https://arthersun.github.io/2021/11/14/%E5%85%B3%E4%BA%8Enpm%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/"/>
-    <id>https://arthersun.github.io/2021/11/14/%E5%85%B3%E4%BA%8Enpm%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/</id>
-    <published>2021-11-14T06:35:45.000Z</published>
-    <updated>2021-12-04T08:01:14.898Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>问题描述</p></blockquote><p>在进行<code>npm install</code>时，我电脑上挂了科学上网，导致需要切换代理。而国内的淘宝源也没有办法提速，甚至会导致卡顿，这致使我一直被折磨。</p><blockquote><p>git的情况</p></blockquote><p>这个情况曾经出现在git上，因为当时我的socks5代理为:127.0.0.1:10808，http代理为127.0.0.1:10809</p><p>我进行git设置</p><table><thead><tr><th>git设置代理</th></tr></thead><tbody><tr><td>git config --global http.proxy <a href="http://127.0.0.1:10808">http://127.0.0.1:10808</a></td></tr><tr><td>git config --global https.proxy <a href="http://127.0.0.1:10808">http://127.0.0.1:10808</a></td></tr></tbody></table><p>导致无法顺利访问git，错误代码443.</p><ul><li>解决方案：我将http代理改为了10809就可以了。</li></ul><blockquote><p>npm的情况</p></blockquote><p>npm更换淘宝源，没有用</p><p><code>npm config set registry https://registry.npm.taobao.org</code></p><p>需要更换代理，和git一样</p><p><code>npm config set proxy http://127.0.0.1:10809</code></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;问题描述&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;在进行&lt;code&gt;npm install&lt;/code&gt;时，我电脑上挂了科学上网，导致需要切换代理。而国内的淘宝源也没有办法提速，甚至会导致卡顿，这致使我一直被折磨。&lt;/p&gt;
-&lt;blockquote</summary>
-      
-    
-    
-    
-    
-    <category term="前端" scheme="https://arthersun.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-    <category term="开发" scheme="https://arthersun.github.io/tags/%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
