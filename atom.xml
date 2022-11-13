@@ -6,7 +6,7 @@
   <link href="https://arthersun.github.io/atom.xml" rel="self"/>
   
   <link href="https://arthersun.github.io/"/>
-  <updated>2022-11-12T13:17:39.952Z</updated>
+  <updated>2022-11-13T06:54:39.014Z</updated>
   <id>https://arthersun.github.io/</id>
   
   <author>
@@ -15,6 +15,50 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>吾日三省吾身</title>
+    <link href="https://arthersun.github.io/2022/11/13/%E5%90%BE%E6%97%A5%E4%B8%89%E7%9C%81%E5%90%BE%E8%BA%AB/"/>
+    <id>https://arthersun.github.io/2022/11/13/%E5%90%BE%E6%97%A5%E4%B8%89%E7%9C%81%E5%90%BE%E8%BA%AB/</id>
+    <published>2022-11-13T06:54:16.000Z</published>
+    <updated>2022-11-13T06:54:39.014Z</updated>
+    
+    <content type="html"><![CDATA[<p>越来越谦逊低调</p><p>不想说任何谎言</p><p>对别人也越来越宽容</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;越来越谦逊低调&lt;/p&gt;
+&lt;p&gt;不想说任何谎言&lt;/p&gt;
+&lt;p&gt;对别人也越来越宽容&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>复习加密算法</title>
+    <link href="https://arthersun.github.io/2022/11/13/%E5%A4%8D%E4%B9%A0%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/"/>
+    <id>https://arthersun.github.io/2022/11/13/%E5%A4%8D%E4%B9%A0%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/</id>
+    <published>2022-11-13T03:51:02.000Z</published>
+    <updated>2022-11-13T06:54:03.157Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="复习加密算法"><a class="markdownIt-Anchor" href="#复习加密算法"></a> 复习加密算法</h1><h3 id="ecc椭圆曲线加密算法"><a class="markdownIt-Anchor" href="#ecc椭圆曲线加密算法"></a> ECC椭圆曲线加密算法</h3><p>椭圆曲线加密算法是基于椭圆曲线数学理论实现的一种非对称加密算法。</p><p>相比RSA，ECC优势是可以使用更短的密钥，来实现与RSA相当或更高的安全，RSA加密算法也是一种非对称加密算法，在公开密钥加密和电子商业中RSA被广泛使用。</p><p>160位ECC加密安全性相当于1024位RSA加密，210位ECC加密安全性相当于2048位RSA加密。</p><p>比特币使用了secp256k1这条特殊的椭圆曲线。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">y^2 = x^3 + 7</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;复习加密算法&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#复习加密算法&quot;&gt;&lt;/a&gt; 复习加密算法&lt;/h1&gt;
+&lt;h3 id=&quot;ecc椭圆曲线加密算法&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#ecc椭圆曲</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>便捷版快排</title>
@@ -452,63 +496,6 @@
     
     
     <category term="项目" scheme="https://arthersun.github.io/tags/%E9%A1%B9%E7%9B%AE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>linux常用命令</title>
-    <link href="https://arthersun.github.io/2021/11/19/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
-    <id>https://arthersun.github.io/2021/11/19/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</id>
-    <published>2021-11-19T13:40:08.000Z</published>
-    <updated>2021-12-04T08:03:37.925Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>linux怎么查询端口号</p></blockquote><p>lsof -i:xxx (xxx是网络号)</p><blockquote><p>linux怎么杀死以PID为名的进程</p></blockquote><p>kill -9 PID</p><blockquote><p>linux怎么输出全局变量名</p></blockquote><p>echo $PATH</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;linux怎么查询端口号&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;lsof -i:xxx (xxx是网络号)&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;linux怎么杀死以PID为名的进程&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;kill -9 </summary>
-      
-    
-    
-    
-    
-    <category term="linux" scheme="https://arthersun.github.io/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>开题要点</title>
-    <link href="https://arthersun.github.io/2021/11/18/%E5%BC%80%E9%A2%98%E8%A6%81%E7%82%B9/"/>
-    <id>https://arthersun.github.io/2021/11/18/%E5%BC%80%E9%A2%98%E8%A6%81%E7%82%B9/</id>
-    <published>2021-11-18T02:49:42.000Z</published>
-    <updated>2021-12-04T08:01:21.102Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>开题报告</p></blockquote><p>题目：落实到方法，</p><p>解决问题 --&gt; 说人家的方法有问题<br>用人家的方法-&gt;说人家的方法好-&gt;可以为本文在xx场景下提供选择。</p><blockquote><p>问题</p></blockquote><p>干的事和问题不是同一个东西</p><p>设计算法的难点在哪</p><blockquote><p>3.1研究方法</p></blockquote><p>理论研究<br>实验<br>数据</p><blockquote><p>3.2技术路线</p></blockquote><p>针对本文的三个研究内容，分别阐述技术路线，具体如下。</p><blockquote><p>3.3可行性分析</p></blockquote><p>1.研究经验可借鉴<br>2.数据条件具备<br>3.实验环境具备<br>4.理论研究能力具备<br>5.实验能力具备<br>6.技术路线可行</p><blockquote><p>PPT</p></blockquote><p>参考文献不用写全名，写是哪个期刊上就行</p><p>研究现状能说清楚就不要贴图<br>从别人的论文中找现状的证据贴在PPT中</p><p>做case分析</p><p>根据产出主要实现哪两个难点，PPT有图放图，文档不用画。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;开题报告&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;题目：落实到方法，&lt;/p&gt;
-&lt;p&gt;解决问题 --&amp;gt; 说人家的方法有问题&lt;br&gt;
-用人家的方法-&amp;gt;说人家的方法好-&amp;gt;可以为本文在xx场景下提供选择。&lt;/p&gt;
-&lt;blockquote</summary>
-      
-    
-    
-    
-    
-    <category term="论文" scheme="https://arthersun.github.io/tags/%E8%AE%BA%E6%96%87/"/>
     
   </entry>
   
