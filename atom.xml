@@ -6,7 +6,7 @@
   <link href="https://arthersun.github.io/atom.xml" rel="self"/>
   
   <link href="https://arthersun.github.io/"/>
-  <updated>2022-11-13T06:54:39.014Z</updated>
+  <updated>2022-11-14T05:45:02.185Z</updated>
   <id>https://arthersun.github.io/</id>
   
   <author>
@@ -15,6 +15,52 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>逐层排序二叉树所需的最少操作数目</title>
+    <link href="https://arthersun.github.io/2022/11/14/%E9%80%90%E5%B1%82%E6%8E%92%E5%BA%8F%E4%BA%8C%E5%8F%89%E6%A0%91%E6%89%80%E9%9C%80%E7%9A%84%E6%9C%80%E5%B0%91%E6%93%8D%E4%BD%9C%E6%95%B0%E7%9B%AE/"/>
+    <id>https://arthersun.github.io/2022/11/14/%E9%80%90%E5%B1%82%E6%8E%92%E5%BA%8F%E4%BA%8C%E5%8F%89%E6%A0%91%E6%89%80%E9%9C%80%E7%9A%84%E6%9C%80%E5%B0%91%E6%93%8D%E4%BD%9C%E6%95%B0%E7%9B%AE/</id>
+    <published>2022-11-14T04:41:42.000Z</published>
+    <updated>2022-11-14T05:45:02.185Z</updated>
+    
+    <content type="html"><![CDATA[<p>题目：</p><p>给你一个 值互不相同 的二叉树的根节点 root 。</p><p>在一步操作中，你可以选择 同一层 上任意两个节点，交换这两个节点的值。</p><p>返回每一层按 严格递增顺序 排序所需的最少操作数目。</p><p>节点的 层数 是该节点和根节点之间的路径的边数。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">输入：root = [1,4,3,7,6,8,5,null,null,null,null,9,null,10]</span><br><span class="line">输出：3</span><br><span class="line">解释：</span><br><span class="line">- 交换 4 和 3 。第 2 层变为 [3,4] 。</span><br><span class="line">- 交换 7 和 5 。第 3 层变为 [5,6,8,7] 。</span><br><span class="line">- 交换 8 和 7 。第 3 层变为 [5,6,7,8] 。</span><br><span class="line">共计用了 3 步操作，所以返回 3 。</span><br><span class="line">可以证明 3 是需要的最少操作数目。</span><br></pre></td></tr></table></figure><p>思路：</p><p>使用置换环算法得到数组排序需要的最小交换次数。</p><p>具体实现思想：</p><ol><li>使用Map记录每个节点值及其应该放到的位置</li><li>从头到尾遍历初始数组，使用flag[]数组标记当前元素是否已经参与过（即已经被加入环中），对已经参与过的数组则不再需要遍历。每次成环结束，记录成环个数loop。</li><li>最终最小交换次数为：数组长度-成环个数 nums.size()-loop</li></ol><p><img src="/2022/11/14/%E9%80%90%E5%B1%82%E6%8E%92%E5%BA%8F%E4%BA%8C%E5%8F%89%E6%A0%91%E6%89%80%E9%9C%80%E7%9A%84%E6%9C%80%E5%B0%91%E6%93%8D%E4%BD%9C%E6%95%B0%E7%9B%AE/%E7%BD%AE%E6%8D%A2%E7%8E%AF.jpg" alt="置换环"></p><p>代码：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">    // 返回使得 nums 递增需要的最小交换元素次数</span><br><span class="line">    public int minChanges(int[] nums)&#123;</span><br><span class="line">        int[] copy = Arrays.copyOf(nums, nums.length);</span><br><span class="line">        Arrays.sort(copy);</span><br><span class="line">        HashMap&lt;Integer, Integer&gt; map = new HashMap&lt;&gt;();</span><br><span class="line">        for(int i=0; i&lt;copy.length; i++)&#123;</span><br><span class="line">            map.put(copy[i], i);</span><br><span class="line">        &#125;</span><br><span class="line">        boolean[] flag = new boolean[nums.length];  // 用于标记 nums[i] 是否已经被加入环中</span><br><span class="line">        int loop = 0; // 环的个数</span><br><span class="line">        for(int i=0; i&lt;nums.length; i++)&#123;</span><br><span class="line">            if(!flag[i])&#123;</span><br><span class="line">                int j = i;</span><br><span class="line">                while(!flag[j])&#123; // 画环</span><br><span class="line">                    int index = map.get(nums[j]); // 当前节点指向的位置，画环过程</span><br><span class="line">                    flag[j] = true; // 将 j 加入环中</span><br><span class="line">                    j = index; // 将当前节点移动到环上下个节点</span><br><span class="line">                &#125;</span><br><span class="line">                loop++; // 环数递增</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return nums.length - loop; // 最小交换次数为 ： 数组长度 - 环数</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">作者：晚晴🌤</span><br><span class="line">链接：https://leetcode.cn/problems/minimum-number-of-operations-to-sort-a-binary-tree-by-level/solutions/1965867/by-liu-wan-qing-zjlj/</span><br><span class="line">来源：力扣（LeetCode）</span><br><span class="line">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;题目：&lt;/p&gt;
+&lt;p&gt;给你一个 值互不相同 的二叉树的根节点 root 。&lt;/p&gt;
+&lt;p&gt;在一步操作中，你可以选择 同一层 上任意两个节点，交换这两个节点的值。&lt;/p&gt;
+&lt;p&gt;返回每一层按 严格递增顺序 排序所需的最少操作数目。&lt;/p&gt;
+&lt;p&gt;节点的 层数 是该节点和根节点</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>最小公倍数为K的子数组数目</title>
+    <link href="https://arthersun.github.io/2022/11/14/%E6%9C%80%E5%B0%8F%E5%85%AC%E5%80%8D%E6%95%B0%E4%B8%BAK%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84%E6%95%B0%E7%9B%AE/"/>
+    <id>https://arthersun.github.io/2022/11/14/%E6%9C%80%E5%B0%8F%E5%85%AC%E5%80%8D%E6%95%B0%E4%B8%BAK%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84%E6%95%B0%E7%9B%AE/</id>
+    <published>2022-11-14T04:11:37.000Z</published>
+    <updated>2022-11-14T04:41:10.827Z</updated>
+    
+    <content type="html"><![CDATA[<p>辗转相除法：</p><p>用大数对小数求余，若余数为0，则除数为最大公约数。若余数不为0，将此余数作为除数，小数作为被除数，重新求余，直到余数为0为止。此时的最大公约数为余数。</p><p>例如：27和6.  27%6=3.  6%3=0.  所以最大公约数为3.</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public int gcd(int a, int b)&#123;</span><br><span class="line">        while (b != 0)&#123;</span><br><span class="line">            int tmp = a % b;</span><br><span class="line">            a = b;</span><br><span class="line">            b = tmp;</span><br><span class="line">        &#125;</span><br><span class="line">        return a;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><p>最大公约数和最小公倍数的关系：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">两个数的乘积等于这两个数的最大公约数与最小公倍数的乘积。假设有两个数是a、b，它</span><br><span class="line">们的最大公约数是B，最小公倍数是q。那么存在这样的关系式：ab=pg。</span><br></pre></td></tr></table></figure><p>于是代码为：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public int subarrayLCM(int[] nums, int k) &#123;</span><br><span class="line">        int num = 0;</span><br><span class="line">        for(int i=0;i&lt;nums.length;i++)&#123;</span><br><span class="line">            int cur = nums[i];</span><br><span class="line">            for(int j=i;j&lt;nums.length;j++)&#123;</span><br><span class="line">                cur = cur*nums[j]/gcd(cur,nums[j]);</span><br><span class="line">                if(cur==k)&#123;</span><br><span class="line">                    num++;</span><br><span class="line">                &#125;else if(cur&gt;k)&#123;</span><br><span class="line">                    break;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return num;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //用辗转相除法写gcd</span><br><span class="line">    public int gcd(int a, int b)&#123;</span><br><span class="line">        while(b!=0)&#123;</span><br><span class="line">            int temp = a%b;</span><br><span class="line">            a = b;</span><br><span class="line">            b = temp;</span><br><span class="line">        &#125;</span><br><span class="line">        return a;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;辗转相除法：&lt;/p&gt;
+&lt;p&gt;用大数对小数求余，若余数为0，则除数为最大公约数。若余数不为0，将此余数作为除数，小数作为被除数，重新求余，直到余数为0为止。此时的最大公约数为余数。&lt;/p&gt;
+&lt;p&gt;例如：27和6.  27%6=3.  6%3=0.  所以最大公约数为3.&lt;/p</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>吾日三省吾身</title>
@@ -441,61 +487,6 @@
     
     
     <category term="分布式" scheme="https://arthersun.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>默克尔树</title>
-    <link href="https://arthersun.github.io/2021/11/22/%E9%BB%98%E5%85%8B%E5%B0%94%E6%A0%91/"/>
-    <id>https://arthersun.github.io/2021/11/22/%E9%BB%98%E5%85%8B%E5%B0%94%E6%A0%91/</id>
-    <published>2021-11-22T14:24:43.000Z</published>
-    <updated>2021-12-04T07:58:11.530Z</updated>
-    
-    <content type="html"><![CDATA[<h1>Merkle 树结构</h1><p><a href="https://en.wikipedia.org/wiki/Merkle_tree">默克尔树</a>（又叫哈希树）是一种典型的二叉树结构，由一个根节点、一组中间节点和一组叶节点组成。默克尔树最早由 Merkle Ralf 在 1980 年提出，曾广泛用于文件系统和 P2P 系统中。</p><p>其主要特点为：</p><ul><li>最下面的叶节点包含存储数据或其哈希值。</li><li>非叶子节点（包括中间节点和根节点）都是它的两个孩子节点内容的哈希值。</li></ul><p>进一步地，默克尔树可以推广到多叉树的情形，此时非叶子节点的内容为它所有的孩子节点的内容的哈希值。</p><p>默克尔树逐层记录哈希值的特点，让它具有了一些独特的性质。例如，底层数据的任何变动，都会传递到其父节点，一层层沿着路径一直到树根。这意味树根的值实际上代表了对底层所有数据的“数字摘要”。</p><p>目前，默克尔树的典型应用场景包括如下几种。</p><h2 id="证明某个集合中存在或不存在某个元素"><a class="markdownIt-Anchor" href="#证明某个集合中存在或不存在某个元素"></a> 证明某个集合中存在或不存在某个元素</h2><p>通过构建集合的默克尔树，并提供该元素各级兄弟节点中的 Hash 值，可以不暴露集合完整内容而证明某元素存在。</p><p>另外，对于可以进行排序的集合，可以将不存在元素的位置用空值代替，以此构建稀疏默克尔树（Sparse Merkle Tree）。该结构可以证明某个集合中不包括指定元素。</p><h2 id="快速比较大量数据"><a class="markdownIt-Anchor" href="#快速比较大量数据"></a> 快速比较大量数据</h2><p>对每组数据排序后构建默克尔树结构。当两个默克尔树根相同时，则意味着所代表的两组数据必然相同。否则，必然不同。</p><p>由于 Hash 计算的过程可以十分快速，预处理可以在短时间内完成。利用默克尔树结构能带来巨大的比较性能优势。</p><h2 id="快速定位修改"><a class="markdownIt-Anchor" href="#快速定位修改"></a> 快速定位修改</h2><p>以下图为例，基于数据 D0……D3 构造默克尔树，如果 D1 中数据被修改，会影响到 N1，N4 和 Root。</p><p><img src="/2021/11/22/%E9%BB%98%E5%85%8B%E5%B0%94%E6%A0%91/1.png" alt="img"></p><p>Merkle 树示例</p><p>因此，一旦发现某个节点如 Root 的数值发生变化，沿着 Root --&gt; N4 --&gt; N1，最多通过 O(lgN) 时间即可快速定位到实际发生改变的数据块 D1。</p><h2 id="零知识证明"><a class="markdownIt-Anchor" href="#零知识证明"></a> 零知识证明</h2><p>仍以上图为例，如何向他人证明拥有某个数据 D0 而不暴露其它信息。挑战者提供随机数据 D1，D2 和 D3，或由证明人生成（需要加入特定信息避免被人复用证明过程）。</p><p>证明人构造如图所示的默克尔树，公布 N1，N5，Root。验证者自行计算 Root 值，验证是否跟提供值一致，即可很容易检测 D0 存在。整个过程中验证者无法获知与 D0 相关的额外信息。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1&gt;Merkle 树结构&lt;/h1&gt;
-&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Merkle_tree&quot;&gt;默克尔树&lt;/a&gt;（又叫哈希树）是一种典型的二叉树结构，由一个根节点、一组中间节点和一组叶节点组成。默克尔树最早由 Merkle R</summary>
-      
-    
-    
-    
-    
-    <category term="数据结构" scheme="https://arthersun.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-    <category term="论文" scheme="https://arthersun.github.io/tags/%E8%AE%BA%E6%96%87/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>11_20_项目组log_包括后几个月参与的任务</title>
-    <link href="https://arthersun.github.io/2021/11/20/%E9%A1%B9%E7%9B%AE%E7%BB%84log/"/>
-    <id>https://arthersun.github.io/2021/11/20/%E9%A1%B9%E7%9B%AE%E7%BB%84log/</id>
-    <published>2021-11-20T02:27:34.000Z</published>
-    <updated>2021-12-04T08:02:02.341Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>时间与实习时间</p></blockquote><p>4月份中期，整个项目3个月内干完</p><blockquote><p>参与的集成任务</p></blockquote><p>2月20号在corda上集成多对多拍卖<br>1月10号在corda上集成条件隐私保护<br>12月11日之前给出基本的激励智能合约机制的实现，到1月15日之前设计一个高级版的区块链的激励机制</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;时间与实习时间&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;4月份中期，整个项目3个月内干完&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;参与的集成任务&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;2月20号在corda上集成多对多拍卖&lt;br&gt;
-1月10号</summary>
-      
-    
-    
-    
-    
-    <category term="项目" scheme="https://arthersun.github.io/tags/%E9%A1%B9%E7%9B%AE/"/>
     
   </entry>
   
