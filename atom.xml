@@ -6,7 +6,7 @@
   <link href="https://arthersun.github.io/atom.xml" rel="self"/>
   
   <link href="https://arthersun.github.io/"/>
-  <updated>2022-11-14T05:45:02.185Z</updated>
+  <updated>2022-11-17T03:01:00.919Z</updated>
   <id>https://arthersun.github.io/</id>
   
   <author>
@@ -15,6 +15,207 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>synchonized锁升级流程</title>
+    <link href="https://arthersun.github.io/2022/11/17/synchonized%E9%94%81%E5%8D%87%E7%BA%A7%E6%B5%81%E7%A8%8B/"/>
+    <id>https://arthersun.github.io/2022/11/17/synchonized%E9%94%81%E5%8D%87%E7%BA%A7%E6%B5%81%E7%A8%8B/</id>
+    <published>2022-11-17T02:56:53.000Z</published>
+    <updated>2022-11-17T03:01:00.919Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="synchronized锁升级"><a class="markdownIt-Anchor" href="#synchronized锁升级"></a> synchronized锁升级</h1><p>根据上面内容可以知道，synchronized锁有四种状态：无锁，偏向锁、轻量级锁和重量级锁，下面介绍四种状态和其之间的转换。</p><p>2.1 无锁</p><p>当一个对象被创建之后，还没有线程进入，这个时候对象处于无锁状态，其Mark Word中的信息如上表所示。</p><p>2.2 偏向锁</p><p>当锁处于无锁状态时，有一个线程A访问同步块并获取锁时，会在对象头和栈帧中的锁记录记录线程ID，以后该线程在进入和退出同步块时不需要进行CAS操作来进行加锁和解锁，只需要简单的测试一下啊对象头中的线程ID和当前线程是否一致。</p><p>2.3 轻量级锁</p><p>在偏向锁的基础上，又有另外一个线程B进来，这时判断对象头中存储的线程A的ID和线程B不一致，就会使用CAS竞争锁，并且升级为轻量级锁，会在线程栈中创建一个锁记录(lock Record)，将Mark Word复制到锁记录中，然后线程尝试使用CAS将对象头的Mark Word替换成指向锁记录的指针，如果成功，则当前线程获得锁；失败，表示其他线程竞争锁，当前线程便尝试CAS来获取锁。</p><p>2.4 重量级锁</p><p>当线程没有获得轻量级锁时，线程会CAS自旋来获取锁，当一个线程自旋10次之后，仍然未获得锁，那么就会升级成为重量级锁。</p><p>成为重量级锁之后，线程会进入阻塞队列(EntryList)，线程不再自旋获取锁，而是由CPU进行调度，线程串行执行。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;synchronized锁升级&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#synchronized锁升级&quot;&gt;&lt;/a&gt; synchronized锁升级&lt;/h1&gt;
+&lt;p&gt;根据上面内容可以知道，synchronized锁有四种状态：无锁，</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>mybatis八股</title>
+    <link href="https://arthersun.github.io/2022/11/16/mybatis%E5%85%AB%E8%82%A1/"/>
+    <id>https://arthersun.github.io/2022/11/16/mybatis%E5%85%AB%E8%82%A1/</id>
+    <published>2022-11-16T13:56:54.000Z</published>
+    <updated>2022-11-17T02:49:05.572Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="mybatis编程步骤是什么样的"><a class="markdownIt-Anchor" href="#mybatis编程步骤是什么样的"></a> MyBatis编程步骤是什么样的?</h1><p>1、创建SqlSessionFactory</p><p>2、通过SqlSessionFactory创建Sql Session</p><p>3、通过sqlsession执行数据库操作</p><p>4、调用session.commit()提交事务</p><p>5、调用session.close()关闭会话</p><h1 id="jdbc编程有哪些不足之处mybatis是如何解决这些问题的"><a class="markdownIt-Anchor" href="#jdbc编程有哪些不足之处mybatis是如何解决这些问题的"></a> JDBC编程有哪些不足之处，MyBatis是如何解决这些问题的？</h1><p>1、数据库链接创建、释放频繁造成系统资源浪费从而影响系统性能，如果使用数据库链接池可解决此问题。</p><p>解决：在SqlMapConfig。xml中配置数据链接池，使用连接池管理数据库链接。</p><p>2、Sql语句写在代码中造成代码不易维护，实际应用sq！变化的可能较大，sq！变动需要改变java代码。</p><p>解决：将Sql语句配置在XXXXmapper.xml文件中与java代码分离。</p><p>3、向sql语句传参数麻烦，因为sql语句的where条件不一定，可能多也可能少，占位符需要和参数一一对应。</p><p>解决：Mybatis自动将java对象映射至sql语句。</p><p>4、对结果集解析麻烦，sql变化导致解析代码变化，且解析前需要遍历，如果能将数据库记录封装成pojo对象解析比较方便。</p><p>解决：Mybatis自动将Sql执行结果映射至java对象。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;mybatis编程步骤是什么样的&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#mybatis编程步骤是什么样的&quot;&gt;&lt;/a&gt; MyBatis编程步骤是什么样的?&lt;/h1&gt;
+&lt;p&gt;1、创建SqlSessionFactory&lt;/p&gt;
+&lt;p&gt;</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>PUT请求和POST请求的区别</title>
+    <link href="https://arthersun.github.io/2022/11/15/PUT%E8%AF%B7%E6%B1%82%E5%92%8CPOST%E8%AF%B7%E6%B1%82%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>https://arthersun.github.io/2022/11/15/PUT%E8%AF%B7%E6%B1%82%E5%92%8CPOST%E8%AF%B7%E6%B1%82%E7%9A%84%E5%8C%BA%E5%88%AB/</id>
+    <published>2022-11-15T07:47:10.000Z</published>
+    <updated>2022-11-15T08:09:44.361Z</updated>
+    
+    <content type="html"><![CDATA[<p>POST所对应的URI并非创建的资源本身，而是资源的接收者。比如：POST <a href="http://www.forum.com/articles%E7%9A%84%E8%AF%AD%E4%B9%89%E6%98%AF%E5%9C%A8http://www.forum.com/articles%E4%B8%8B%E5%88%9B%E5%BB%BA%E4%B8%80%E7%AF%87%E5%B8%96%E5%AD%90%EF%BC%8CHTTP%E5%93%8D%E5%BA%94%E4%B8%AD%E5%BA%94%E5%8C%85%E5%90%AB%E5%B8%96%E5%AD%90%E7%9A%84%E5%88%9B%E5%BB%BA%E7%8A%B6%E6%80%81%E4%BB%A5%E5%8F%8A%E5%B8%96%E5%AD%90%E7%9A%84URI%E3%80%82%E4%B8%A4%E6%AC%A1%E7%9B%B8%E5%90%8C%E7%9A%84POST%E8%AF%B7%E6%B1%82%E4%BC%9A%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E5%88%9B%E5%BB%BA%E4%B8%A4%E4%BB%BD%E8%B5%84%E6%BA%90%EF%BC%8C%E5%AE%83%E4%BB%AC%E5%85%B7%E6%9C%89%E4%B8%8D%E5%90%8C%E7%9A%84URI%EF%BC%9B%E6%89%80%E4%BB%A5%EF%BC%8CPOST%E6%96%B9%E6%B3%95%E4%B8%8D%E5%85%B7%E5%A4%87%E5%B9%82%E7%AD%89%E6%80%A7%E3%80%82%E8%80%8CPUT%E6%89%80%E5%AF%B9%E5%BA%94%E7%9A%84URI%E6%98%AF%E8%A6%81%E5%88%9B%E5%BB%BA%E6%88%96%E6%9B%B4%E6%96%B0%E7%9A%84%E8%B5%84%E6%BA%90%E6%9C%AC%E8%BA%AB%E3%80%82%E6%AF%94%E5%A6%82%EF%BC%9APUT">http://www.forum.com/articles的语义是在http://www.forum.com/articles下创建一篇帖子，HTTP响应中应包含帖子的创建状态以及帖子的URI。两次相同的POST请求会在服务器端创建两份资源，它们具有不同的URI；所以，POST方法不具备幂等性。而PUT所对应的URI是要创建或更新的资源本身。比如：PUT</a> <a href="http://www.forum/articles/4231%E7%9A%84%E8%AF%AD%E4%B9%89%E6%98%AF%E5%88%9B%E5%BB%BA%E6%88%96%E6%9B%B4%E6%96%B0ID%E4%B8%BA4231%E7%9A%84%E5%B8%96%E5%AD%90%E3%80%82%E5%AF%B9%E5%90%8C%E4%B8%80URI%E8%BF%9B%E8%A1%8C%E5%A4%9A%E6%AC%A1PUT%E7%9A%84%E5%89%AF%E4%BD%9C%E7%94%A8%E5%92%8C%E4%B8%80%E6%AC%A1PUT%E6%98%AF%E7%9B%B8%E5%90%8C%E7%9A%84%EF%BC%9B%E5%9B%A0%E6%AD%A4%EF%BC%8CPUT%E6%96%B9%E6%B3%95%E5%85%B7%E6%9C%89%E5%B9%82%E7%AD%89%E6%80%A7%E3%80%82">http://www.forum/articles/4231的语义是创建或更新ID为4231的帖子。对同一URI进行多次PUT的副作用和一次PUT是相同的；因此，PUT方法具有幂等性。</a></p><p>在介绍了几种操作的语义和幂等性之后，我们来看看如何通过Web API的形式实现前面所提到的取款功能。很简单，用POST /tickets来实现create_ticket；用PUT /accounts/account_id/ticket_id&amp;amount=xxx来实现idempotent_withdraw。值得注意的是严格来讲amount参数不应该作为URI的一部分，真正的URI应该是/accounts/account_id/ticket_id，而amount应该放在请求的body中。这种模式可以应用于很多场合，比如：论坛网站中防止意外的重复发帖。</p><h1 id="幂等设计"><a class="markdownIt-Anchor" href="#幂等设计"></a> 幂等设计</h1><p>分布式事务 vs 幂等设计<br>为什么需要幂等性呢？我们先从一个例子说起，假设有一个从账户取钱的远程API（可以是HTTP的，也可以不是），我们暂时用类函数的方式记为：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bool withdraw(account_id, amount)</span><br></pre></td></tr></table></figure><p>withdraw的语义是从account_id对应的账户中扣除amount数额的钱；如果扣除成功则返回true，账户余额减少amount；如果扣除失败则返回false，账户余额不变。值得注意的是：和本地环境相比，我们不能轻易假设分布式环境的可靠性。一种典型的情况是withdraw请求已经被服务器端正确处理，但服务器端的返回结果由于网络等原因被掉丢了，导致客户端无法得知处理结果。如果是在网页上，一些不恰当的设计可能会使用户认为上一次操作失败了，然后刷新页面，这就导致了withdraw被调用两次，账户也被多扣了一次钱。</p><p>这个问题的解决方案一是采用分布式事务，通过引入支持分布式事务的中间件来保证withdraw功能的事务性。分布式事务的优点是对于调用者很简单，复杂性都交给了中间件来管理。缺点则是一方面架构太重量级，容易被绑在特定的中间件上，不利于异构系统的集成；另一方面分布式事务虽然能保证事务的ACID性质，而但却无法提供性能和可用性的保证。</p><p>另一种更轻量级的解决方案是幂等设计。我们可以通过一些技巧把withdraw变成幂等的，比如：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int create_ticket()</span><br><span class="line">bool idempotent_withdraw(ticket_id, account_id, amount)</span><br></pre></td></tr></table></figure><p>create_ticket的语义是获取一个服务器端生成的唯一的处理号ticket_id，它将用于标识后续的操作。idempotent_withdraw和withdraw的区别在于关联了一个ticket_id，一个ticket_id表示的操作至多只会被处理一次，每次调用都将返回第一次调用时的处理结果。这样，idempotent_withdraw就符合幂等性了，客户端就可以放心地多次调用。</p><p>基于幂等性的解决方案中一个完整的取钱流程被分解成了两个步骤：1.调用create_ticket()获取ticket_id；2.调用idempotent_withdraw(ticket_id, account_id, amount)。虽然create_ticket不是幂等的，但在这种设计下，它对系统状态的影响可以忽略，加上idempotent_withdraw是幂等的，所以任何一步由于网络等原因失败或超时，客户端都可以重试，直到获得结果。如图2所示：</p><p>和分布式事务相比，幂等设计的优势在于它的轻量级，容易适应异构环境，以及性能和可用性方面。在某些性能要求比较高的应用，幂等设计往往是唯一的选择。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;POST所对应的URI并非创建的资源本身，而是资源的接收者。比如：POST &lt;a href=&quot;http://www.forum.com/articles%E7%9A%84%E8%AF%AD%E4%B9%89%E6%98%AF%E5%9C%A8http://www.forum</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>GET请求和POST请求的区别</title>
+    <link href="https://arthersun.github.io/2022/11/15/GET%E8%AF%B7%E6%B1%82%E5%92%8CPOST%E8%AF%B7%E6%B1%82%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>https://arthersun.github.io/2022/11/15/GET%E8%AF%B7%E6%B1%82%E5%92%8CPOST%E8%AF%B7%E6%B1%82%E7%9A%84%E5%8C%BA%E5%88%AB/</id>
+    <published>2022-11-15T06:37:56.000Z</published>
+    <updated>2022-11-15T06:38:52.948Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="使用上的区别"><a class="markdownIt-Anchor" href="#使用上的区别"></a> 使用上的区别：</h1><p>GET使用URL或Cookie传参，而POST将数据放在BODY中”，这个是因为HTTP协议用法的约定。</p><p>GET方式提交的数据有长度限制，则POST的数据则可以非常大〞，这个是因为它们使用的操作系统和浏览器设置的不同引起的区别。</p><p>POST比GET安全，因为数据在地址栏上不可见”，这个说法没毛病，但依然不是GET和POST本身的区别。</p><h1 id="本质区别"><a class="markdownIt-Anchor" href="#本质区别"></a> 本质区别</h1><p>GET和POST最大的区别主要是GET请求是幂等性的，POST请求不是。这个是它们本质区别。</p><p>幂等性是指一次和多次请求某一个资源应该具有同样的副作用。简单来说意味着对同一URL的多个请求应该返回同样的结果。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;使用上的区别&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#使用上的区别&quot;&gt;&lt;/a&gt; 使用上的区别：&lt;/h1&gt;
+&lt;p&gt;GET使用URL或Cookie传参，而POST将数据放在BODY中”，这个是因为HTTP协议用法的约定。&lt;/p&gt;
+&lt;p</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>HTTP常用的请求方式</title>
+    <link href="https://arthersun.github.io/2022/11/15/HTTP%E5%B8%B8%E7%94%A8%E7%9A%84%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F/"/>
+    <id>https://arthersun.github.io/2022/11/15/HTTP%E5%B8%B8%E7%94%A8%E7%9A%84%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F/</id>
+    <published>2022-11-15T06:34:48.000Z</published>
+    <updated>2022-11-15T07:43:03.779Z</updated>
+    
+    <content type="html"><![CDATA[<p>GET 获取资源</p><p>POST 传输实体主体</p><p>PUT 上传文件</p><p>DELETE 删除文件</p><p>HEAD 和GET方法类似，但只返回报文首部，不返回报文实体主体部分</p><p>PATCH 对资源进行部分修改</p><p>OPTIONS 查询指定的URL支持的方法</p><p>CONNECT 要求用隧道协议进行代理</p><p>TRACE 服务器会将通信路径返回给客户端</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;GET 获取资源&lt;/p&gt;
+&lt;p&gt;POST 传输实体主体&lt;/p&gt;
+&lt;p&gt;PUT 上传文件&lt;/p&gt;
+&lt;p&gt;DELETE 删除文件&lt;/p&gt;
+&lt;p&gt;HEAD 和GET方法类似，但只返回报文首部，不返回报文实体主体部分&lt;/p&gt;
+&lt;p&gt;PATCH 对资源进行部分修改&lt;/p&gt;
+&lt;p&gt;OP</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>HTTP状态码</title>
+    <link href="https://arthersun.github.io/2022/11/15/HTTP%E7%8A%B6%E6%80%81%E7%A0%81/"/>
+    <id>https://arthersun.github.io/2022/11/15/HTTP%E7%8A%B6%E6%80%81%E7%A0%81/</id>
+    <published>2022-11-15T06:28:48.000Z</published>
+    <updated>2022-11-15T06:34:11.248Z</updated>
+    
+    <content type="html"><![CDATA[<p>常见状态码：</p><p>200：服务器正确处理了请求。</p><p>301：（永久移动）请求的网页已永久移动到新位置。服务器返回该响应（对GET或HEAD请求的相应）时，会自动将请求者转到新位置。</p><p>302：（临时移动）服务器目前从不同位置的网页相应请求，但请求者应继续使用原有位置来进行以后的请求。</p><p>400：客户端请求有语法错误，不能被服务器所理解。</p><p>403：服务器收到请求，但是拒绝提供服务。</p><p>404：（未找到）服务器找不到请求的网页。</p><p>500：（服务器内部错误）服务器遇到错误，无法完成请求。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;常见状态码：&lt;/p&gt;
+&lt;p&gt;200：服务器正确处理了请求。&lt;/p&gt;
+&lt;p&gt;301：（永久移动）请求的网页已永久移动到新位置。服务器返回该响应（对GET或HEAD请求的相应）时，会自动将请求者转到新位置。&lt;/p&gt;
+&lt;p&gt;302：（临时移动）服务器目前从不同位置的网页相应请求，</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>AOP和拦截器</title>
+    <link href="https://arthersun.github.io/2022/11/14/AOP%E5%92%8C%E6%8B%A6%E6%88%AA%E5%99%A8/"/>
+    <id>https://arthersun.github.io/2022/11/14/AOP%E5%92%8C%E6%8B%A6%E6%88%AA%E5%99%A8/</id>
+    <published>2022-11-14T13:45:17.000Z</published>
+    <updated>2022-11-15T06:28:39.151Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="aop原理"><a class="markdownIt-Anchor" href="#aop原理"></a> AOP原理</h1><ol><li>创建代理对象阶段</li></ol><p>在Spring中，创建Bean实例都是从getBean()方法开始的，在实例创建之后，Spring容器将根据AOP的配置去匹配目标类的类名，看目标类的类名是否满足切面规则。</p><p>如果满足切面规则，就会调用ProxyFactory创建代理Bean并缓存到IOC容器中。根据目标对象的自动选择不同的代理策略。如果目标类实现了接口，Spring会默认选择JDK Proxy，如果目标类没有实现接口，Spring会默认选择Cglib Proxy。</p><ol start="2"><li>拦截目标对象阶段</li></ol><p>当用户调用目标对象的某个方法时，将会被一个叫做AopProxy的对象拦截，Spring将所有的调用策略封装到了这个对象中，它默认实现了InvocationHandler接口，也就是调用代理对象的外层拦截器。在这个接口的invoke()方法中，会出发MethodInvocation的proceed()方法。在这个方法中会按顺序执行符合所有AOP拦截规则的拦截器链。</p><ol start="3"><li>调用代理对象阶段</li></ol><p>Spring AOP拦截器链中的每个元素被命名为MethodInterceptor，其实就是切面配置中的Advice通知。这个回调可以简单地理解为是新生成的代理Bean中的方法。也就是我们常说的被织入的代码片段，这些被织入的代码片段会在这个阶段执行。</p><ol start="4"><li>调用目标对象阶段</li></ol><p>MethodInterceptor接口也有一个invoke()方法，在MethodInterceptor的invoke()方法中会触发对目标对象方法的调用，也就是反射调用目标对象的方法。</p><h1 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h1><p>流程：</p><ol><li><p>代理对象：就是由Spring代理策略生成的对象；</p></li><li><p>目标对象：就是我们自己写的业务代码；</p></li><li><p>织入代码：就是要在我们自己写的业务代码增加的代码片段；</p></li><li><p>切面通知：就是封装织入代码片段的回调方法；</p></li><li><p>MethodInvocation：负责执行拦截器链，在proceed()方法中执行；</p></li><li><p>MethodInterceptor：负责执行织入的代码片段，在invoke()方法中执行。</p></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;aop原理&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#aop原理&quot;&gt;&lt;/a&gt; AOP原理&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;创建代理对象阶段&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;在Spring中，创建Bean实例都是从getBean()方法开始的</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>死锁</title>
+    <link href="https://arthersun.github.io/2022/11/14/%E6%AD%BB%E9%94%81/"/>
+    <id>https://arthersun.github.io/2022/11/14/%E6%AD%BB%E9%94%81/</id>
+    <published>2022-11-14T10:57:35.000Z</published>
+    <updated>2022-11-14T11:25:03.349Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="死锁"><a class="markdownIt-Anchor" href="#死锁"></a> 死锁</h1><p>死锁，就是说两个或两个以上的线程在执行的过程中，去争夺同一个共享资源导致相互等待的现象。如果没有外部干预，线程会一直处于阻塞状态，无法往下执行。这样一直等待处于阻塞状态的线程，被称为死锁线程。</p><h1 id="产生死锁的原因"><a class="markdownIt-Anchor" href="#产生死锁的原因"></a> 产生死锁的原因</h1><p>产生死锁需要同时满足以下四个条件：</p><ol><li>互斥条件，共享资源a和b只能被一个线程占用</li><li>请求和保持条件，线程T1已经获取共享资源a，在等待共享资源b的时候，不释放共享资源a</li><li>不可抢占条件，其他线程不能强行抢占线程T1占有的资源</li><li>循环等待条件，线程T1等待线程T2占有的资源，线程T2等待线程T1占有的资源，这形成了循环等待</li></ol><h1 id="如何避免死锁"><a class="markdownIt-Anchor" href="#如何避免死锁"></a> 如何避免死锁</h1>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;死锁&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#死锁&quot;&gt;&lt;/a&gt; 死锁&lt;/h1&gt;
+&lt;p&gt;死锁，就是说两个或两个以上的线程在执行的过程中，去争夺同一个共享资源导致相互等待的现象。如果没有外部干预，线程会一直处于阻塞状态，无法往下执行。</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>内存溢出和内存泄漏</title>
+    <link href="https://arthersun.github.io/2022/11/14/%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%92%8C%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F/"/>
+    <id>https://arthersun.github.io/2022/11/14/%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%92%8C%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F/</id>
+    <published>2022-11-14T10:48:49.000Z</published>
+    <updated>2022-11-14T10:57:27.044Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="内存溢出"><a class="markdownIt-Anchor" href="#内存溢出"></a> 内存溢出</h1><p>JVM中可用内存空间存不下了，比如只有3M，但现在要创建一个5M的对象，新创建的就放不进去了。</p><h1 id="内存泄漏"><a class="markdownIt-Anchor" href="#内存泄漏"></a> 内存泄漏</h1><p>在业务代码执行过程中，有些对象它应该被回收，但是又有其他对象引用它，因此，GC不能自动回收。最终会导致内存泄漏。</p><h1 id="如何避免"><a class="markdownIt-Anchor" href="#如何避免"></a> 如何避免</h1><p>特别是一些流对象，比如OutputStream，Reader，BitMap，Document，很容易忘掉close。最麻烦的是要顺序回收，顺序错了还会产生空指针。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;内存溢出&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#内存溢出&quot;&gt;&lt;/a&gt; 内存溢出&lt;/h1&gt;
+&lt;p&gt;JVM中可用内存空间存不下了，比如只有3M，但现在要创建一个5M的对象，新创建的就放不进去了。&lt;/p&gt;
+&lt;h1 id=&quot;内存泄漏&quot;&gt;</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>逐层排序二叉树所需的最少操作数目</title>
@@ -224,9 +425,9 @@
     <link href="https://arthersun.github.io/2022/11/10/%E9%87%8D%E5%AD%A6jvm/"/>
     <id>https://arthersun.github.io/2022/11/10/%E9%87%8D%E5%AD%A6jvm/</id>
     <published>2022-11-10T12:27:30.000Z</published>
-    <updated>2022-11-13T03:46:35.186Z</updated>
+    <updated>2022-11-17T05:05:39.405Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="重学jvm"><a class="markdownIt-Anchor" href="#重学jvm"></a> 重学jvm</h1><p>Java的类存在哪里？</p><p>误区：常规认为基本数据类型存放在栈中，引用类型存放在堆中</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Class Text&#123;</span><br><span class="line">  int a = 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这里面的a是存在堆里面的。</p><p>而方法：<br>public void text(){<br>int b = 1;<br>}</p><p>在text局部方法中基本数据类型的变量b是存储在栈中的</p><p>如果你将一个实例变量放在栈内，那么就不存在多个线程访问同一个对象资源了，这显然是不对的，所以实例变量要在堆上创建，但是对于局部变量，是在栈上创建的，调用一次方法创建一个帧，独享一份内存区域，其他的线程是不会访问到该线程的资源，在栈上创建也会减轻GC的压力，随着该方法的结束，帧出栈，相对应的内存消除，这种局部变量占用的内存自然就消失了。</p><hr><p>java中静态方法的作用是什么？</p><ol><li>声明为static的变量实质上是全局变量。当声明一个对象时，并不产生static变量的拷贝，而是该类所有的实例变量共用同一个static变量。</li><li>只会分配一块存储空间，所有此类的对象都可以操控此块存储空间。</li><li>没有创建对象时也可以利用类使用该方法。静态方法可以调用静态方法、静态成员，但不能调用成员方法。</li></ol><hr><p>java静态变量存放在堆还是方法区？</p><ol><li>静态变量是被对象共享的，随着类加载而产生（不用实例化即可访问）</li><li>java8之前存放在方法区</li><li>java8及以后：存放在堆中反射的class对象的尾部</li></ol><hr><p>java栈空间包括哪些内容？</p><p>由一个个栈帧组成</p><ol><li><p>局部变量表：主要存放编译器可知的各种数据类型、对象引用（可能是一个指向对象起始地址的引用指针，也可能是指向一个代表对象的句柄或其他与此对象相关的位置）</p></li><li><p>操作数栈：主要是存放方法运行过程中产生的中间变量。</p></li><li><p>动态链接：主要服务一个方法需要调用其他方法的场景。</p></li><li><p>返回地址。</p></li></ol><hr><p>final、finally、finalize的区别？</p><ol><li>修饰变量：</li></ol><p>修饰基本数据类型：这个数据的值在初始化后将不能被改变。</p><p>修饰引用数据类型：引用在初始化后将永远指向一个内存地址，不可修改。里面的值是可以修改的</p><ol start="2"><li><p>final修饰的常量在编译阶段会被放入常量池中。</p></li><li><p>final类：被修饰的类不能被继承，所有方法不能被重写。</p></li></ol><p>try-catch-finally</p><p>finally里面的语句是否一定会被执行？</p><p>如果在try或catch中停止了jvm，则finally不会执行，例如停电。或者使用System.exit(0)可以阻断finally执行。</p><p>finally中的代码会执行，流程为：</p><ol><li><p>先计算返回值，并将返回值存储起来，等待返回</p></li><li><p>执行finally代码块</p></li><li><p>将存储的返回值，返回出去</p></li></ol><p>注：返回值是在finally运算之前就确定了，并且缓存（副本）了，不管finally对该值做任何的改变，返回的值都不会改变(不在finally中return)</p><p>finalize是在java.lang.Object里定义的方法，也就是说每一个对象都有这么一个方法，这个方法在gc启动，该对象被回收的时候被调用。</p><p>一个对象的 finalize 方法只会被调用一次，finalize 被调用不一定会立即回收该对象，所以有可能调用finalize 后，该对象又不需要被回收了，然后到了真正要被回收的时候，因为前面调用过一次，所以不会再次调用 finalize了，进而产生问题，因此不推荐使用 finalize 方法。</p><hr><p>java静态变量、代码块、和静态方法的执行顺序是什么？</p><ol><li><p>静态代码块-&gt;构造代码块-&gt;构造函数-&gt;普通代码块</p></li><li><p>父类-&gt;子类</p></li></ol><hr><p>java多态：</p><p>编译时多态：重载，编译时多态在编译时就已经确定，运行的时候调用的是确定的方法</p><p>运行时多态：继承、重写和向上转型</p><p>继承：在多态中必须存在有继承关系的子类和父类</p><p>重写：子类对父类中某些方法进行重新定义，在调用这些方法时就会调用子类的方法。</p><p>向上转型：在多态中需要将子类的引用赋给父类对象，只有这样该引用才既能调用父类的方法，又能调用子类的方法。</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="重学jvm"><a class="markdownIt-Anchor" href="#重学jvm"></a> 重学jvm</h1><p>Java的类存在哪里？</p><p>误区：常规认为基本数据类型存放在栈中，引用类型存放在堆中</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Class Text&#123;</span><br><span class="line">  int a = 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这里面的a是存在堆里面的。</p><p>而方法：<br>public void text(){<br>int b = 1;<br>}</p><p>在text局部方法中基本数据类型的变量b是存储在栈中的</p><p>如果你将一个实例变量放在栈内，那么就不存在多个线程访问同一个对象资源了，这显然是不对的，所以实例变量要在堆上创建，但是对于局部变量，是在栈上创建的，调用一次方法创建一个帧，独享一份内存区域，其他的线程是不会访问到该线程的资源，在栈上创建也会减轻GC的压力，随着该方法的结束，帧出栈，相对应的内存消除，这种局部变量占用的内存自然就消失了。</p><hr><p>java中静态方法的作用是什么？</p><ol><li>声明为static的变量实质上是全局变量。当声明一个对象时，并不产生static变量的拷贝，而是该类所有的实例变量共用同一个static变量。</li><li>只会分配一块存储空间，所有此类的对象都可以操控此块存储空间。</li><li>没有创建对象时也可以利用类使用该方法。静态方法可以调用静态方法、静态成员，但不能调用成员方法。</li></ol><hr><p>java静态变量存放在堆还是方法区？</p><ol><li>静态变量是被对象共享的，随着类加载而产生（不用实例化即可访问）</li><li>java8之前存放在方法区</li><li>java8及以后：存放在堆中反射的class对象的尾部</li></ol><hr><p>java栈空间包括哪些内容？</p><p>由一个个栈帧组成</p><ol><li><p>局部变量表：主要存放编译器可知的各种数据类型、对象引用（可能是一个指向对象起始地址的引用指针，也可能是指向一个代表对象的句柄或其他与此对象相关的位置）</p></li><li><p>操作数栈：主要是存放方法运行过程中产生的中间变量。</p></li><li><p>动态链接：主要服务一个方法需要调用其他方法的场景。</p></li><li><p>返回地址。</p></li></ol><hr><p>final、finally、finalize的区别？</p><ol><li>修饰变量：</li></ol><p>修饰基本数据类型：这个数据的值在初始化后将不能被改变。</p><p>修饰引用数据类型：引用在初始化后将永远指向一个内存地址，不可修改。里面的值是可以修改的</p><ol start="2"><li><p>final修饰的常量在编译阶段会被放入常量池中。</p></li><li><p>final类：被修饰的类不能被继承，所有方法不能被重写。</p></li></ol><p>try-catch-finally</p><p>finally里面的语句是否一定会被执行？</p><p>如果在try或catch中停止了jvm，则finally不会执行，例如停电。或者使用System.exit(0)可以阻断finally执行。</p><p>finally中的代码会执行，流程为：</p><ol><li><p>先计算返回值，并将返回值存储起来，等待返回</p></li><li><p>执行finally代码块</p></li><li><p>将存储的返回值，返回出去</p></li></ol><p>注：返回值是在finally运算之前就确定了，并且缓存（副本）了，不管finally对该值做任何的改变，返回的值都不会改变(不在finally中return)</p><p>finalize是在java.lang.Object里定义的方法，也就是说每一个对象都有这么一个方法，这个方法在gc启动，该对象被回收的时候被调用。</p><p>一个对象的 finalize 方法只会被调用一次，finalize 被调用不一定会立即回收该对象，所以有可能调用finalize 后，该对象又不需要被回收了，然后到了真正要被回收的时候，因为前面调用过一次，所以不会再次调用 finalize了，进而产生问题，因此不推荐使用 finalize 方法。</p><hr><p>java静态变量、代码块、和静态方法的执行顺序是什么？</p><ol><li><p>静态代码块-&gt;构造代码块-&gt;构造函数-&gt;普通代码块(构造代码块是每次执行构造函数之前执行)</p></li><li><p>父类-&gt;子类</p></li></ol><hr><p>java多态：</p><p>编译时多态：重载，编译时多态在编译时就已经确定，运行的时候调用的是确定的方法</p><p>运行时多态：继承、重写和向上转型</p><p>继承：在多态中必须存在有继承关系的子类和父类</p><p>重写：子类对父类中某些方法进行重新定义，在调用这些方法时就会调用子类的方法。</p><p>向上转型：在多态中需要将子类的引用赋给父类对象，只有这样该引用才既能调用父类的方法，又能调用子类的方法。</p>]]></content>
     
     
       
@@ -263,230 +464,6 @@
     
     
     
-    
-  </entry>
-  
-  <entry>
-    <title>记一次惨痛的面试失败经历</title>
-    <link href="https://arthersun.github.io/2022/11/02/%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%83%A8%E7%97%9B%E7%9A%84%E9%9D%A2%E8%AF%95%E5%A4%B1%E8%B4%A5%E7%BB%8F%E5%8E%86/"/>
-    <id>https://arthersun.github.io/2022/11/02/%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%83%A8%E7%97%9B%E7%9A%84%E9%9D%A2%E8%AF%95%E5%A4%B1%E8%B4%A5%E7%BB%8F%E5%8E%86/</id>
-    <published>2022-11-02T14:32:22.000Z</published>
-    <updated>2022-11-02T14:37:32.069Z</updated>
-    
-    <content type="html"><![CDATA[<p>部门：阿里菜鸟</p><p>测开三面</p><p>面试官性别女</p><p>开头抽到简历上不熟的项目，然后我强答了一下，然后被怼</p><p>稍微解释了一下</p><p>第一印象估计极差</p><p>问另一个项目，我心情及其烦躁，脑子已经跟不上了，说得很乱</p><p>又被怼</p><p>“好了，我没有问题了”</p><p>“你有什么想问我的嘛”</p><p>“问问生涯规划”</p><p>拿自身举例，跟我说做人要实诚，做任何工作都要诚实、稳重</p><p>并直接挂了面试流程</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;部门：阿里菜鸟&lt;/p&gt;
-&lt;p&gt;测开三面&lt;/p&gt;
-&lt;p&gt;面试官性别女&lt;/p&gt;
-&lt;p&gt;开头抽到简历上不熟的项目，然后我强答了一下，然后被怼&lt;/p&gt;
-&lt;p&gt;稍微解释了一下&lt;/p&gt;
-&lt;p&gt;第一印象估计极差&lt;/p&gt;
-&lt;p&gt;问另一个项目，我心情及其烦躁，脑子已经跟不上了，说得很乱&lt;/p</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>2020_Wang_PoRX:IIoT区块链共识的声誉激励方案</title>
-    <link href="https://arthersun.github.io/2021/12/09/2020-Wang-%E5%B7%A5%E4%B8%9A%E4%BA%92%E8%81%94%E7%BD%91%E4%B8%AD%E5%9F%BA%E4%BA%8E%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9A%84%E6%BF%80%E5%8A%B1%E6%96%B9%E6%A1%88/"/>
-    <id>https://arthersun.github.io/2021/12/09/2020-Wang-%E5%B7%A5%E4%B8%9A%E4%BA%92%E8%81%94%E7%BD%91%E4%B8%AD%E5%9F%BA%E4%BA%8E%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9A%84%E6%BF%80%E5%8A%B1%E6%96%B9%E6%A1%88/</id>
-    <published>2021-12-08T16:12:33.000Z</published>
-    <updated>2021-12-09T15:11:20.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="porxiiot区块链共识的声誉激励方案"><a class="markdownIt-Anchor" href="#porxiiot区块链共识的声誉激励方案"></a> PoRX:IIoT区块链共识的声誉激励方案</h3><h4 id="第一章-介绍"><a class="markdownIt-Anchor" href="#第一章-介绍"></a> 第一章 介绍</h4><p>介绍：</p><p>工业物联网（IIoT）是指工业生产中的各种设备，无论是工厂中的机器设备还是汽车和飞机中的发动机，其上安装传感器并连接到无线网络终端以收集和共享数据。目前，由于IIoT系统是一个开放的、分布式的、异构的系统，在IIoT中实现<strong>可信通信</strong>是一个巨大的挑战。区块链技术已成为解决工业物联网合作信任问题的新途径。利用区块链，可以构建<strong>防篡改</strong>系统，作为工业物联网硬件产品从芯片到整个设备的<strong>审计</strong>工具。</p><p>在IIoT中应用区块链技术的主要问题之一是解决<em>共识协议的安全性和效率问题</em>。本文提出了一种信誉机制，以鼓励正常节点和异常节点以良好的方式参与网络协作。为了引导这种行为，提出了一种<strong>基于声誉的激励方法</strong>。在声誉的收益支付函数中设计了奖惩因子。其有效性在于合作行为得到奖励，而非合作行为受到惩罚。</p><p>我们方案的主要优点是，我们基于声誉的激励模块可以在最先进的PoX协议（称为PoRX）上实现，并且可以使PoX协议达到更好的一致状态。因此，它将有利于IIoT与区块链的应用。</p><h5 id="工业物联网应用的例子"><a class="markdownIt-Anchor" href="#工业物联网应用的例子"></a> 工业物联网应用的例子</h5><p>智能电表能在社区本地运行，如果出现电源故障，这些智能电表可以确定故障范围，通过基于区块链的智能合约技术直接与本地变电站通信，并重新规划输电线路。</p><p><a href="https://zh.wikipedia.org/wiki/IOTA_(%E5%8A%A0%E5%AF%86%E8%B2%A8%E5%B9%A3)">IOTA</a></p><h5 id="工业物联网系统的问题的复述"><a class="markdownIt-Anchor" href="#工业物联网系统的问题的复述"></a> 工业物联网系统的问题的复述</h5><p>由于IIoT本身是一个开放系统，因此允许各种设备加入。一些恶意设备和不诚实设备在加入网络后可能会对IIoT系统的共识协议发起攻击，从而可能破坏IIoT的系统[8]。实际上，<strong>当前的最先进的共识协议没有考虑如何在共识协议中保证节点行为良好</strong>。在IIoT的实际应用中，解决IIoT系统中恶意节点的攻击一直是需要面对的现实问题[9,10]。为了将区块链成功应用于IIoT，构建一个可信、高效的区块链共识协议是一个亟待解决的关键问题。本文针对这些问题，提出了一种激励声誉方案，以激励节点在系统中保持稳定的良好行为。好的行为会得到奖励，坏的行为会受到惩罚。每个节点都有一个具有信誉值的标识。具有较高的信誉价值，会得到更多的合作。虽然声誉价值较低，但很少得到他人的合作。该方案的主要优点是基于声誉的激励模块可以建立在PoX协议的基础上，是一种实用的方法。</p><blockquote><p>缺乏一种奖惩机制</p></blockquote><h4 id="第二章-相关工作"><a class="markdownIt-Anchor" href="#第二章-相关工作"></a> 第二章 相关工作</h4><h5 id="共识协议"><a class="markdownIt-Anchor" href="#共识协议"></a> 共识协议</h5><p>PoW：核心思想是通过节点间计算能力的竞争来分配区块记账权。浪费大量电能</p><p>PoS：PoS的主要思想是，用户在系统中所占的比例与块生成的难度成反比。系统中节点持有的股份越大，他就越容易获胜。</p><h5 id="现有共识协议的问题一不确定性"><a class="markdownIt-Anchor" href="#现有共识协议的问题一不确定性"></a> 现有共识协议的问题一——不确定性</h5><p>几项协商一致的协议都有一个共同的问题，即<strong>协商一致的过程是不确定的</strong>。缺乏共识确定性导致交易确认延迟，这不适用于大多数需要实时确认的实时IIoT系统</p><blockquote><p>比如说比特币（pow）虽说是平均10分钟出一个块，但有可能1分钟出块，也有可能半小时出块，造成不确定性。</p></blockquote><h5 id="现有共识协议的问题二面向加密货币的共识协议不适用于物联网"><a class="markdownIt-Anchor" href="#现有共识协议的问题二面向加密货币的共识协议不适用于物联网"></a> 现有共识协议的问题二——面向加密货币的共识协议不适用于物联网</h5><p>IIoT系统的主要要求是，<strong>应根据以IIoT业务为中心的交易验证规则对交易进行验证</strong>。</p><p>这是一项基本要求，因为IIoT中的每个新事务基本上都独立于以前的事务，<strong>环境或事件的变化会影响设备读数的变化</strong>。因此，我们应该设计物联网交易的验证规则。</p><blockquote><p>BTC：比特币会把未花费的币维护成一个（未花费的交易输出表）UTXO</p></blockquote><p>例如，在智能家居中，<strong>只有当摄像头或任何其他传感器检测到房间中有人时，壁炉才会点亮</strong>。这意味着传感器读数是根据环境背景而不是孤立地进行验证的。</p><h5 id="现有共识协议的问题三分叉"><a class="markdownIt-Anchor" href="#现有共识协议的问题三分叉"></a> 现有共识协议的问题三——分叉</h5><p>共识协议还应具有共识的最终性，以避免出现分歧。此外，Huang[27]提出了一个分析模型来分析共识区块链中的分布式网络分叉概率。</p><h5 id="iiot系统的问题sybil攻击"><a class="markdownIt-Anchor" href="#iiot系统的问题sybil攻击"></a> IIOT系统的问题——Sybil攻击</h5><p>此外，IIoT系统也容易受到物理或网络攻击。最近，一场名为“Mirai”（Sophos裸体安全，2016）[28]的网络攻击感染了大量IIoT设备，包括DVR和CCTV摄像机，并将它们变成僵尸。然后，通过启动数以百万计的DNS查找请求形式的巨大数据流量，这些受损设备用于发起针对DNS服务提供商“DYN”的DDOS攻击。如果使用PoX共识协议，它可以有效抵御此DDOS攻击，但它面临51%的攻击。如果攻击者拥有整个网络一半以上的证明能力，则他可以实施攻击，并且成功的概率非常高。<strong>PoX共识协议也应该对Sybil攻击有效</strong>。</p><h5 id="分布式系统的信誉机制"><a class="markdownIt-Anchor" href="#分布式系统的信誉机制"></a> 分布式系统的信誉机制</h5><p>Gupta等人[29]提出了第一个P2P网络信誉系统。这是一个有效的解决办法。其他研究也对声誉系统做出了贡献，但没有一项是真正的去中心化。</p><p>近年来，区块链技术被关注并用于声誉设计。</p><p>Tavakolifard[30]对分散多代理系统中的信任和声誉进行了建模。</p><p>Yi[31]提出了在比特币上构建不可链接的（Coin Mixing）硬币混合系统的方案。</p><p>作者解释说，网络上的声誉与数字货币具有相同的要求：</p><p>（1）数字货币可以表示为一个数字变量；</p><blockquote><p>也就是说声誉需要被定量。</p></blockquote><p>（2）其价值由每一参与者商定，不可由第三方操纵。系统记录付款期间的交互反馈，将实际信誉的计算留给第三方应用程序。</p><blockquote><p>BTC的币价一直在波动，没有人可以定义BTC的价格。也就是说信誉也不能被强行定价。</p></blockquote><p>Khaqqi[32]提出了一个基于声誉的交易系统，其中声誉表示参与者对减排努力的表现和承诺。采用多准则分析方法对该方案与传统排污权交易方案模型进行比较。</p><p>Schaub等人[33]提出了一种基于区块链的无信任、分散和匿名的电子商务应用声誉系统。系统用Pos链保证声誉系统的共识，同时，它允许客户提交评级和文本审查。</p><p>此外，一些学者利用声誉机制改进区块链[34]。Gai Fangyu等人[35]提出了基于声誉证明的共识协议。该协议纯粹基于声誉激励，完全放弃代币激励。我们认为，其协议的激励机制不够完善，放弃代币激励会导致用户参与共识的动机显著降低。</p><h4 id="第三章-方法"><a class="markdownIt-Anchor" href="#第三章-方法"></a> 第三章 方法</h4><p>在共识层上面加了一层激励（声誉）层</p><p><img src="/2021/12/09/2020-Wang-%E5%B7%A5%E4%B8%9A%E4%BA%92%E8%81%94%E7%BD%91%E4%B8%AD%E5%9F%BA%E4%BA%8E%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9A%84%E6%BF%80%E5%8A%B1%E6%96%B9%E6%A1%88/image-20211209024205984.png" alt="image-20211209024205984"></p><p><img src="/2021/12/09/2020-Wang-%E5%B7%A5%E4%B8%9A%E4%BA%92%E8%81%94%E7%BD%91%E4%B8%AD%E5%9F%BA%E4%BA%8E%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9A%84%E6%BF%80%E5%8A%B1%E6%96%B9%E6%A1%88/image-20211209024045107.png" alt="image-20211209024045107"></p><p>输出函数是要满足的目标值，它由经常账户信誉估价师和当前信用度确定。该函数具有当前状态值state和随机nonce值nonce。一旦Hfunction输出小于目标值，则认为矿工获得了该区块记账权。矿工的声誉价值越大，区块产生的概率越大。</p><blockquote><p>实际上就是在原有的难度设置上多加了一层F，原有的可能是H（State,nonce）&lt;D</p></blockquote><p>该函数的设计标准是将当前矿工的帐户信誉值合并到D的难度中。其核心思想是，<strong>最大信誉值（上限）可以抵消20%-40%的难度，最小信誉值（下限）可以提高20%-40%的难度</strong>，</p><h5 id="基于身份的方法"><a class="markdownIt-Anchor" href="#基于身份的方法"></a> 基于身份的方法</h5><p>共识中使用了基于身份的方法。身份是IIoT系统中的一个重要属性。我们设计了共识活动的身份识别方法。其逻辑是建立一个<strong>全局注册表</strong>来存储参与协商一致的节点的标识声明。智能合约的陈述是一个身份所呈现的事实。这些声明由申报人签字，因此可以验证其真实性和完整性。节点调用合约可以在作为验证者参与协商一致之前成功注册。</p><h5 id="注册合约"><a class="markdownIt-Anchor" href="#注册合约"></a> 注册合约</h5><p>智能合约身份注册。在协商一致协议中，注册身份契约用于协助共识协议的运行。其主要任务是注册参与共识节点的身份，并<strong>与真实世界中的身份信息相关联</strong>（？）。登记合约应确保申报人账户的有效性、申报的有效性和申报的唯一性。因为只有一个注册合约，所以所有调用方都可以信任它的逻辑并使用它。身份登记合同的具体任务如下。</p><blockquote><p>与真实世界中身份信息相关联不就失去了匿名性吗</p><p>有点像联盟链的做法</p></blockquote><p>注册：将帐户注册为矿工。验证后，可获得区块生成权，并将账户存储在全局注册账户列表中，返回注册账户列表。</p><p>注销：当用户想要退出共识时，可以取消帐户。注销的帐户被视为无效帐户。它无法参与共识，该帐户将从注册帐户列表中删除。</p><blockquote><p>与BTC、ETH不一样的是，他这里的注册首先需要告知各方，其次也不是匿名</p></blockquote><p>注册时需要确保有一定保证金（用于罚款），注册后账户的声誉设置为初始声誉</p><p>注销时需要确保现有状态（什么状态？）是否小于初始值，如果是的话，将声誉设为0定为注销</p><h5 id="基于身份的方法具体描述"><a class="markdownIt-Anchor" href="#基于身份的方法具体描述"></a> 基于身份的方法具体描述</h5><p>基于身份的方法包括声誉构建、区块链启动过程、竞争周期、激励机制和协议参数更新规则，具体描述如下。</p><p>声誉构建</p><blockquote><p>一个矿工只能有一个账户，这样声誉值的设定才有意义。</p></blockquote><p>区块链启动过程</p><p>因为我们的计划涉及部署身份登记合同，这些合同由矿工操作。存在一个矛盾：<strong>矿工的注册需要合同，而合同的部署需要矿工</strong>。</p><p>设置一个零地址。零地址<strong>无需注册即可拥有区块记帐权限</strong>。当一个新的链（没有矿工，没有合同）需要启动时，开发者或负责人可以先使用零地址作为矿工，将身份注册合同部署到新的链上，然后用户可以正常使用该合同。应该注意的是，所有零地址的目的是处理这些相互矛盾的事情。所有零地址都没有私钥，因此使用此地址挖掘获得的奖励无法撤回。</p><p>竞争周期</p><p>在本文中，我们提出了一种竞争限制，称为竞争周期，它用C_duration表示。一般来说，竞争周期是现在时间之前一定数量的块。例如，当前块之前的100个块可以视为竞争周期。竞争周期根据系统中注册矿工的数量动态确定。建议使用矿工人数的两倍作为竞争周期的值，主要目的是：</p><ol><li>计算指定矿工的采矿难度。<strong>确保高声誉采矿者不能始终主导区块生产的优先级，并增加低声誉和潜在采矿者的机会</strong>。<br>例如，指数基数为2，竞争周期为100，矿工的声誉值为1200，开采1000号区块。如果900号至999号区块之间没有属于矿工的区块，则矿工的可用声誉值为1200。如果其中一个区块是矿工的，则矿工的可用声誉值为1200/2=600</li><li>用于计算矿工的声誉奖惩。声誉激励根据预期产生的区块数量计算，预期产生的区块数量将由竞争周期确定。</li></ol><p>激励机制</p><p>在原始协议中，矿工获得一定数量的代币和交易费，作为成功开采区块的奖励。在与声誉模块的新协议中，奖励还包括声誉奖励。</p><p>规则如下:</p><p>1.如果注册的节点竞争成功生成块，并且该块最终得到确认，则该节点将收到<strong>奖励</strong>，包括声誉和令牌。</p><p>2.声誉会下降。如果注册节点未能在一定时间内生成块，或未能达到自己生成的预期块数，则将对其进行<strong>处罚</strong>。</p><p>更新协议参数的规则</p><p>协议参数包括循环参数和其他参数。周期参数包括竞争周期、奖励周期和惩罚周期。其他参数包括最大预期块生成量、最小预期块生成量、可用声誉衰减基数和声誉难度转换率。</p><p>循环参数由矿工人数决定。由于矿工是动态的，因此需要一个更新周期来更新矿工。注意，在我们的模块中，惩罚周期是很难执行（每次区块链上的区块高度达到惩罚期），立即执行奖励周期（每个生成的区块必须按奖励周期进行奖励）。这里我们假设更新周期等于惩罚周期，即在每个惩罚周期之后，调用矿工注册合同以获得当前矿工编号并更新周期参数以进入下一轮惩罚周期。奖励周期和惩罚周期应<strong>根据竞争周期设置</strong>。如果竞争周期非常大（这是IIoT中的常见场景，系统中有许多矿工），则可以选择竞争周期的一部分作为奖励周期和惩罚周期。相反，如果竞争周期很小（例如在启动阶段），为了避免意外情况，我们可以选择几个竞争周期。</p><p>其他参数为静态设置。</p><p>为了使PoX共识协议在IIoT中得到广泛应用，必须提高PoX协议的安全性。我们提出了一个信誉模块来解决PoX的安全问题。声誉模块将在下一节中详细介绍。</p><h3 id="第四章-实验"><a class="markdownIt-Anchor" href="#第四章-实验"></a> 第四章 实验</h3><p>在以太坊上进行实验，在docker上运行节点</p><h5 id="理想的声誉增长"><a class="markdownIt-Anchor" href="#理想的声誉增长"></a> 理想的声誉增长</h5><p>首先，可以得到最理想条件下矿工的声誉增长曲线，即不包括声誉增长衰减和在一个竞争周期内产生过多区块而导致的声誉惩罚。为了便于观察，所有参数均设置为理想化，竞赛周期设置为0。</p><h5 id="理想的声誉增长-2"><a class="markdownIt-Anchor" href="#理想的声誉增长-2"></a> 理想的声誉增长</h5><p>正常的声誉增长包括声誉奖励衰减和在一个竞争周期内产生的过多区块造成的声誉惩罚。根据模型参数的不同，声誉增长的性能也不同。为了便于观察，参数设置不同。最大声誉的转换率设置为1。我们建立了三个计算能力相同的矿工。初始信誉值分别设置为500、1000和1500。所有三家矿商都能运营良好，并记录声誉价值的增长和产生区块的比例。为了进行比较，我们首先不考虑过多区块导致的声誉报酬和可用声誉的衰减。</p><p><img src="/2021/12/09/2020-Wang-%E5%B7%A5%E4%B8%9A%E4%BA%92%E8%81%94%E7%BD%91%E4%B8%AD%E5%9F%BA%E4%BA%8E%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9A%84%E6%BF%80%E5%8A%B1%E6%96%B9%E6%A1%88/image-20211209054008697.png" alt="image-20211209054008697"></p><p>信誉值为1500的节点出块率仍占较大比例，但信誉值增长不明显。因此，<strong>信誉值的差距将会缩小</strong>，这将导致信誉较低的节点能够参与共识，但大功率节点成功作恶的概率仍然很大。</p><p><img src="/2021/12/09/2020-Wang-%E5%B7%A5%E4%B8%9A%E4%BA%92%E8%81%94%E7%BD%91%E4%B8%AD%E5%9F%BA%E4%BA%8E%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9A%84%E6%BF%80%E5%8A%B1%E6%96%B9%E6%A1%88/image-20211209054015000.png" alt="image-20211209054015000"></p><p>实验参数设置的很杂，有种为了故意凸显实验设置的。</p><h5 id="协议安全性分析"><a class="markdownIt-Anchor" href="#协议安全性分析"></a> 协议安全性分析</h5><p>Sybil attack</p><p>非匿名：很少有具有POX共识的区块链能够真正抵御此类攻击，因为区块链的账户是完全匿名的，无法识别。我们提议的声誉模块有身份注册合约，只有注册的账户才有资格参与共识活动。合约保证一个人或一个节点只有一个注册帐户。因此，除非攻击者可以贿赂或窃取多人注册的信息，否则声誉模块可以很好地抵御Sybil攻击。</p><p>思考：</p><p>回到最开始的问题：</p><p>分叉：第3个问题通过不匿名解决了。</p><p>算法中也没有结合环境背景的设置</p><p>不确定性：第一个问题呢？以太坊出块仍然是不确定的。</p><p>Normal Reputation Growth并不能减少贫富差距？</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;porxiiot区块链共识的声誉激励方案&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#porxiiot区块链共识的声誉激励方案&quot;&gt;&lt;/a&gt; PoRX:IIoT区块链共识的声誉激励方案&lt;/h3&gt;
-&lt;h4 id=&quot;第一章-介绍&quot;&gt;&lt;a c</summary>
-      
-    
-    
-    
-    
-    <category term="论文" scheme="https://arthersun.github.io/tags/%E8%AE%BA%E6%96%87/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode错题本</title>
-    <link href="https://arthersun.github.io/2021/12/06/Leetcode%E9%94%99%E9%A2%98%E6%9C%AC/"/>
-    <id>https://arthersun.github.io/2021/12/06/Leetcode%E9%94%99%E9%A2%98%E6%9C%AC/</id>
-    <published>2021-12-06T15:59:22.000Z</published>
-    <updated>2021-12-06T16:15:15.286Z</updated>
-    
-    <content type="html"><![CDATA[<p>438 滑动窗口题</p><p><img src="/2021/12/06/Leetcode%E9%94%99%E9%A2%98%E6%9C%AC/image-20211207000124073.png" alt="image-20211207000124073"></p><p>在滑动窗口比较时，我把window[c]==need[c]和need.count©换了一个位置，导致了这样的悲剧。</p><p><img src="/2021/12/06/Leetcode%E9%94%99%E9%A2%98%E6%9C%AC/image-20211207001007621.png" alt="image-20211207001007621"></p><blockquote><p>c++ map对象先判断存不存在，再直接引用，否则会直接创建一个map[c]=0</p></blockquote>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;438 滑动窗口题&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/2021/12/06/Leetcode%E9%94%99%E9%A2%98%E6%9C%AC/image-20211207000124073.png&quot; alt=&quot;image-20211207000124073&quot;&gt;&lt;/p</summary>
-      
-    
-    
-    
-    
-    <category term="刷题" scheme="https://arthersun.github.io/tags/%E5%88%B7%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>滑动窗口题总结</title>
-    <link href="https://arthersun.github.io/2021/12/06/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E9%A2%98%E6%80%BB%E7%BB%93/"/>
-    <id>https://arthersun.github.io/2021/12/06/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E9%A2%98%E6%80%BB%E7%BB%93/</id>
-    <published>2021-12-06T12:21:28.000Z</published>
-    <updated>2021-12-06T15:59:37.532Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="滑动窗口算法"><a class="markdownIt-Anchor" href="#滑动窗口算法"></a> 滑动窗口算法</h3><p>这个算法技巧的思路非常简单，就是维护一个窗口，然后不断的滑动，然后更新答案。</p><p>大概的思路模板</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (right &lt; s.size()) &#123;</span><br><span class="line">    <span class="comment">// 增大窗口</span></span><br><span class="line">    window.add(s[right]);</span><br><span class="line">    right++;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (window needs shrink) &#123;</span><br><span class="line">        <span class="comment">// 缩小窗口</span></span><br><span class="line">        window.remove(s[left]);</span><br><span class="line">        left++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>算法的时间复杂度为O(N)，比字符串暴力算法高效很多。</p><p>通用的滑动窗口算法框架</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">slidingWindow</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">string</span> t)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="keyword">int</span>&gt; need, window;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">char</span> c : t) need[c]++;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> valid = <span class="number">0</span>; </span><br><span class="line">    <span class="keyword">while</span> (right &lt; s.size()) &#123;</span><br><span class="line">        <span class="comment">// c 是将移入窗口的字符</span></span><br><span class="line">        <span class="keyword">char</span> c = s[right];</span><br><span class="line">        <span class="comment">// 右移窗口</span></span><br><span class="line">        right++;</span><br><span class="line">        <span class="comment">// 进行窗口内数据的一系列更新</span></span><br><span class="line">        ...</span><br><span class="line"></span><br><span class="line">        <span class="comment">/*** debug 输出的位置 ***/</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;window: [%d, %d)\n&quot;</span>, left, right);</span><br><span class="line">        <span class="comment">/********************/</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 判断左侧窗口是否要收缩</span></span><br><span class="line">        <span class="keyword">while</span> (window needs shrink) &#123;</span><br><span class="line">            <span class="comment">// d 是将移出窗口的字符</span></span><br><span class="line">            <span class="keyword">char</span> d = s[left];</span><br><span class="line">            <span class="comment">// 左移窗口</span></span><br><span class="line">            left++;</span><br><span class="line">            <span class="comment">// 进行窗口内数据的一系列更新</span></span><br><span class="line">            ...</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="滑动窗口的思路"><a class="markdownIt-Anchor" href="#滑动窗口的思路"></a> 滑动窗口的思路</h4><ol><li><p>我们在字符串S中使用双指针中的左右指针技巧，初始化left = right = 0，把索引<strong>左闭右开</strong>区间[left , right)称为一个窗口。</p></li><li><p>我们先不断地增加right指针扩大窗口[left , right)，直到窗口中的字符串符合要求（包含了T中的所有字符）</p></li><li><p>此时，我们停止增加right，转而不断增加left指针缩小窗口[left , right)，直到窗口中的字符串不再符合要求。同时，每次增加left，我们都要更新一轮结果。</p></li><li><p>重复第2和第3步，直到right到达字符串S的尽头。</p></li></ol><blockquote><p>主要思路：第2步相当于在寻找一个可行解，然后第3步在优化这个可行解，最终找到最优解。</p></blockquote><p>needs和window相当于计数器，分别记录<strong>T</strong>中字符出现次数和<strong>窗口</strong>中字符出现次数。</p><p>可以清晰的看到这个过程：</p><ol><li>初始状态：</li></ol><p><img src="/2021/12/06/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E9%A2%98%E6%80%BB%E7%BB%93/image-20211206211954222.png" alt="image-20211206211954222"></p><ol start="2"><li>增加right，直到窗口[left , right)包含了T的所有字符。</li></ol><p><img src="/2021/12/06/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E9%A2%98%E6%80%BB%E7%BB%93/image-20211206212312429.png" alt="image-20211206212312429"></p><ol start="3"><li><p>增加left，缩小窗口[left , right]:</p><p><img src="/2021/12/06/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E9%A2%98%E6%80%BB%E7%BB%93/image-20211206212349932.png" alt="image-20211206212349932"></p></li></ol><p>直到窗口中的字符串不再符合要求，left不再继续移动：</p><p><img src="/2021/12/06/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E9%A2%98%E6%80%BB%E7%BB%93/image-20211206212433460.png" alt="image-20211206212433460"></p><p>之后重复上述过程，先移动right，再移动left… 直到right指针到达字符串S的末端，算法结束。</p><blockquote></blockquote>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;滑动窗口算法&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#滑动窗口算法&quot;&gt;&lt;/a&gt; 滑动窗口算法&lt;/h3&gt;
-&lt;p&gt;这个算法技巧的思路非常简单，就是维护一个窗口，然后不断的滑动，然后更新答案。&lt;/p&gt;
-&lt;p&gt;大概的思路模板&lt;/p&gt;
-&lt;f</summary>
-      
-    
-    
-    
-    
-    <category term="刷题" scheme="https://arthersun.github.io/tags/%E5%88%B7%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>再学区块链及其应用</title>
-    <link href="https://arthersun.github.io/2021/12/06/%E5%86%8D%E5%AD%A6%E5%8C%BA%E5%9D%97%E9%93%BE%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/"/>
-    <id>https://arthersun.github.io/2021/12/06/%E5%86%8D%E5%AD%A6%E5%8C%BA%E5%9D%97%E9%93%BE%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/</id>
-    <published>2021-12-06T08:50:09.000Z</published>
-    <updated>2021-12-09T01:35:46.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>课程链接：<a href="https://www.bilibili.com/video/BV1Vt411X7JF?p=4">区块链技术与应用</a></p><h3 id="04-比特币协议"><a class="markdownIt-Anchor" href="#04-比特币协议"></a> 04-比特币协议</h3><h4 id="区块链结构"><a class="markdownIt-Anchor" href="#区块链结构"></a> 区块链结构</h4><p>BitCoin Script把A的输入和A的输出连在一起，运行一下。</p><p>区块链结构</p><table><thead><tr><th>Block header</th><th>Block Body</th></tr></thead><tbody><tr><td>version</td><td>transaction list</td></tr><tr><td>hash of previous block header</td><td></td></tr><tr><td>Merkel root hash</td><td></td></tr><tr><td>target</td><td></td></tr><tr><td>nonce</td><td></td></tr></tbody></table><blockquote><p>整个块头的hash要小于目标阈值。H(header)≤target</p></blockquote><p>系统中包括全节点和轻节点</p><p>full node = fully validating node</p><p>light node = light with node(只保存区块头的信息，系统中大多数是轻节点)</p><p>轻节点没有参与区块链的构造和维护，它只是利用了区块链的一些信息，做一些查询。</p><h4 id="分布式共识"><a class="markdownIt-Anchor" href="#分布式共识"></a> 分布式共识</h4><p>分布式共识一个简单的例子是一个分布式hash表（distributed hash table）</p><blockquote><p>xiao-&gt;12345</p></blockquote><h5 id="关于分布式共识的不可能结论"><a class="markdownIt-Anchor" href="#关于分布式共识的不可能结论"></a> 关于分布式共识的不可能结论</h5><p>FLP：在一个异步的系统里，网络传输时延没有上限，即使只有一个成员是有问题的，也没有办法达成共识。</p><p>CAP：任何一个分布式系统，一致性，可用性和分区容错性只能满足两个，不可能三个都满足</p><h4 id="比特币中的共识协议"><a class="markdownIt-Anchor" href="#比特币中的共识协议"></a> 比特币中的共识协议</h4><p>membership</p><p>联盟链(例如hyperledger fabric)可从成员进入来限制</p><p>女巫攻击（sybil attack）：产生账户非常多（没用的本地账户）,来投票</p><p>比特币采用工作量证明，寻找nonce值来</p><p>UTXO：未花费的交易输出（unspent transaction output）</p><p>total inputs = total outputs</p><p>transaction-based ledger-基于交易的账本</p><p>第二个激励机制：交易费（transaction fee）</p><p>account-based ledger-基于账户的账本</p><p><strong>将来还要挖多少时间</strong>和<strong>已经挖了多少时间</strong>是没有关系的</p><h4 id="10-btc分叉"><a class="markdownIt-Anchor" href="#10-btc分叉"></a> 10-BTC分叉</h4><hr><p>分为硬分叉和软分叉</p><p>硬分叉，比如调大区块，旧节点不能认同大区块，只能认同原区块，新节点可以认同大区块和原区块，如果旧节点不升级软件，那么可以一直挖下去，造成出现两条链的情况。</p><p>软分叉，比如调小区块，或者重新赋予区块内某一没用过的值，旧节点可以认同，但新节点无法认同，于是旧节点挖出来的区块会一直被废弃，于是被迫升级软件。</p><h4 id="15-以太坊账户"><a class="markdownIt-Anchor" href="#15-以太坊账户"></a> 15-以太坊账户</h4><hr><p>BTC系统没有显式的维护账户的概念，导致BTC系统转出一笔钱，必须全部转出，并且转回给自己账户的另一个地址。</p><p>基于账户的模型(account-based ledger)</p><h5 id="双花攻击和重放攻击"><a class="markdownIt-Anchor" href="#双花攻击和重放攻击"></a> 双花攻击和重放攻击</h5><p>基于UTXO的余额-双花攻击-发钱的人不诚实，想再花一遍</p><p>基于账户的余额-重放攻击-收钱的人不诚实，想再收一遍</p><p>以太坊为了避免重放攻击加了一个转账次数nonce，每转账一次Nonce+1</p><p>以太坊中有两类账户：</p><p>外部（普通）账户：balance nonce</p><p>合约账户：code storage</p><h5 id="为什么不延用比特币的账户模型呢"><a class="markdownIt-Anchor" href="#为什么不延用比特币的账户模型呢"></a> 为什么不延用比特币的账户模型呢</h5><p>用智能合约时的合同纠纷</p><p>交易驱动的状态机</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;课程链接：&lt;a href=&quot;https://www.bilibili.com/video/BV1Vt411X7JF?p=4&quot;&gt;区块链技术与应用&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;04-比特币协议&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#04-</summary>
-      
-    
-    
-    
-    
-    <category term="项目" scheme="https://arthersun.github.io/tags/%E9%A1%B9%E7%9B%AE/"/>
-    
-    <category term="区块链" scheme="https://arthersun.github.io/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>IPFS解读</title>
-    <link href="https://arthersun.github.io/2021/12/06/IPFS%E8%A7%A3%E8%AF%BB/"/>
-    <id>https://arthersun.github.io/2021/12/06/IPFS%E8%A7%A3%E8%AF%BB/</id>
-    <published>2021-12-06T02:08:09.000Z</published>
-    <updated>2021-12-06T02:46:18.537Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="ipfs解读"><a class="markdownIt-Anchor" href="#ipfs解读"></a> IPFS解读</h3><p>组件：</p><p>BitTorrent</p><p>Kademila DHT</p><p>SFS</p><p>Merkel DAG</p><p>Git</p><p><a href="https://gguoss.github.io/2017/05/28/ipfs/">IPFS白皮书</a></p><p>IPFS能够将网站、应用、文件和各种数据建立在点对点分布式网络上，并建立高效的索引。</p><p>基于位置寻址(Location)</p><p>基于内容寻址(Content )</p><p>Distributed Hash Tables(DHTs)</p><table><thead><tr><th>Key(CID)</th><th>Value(PeerID)</th></tr></thead><tbody><tr><td></td><td></td></tr></tbody></table><p>BitSwap</p><table><thead><tr><th>IPFS Object</th><th></th></tr></thead><tbody><tr><td>Data</td><td>“Hello World”</td></tr><tr><td>Links</td><td>[ ]</td></tr></tbody></table><p>IPFS使用Git的Commit进行版本更新</p><p><img src="/2021/12/06/IPFS%E8%A7%A3%E8%AF%BB/image-20211206103403917.png" alt="image-20211206103403917"></p><p>增加激励机制，主动分发文件</p><p>FileCoin</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;ipfs解读&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#ipfs解读&quot;&gt;&lt;/a&gt; IPFS解读&lt;/h3&gt;
-&lt;p&gt;组件：&lt;/p&gt;
-&lt;p&gt;BitTorrent&lt;/p&gt;
-&lt;p&gt;Kademila DHT&lt;/p&gt;
-&lt;p&gt;SFS&lt;/p&gt;
-&lt;p&gt;</summary>
-      
-    
-    
-    
-    
-    <category term="分布式" scheme="https://arthersun.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>当区块链遇上分布式系统</title>
-    <link href="https://arthersun.github.io/2021/12/05/%E5%BD%93%E5%8C%BA%E5%9D%97%E9%93%BE%E9%81%87%E4%B8%8A%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/"/>
-    <id>https://arthersun.github.io/2021/12/05/%E5%BD%93%E5%8C%BA%E5%9D%97%E9%93%BE%E9%81%87%E4%B8%8A%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/</id>
-    <published>2021-12-05T03:52:54.000Z</published>
-    <updated>2021-12-06T08:48:42.354Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="2020-huang-当区块链遇上分布式系统"><a class="markdownIt-Anchor" href="#2020-huang-当区块链遇上分布式系统"></a> 2020-Huang-当区块链遇上分布式系统</h2><h4 id="几种分布式区块链系统"><a class="markdownIt-Anchor" href="#几种分布式区块链系统"></a> 几种分布式区块链系统</h4><p>DFS-distributed file systems-分布式文件系统</p><p>P2P distributed file systems-点对点分布式网络</p><blockquote><p>文件系统共享带宽，存储和计算资源，都存在不稳定，缺少审计，缺少激励算法的问题</p></blockquote><p>Inter-Planetary File System（IPFS）星际文件系统</p><blockquote><p>关于IPFS，IPFS是一种旨在创建持久且分布式存储和共享文件的网络传输协议</p><p>在IPFS网络中的节点将构成一个分布式文件系统</p><p>关于IPFS写了另一篇介绍<a href="IPFS%E8%A7%A3%E8%AF%BB.md">IPFS</a></p></blockquote><p>IPFS和Swarm整合了区块链系统，提出了有效的激励和安全保证，但是其可扩展性和隐私性也限制了新一代DFS的发展。</p><h4 id="集中式主网的分布式激励机制"><a class="markdownIt-Anchor" href="#集中式主网的分布式激励机制"></a> 集中式主网的分布式激励机制</h4><p>BitTorrent可以共享带宽，存储和计算资源，天然缺少激励机制</p><p>现在的bt系统一般通过分享率、上传量、H&amp;R积分等来设计激励机制，例如</p><p><img src="/2021/12/05/%E5%BD%93%E5%8C%BA%E5%9D%97%E9%93%BE%E9%81%87%E4%B8%8A%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/image-20211206112206290.png" alt="image-20211206112206290"></p><p><img src="/2021/12/05/%E5%BD%93%E5%8C%BA%E5%9D%97%E9%93%BE%E9%81%87%E4%B8%8A%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/image-20211206112646628.png" alt="image-20211206112646628"></p><p>上述指标达到一定时，就可以升级然后获得更多权限。</p><p><img src="/2021/12/05/%E5%BD%93%E5%8C%BA%E5%9D%97%E9%93%BE%E9%81%87%E4%B8%8A%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/image-20211206112748204.png" alt="image-20211206112748204"></p><p>这种激励机制有效，因为主网站中心化，也便于国家监管，但是正是因为中心化，所以容易被查封，一旦主网站被调查停止服务，用户将无法查找下载种子文件、上传文件；而且用户需要在网站上留存用户信息，并没有做到隐私保护。</p><h4 id="基于区块链的分布式激励机制设计"><a class="markdownIt-Anchor" href="#基于区块链的分布式激励机制设计"></a> 基于区块链的分布式激励机制设计</h4><p>区块链为什么适合被设计激励机制？</p><p>区块链系统会设计一种虚拟货币，当参与人数够多这种虚拟货币就会被广泛认可，甚至可以兑换法币（比特币、以太坊）。</p><p>区块链系统会通过设计好的机制（比特币），或者提供透明的<strong>智能合约</strong>供人编写（以太坊）来分发或交易这些虚拟货币。</p><p>此外，区块链系统天然自带<strong>出块有奖励</strong>。</p><p>下面分布式系统通过集成相应的区块链来保证激励的进行。</p><table><thead><tr><th>IPFS</th><th>Swarm</th><th>Storj</th></tr></thead><tbody><tr><td>FileCoin</td><td>以太坊</td><td>Metadisk</td></tr></tbody></table>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;2020-huang-当区块链遇上分布式系统&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#2020-huang-当区块链遇上分布式系统&quot;&gt;&lt;/a&gt; 2020-Huang-当区块链遇上分布式系统&lt;/h2&gt;
-&lt;h4 id=&quot;几种分布式区块</summary>
-      
-    
-    
-    
-    
-    <category term="论文" scheme="https://arthersun.github.io/tags/%E8%AE%BA%E6%96%87/"/>
-    
-    <category term="分布式" scheme="https://arthersun.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
-    
-    <category term="区块链" scheme="https://arthersun.github.io/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>page</title>
-    <link href="https://arthersun.github.io/2021/12/04/draft/Java%E9%A1%B9%E7%9B%AE%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E/"/>
-    <id>https://arthersun.github.io/2021/12/04/draft/Java%E9%A1%B9%E7%9B%AE%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E/</id>
-    <published>2021-12-04T07:40:00.000Z</published>
-    <updated>2021-12-04T08:03:51.776Z</updated>
-    
-    
-    
-    
-    
-    <category term="后端" scheme="https://arthersun.github.io/tags/%E5%90%8E%E7%AB%AF/"/>
-    
-    <category term="开发" scheme="https://arthersun.github.io/tags/%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>k8s学习</title>
-    <link href="https://arthersun.github.io/2021/12/01/k8s%E5%AD%A6%E4%B9%A0/"/>
-    <id>https://arthersun.github.io/2021/12/01/k8s%E5%AD%A6%E4%B9%A0/</id>
-    <published>2021-12-01T02:05:30.000Z</published>
-    <updated>2021-12-04T08:03:21.798Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>k8s前世今生</p></blockquote><p>Google 10年容器化基础架构<br>特点：<br>轻量级：消耗资源少<br>开源<br>弹性伸缩<br>负载均衡：IPVS</p><p>适合人群：软件工程师 测试工程师 运维工程师 软件架构师 项目经理</p><blockquote><p>知识图谱</p></blockquote><p>介绍说明： 前世今生 Kubernetes框架 kubernetes关键字含义</p><p>基础概念：什么是Pod（最小管理单元）  控制器类型  k8s 网络通讯模式</p><p>kubernetes: 构建k8s集群</p><p>资源清单：资源   掌握资源清单的语法   编写Pod    掌握Pod的生命周期</p><p>Pod控制器：掌握各种控制器的特点以及使用定义方式</p><p>服务发现：掌握SVC原理及其构建方式</p><p>存储：掌握多种存储类型的特点，并且能够在不同环境中选择合适的存储方案</p><p>调度器：掌握调度器原理  能够根据要求把Pod定义到想要的节点运行</p><p>安全：集群的认证  鉴权  访问控制  原理及其流程</p><p>HELM：等于Linux中的Yum管理器   掌握HELM原理   HELM模板自定义   HELM部署一些常用插件</p><p>运维：修改Kubeadm达到证书可用期限为10年   能够构建高可用的Kubernetes集群</p><p>服务分类</p><p>​有状态服务：DBMS</p><p>​无状态服务：LVS  APACHE</p><p>高可用集群副本数据最好是&gt;=3 奇数个</p><blockquote><p>主要组件</p></blockquote><p>APISERVER：所有服务访问统一入口</p><p>ControllerManager：维持副本期望数目</p><p>Scheduler：负责介绍任务，选择合适的节点进行分配任务</p><p>ETCD：键值对数据库，存储k8s集群所有重要信息（持久化）</p><p><img src="/2021/12/01/k8s%E5%AD%A6%E4%B9%A0/image-20211203185317526.png" alt></p><p>Kubelet：直接跟容器引擎交互实现容器的声明周期管理</p><p>Kube-proxy：负责写入规则至IPTABLES 、IPVS实现服务</p><p>COREDNS：可以为集群中的SVC创建一个域名IP的对应关系解析</p><p>DASHBOARD：给k8s集群提供一个B/S结构访问体系</p><p>INGRESS  CONTROLLER：官方只能实现四层代理，INGRESS可以实现七层代理</p><p>FEDETATION：提供一个可以跨集群中心多k8s统一管理功能</p><p>PROMETHEUS：提供k8s集群的监控能力</p><p>ELK：提供k8s集群日志统一分析接入平台</p><blockquote><p>k8s基础功能</p></blockquote><ol><li>Pod概念<ul><li>自主式Pod</li><li>控制器管理的Pod</li></ul></li><li>网络通讯方式</li></ol><p>在同一个Pod里，端口是一样的。既共享网络，又共享存储卷。</p><blockquote><p>ReplicaSet与Deployment</p></blockquote><p>ReplicationController用来确保容器应用的副本数始终保持在用户定义的副本数。即如果有容器异常退出，会自动创建新的Pod来替代；而如果异常多出来的容器也会自动回收。在新版本的Kubernetes中建议使用ReplicaSet来取代ReplicationController</p><p>ReplicaSet，跟ReplicationController没有本质的不同，只是名字不一样，并且ReplicaSet支持集合式的selector</p><p>虽然ReplicaSet可以独立使用，但一般还是建议使用Deployment来自动管理ReplicaSet，这样就无需担心跟其他机制的不兼容问题（比如ReplicaSet不支持rolling-update 但Deployment支持）</p><blockquote><p>HPA: Horizontal Pod Autoscaling</p></blockquote><p>Horizontal Pod Autoscaling仅适用于Deployment和ReplicaSet，在v1版本中仅支持根据Pod的CPU利用率扩容，在v1alpha版本中，支持根据内存和用户自定义的metric扩缩容</p><blockquote><p>StatefullSet</p></blockquote><p>StatefullSet是为了解决有状态服务的问题（对应Deployments和ReplicaSets是为无状态服务而设计），其应用场景包括：</p><p>稳定的持久化存储，即Pod重新调度后还是能访问到相同的持久化数据，基于PVC来实现</p><p>稳定的网络标志，即Pod重新调度后其PodName和HostName不变，基于headless Service(即没有Cluster IP的Service)来实现</p><p>有序部署，有序扩展，即Pod是有顺序的，在部署或者扩展的时候要依据定义的顺序一次进行（即从0到N-1,在下一个Pod运行之前所有之前的Pod必须都是Running和Ready状态），基于init containers来实现</p><p>有序收缩，有序删除（即从N-1到0）</p><blockquote><p>DeamonSet</p></blockquote><p>DeamonSet确保全部（或者一些）Node上运行一个Pod的副本，当有Node加入集群时，也会为他们新增一个Pod。当有Node从集群移除时，这些Pod也会被回收。删除DaemonSet将会删除它创建的所有Pod。</p><p>使用DaemonSet的一些典型用法：</p><ul><li>运行集群存储daemon，例如每个Node上运行glusterd、ceph</li><li>在每个Node上运行日志手机daemon，例如fluentd、logstash</li><li>在每个Node上运行监控daemon，例如Prometheus Node Exporter</li></ul><blockquote><p>Job，Cronjob</p></blockquote><p>Job负责批处理任务，即仅执行一次的任务，它保证批处理任务的一个或多个Pod成功结束</p><p>Cron Job管理基于时间的Job，即</p><ul><li>在给定时间点只运行一次</li><li>周期性地在给定时间点运行</li></ul><p><img src="/2021/12/01/k8s%E5%AD%A6%E4%B9%A0/image-20211203202022302.png" alt="image-20211203202022302"></p><p>多服务之间的交互方式</p><p><img src="/2021/12/01/k8s%E5%AD%A6%E4%B9%A0/image-20211203203526208.png" alt="image-20211203203526208"></p><blockquote><p>网络通讯方式</p></blockquote><p>Kubernetes的网络模型假定了所有Pod都在一个可以直接联通的扁平的网络空间中，这在GCE（Google Compute Engine）里面是现成的网络模型，Kubernetes假定这个网络已经存在。</p><p>而在私有云里搭建Kubernetes集群，就不能假定这个网络已经存在了，我们需要自己实现这个网络假设，将不同节点上的Docker容器之间的互相访问先打通，然后运行Kubernetes</p><p>同一个Pod内的多个容器之间：localhost</p><p>各Pod之间的通讯：Overlay Network</p><p>Pod和Service之间的通讯，各节点的Iptables规则</p><blockquote><p>Overlay Network怎么实现</p></blockquote><p>Flannel是CoreOS团队针对Kubernetes设计的一个网络规划服务，简单来说，它的功能是让集群中的不同节点主机创建的Docker容器都具有全集群唯一的虚拟IP地址。而且它还能在这些IP地址之间建立一个覆盖网络（Overlay Network），通过这个覆盖网络，将数据包原封不动地传递到目标容器内。</p><h4 id="flannel怎么运行"><a class="markdownIt-Anchor" href="#flannel怎么运行"></a> Flannel怎么运行</h4><p><img src="/2021/12/01/k8s%E5%AD%A6%E4%B9%A0/image-20211203204451842.png" alt="image-20211203204451842"></p><h4 id="etcd和flannel的关系"><a class="markdownIt-Anchor" href="#etcd和flannel的关系"></a> ETCD和Flannel的关系</h4><p>ETCD给Flannel提供说明：</p><ul><li>存储管理Flannel可分配的IP地址段资源</li><li>监控ETCD中每个Pod的实际地址，并在内存中建立维护Pod节点路由表</li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;k8s前世今生&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Google 10年容器化基础架构&lt;br&gt;
-特点：&lt;br&gt;
-轻量级：消耗资源少&lt;br&gt;
-开源&lt;br&gt;
-弹性伸缩&lt;br&gt;
-负载均衡：IPVS&lt;/p&gt;
-&lt;p&gt;适合人群：软件工程师 测试工程师 运</summary>
-      
-    
-    
-    
-    
-    <category term="分布式" scheme="https://arthersun.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
     
   </entry>
   
