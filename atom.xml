@@ -6,7 +6,7 @@
   <link href="https://arthersun.github.io/atom.xml" rel="self"/>
   
   <link href="https://arthersun.github.io/"/>
-  <updated>2022-11-24T15:56:09.954Z</updated>
+  <updated>2022-11-28T15:31:06.197Z</updated>
   <id>https://arthersun.github.io/</id>
   
   <author>
@@ -15,6 +15,131 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>又是悲痛又顿悟的一晚上</title>
+    <link href="https://arthersun.github.io/2022/11/28/%E5%8F%88%E6%98%AF%E6%82%B2%E7%97%9B%E5%8F%88%E9%A1%BF%E6%82%9F%E7%9A%84%E4%B8%80%E6%99%9A%E4%B8%8A/"/>
+    <id>https://arthersun.github.io/2022/11/28/%E5%8F%88%E6%98%AF%E6%82%B2%E7%97%9B%E5%8F%88%E9%A1%BF%E6%82%9F%E7%9A%84%E4%B8%80%E6%99%9A%E4%B8%8A/</id>
+    <published>2022-11-28T15:11:06.000Z</published>
+    <updated>2022-11-28T15:31:06.197Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="又是悲痛又顿悟的一晚上"><a class="markdownIt-Anchor" href="#又是悲痛又顿悟的一晚上"></a> 又是悲痛又顿悟的一晚上</h1><p>恻隐之心人皆有之。</p><p>有时候看着大家一脸着急的样子，突然明白自己无论如何伪装，在别人面前都是一眼透明。</p><p>大部分虽然自身也难保，但也是想要善意的帮助他人。</p><p>真诚真的是最大的杀器。</p><p>加油啊少年，不要辜负那么多人的善意。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;又是悲痛又顿悟的一晚上&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#又是悲痛又顿悟的一晚上&quot;&gt;&lt;/a&gt; 又是悲痛又顿悟的一晚上&lt;/h1&gt;
+&lt;p&gt;恻隐之心人皆有之。&lt;/p&gt;
+&lt;p&gt;有时候看着大家一脸着急的样子，突然明白自己无论如何伪装，</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>进程、线程、协程</title>
+    <link href="https://arthersun.github.io/2022/11/28/%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E3%80%81%E5%8D%8F%E7%A8%8B/"/>
+    <id>https://arthersun.github.io/2022/11/28/%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E3%80%81%E5%8D%8F%E7%A8%8B/</id>
+    <published>2022-11-28T01:53:21.000Z</published>
+    <updated>2022-11-28T15:06:41.601Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Redis和MySQL的数据一致性问题</title>
+    <link href="https://arthersun.github.io/2022/11/27/Redis%E5%92%8CMySQL%E7%9A%84%E6%95%B0%E6%8D%AE%E4%B8%80%E8%87%B4%E6%80%A7%E9%97%AE%E9%A2%98/"/>
+    <id>https://arthersun.github.io/2022/11/27/Redis%E5%92%8CMySQL%E7%9A%84%E6%95%B0%E6%8D%AE%E4%B8%80%E8%87%B4%E6%80%A7%E9%97%AE%E9%A2%98/</id>
+    <published>2022-11-27T13:14:39.000Z</published>
+    <updated>2022-11-28T01:52:58.574Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="基于redis和mysql的架构如何保证数据一致性"><a class="markdownIt-Anchor" href="#基于redis和mysql的架构如何保证数据一致性"></a> 基于Redis和MySQL的架构，如何保证数据一致性</h1><ol><li><p>一般情况下，Redis是用作应用程序和数据库之间读操作的缓存，主要目的是减少数据库IO，提升数据查询性能。</p></li><li><p>一般流程：</p></li></ol><ul><li><ol><li>命中缓存，从缓存中加载数据</li></ol></li><li><ol start="2"><li>没有命中缓存，从数据库中加载数据</li></ol></li><li><ol start="3"><li>加载到的数据写入缓存</li></ol></li></ul><ol start="3"><li>存在的问题：</li></ol><p>当数据发生变化时，需要同时更新Redis和MySQL，可能出现一方更新失败，一方更新成功的情况，从而出现数据一致性问题。</p><ol start="4"><li>解决办法：</li></ol><ul><li><ol><li>先更新数据库，再更新缓存。如果缓存更新失败，就会导致数据库和Redis中的数据不一致。</li></ol></li><li><ol start="2"><li>先删除缓存，再更新数据库。这样下次访问Redis的时候，发现Redis中的数据是空的，这时候再加载。</li></ol></li><li>但是在极端情况下，我们并不能保证删除Redis和更新数据库这两个操作的原子性。在这个过程中，如果有其他线程访问的话，还是会有数据一致性问题。所以在极端情况下，需要采用最终一致性方案</li></ul><h2 id="最终一致性方案"><a class="markdownIt-Anchor" href="#最终一致性方案"></a> 最终一致性方案：</h2><ol><li><p>MySQL更新数据库的数据</p></li><li><p>更新Redis中的数据</p></li><li><p>失败的请求写入MQ事务消息</p></li><li><p>异步重试，确保成功</p></li></ol><p>还可以通过Canal组件监控binlog文件，从binlog中加载数据，然后同步到Redis中。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;基于redis和mysql的架构如何保证数据一致性&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#基于redis和mysql的架构如何保证数据一致性&quot;&gt;&lt;/a&gt; 基于Redis和MySQL的架构，如何保证数据一致性&lt;/h1&gt;
+&lt;ol&gt;
+</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>外企的优势中英文版本</title>
+    <link href="https://arthersun.github.io/2022/11/27/%E5%A4%96%E4%BC%81%E7%9A%84%E4%BC%98%E5%8A%BF%E4%B8%AD%E8%8B%B1%E6%96%87%E7%89%88%E6%9C%AC/"/>
+    <id>https://arthersun.github.io/2022/11/27/%E5%A4%96%E4%BC%81%E7%9A%84%E4%BC%98%E5%8A%BF%E4%B8%AD%E8%8B%B1%E6%96%87%E7%89%88%E6%9C%AC/</id>
+    <published>2022-11-26T18:19:47.000Z</published>
+    <updated>2022-11-27T13:14:26.040Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="外企的优势中英文版本"><a class="markdownIt-Anchor" href="#外企的优势中英文版本"></a> 外企的优势中英文版本</h1><ol><li>流程标准化</li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;外企的优势中英文版本&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#外企的优势中英文版本&quot;&gt;&lt;/a&gt; 外企的优势中英文版本&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;流程标准化&lt;/li&gt;
+&lt;/ol&gt;
+</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>HTTP和HTTPS</title>
+    <link href="https://arthersun.github.io/2022/11/25/HTTP%E5%92%8CHTTPS/"/>
+    <id>https://arthersun.github.io/2022/11/25/HTTP%E5%92%8CHTTPS/</id>
+    <published>2022-11-25T05:50:08.000Z</published>
+    <updated>2022-11-25T05:57:04.178Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="http和https的演进"><a class="markdownIt-Anchor" href="#http和https的演进"></a> HTTP和HTTPS的演进</h1><p>HTTP是TCP三次握手后就可以传输数据了</p><p>但是传输的是明文数据</p><h2 id="演进"><a class="markdownIt-Anchor" href="#演进"></a> 演进：</h2><ol><li><p>如果用对称加密，那需要每两个服务器和客户端商量一个秘钥，维护成本很高。</p></li><li><p>如果用非对称加密，因为公钥公开的，可以被黑客截获，它就可以用公钥解密，获取其中的内容。</p></li><li><p>如果用非对称加密和对称加密一起使用，非对称加密传输对称秘钥，对称秘钥加解密后传输，但这时无法确定是黑客还是中间人</p></li><li><p>使用SSL证书，证书中包括证书发布机构CA、证书有效期、公钥、证书所有者、签名，客户端收到服务器的SSL证书时，会对证书真伪进行检验。</p></li></ol><p>（1）首先浏览器读取证书中证书所有者、有效期等校验<br>（2）</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;http和https的演进&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#http和https的演进&quot;&gt;&lt;/a&gt; HTTP和HTTPS的演进&lt;/h1&gt;
+&lt;p&gt;HTTP是TCP三次握手后就可以传输数据了&lt;/p&gt;
+&lt;p&gt;但是传输的是明文数据</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>JIT编译器</title>
+    <link href="https://arthersun.github.io/2022/11/25/JIT%E7%BC%96%E8%AF%91%E5%99%A8/"/>
+    <id>https://arthersun.github.io/2022/11/25/JIT%E7%BC%96%E8%AF%91%E5%99%A8/</id>
+    <published>2022-11-25T04:53:42.000Z</published>
+    <updated>2022-11-25T05:18:12.793Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="jit编译器"><a class="markdownIt-Anchor" href="#jit编译器"></a> JIT编译器</h1><p>java从源代码到运行的过程如下图：</p><p>.java -&gt; javac编译 -&gt; .class -&gt; 解释器&amp;JIT -&gt; 机器可理解的代码</p><p>需要注意的是.class -&gt; 机器码 这一步。JVM类加载器首先加载字节码文件，然后通过解释器逐行解释执行，这种方式的执行速度会相对比较慢。</p><p>且有些方法和代码块是经常需要被调用的（也就是所谓的热点代码），所以后面引入了JIT编译器，而JIT属于运行时编译。</p><p>当JIT编译器完成第一次编译后，其会将字节码对应的机器码保存下来，下次可直接使用。</p><p>机器码的运行效率肯定是高于JAVA解释器的。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;jit编译器&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#jit编译器&quot;&gt;&lt;/a&gt; JIT编译器&lt;/h1&gt;
+&lt;p&gt;java从源代码到运行的过程如下图：&lt;/p&gt;
+&lt;p&gt;.java -&amp;gt; javac编译 -&amp;gt; .class -</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>深夜碎碎念</title>
@@ -302,138 +427,6 @@
       
     <summary type="html">&lt;h1 id=&quot;死锁&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#死锁&quot;&gt;&lt;/a&gt; 死锁&lt;/h1&gt;
 &lt;p&gt;死锁，就是说两个或两个以上的线程在执行的过程中，去争夺同一个共享资源导致相互等待的现象。如果没有外部干预，线程会一直处于阻塞状态，无法往下执行。</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>内存溢出和内存泄漏</title>
-    <link href="https://arthersun.github.io/2022/11/14/%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%92%8C%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F/"/>
-    <id>https://arthersun.github.io/2022/11/14/%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%92%8C%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F/</id>
-    <published>2022-11-14T10:48:49.000Z</published>
-    <updated>2022-11-14T10:57:27.044Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="内存溢出"><a class="markdownIt-Anchor" href="#内存溢出"></a> 内存溢出</h1><p>JVM中可用内存空间存不下了，比如只有3M，但现在要创建一个5M的对象，新创建的就放不进去了。</p><h1 id="内存泄漏"><a class="markdownIt-Anchor" href="#内存泄漏"></a> 内存泄漏</h1><p>在业务代码执行过程中，有些对象它应该被回收，但是又有其他对象引用它，因此，GC不能自动回收。最终会导致内存泄漏。</p><h1 id="如何避免"><a class="markdownIt-Anchor" href="#如何避免"></a> 如何避免</h1><p>特别是一些流对象，比如OutputStream，Reader，BitMap，Document，很容易忘掉close。最麻烦的是要顺序回收，顺序错了还会产生空指针。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;内存溢出&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#内存溢出&quot;&gt;&lt;/a&gt; 内存溢出&lt;/h1&gt;
-&lt;p&gt;JVM中可用内存空间存不下了，比如只有3M，但现在要创建一个5M的对象，新创建的就放不进去了。&lt;/p&gt;
-&lt;h1 id=&quot;内存泄漏&quot;&gt;</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>逐层排序二叉树所需的最少操作数目</title>
-    <link href="https://arthersun.github.io/2022/11/14/%E9%80%90%E5%B1%82%E6%8E%92%E5%BA%8F%E4%BA%8C%E5%8F%89%E6%A0%91%E6%89%80%E9%9C%80%E7%9A%84%E6%9C%80%E5%B0%91%E6%93%8D%E4%BD%9C%E6%95%B0%E7%9B%AE/"/>
-    <id>https://arthersun.github.io/2022/11/14/%E9%80%90%E5%B1%82%E6%8E%92%E5%BA%8F%E4%BA%8C%E5%8F%89%E6%A0%91%E6%89%80%E9%9C%80%E7%9A%84%E6%9C%80%E5%B0%91%E6%93%8D%E4%BD%9C%E6%95%B0%E7%9B%AE/</id>
-    <published>2022-11-14T04:41:42.000Z</published>
-    <updated>2022-11-14T05:45:02.185Z</updated>
-    
-    <content type="html"><![CDATA[<p>题目：</p><p>给你一个 值互不相同 的二叉树的根节点 root 。</p><p>在一步操作中，你可以选择 同一层 上任意两个节点，交换这两个节点的值。</p><p>返回每一层按 严格递增顺序 排序所需的最少操作数目。</p><p>节点的 层数 是该节点和根节点之间的路径的边数。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">输入：root = [1,4,3,7,6,8,5,null,null,null,null,9,null,10]</span><br><span class="line">输出：3</span><br><span class="line">解释：</span><br><span class="line">- 交换 4 和 3 。第 2 层变为 [3,4] 。</span><br><span class="line">- 交换 7 和 5 。第 3 层变为 [5,6,8,7] 。</span><br><span class="line">- 交换 8 和 7 。第 3 层变为 [5,6,7,8] 。</span><br><span class="line">共计用了 3 步操作，所以返回 3 。</span><br><span class="line">可以证明 3 是需要的最少操作数目。</span><br></pre></td></tr></table></figure><p>思路：</p><p>使用置换环算法得到数组排序需要的最小交换次数。</p><p>具体实现思想：</p><ol><li>使用Map记录每个节点值及其应该放到的位置</li><li>从头到尾遍历初始数组，使用flag[]数组标记当前元素是否已经参与过（即已经被加入环中），对已经参与过的数组则不再需要遍历。每次成环结束，记录成环个数loop。</li><li>最终最小交换次数为：数组长度-成环个数 nums.size()-loop</li></ol><p><img src="/2022/11/14/%E9%80%90%E5%B1%82%E6%8E%92%E5%BA%8F%E4%BA%8C%E5%8F%89%E6%A0%91%E6%89%80%E9%9C%80%E7%9A%84%E6%9C%80%E5%B0%91%E6%93%8D%E4%BD%9C%E6%95%B0%E7%9B%AE/%E7%BD%AE%E6%8D%A2%E7%8E%AF.jpg" alt="置换环"></p><p>代码：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">    // 返回使得 nums 递增需要的最小交换元素次数</span><br><span class="line">    public int minChanges(int[] nums)&#123;</span><br><span class="line">        int[] copy = Arrays.copyOf(nums, nums.length);</span><br><span class="line">        Arrays.sort(copy);</span><br><span class="line">        HashMap&lt;Integer, Integer&gt; map = new HashMap&lt;&gt;();</span><br><span class="line">        for(int i=0; i&lt;copy.length; i++)&#123;</span><br><span class="line">            map.put(copy[i], i);</span><br><span class="line">        &#125;</span><br><span class="line">        boolean[] flag = new boolean[nums.length];  // 用于标记 nums[i] 是否已经被加入环中</span><br><span class="line">        int loop = 0; // 环的个数</span><br><span class="line">        for(int i=0; i&lt;nums.length; i++)&#123;</span><br><span class="line">            if(!flag[i])&#123;</span><br><span class="line">                int j = i;</span><br><span class="line">                while(!flag[j])&#123; // 画环</span><br><span class="line">                    int index = map.get(nums[j]); // 当前节点指向的位置，画环过程</span><br><span class="line">                    flag[j] = true; // 将 j 加入环中</span><br><span class="line">                    j = index; // 将当前节点移动到环上下个节点</span><br><span class="line">                &#125;</span><br><span class="line">                loop++; // 环数递增</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return nums.length - loop; // 最小交换次数为 ： 数组长度 - 环数</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">作者：晚晴🌤</span><br><span class="line">链接：https://leetcode.cn/problems/minimum-number-of-operations-to-sort-a-binary-tree-by-level/solutions/1965867/by-liu-wan-qing-zjlj/</span><br><span class="line">来源：力扣（LeetCode）</span><br><span class="line">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;题目：&lt;/p&gt;
-&lt;p&gt;给你一个 值互不相同 的二叉树的根节点 root 。&lt;/p&gt;
-&lt;p&gt;在一步操作中，你可以选择 同一层 上任意两个节点，交换这两个节点的值。&lt;/p&gt;
-&lt;p&gt;返回每一层按 严格递增顺序 排序所需的最少操作数目。&lt;/p&gt;
-&lt;p&gt;节点的 层数 是该节点和根节点</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>最小公倍数为K的子数组数目</title>
-    <link href="https://arthersun.github.io/2022/11/14/%E6%9C%80%E5%B0%8F%E5%85%AC%E5%80%8D%E6%95%B0%E4%B8%BAK%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84%E6%95%B0%E7%9B%AE/"/>
-    <id>https://arthersun.github.io/2022/11/14/%E6%9C%80%E5%B0%8F%E5%85%AC%E5%80%8D%E6%95%B0%E4%B8%BAK%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84%E6%95%B0%E7%9B%AE/</id>
-    <published>2022-11-14T04:11:37.000Z</published>
-    <updated>2022-11-14T04:41:10.827Z</updated>
-    
-    <content type="html"><![CDATA[<p>辗转相除法：</p><p>用大数对小数求余，若余数为0，则除数为最大公约数。若余数不为0，将此余数作为除数，小数作为被除数，重新求余，直到余数为0为止。此时的最大公约数为余数。</p><p>例如：27和6.  27%6=3.  6%3=0.  所以最大公约数为3.</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public int gcd(int a, int b)&#123;</span><br><span class="line">        while (b != 0)&#123;</span><br><span class="line">            int tmp = a % b;</span><br><span class="line">            a = b;</span><br><span class="line">            b = tmp;</span><br><span class="line">        &#125;</span><br><span class="line">        return a;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><p>最大公约数和最小公倍数的关系：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">两个数的乘积等于这两个数的最大公约数与最小公倍数的乘积。假设有两个数是a、b，它</span><br><span class="line">们的最大公约数是B，最小公倍数是q。那么存在这样的关系式：ab=pg。</span><br></pre></td></tr></table></figure><p>于是代码为：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public int subarrayLCM(int[] nums, int k) &#123;</span><br><span class="line">        int num = 0;</span><br><span class="line">        for(int i=0;i&lt;nums.length;i++)&#123;</span><br><span class="line">            int cur = nums[i];</span><br><span class="line">            for(int j=i;j&lt;nums.length;j++)&#123;</span><br><span class="line">                cur = cur*nums[j]/gcd(cur,nums[j]);</span><br><span class="line">                if(cur==k)&#123;</span><br><span class="line">                    num++;</span><br><span class="line">                &#125;else if(cur&gt;k)&#123;</span><br><span class="line">                    break;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return num;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //用辗转相除法写gcd</span><br><span class="line">    public int gcd(int a, int b)&#123;</span><br><span class="line">        while(b!=0)&#123;</span><br><span class="line">            int temp = a%b;</span><br><span class="line">            a = b;</span><br><span class="line">            b = temp;</span><br><span class="line">        &#125;</span><br><span class="line">        return a;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;辗转相除法：&lt;/p&gt;
-&lt;p&gt;用大数对小数求余，若余数为0，则除数为最大公约数。若余数不为0，将此余数作为除数，小数作为被除数，重新求余，直到余数为0为止。此时的最大公约数为余数。&lt;/p&gt;
-&lt;p&gt;例如：27和6.  27%6=3.  6%3=0.  所以最大公约数为3.&lt;/p</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>吾日三省吾身</title>
-    <link href="https://arthersun.github.io/2022/11/13/%E5%90%BE%E6%97%A5%E4%B8%89%E7%9C%81%E5%90%BE%E8%BA%AB/"/>
-    <id>https://arthersun.github.io/2022/11/13/%E5%90%BE%E6%97%A5%E4%B8%89%E7%9C%81%E5%90%BE%E8%BA%AB/</id>
-    <published>2022-11-13T06:54:16.000Z</published>
-    <updated>2022-11-13T06:54:39.014Z</updated>
-    
-    <content type="html"><![CDATA[<p>越来越谦逊低调</p><p>不想说任何谎言</p><p>对别人也越来越宽容</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;越来越谦逊低调&lt;/p&gt;
-&lt;p&gt;不想说任何谎言&lt;/p&gt;
-&lt;p&gt;对别人也越来越宽容&lt;/p&gt;
-</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>复习加密算法</title>
-    <link href="https://arthersun.github.io/2022/11/13/%E5%A4%8D%E4%B9%A0%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/"/>
-    <id>https://arthersun.github.io/2022/11/13/%E5%A4%8D%E4%B9%A0%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/</id>
-    <published>2022-11-13T03:51:02.000Z</published>
-    <updated>2022-11-13T06:54:03.157Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="复习加密算法"><a class="markdownIt-Anchor" href="#复习加密算法"></a> 复习加密算法</h1><h3 id="ecc椭圆曲线加密算法"><a class="markdownIt-Anchor" href="#ecc椭圆曲线加密算法"></a> ECC椭圆曲线加密算法</h3><p>椭圆曲线加密算法是基于椭圆曲线数学理论实现的一种非对称加密算法。</p><p>相比RSA，ECC优势是可以使用更短的密钥，来实现与RSA相当或更高的安全，RSA加密算法也是一种非对称加密算法，在公开密钥加密和电子商业中RSA被广泛使用。</p><p>160位ECC加密安全性相当于1024位RSA加密，210位ECC加密安全性相当于2048位RSA加密。</p><p>比特币使用了secp256k1这条特殊的椭圆曲线。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">y^2 = x^3 + 7</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;复习加密算法&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#复习加密算法&quot;&gt;&lt;/a&gt; 复习加密算法&lt;/h1&gt;
-&lt;h3 id=&quot;ecc椭圆曲线加密算法&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#ecc椭圆曲</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>便捷版快排</title>
-    <link href="https://arthersun.github.io/2022/11/12/%E4%BE%BF%E6%8D%B7%E7%89%88%E5%BF%AB%E6%8E%92/"/>
-    <id>https://arthersun.github.io/2022/11/12/%E4%BE%BF%E6%8D%B7%E7%89%88%E5%BF%AB%E6%8E%92/</id>
-    <published>2022-11-12T13:16:52.000Z</published>
-    <updated>2022-11-12T13:17:39.952Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">public class QuickSort &#123;</span><br><span class="line">private void swap(int[] arr, int i, int j) &#123;</span><br><span class="line">int temp = arr[i];</span><br><span class="line">arr[i] = arr[j];</span><br><span class="line">arr[j] = temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public void quickSort(int[] arr, int start, int end) &#123;</span><br><span class="line">if (start &gt;= end)</span><br><span class="line">return;</span><br><span class="line">int k = arr[start];</span><br><span class="line">int i = start, j = end;</span><br><span class="line">while (i != j) &#123;</span><br><span class="line">while (i &lt; j &amp;&amp; arr[j] &gt;= k)</span><br><span class="line">--j;</span><br><span class="line">swap(arr, i, j);</span><br><span class="line">while (i &lt; j &amp;&amp; arr[i] &lt;= k)</span><br><span class="line">++i;</span><br><span class="line">swap(arr, i, j);</span><br><span class="line">&#125;</span><br><span class="line">quickSort(arr, start, i - 1);</span><br><span class="line">quickSort(arr, i + 1, end);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">int[] arr = &#123;5, 2, 6, 9, 1, 3, 4, 8, 7, 10&#125;;</span><br><span class="line">new QuickSort().quickSort(arr, 0, arr.length - 1);</span><br><span class="line">System.out.println(Arrays.toString(arr));</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span c</summary>
       
     
     
