@@ -6,7 +6,7 @@
   <link href="https://arthersun.github.io/atom.xml" rel="self"/>
   
   <link href="https://arthersun.github.io/"/>
-  <updated>2022-12-08T07:22:07.212Z</updated>
+  <updated>2022-12-10T08:19:28.779Z</updated>
   <id>https://arthersun.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>spring事务</title>
+    <link href="https://arthersun.github.io/2022/12/10/spring%E4%BA%8B%E5%8A%A1/"/>
+    <id>https://arthersun.github.io/2022/12/10/spring%E4%BA%8B%E5%8A%A1/</id>
+    <published>2022-12-10T08:02:21.000Z</published>
+    <updated>2022-12-10T08:19:28.779Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="spring事务失效的情况"><a class="markdownIt-Anchor" href="#spring事务失效的情况"></a> spring事务失效的情况</h1><ol><li><p>在方法内使用异步线程</p></li><li><p>在方法内直接调其他方法，因为没有经过事务的代理，没有办法去依赖spring做AOP增强。</p></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;spring事务失效的情况&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#spring事务失效的情况&quot;&gt;&lt;/a&gt; spring事务失效的情况&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;在方法内使用异步线程&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>CAP原理和它的例子</title>
@@ -407,27 +433,6 @@
     <summary type="html">&lt;h1 id=&quot;线程池相关&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#线程池相关&quot;&gt;&lt;/a&gt; 线程池相关&lt;/h1&gt;
 &lt;p&gt;ThreadPoolExecutor使用int的高3位来表示线程池状态，低29位表示线程数量。&lt;/p&gt;
 &lt;p&gt;| 状态名 | </summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>try-catch-finally执行顺序</title>
-    <link href="https://arthersun.github.io/2022/11/18/try-catch-finally%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/"/>
-    <id>https://arthersun.github.io/2022/11/18/try-catch-finally%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/</id>
-    <published>2022-11-18T03:20:25.000Z</published>
-    <updated>2022-11-19T01:42:28.954Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="try-catch-finally执行顺序"><a class="markdownIt-Anchor" href="#try-catch-finally执行顺序"></a> try-catch-finally执行顺序</h1><p>1、不管有没有出现异常，finally块中的代码都会执行；</p><p>2、当try和catch中有return时，finally仍然会执行；</p><p>3、finally是在return后面的表达式运算后执行的。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;try-catch-finally执行顺序&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#try-catch-finally执行顺序&quot;&gt;&lt;/a&gt; try-catch-finally执行顺序&lt;/h1&gt;
-&lt;p&gt;1、不管有没有出现异常，fin</summary>
       
     
     
