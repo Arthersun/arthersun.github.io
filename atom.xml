@@ -6,7 +6,7 @@
   <link href="https://arthersun.github.io/atom.xml" rel="self"/>
   
   <link href="https://arthersun.github.io/"/>
-  <updated>2023-02-19T02:59:14.924Z</updated>
+  <updated>2023-03-09T03:17:29.984Z</updated>
   <id>https://arthersun.github.io/</id>
   
   <author>
@@ -15,6 +15,97 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何激活一个pd虚拟机中的windows客户端</title>
+    <link href="https://arthersun.github.io/2023/03/09/%E5%A6%82%E4%BD%95%E6%BF%80%E6%B4%BB%E4%B8%80%E4%B8%AApd%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E7%9A%84windows%E5%AE%A2%E6%88%B7%E7%AB%AF/"/>
+    <id>https://arthersun.github.io/2023/03/09/%E5%A6%82%E4%BD%95%E6%BF%80%E6%B4%BB%E4%B8%80%E4%B8%AApd%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E7%9A%84windows%E5%AE%A2%E6%88%B7%E7%AB%AF/</id>
+    <published>2023-03-09T03:14:11.000Z</published>
+    <updated>2023-03-09T03:17:29.984Z</updated>
+    
+    <content type="html"><![CDATA[<p>下载这个链接<br><a href="https://lark-assets-prod-aliyun.oss-cn-hangzhou.aliyuncs.com/yuque/0/2020/zip/1276107/1590561456491-7cf5bf3a-fb5c-447a-8320-05251c2059b0.zip?OSSAccessKeyId=LTAI4GGhPJmQ4HWCmhDAn4F5&amp;Expires=1678333483&amp;Signature=AjQxuh0qbJAPxSfJyVZJ272y2aw%3D&amp;response-content-disposition=attachment%3Bfilename*%3DUTF-8%27%27W10%25E6%2595%25B0%25E5%25AD%2597%25E8%25AE%25B8%25E5%258F%25AF.zip">win10数字许可</a></p><p>然后点击 <strong>安装</strong> 和 <strong>激活</strong> 就可以了</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;下载这个链接&lt;br&gt;
+&lt;a href=&quot;https://lark-assets-prod-aliyun.oss-cn-hangzhou.aliyuncs.com/yuque/0/2020/zip/1276107/1590561456491-7cf5bf3a-fb5c-447</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>如何写一个corda flow</title>
+    <link href="https://arthersun.github.io/2023/02/19/%E5%A6%82%E4%BD%95%E5%86%99%E4%B8%80%E4%B8%AAcorda-flow/"/>
+    <id>https://arthersun.github.io/2023/02/19/%E5%A6%82%E4%BD%95%E5%86%99%E4%B8%80%E4%B8%AAcorda-flow/</id>
+    <published>2023-02-19T10:59:55.000Z</published>
+    <updated>2023-02-19T23:48:49.934Z</updated>
+    
+    <content type="html"><![CDATA[<p>大部分的智能合约平台是用消息广播的形式来传播数据或者小道消息网络来共享数据，</p><p>Gossip协议是流行病协议，是那种把消息传播到附近的几个点然后最终扩散到全体区块链的协议，符合最终一致性</p><p>也就是说corda可以决定什么时候和谁交流什么东西</p><p>Steps:</p><ol><li>Alice创建一个新的交易请求并且对它签名</li><li>Alice发送请求和签名到Bob</li><li>Bob检查请求，验证并对它签名</li><li>Bob发回交易和签名到Alice</li></ol><p>编写flow主要把流程写在call里面</p><p>@Suspendable非常重要，因为它会把call变成一个no-breaking，不加的话会等待另一个节点返回，占用线程池的资源</p><p>@InitiatingFlow是说明这个flow是可以直接触发的，@InitiatedBy是说明那个流程是不可以直接触发的</p><p>@StartableByRPC是说可以用rpc直接触发这个flow</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;大部分的智能合约平台是用消息广播的形式来传播数据或者小道消息网络来共享数据，&lt;/p&gt;
+&lt;p&gt;Gossip协议是流行病协议，是那种把消息传播到附近的几个点然后最终扩散到全体区块链的协议，符合最终一致性&lt;/p&gt;
+&lt;p&gt;也就是说corda可以决定什么时候和谁交流什么东西&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>如何写一个corda contract</title>
+    <link href="https://arthersun.github.io/2023/02/19/%E5%A6%82%E4%BD%95%E5%86%99%E4%B8%80%E4%B8%AAcorda-contract/"/>
+    <id>https://arthersun.github.io/2023/02/19/%E5%A6%82%E4%BD%95%E5%86%99%E4%B8%80%E4%B8%AAcorda-contract/</id>
+    <published>2023-02-19T10:26:20.000Z</published>
+    <updated>2023-02-19T11:00:11.311Z</updated>
+    
+    <content type="html"><![CDATA[<p>利用Transaction打包Input、Output两种State，以Flow为媒介进行多方验证及签名收集实现账本的更新</p><p>但是只有两种State是无法标明数据的操作想法，于是使用Command来标明</p><hr><p>后来发现不重要</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;利用Transaction打包Input、Output两种State，以Flow为媒介进行多方验证及签名收集实现账本的更新&lt;/p&gt;
+&lt;p&gt;但是只有两种State是无法标明数据的操作想法，于是使用Command来标明&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;后来发现不重要&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>corda几种state的区别</title>
+    <link href="https://arthersun.github.io/2023/02/19/corda%E5%87%A0%E7%A7%8Dstate%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>https://arthersun.github.io/2023/02/19/corda%E5%87%A0%E7%A7%8Dstate%E7%9A%84%E5%8C%BA%E5%88%AB/</id>
+    <published>2023-02-19T03:02:18.000Z</published>
+    <updated>2023-02-19T10:26:01.886Z</updated>
+    
+    <content type="html"><![CDATA[<p>也可以用corda建立一个传统区块链的网络</p><p>你所写的state要implements这个state</p><p>participants代表你所写的state，如果state创建或者修改，那么所有在participants的对象都会被通知到</p><p>实现一个ContractState接口就是一个最简单且好的State</p><p>这个房子被拆掉的话，owner也不会知道，所以需要在participant加入东西</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;也可以用corda建立一个传统区块链的网络&lt;/p&gt;
+&lt;p&gt;你所写的state要implements这个state&lt;/p&gt;
+&lt;p&gt;participants代表你所写的state，如果state创建或者修改，那么所有在participants的对象都会被通知到&lt;/p&gt;
+&lt;p&gt;实</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Field userMapper inUserServiceImpl required a bean of type xxxMapper that could not be found</title>
@@ -369,86 +460,6 @@
     <summary type="html">&lt;h1 id=&quot;求数组最小值&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#求数组最小值&quot;&gt;&lt;/a&gt; 求数组最小值&lt;/h1&gt;
 &lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutte</summary>
       
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>线程池参数和设置相关</title>
-    <link href="https://arthersun.github.io/2022/12/03/%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%8F%82%E6%95%B0%E5%92%8C%E8%AE%BE%E7%BD%AE%E7%9B%B8%E5%85%B3/"/>
-    <id>https://arthersun.github.io/2022/12/03/%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%8F%82%E6%95%B0%E5%92%8C%E8%AE%BE%E7%BD%AE%E7%9B%B8%E5%85%B3/</id>
-    <published>2022-12-03T04:42:50.000Z</published>
-    <updated>2022-12-03T04:55:21.147Z</updated>
-    
-    <content type="html"><![CDATA[<p>线程池参数设置是一个常考的难点，下面逐一进行分析</p><h1 id="任务拒绝策略"><a class="markdownIt-Anchor" href="#任务拒绝策略"></a> 任务拒绝策略</h1><p>任务拒绝策略具有不同的适用场景</p><ol><li><p>AbortPolicy：丢弃任务并抛出RejectedExecutionException异常，是线程池默认的拒绝策略，抛出异常有利于帮助反馈程序的运行状态。所以在关键业务推荐使用此拒绝策略，这样在系统不能承载更大的并发量的时候，能及时通过异常发现。</p></li><li><p>DiscardPolicy：丢弃任务，不抛异常。由于可能无法发现系统异常状态，还得根据实际业务是否允许丢弃老任务来认真衡量。</p></li><li><p>DiscardOldestPolicy：丢弃队列最前面的任务，然后重新提交被拒绝的任务。</p></li><li><p>CallerRunsPolicy：由调用线程（提交任务的线程）处理改任务。让所有任务都执行完毕，所以就适合大量计算的任务类型去执行。</p></li></ol>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;线程池参数设置是一个常考的难点，下面逐一进行分析&lt;/p&gt;
-&lt;h1 id=&quot;任务拒绝策略&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#任务拒绝策略&quot;&gt;&lt;/a&gt; 任务拒绝策略&lt;/h1&gt;
-&lt;p&gt;任务拒绝策略具有不同的适用场景&lt;/p&gt;
-&lt;ol&gt;
-&lt;li</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>CMS和G1收集器</title>
-    <link href="https://arthersun.github.io/2022/11/29/CMS%E5%92%8CG1%E6%94%B6%E9%9B%86%E5%99%A8/"/>
-    <id>https://arthersun.github.io/2022/11/29/CMS%E5%92%8CG1%E6%94%B6%E9%9B%86%E5%99%A8/</id>
-    <published>2022-11-29T05:21:27.000Z</published>
-    <updated>2022-11-29T05:23:14.578Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="g1收集器"><a class="markdownIt-Anchor" href="#g1收集器"></a> G1收集器</h1><p>G1 (Garbage-First) 是一款面向服务器的垃圾收集器,主要针对配备多颗处理器及大容量内存的机器. 以极高概率满足 GC 停顿时间要求的同时,还具备高吞吐量性能特征.</p><p>空间整理：与 CMS 的“标记-清理”算法不同，G1 从整体来看是基于“标记-整理”算法实现的收集器；从局部上来看是基于“标记-复制”算法实现的。</p><p>停顿是可以预测的</p><p>G1 收集器在后台维护了一个优先列表，每次根据允许的收集时间，优先选择回收价值最大的 Region(这也就是它的名字 Garbage-First 的由来) 。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;g1收集器&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#g1收集器&quot;&gt;&lt;/a&gt; G1收集器&lt;/h1&gt;
-&lt;p&gt;G1 (Garbage-First) 是一款面向服务器的垃圾收集器,主要针对配备多颗处理器及大容量内存的机器. 以极高概率满足</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>又是悲痛又顿悟的一晚上</title>
-    <link href="https://arthersun.github.io/2022/11/28/%E5%8F%88%E6%98%AF%E6%82%B2%E7%97%9B%E5%8F%88%E9%A1%BF%E6%82%9F%E7%9A%84%E4%B8%80%E6%99%9A%E4%B8%8A/"/>
-    <id>https://arthersun.github.io/2022/11/28/%E5%8F%88%E6%98%AF%E6%82%B2%E7%97%9B%E5%8F%88%E9%A1%BF%E6%82%9F%E7%9A%84%E4%B8%80%E6%99%9A%E4%B8%8A/</id>
-    <published>2022-11-28T15:11:06.000Z</published>
-    <updated>2022-11-28T15:31:06.197Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="又是悲痛又顿悟的一晚上"><a class="markdownIt-Anchor" href="#又是悲痛又顿悟的一晚上"></a> 又是悲痛又顿悟的一晚上</h1><p>恻隐之心人皆有之。</p><p>有时候看着大家一脸着急的样子，突然明白自己无论如何伪装，在别人面前都是一眼透明。</p><p>大部分虽然自身也难保，但也是想要善意的帮助他人。</p><p>真诚真的是最大的杀器。</p><p>加油啊少年，不要辜负那么多人的善意。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;又是悲痛又顿悟的一晚上&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#又是悲痛又顿悟的一晚上&quot;&gt;&lt;/a&gt; 又是悲痛又顿悟的一晚上&lt;/h1&gt;
-&lt;p&gt;恻隐之心人皆有之。&lt;/p&gt;
-&lt;p&gt;有时候看着大家一脸着急的样子，突然明白自己无论如何伪装，</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>进程、线程、协程</title>
-    <link href="https://arthersun.github.io/2022/11/28/%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E3%80%81%E5%8D%8F%E7%A8%8B/"/>
-    <id>https://arthersun.github.io/2022/11/28/%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E3%80%81%E5%8D%8F%E7%A8%8B/</id>
-    <published>2022-11-28T01:53:21.000Z</published>
-    <updated>2022-11-28T15:06:41.601Z</updated>
-    
     
     
     
