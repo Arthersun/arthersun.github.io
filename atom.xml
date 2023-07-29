@@ -6,7 +6,7 @@
   <link href="https://arthersun.github.io/atom.xml" rel="self"/>
   
   <link href="https://arthersun.github.io/"/>
-  <updated>2023-03-09T03:17:29.984Z</updated>
+  <updated>2023-07-29T04:30:49.294Z</updated>
   <id>https://arthersun.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何不开通视频网站会员躺在床上看免费高清电影</title>
+    <link href="https://arthersun.github.io/2023/07/29/%E5%A6%82%E4%BD%95%E4%B8%8D%E5%BC%80%E9%80%9A%E8%A7%86%E9%A2%91%E7%BD%91%E7%AB%99%E4%BC%9A%E5%91%98%E8%BA%BA%E5%9C%A8%E5%BA%8A%E4%B8%8A%E7%9C%8B%E5%85%8D%E8%B4%B9%E9%AB%98%E6%B8%85%E7%94%B5%E5%BD%B1/"/>
+    <id>https://arthersun.github.io/2023/07/29/%E5%A6%82%E4%BD%95%E4%B8%8D%E5%BC%80%E9%80%9A%E8%A7%86%E9%A2%91%E7%BD%91%E7%AB%99%E4%BC%9A%E5%91%98%E8%BA%BA%E5%9C%A8%E5%BA%8A%E4%B8%8A%E7%9C%8B%E5%85%8D%E8%B4%B9%E9%AB%98%E6%B8%85%E7%94%B5%E5%BD%B1/</id>
+    <published>2023-07-29T03:22:54.000Z</published>
+    <updated>2023-07-29T04:30:49.294Z</updated>
+    
+    <content type="html"><![CDATA[<p>先上成果图。下面是我下载的电影列表，可以点击就看。</p><p><img src="/2023/07/29/%E5%A6%82%E4%BD%95%E4%B8%8D%E5%BC%80%E9%80%9A%E8%A7%86%E9%A2%91%E7%BD%91%E7%AB%99%E4%BC%9A%E5%91%98%E8%BA%BA%E5%9C%A8%E5%BA%8A%E4%B8%8A%E7%9C%8B%E5%85%8D%E8%B4%B9%E9%AB%98%E6%B8%85%E7%94%B5%E5%BD%B1/WX20230729-115344@2x.png" alt="我的电影列表"></p><h3 id="引子"><a class="markdownIt-Anchor" href="#引子"></a> 引子</h3><p>在家想躺着用手机or平板看电影，但是国内视频网站收费又很贵。</p><p>我们知道在国内看电影几乎绕不开视频网站，但是动则一年100+的费用和多家持有不同的版权得开多个会员的问题实在让人头疼，虽说也不是太贵，但是有时候也看不了几部，还面临各种各样的版权问题，开会员体验一般却又较为昂贵。</p><p><code>实在想开的小伙伴可以去闲鱼上购买几天或几周的，休息日看一下，较为便宜</code></p><p>百度上会有些盗版视频网站可以在线看，但是清晰度一般，看得眼睛疼。</p><p>还好在小伙伴的安利下我找到个种子站，种子站可以免费下载高清电影，下载速度不定，一般还挺快的，我会在文末附上链接。</p><p>但种子站也会面临一是只有电脑能用，二是就算手机能用也需要较多内存不方便。</p><p>有人就问了，能不能通过电脑下载视频然后手机直接在线看呢？</p><p>能！</p><h3 id="手机在线看的方法"><a class="markdownIt-Anchor" href="#手机在线看的方法"></a> 手机在线看的方法</h3><p>需要在电脑和手机都简单操作下。</p><h4 id="电脑端操作"><a class="markdownIt-Anchor" href="#电脑端操作"></a> 电脑端操作</h4><p>轮到smb协议/sftp协议登场了，外行朋友理解成文件远程传输协议就行，可以在内网直接看远程视频。</p><p><code>协议会根据连接的设备不同、路由器不同会有不同的传输速度表现，可能需要调试</code></p><p>怎么开启？</p><p><a href="http://msdn.iseeyu.com/post/45439.html">windows开启smb协议</a></p><p><a href="https://support.apple.com/zh-cn/guide/mac-help/mh14107/13.0/mac/13.0">mac开启smb协议</a></p><p><code>开启协议后需要设置共享下文件夹，我的是直接共享机械硬盘的目录</code></p><p><img src="/2023/07/29/%E5%A6%82%E4%BD%95%E4%B8%8D%E5%BC%80%E9%80%9A%E8%A7%86%E9%A2%91%E7%BD%91%E7%AB%99%E4%BC%9A%E5%91%98%E8%BA%BA%E5%9C%A8%E5%BA%8A%E4%B8%8A%E7%9C%8B%E5%85%8D%E8%B4%B9%E9%AB%98%E6%B8%85%E7%94%B5%E5%BD%B1/WX20230729-114416@2x.png" alt="我的smb"></p><h4 id="手机端操作"><a class="markdownIt-Anchor" href="#手机端操作"></a> 手机端操作</h4><p>下载es浏览器，直接连接就可以，一般需要输入电脑的用户账户名和密码。</p><p><img src="/2023/07/29/%E5%A6%82%E4%BD%95%E4%B8%8D%E5%BC%80%E9%80%9A%E8%A7%86%E9%A2%91%E7%BD%91%E7%AB%99%E4%BC%9A%E5%91%98%E8%BA%BA%E5%9C%A8%E5%BA%8A%E4%B8%8A%E7%9C%8B%E5%85%8D%E8%B4%B9%E9%AB%98%E6%B8%85%E7%94%B5%E5%BD%B1/50331690599191_.pic.jpg" alt="手机连接smb"></p><p><img src="/2023/07/29/%E5%A6%82%E4%BD%95%E4%B8%8D%E5%BC%80%E9%80%9A%E8%A7%86%E9%A2%91%E7%BD%91%E7%AB%99%E4%BC%9A%E5%91%98%E8%BA%BA%E5%9C%A8%E5%BA%8A%E4%B8%8A%E7%9C%8B%E5%85%8D%E8%B4%B9%E9%AB%98%E6%B8%85%E7%94%B5%E5%BD%B1/IMG_2226A3E411AE-1.jpeg" alt="输入账户名密码"></p><p>点击连接，就可以成功了。</p><p><img src="/2023/07/29/%E5%A6%82%E4%BD%95%E4%B8%8D%E5%BC%80%E9%80%9A%E8%A7%86%E9%A2%91%E7%BD%91%E7%AB%99%E4%BC%9A%E5%91%98%E8%BA%BA%E5%9C%A8%E5%BA%8A%E4%B8%8A%E7%9C%8B%E5%85%8D%E8%B4%B9%E9%AB%98%E6%B8%85%E7%94%B5%E5%BD%B1/WX20230729-115344@2x.png" alt="我的电影列表"></p><p>问题来了，现在有应急情况，我现在在床上想看电影，但是用你的方法得在电脑上先下载，这就需要下床开电脑，但是我不想下床了，这怎么办？</p><h4 id="远程操作电脑下载视频的方法"><a class="markdownIt-Anchor" href="#远程操作电脑下载视频的方法"></a> 远程操作电脑下载视频的方法</h4><p>这就需要另一个工具叫做vnc了，可以理解成一个远程桌面工具。</p><p>![vnc连接](如何不开通视频网站会员躺在床上看免费高清电影/IMG_DCFC722797D4-1 2.jpeg)</p><p><img src="/2023/07/29/%E5%A6%82%E4%BD%95%E4%B8%8D%E5%BC%80%E9%80%9A%E8%A7%86%E9%A2%91%E7%BD%91%E7%AB%99%E4%BC%9A%E5%91%98%E8%BA%BA%E5%9C%A8%E5%BA%8A%E4%B8%8A%E7%9C%8B%E5%85%8D%E8%B4%B9%E9%AB%98%E6%B8%85%E7%94%B5%E5%BD%B1/50401690599668_.pic.jpg" alt="vnc效果图"></p><p>Vnc怎么要设置呢？</p><p><a href="http://m.cequ.cn/article/256526.html">windows设置vnc</a></p><p><a href="https://blog.csdn.net/lovechris00/article/details/96303673">Mac设置vnc</a></p><p>设置好了进去网站直接下载就可以了，然后稍等一会会就能看了~</p><h4 id="后记"><a class="markdownIt-Anchor" href="#后记"></a> 后记</h4><p>最后附上网站链接，需要下载个qBittorrent软件下载，大家谨慎传播，别没得看了~</p><p><a href="https://www.dy2018.com">视频网站</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;先上成果图。下面是我下载的电影列表，可以点击就看。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/2023/07/29/%E5%A6%82%E4%BD%95%E4%B8%8D%E5%BC%80%E9%80%9A%E8%A7%86%E9%A2%91%E7%BD%91%E7%AB%99%</summary>
+      
+    
+    
+    
+    
+    <category term="技术改变生活" scheme="https://arthersun.github.io/tags/%E6%8A%80%E6%9C%AF%E6%94%B9%E5%8F%98%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
   
   <entry>
     <title>如何激活一个pd虚拟机中的windows客户端</title>
@@ -112,7 +135,7 @@
     <link href="https://arthersun.github.io/2023/02/19/Field-userMapper-inUserServiceImpl-required-a-bean-of-type-xxxMapper-that-could-not-be-found/"/>
     <id>https://arthersun.github.io/2023/02/19/Field-userMapper-inUserServiceImpl-required-a-bean-of-type-xxxMapper-that-could-not-be-found/</id>
     <published>2023-02-19T02:54:58.000Z</published>
-    <updated>2023-02-19T02:59:14.924Z</updated>
+    <updated>2023-02-19T03:04:53.851Z</updated>
     
     <content type="html"><![CDATA[<p>网上的一些解决办法用处不大，发现其实是<br>导入mybatis包的错误</p><p>之前导入的包是：</p><p><code>org.mybatis:mybatis:3.5.11”</code></p><p>改成</p><p><code>compile(&quot;org.mybatis.spring.boot:mybatis-spring-boot-starter:1.3.2”)</code></p><p>就好了</p>]]></content>
     
@@ -126,19 +149,6 @@
 &lt;p&gt;改成&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;compile(&amp;quo</summary>
       
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>同态加密</title>
-    <link href="https://arthersun.github.io/2023/01/06/%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86/"/>
-    <id>https://arthersun.github.io/2023/01/06/%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86/</id>
-    <published>2023-01-05T17:06:41.000Z</published>
-    <updated>2023-01-05T17:06:41.631Z</updated>
-    
     
     
     
